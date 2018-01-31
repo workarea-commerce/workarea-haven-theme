@@ -1,0 +1,3 @@
+module Workarea
+
+end
