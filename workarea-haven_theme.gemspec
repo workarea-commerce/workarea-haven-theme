@@ -9,11 +9,12 @@ Gem::Specification.new do |s|
   s.version     = Workarea::HavenTheme::VERSION
   s.authors     = ["Jake Beresford"]
   s.email       = ["jberesford@weblinc.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of HavenTheme."
-  s.description = "TODO: Description of HavenTheme."
-  
+  s.homepage    = "https://stash.tools.weblinc.com/projects/WP/repos/workarea-haven-theme/browse"
+  s.summary     = "Haven Theme for Workarea ecommerce platform"
+  s.description = "A place of safety or refuge."
+
   s.files = `git ls-files`.split("\n")
-  
+
   s.add_dependency 'workarea', '~> 3.x'
+  s.add_dependency 'workarea-theme'
 end
