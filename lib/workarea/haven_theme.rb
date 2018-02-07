@@ -1,6 +1,7 @@
 require 'workarea'
 require 'workarea/storefront'
 require 'workarea/admin'
+require 'workarea/theme'
 
 require 'workarea/haven_theme/engine'
 require 'workarea/haven_theme/version'
