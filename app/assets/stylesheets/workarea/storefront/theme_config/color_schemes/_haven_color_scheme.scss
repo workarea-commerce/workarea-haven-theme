@@ -1,0 +1,101 @@
+/*------------------------------------*\
+    #ONE-COLOR-SCHEME
+\*------------------------------------*/
+/**
+ * Color Variables
+ *
+ * These variables should always be aliased as Functional Variables at
+ * the bottom of this file. Using color name variables outside of this file may
+ * cause errors when changing color scheme.
+ */
+
+$blue:                              #3366cc !default;
+$yellow:                            #fdcc5d !default;
+$red:                               #ee283b !default;
+$green:                             #19c06a !default;
+
+$white:                             #ffffff !default;
+$black:                             #000000 !default;
+
+$black-alpha-15:                    rgba($black, 0.15) !default;
+$black-alpha-50:                    rgba($black, 0.50) !default;
+
+$white-alpha-50:                    rgba($white, 0.50) !default;
+
+$transparent:                       transparent !default;
+
+/**
+ * Theme colors
+ */
+
+$dark-gray: #213236 !default;
+$gray: #425154 !default;
+$light-gray: #e7e7e7 !default;
+$off-blackish-blue: #2b4146 !default;
+$off-black: #1a1a1a !default;
+$off-white: #f7f7f7 !default;
+$burnt-orange: #c04f1d !default;
+$dark-burnt-orange: #7e3413 !default;
+
+/**
+ * Styleguide color box modifiers for theme colors
+ */
+.color-box__swatch--dark-gray { background: $dark-gray; }
+.color-box__swatch--gray { background: $gray; }
+.color-box__swatch--light-gray { background: $light-gray; }
+.color-box__swatch--off-black { background: $off-black; }
+.color-box__swatch--off-white { background: $off-white; }
+.color-box__swatch--burnt-orange { background: $burnt-orange; }
+.color-box__swatch--dark-burnt-orange { background: $dark-burnt-orange; }
+
+
+/**
+ * FUNCTIONAL COLOR VARIABLES
+ */
+
+// Generic
+$primary-color: $burnt-orange !default;
+$primary-color-light: lighten($burnt-orange, 35%) !default;
+$primary-color-dark: $dark-burnt-orange !default;
+
+$background-color: $off-white !default;
+$background-color-component: $white !default;
+$background-secondary-color: $dark-gray !default;
+
+$border-color: $light-gray !default;
+$highlight-color: $off-white !default;
+$overlay-shadow-color: rgba($black, 0.1) !default;
+$ui-dialog-titlebar-bg-color: $background-secondary-color !default;
+
+// Site header + nav colors
+$header-icon-color: $white !default;
+$header-icon-color-hover: $primary-color !default;
+$utility-nav-background-color: $gray !default;
+
+$primary-nav-background-color: $background-secondary-color !default;
+$primary-nav-border-color: $off-blackish-blue !default;
+$primary-nav-links: $white !default;
+$primary-nav-dropdown-links: $dark-gray !default;
+$mobile-nav-links: $dark-gray !default;
+
+// Typography colors
+$font-color: $black !default;
+$heading-color: $off-black !default;
+$heading-color-secondary: $white !default;
+$product-name-color: $heading-color !default;
+$footer-text: $white !default;
+
+// Links & Buttons
+$link-color: $primary-color !default;
+$link-color-hover: $primary-color-dark !default;
+$button-text-color: $white !default;
+
+// Inputs
+$label-color: $dark-gray !default;
+$input-color: $dark-gray !default;
+$input-background-color: $white !default;
+$input-hover-border-color: darken($border-color, 35%) !default;
+$input-secondary-color: $white !default;
+$input-secondary-bg-color: $gray !default;
+$input-invalid-color: $red !default;
+$focus-ring-color: $blue !default;

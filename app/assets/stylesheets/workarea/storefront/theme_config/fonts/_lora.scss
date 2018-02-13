@@ -1,0 +1,33 @@
+/*------------------------------------*\
+    #LORA
+\*------------------------------------*/
+
+// scss-lint:disable VariableForProperty
+
+@font-face {
+    font-family: 'Lora';
+    src: font-url('workarea/storefront/lora/lora_regular_webfont.woff2') format('woff2'), font-url('workarea/storefront/lora/lora_regular_webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: font-url('workarea/storefront/lora/lora_italic_webfont.woff2') format('woff2'), font-url('workarea/storefront/lora/lora_italic_webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: font-url('workarea/storefront/lora/lora_bold_webfont.woff2') format('woff2'), font-url('workarea/storefront/lora/lora_bold_webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: font-url('workarea/storefront/lora/lora_bolditalic_webfont.woff2') format('woff2'), font-url('workarea/storefront/lora/lora_bolditalic_webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}

@@ -1,0 +1,19 @@
+/*------------------------------------*\
+    #SOURCE-SERIF-PRO
+\*------------------------------------*/
+
+// scss-lint:disable VariableForProperty
+
+@font-face {
+    font-family: 'Source Serif Pro';
+    src: font-url('workarea/storefront/source_serif_pro/source_serif_pro_regular_webfont.woff2') format('woff2'), font-url('workarea/storefront/source_serif_pro/source_serif_pro_regular_webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Serif Pro';
+    src: font-url('workarea/storefront/source_serif_pro/source_serif_pro_bold_webfont.woff2') format('woff2'), font-url('workarea/storefront/source_serif_pro/source_serif_pro_bold_webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
