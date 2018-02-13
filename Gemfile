@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
 # Declare your gem's dependencies in haven_theme.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
@@ -15,9 +15,9 @@ gem "bundler-audit", require: false
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
 
-gem 'workarea', source: 'https://gems.weblinc.com'
+gem "workarea", source: "https://gems.weblinc.com"
 group :test do
-  gem 'workarea-testing', source: 'https://gems.weblinc.com'
+  gem "workarea-testing", source: "https://gems.weblinc.com"
   # TODO: remove git reference once workarea-theme is released
   gem "workarea-theme", git: "ssh://git@stash.tools.weblinc.com:7999/wp/workarea-theme.git", branch: :master
 end

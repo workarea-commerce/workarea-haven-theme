@@ -1,4 +1,4 @@
-require 'workarea/testing/teaspoon'
+require "workarea/testing/teaspoon"
 
 Teaspoon.configure do |config|
   config.root = Workarea::HavenTheme::Engine.root
