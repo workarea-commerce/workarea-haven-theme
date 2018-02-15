@@ -1,0 +1,8 @@
+.style-guide__example-block
+  .grid.grid--auto
+    - colors = %w(midnight purple-blue dark-purple-blue highlighter gray medium-gray light-gray)
+    - colors.each do |color|
+      .grid__cell
+        .color-box
+          .color-box__swatch{ class: "color-box__swatch--#{color}" }
+          .color-box__swatch-name $#{color}

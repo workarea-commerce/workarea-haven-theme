@@ -1,0 +1,90 @@
+#color-variables.style-guide__subsection
+
+  %h3= link_to_style_guide('settings', 'color_variables')
+
+  %h5 Base colors
+  .style-guide__example-block
+    .grid.grid--auto
+      - colors = %w(red green blue yellow black white black-alpha-15 black-alpha-50 white-alpha-50 transparent)
+      - colors.each do |color|
+        .grid__cell
+          .color-box
+            .color-box__swatch{ class: "style-guide__color-swatch--#{color}" }
+            .color-box__swatch-name $#{color}
+
+  %h5 Brand colors
+
+  = render "workarea/storefront/style_guides/settings/color_schemes/#{Workarea.config.theme[:color_scheme].downcase}_color_scheme"
+
+  %h4 Functional Color variables - these should be used in the storefront
+  %br
+
+  %h5 Generic functional colors
+  .style-guide__example-block
+    .grid.grid--auto
+      - colors = %w(primary-color primary-color-dark background-color background-color-component)
+      - colors.each do |color|
+        .grid__cell
+          .color-box
+            .color-box__swatch{ class: "color-box__swatch--#{color}" }
+            .color-box__swatch-name $#{color}
+
+  %h5 Site header colors
+  .style-guide__example-block
+    .grid.grid--auto
+      - colors = %w(header-icon-color header-icon-color-hover utility-nav-background-color)
+      - colors.each do |color|
+        .grid__cell
+          .color-box
+            .color-box__swatch{ class: "color-box__swatch--#{color}" }
+            .color-box__swatch-name $#{color}
+
+  %h5 Navigation colors
+  .style-guide__example-block
+    .grid.grid--auto
+      - colors = %w(primary-nav-background-color primary-nav-border-color primary-nav-links primary-nav-dropdown-links primary-nav-dropdown-links-hover mobile-nav-links)
+      - colors.each do |color|
+        .grid__cell
+          .color-box
+            .color-box__swatch{ class: "color-box__swatch--#{color}" }
+            .color-box__swatch-name $#{color}
+
+  %h5 Footer colors
+  .style-guide__example-block
+    .grid.grid--auto
+      - colors = %w(footer-color footer-background-color)
+      - colors.each do |color|
+        .grid__cell
+          .color-box
+            .color-box__swatch{ class: "color-box__swatch--#{color}" }
+            .color-box__swatch-name $#{color}
+
+  %h5 Typography colors
+  .style-guide__example-block
+    .grid.grid--auto
+      - colors = %w(font-color heading-color product-name-color)
+      - colors.each do |color|
+        .grid__cell
+          .color-box
+            .color-box__swatch{ class: "color-box__swatch--#{color}" }
+            .color-box__swatch-name $#{color}
+
+  %h5 Link & button colors
+  .style-guide__example-block
+    .grid.grid--auto
+      - colors = %w(link-color link-color-hover button-color button-background-color button-background-color-hover button-border-color button-secondary-color button-secondary-background-color  button-secondary-background-color-hover  button-secondary-border-color button-secondary-border-color-disabled  button-disabled-color button-disabled-background-color)
+      - colors.each do |color|
+        .grid__cell
+          .color-box
+            .color-box__swatch{ class: "color-box__swatch--#{color}" }
+            .color-box__swatch-name $#{color}
+
+  %h5 Input colors
+  .style-guide__example-block
+    .grid.grid--auto
+      - colors = %w(label-color input-color input-background-color input-border-color input-border-color-focus focus-ring-color invalid-color valid-color)
+      - colors.each do |color|
+        .grid__cell
+          .color-box
+            .color-box__swatch{ class: "color-box__swatch--#{color}" }
+            .color-box__swatch-name $#{color}

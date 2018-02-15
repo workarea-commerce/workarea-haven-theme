@@ -1,0 +1,82 @@
+/*------------------------------------*\
+    #COLOR-BOX
+\*------------------------------------*/
+
+$color-box-size: 100px !default;
+$color-box-outline: 1px solid $black !default;
+
+
+.color-box {
+    @extend %style-guide-bg-grid;
+    display: block;
+    width: $color-box-size;
+}
+
+    .color-box__swatch {
+        width: $color-box-size;
+        height: $color-box-size;
+        outline: $color-box-outline;
+    }
+
+    // Generic
+    .color-box__swatch--primary-color { background: $primary-color; }
+    .color-box__swatch--primary-color-dark { background: $primary-color-dark; }
+
+    .color-box__swatch--background-color { background: $background-color; }
+    .color-box__swatch--background-color-component { background: $background-color-component; }
+
+    .color-box__swatch--border-color { background: $border-color; }
+    .color-box__swatch--highlight-color { background: $highlight-color; }
+    .color-box__swatch--overlay-shadow-color { background: $overlay-shadow-color; }
+
+    // Site header colors
+    .color-box__swatch--header-icon-color { background: $header-icon-color; }
+    .color-box__swatch--header-icon-color-hover { background: $header-icon-color-hover; }
+    .color-box__swatch--utility-nav-background-color { background: $utility-nav-background-color; }
+
+    // Navigation colors
+    .color-box__swatch--primary-nav-background-color { background: $primary-nav-background-color; }
+    .color-box__swatch--primary-nav-border-color { background: $primary-nav-border-color; }
+    .color-box__swatch--primary-nav-links { background: $primary-nav-links; }
+    .color-box__swatch--primary-nav-dropdown-links { background: $primary-nav-dropdown-links; }
+    .color-box__swatch--primary-nav-dropdown-links-hover { background: $primary-nav-dropdown-links-hover; }
+    .color-box__swatch--mobile-nav-links { background: $mobile-nav-links; }
+
+    // Footer colors
+    .color-box__swatch--footer-color { background: $footer-color; }
+    .color-box__swatch--footer-background-color { background: $footer-background-color; }
+
+    // Typography colors
+    .color-box__swatch--font-color { background: $font-color; }
+    .color-box__swatch--heading-color { background: $heading-color; }
+    .color-box__swatch--product-name-color { background: $product-name-color; }
+
+    // Links & Buttons
+    .color-box__swatch--link-color { background: $link-color; }
+    .color-box__swatch--link-color-hover { background: $link-color-hover; }
+    .color-box__swatch--button-color { background: $button-color; }
+    .color-box__swatch--button-background-color { background: $button-background-color; }
+    .color-box__swatch--button-background-color-hover { background: $button-background-color-hover; }
+    .color-box__swatch--button-border-color { background: $button-border-color; }
+
+    .color-box__swatch--button-secondary-color { background: $button-secondary-color; }
+    .color-box__swatch--button-secondary-background-color { background: $button-secondary-background-color; }
+    .color-box__swatch--button-secondary-background-color-hover { background: $button-secondary-background-color-hover; }
+    .color-box__swatch--button-secondary-border-color { background: $button-secondary-border-color; }
+    .color-box__swatch--button-secondary-border-color-disabled { background: $button-secondary-border-color-disabled; }
+
+    .color-box__swatch--button-disabled-color { background: $button-disabled-color; }
+    .color-box__swatch--button-disabled-background-color { background: $button-disabled-background-color; }
+
+
+    // Inputs
+    .color-box__swatch--label-color { background: $label-color; }
+    .color-box__swatch--input-color { background: $input-color; }
+    .color-box__swatch--input-background-color { background: $input-background-color; }
+    .color-box__swatch--input-border-color { background: $input-border-color; }
+    .color-box__swatch--input-border-color-focus { background: $input-border-color-focus; }
+    .color-box__swatch--focus-ring-color { background: $focus-ring-color; }
+    .color-box__swatch--invalid-color { background: $invalid-color; }
+    .color-box__swatch--valid-color { background: $valid-color; }
+
+    .color-box__swatch-name {}
