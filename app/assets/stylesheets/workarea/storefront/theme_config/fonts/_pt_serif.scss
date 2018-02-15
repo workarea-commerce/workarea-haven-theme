@@ -8,15 +8,15 @@
     font-family: 'PT Serif';
     font-style: normal;
     font-weight: 400;
-    src: font-url('workarea/storefront/pt_serif/pt-serif-regular.woff2') format('woff2'),
-        font-url('workarea/storefront/pt_serif/pt-serif-regular.woff') format('woff');
+    src: font-url('workarea/storefront/pt_serif/pt_serif_regular.woff2') format('woff2'),
+         font-url('workarea/storefront/pt_serif/pt_serif_regular.woff') format('woff');
 }
 
-/* pt-serif-bold (700) */
+/* pt_serif_bold (700) */
 @font-face {
     font-family: 'PT Serif';
     font-style: normal;
     font-weight: 700;
-    src: font-url('workarea/storefront/pt_serif/pt-serif-700.woff2') format('woff2'),
-        font-url('workarea/storefront/pt_serif/pt-serif-700.woff') format('woff');
+    src: font-url('workarea/storefront/pt_serif/pt_serif_700.woff2') format('woff2'),
+         font-url('workarea/storefront/pt_serif/pt_serif_700.woff') format('woff');
 }
