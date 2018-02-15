@@ -1,0 +1,130 @@
+/*------------------------------------*\
+    #HEADING
+\*------------------------------------*/
+
+$heading-1-font-size-mobile:  32px !default;
+$heading-1-font-size:         40px !default;
+$heading-2-font-size-mobile:  32px !default;
+$heading-2-font-size:         40px !default;
+$heading-3-font-size-mobile:  26px !default;
+$heading-3-font-size:         30px !default;
+$heading-4-font-size-mobile:  18px !default;
+$heading-4-font-size:         22px !default;
+$heading-5-font-size-mobile:  16px !default;
+$heading-5-font-size:         20px !default;
+$heading-6-font-size-mobile:  14px !default;
+$heading-6-font-size:         16px !default;
+
+$heading-letter-spacing: 2px !default;
+$heading-letter-spacing-wide: 3px !default;
+$heading-letter-spacing-narrow: 1px !default;
+
+$heading-content-font-family: $secondary-font-family !default;
+
+/**
+ * Defines common heading element styles.
+ */
+h1, h2, h3, h4, h5, h6,
+%heading,
+.heading {
+    display: block;
+    margin-bottom: $spacing-unit * 2;
+    font-weight: 500;
+    letter-spacing: $heading-letter-spacing;
+
+    .content-block & {
+        font-family: $heading-content-font-family;
+    }
+}
+
+/**
+ * Define specific font styles for each heading.
+ */
+h1,
+%heading--1,
+.heading--1 {
+    font-size: $heading-1-font-size-mobile;
+    letter-spacing: $heading-letter-spacing-wide;
+
+    @include respond-to($medium-breakpoint) {
+        font-size: $heading-1-font-size;
+    }
+
+    .content-block & {
+        letter-spacing: $heading-letter-spacing;
+    }
+}
+
+h2,
+%heading--2,
+.heading--2 {
+    font-size: $heading-2-font-size-mobile;
+    font-weight: 300;
+
+    @include respond-to($medium-breakpoint) {
+        font-size: $heading-2-font-size;
+    }
+}
+
+h3,
+%heading--3,
+.heading--3 {
+    font-size: $heading-3-font-size-mobile;
+
+    @include respond-to($medium-breakpoint) {
+        font-size: $heading-3-font-size;
+    }
+}
+
+h4,
+%heading--4,
+.heading--4 {
+    font-size: $heading-4-font-size-mobile;
+
+    @include respond-to($medium-breakpoint) {
+        font-size: $heading-4-font-size;
+    }
+
+    .content-block & {
+        letter-spacing: $heading-letter-spacing-narrow;
+    }
+}
+
+h5,
+%heading--5,
+.heading--5 {
+    font-size: $heading-5-font-size-mobile;
+    font-weight: 400;
+
+    @include respond-to($medium-breakpoint) {
+        font-size: $heading-5-font-size;
+    }
+
+    .content-block & {
+        letter-spacing: $heading-letter-spacing-narrow;
+    }
+}
+
+
+h6,
+%heading--6,
+.heading--6 {
+    font-size: $heading-6-font-size-mobile;
+    letter-spacing: $heading-letter-spacing-wide;
+
+    @include respond-to($medium-breakpoint) {
+        font-size: $heading-6-font-size;
+    }
+
+    .content-block & {
+        letter-spacing: $heading-letter-spacing-narrow;
+    }
+}
+
+.heading--content {
+    font-family: $heading-content-font-family;
+}
+
+.heading--no-margin {
+    margin: 0;
+}
