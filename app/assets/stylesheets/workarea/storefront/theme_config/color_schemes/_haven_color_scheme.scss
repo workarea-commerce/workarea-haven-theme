@@ -9,10 +9,10 @@
  * cause errors when changing color scheme.
  */
 
-$blue:                              #3366cc !default;
-$yellow:                            #fdcc5d !default;
-$red:                               #ee283b !default;
-$green:                             #19c06a !default;
+$blue:                              #0116AC !default;
+$yellow:                            #e7ca00 !default;
+$red:                               #ff404a !default;
+$green:                             #42cc81 !default;
 
 $white:                             #ffffff !default;
 $black:                             #000000 !default;
@@ -28,25 +28,25 @@ $transparent:                       transparent !default;
  * Theme colors
  */
 
-$dark-gray: #213236 !default;
-$gray: #425154 !default;
-$light-gray: #e7e7e7 !default;
-$off-blackish-blue: #2b4146 !default;
-$off-black: #1a1a1a !default;
-$off-white: #f7f7f7 !default;
-$burnt-orange: #c04f1d !default;
-$dark-burnt-orange: #7e3413 !default;
+$gray: #7c7a94 !default;
+$medium-gray: #c1c2d0 !default;
+$light-gray: #eaedf3 !default;
+
+$midnight: #0c102c !default;
+$purple-blue: #3e36d9 !default;
+$dark-purple-blue: #3029ad !default;
+$highlighter: #fff93d !default;
 
 /**
  * Styleguide color box modifiers for theme colors
  */
-.color-box__swatch--dark-gray { background: $dark-gray; }
 .color-box__swatch--gray { background: $gray; }
+.color-box__swatch--medium-gray { background: $medium-gray; }
 .color-box__swatch--light-gray { background: $light-gray; }
-.color-box__swatch--off-black { background: $off-black; }
-.color-box__swatch--off-white { background: $off-white; }
-.color-box__swatch--burnt-orange { background: $burnt-orange; }
-.color-box__swatch--dark-burnt-orange { background: $dark-burnt-orange; }
+.color-box__swatch--midnight { background: $midnight; }
+.color-box__swatch--purple-blue { background: $purple-blue; }
+.color-box__swatch--dark-purple-blue { background: $dark-purple-blue; }
+.color-box__swatch--highlighter { background: $highlighter; }
 
 
 /**
@@ -54,48 +54,63 @@ $dark-burnt-orange: #7e3413 !default;
  */
 
 // Generic
-$primary-color: $burnt-orange !default;
-$primary-color-light: lighten($burnt-orange, 35%) !default;
-$primary-color-dark: $dark-burnt-orange !default;
+$primary-color: $purple-blue !default;
+$primary-color-dark: $dark-purple-blue !default;
 
-$background-color: $off-white !default;
+$background-color: $white !default;
 $background-color-component: $white !default;
-$background-secondary-color: $dark-gray !default;
 
 $border-color: $light-gray !default;
-$highlight-color: $off-white !default;
+$highlight-color: $highlighter !default;
 $overlay-shadow-color: rgba($black, 0.1) !default;
-$ui-dialog-titlebar-bg-color: $background-secondary-color !default;
+$ui-dialog-titlebar-bg-color: $background-color !default;
 
-// Site header + nav colors
+// Site header colors
 $header-icon-color: $white !default;
 $header-icon-color-hover: $primary-color !default;
 $utility-nav-background-color: $gray !default;
 
-$primary-nav-background-color: $background-secondary-color !default;
-$primary-nav-border-color: $off-blackish-blue !default;
-$primary-nav-links: $white !default;
-$primary-nav-dropdown-links: $dark-gray !default;
-$mobile-nav-links: $dark-gray !default;
+// Navigation colors
+$primary-nav-background-color: $background-color !default;
+$primary-nav-border-color: $border-color !default;
+$primary-nav-links: $midnight !default;
+$primary-nav-dropdown-links: $midnight !default;
+$primary-nav-dropdown-links-hover: $purple-blue !default;
+$mobile-nav-links: $midnight !default;
+
+// Footer colors
+$footer-background-color: $midnight !default;
+$footer-color: $white !default;
 
 // Typography colors
-$font-color: $black !default;
-$heading-color: $off-black !default;
-$heading-color-secondary: $white !default;
+$font-color: $midnight !default;
+$heading-color: $midnight !default;
 $product-name-color: $heading-color !default;
-$footer-text: $white !default;
 
 // Links & Buttons
 $link-color: $primary-color !default;
 $link-color-hover: $primary-color-dark !default;
-$button-text-color: $white !default;
+$button-color: $white !default;
+$button-background-color: $primary-color !default;
+$button-background-color-hover: $primary-color-dark !default;
+$button-border-color: $transparent !default;
+
+$button-secondary-color: $midnight !default;
+$button-secondary-background-color: $white !default;
+$button-secondary-background-color-hover: $white !default;
+$button-secondary-border-color: $primary-color !default;
+$button-secondary-border-color-disabled: $white !default;
+
+$button-disabled-color: $white !default;
+$button-disabled-background-color: $medium-gray !default;
 
 // Inputs
-$label-color: $dark-gray !default;
-$input-color: $dark-gray !default;
-$input-background-color: $white !default;
-$input-hover-border-color: darken($border-color, 35%) !default;
-$input-secondary-color: $white !default;
-$input-secondary-bg-color: $gray !default;
-$input-invalid-color: $red !default;
-$focus-ring-color: $blue !default;
+$label-color: $midnight !default;
+$input-color: $midnight !default;
+$input-background-color: $light-gray !default;
+$input-border-color: $medium-gray !default;
+$input-border-color-focus: $primary-color !default;
+
+$valid-color: $green !default;
+$invalid-color: $red !default;
+$focus-ring-color: $primary-color !default;
