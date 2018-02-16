@@ -25,6 +25,10 @@
     = link_to '#' do
       %span.button Span Button
 
+  %p should have a disabled state:
+  .style-guide__example-block
+    = button_tag 'Button', class: 'button', type: 'button', disabled: true
+
 #button--small.style-guide__subsection
 
   %h3= link_to_style_guide('components', 'button__small')
@@ -48,3 +52,49 @@
   %p should increase the size of the button:
   .style-guide__example-block
     = button_tag 'Button Element', class: 'button button--full'
+
+
+#button--secondary.style-guide__subsection
+
+  %h3= link_to_style_guide('components', 'button__secondary')
+
+  %p should style the button differently
+  .style-guide__example-block
+    = button_tag 'Button Element', class: 'button button--secondary'
+
+  %p should have a different disabled state
+  .style-guide__example-block
+    = button_tag 'Button Element', class: 'button button--secondary', disabled: true
+
+
+#button--icon.style-guide__subsection
+
+  %h3= link_to_style_guide('components', 'button__icon')
+
+  %p should display an icon
+  .style-guide__example-block
+    = button_tag class: 'button button--small' do
+      Button Element
+      = inline_svg('workarea/storefront/icons/long_arrow.svg', class: 'button__icon')
+
+  .style-guide__example-block
+    = button_tag class: 'button' do
+      Button Element
+      = inline_svg('workarea/storefront/icons/long_arrow.svg', class: 'button__icon')
+
+  .style-guide__example-block
+    = button_tag class: 'button button--large' do
+      Button Element
+      = inline_svg('workarea/storefront/icons/long_arrow.svg', class: 'button__icon')
+
+  %p should display an icon in secondary buttons
+  .style-guide__example-block
+    = button_tag class: 'button button--secondary' do
+      Button Element
+      = inline_svg('workarea/storefront/icons/long_arrow.svg', class: 'button__icon')
+
+  %p should animate icon on hover when button__icon--shift-right modifier is present
+  .style-guide__example-block
+    = button_tag class: 'button button--secondary' do
+      Button Element
+      = inline_svg('workarea/storefront/icons/long_arrow.svg', class: 'button__icon button__icon--shift-right')

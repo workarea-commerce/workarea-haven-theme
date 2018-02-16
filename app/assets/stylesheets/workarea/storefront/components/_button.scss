@@ -2,16 +2,28 @@
     #BUTTON
 \*------------------------------------*/
 
-$button-color:            $white !default;
-$button-bg-color:         $link-color !default;
+$button-color: $button-color !default;
+$button-bg-color: $button-background-color !default;
+$button-bg-color-hover: $button-background-color-hover !default;
 
-$button-padding:          7px 12px !default;
-$button-small-padding:    6px 10px !default;
-$button-large-padding:    14px 18px !default;
+$button-secondary-color: $button-secondary-color !default;
+$button-secondary-bg-color: $button-secondary-background-color !default;
+$button-secondary-bg-color-hover: $button-secondary-background-color-hover !default;
+$button-secondary-border-color: $button-secondary-border-color !default;
+$button-secondary-border-color-disabled: $button-secondary-border-color-disabled !default;
+$button-secondary-border-width: 3px !default;
 
-$button-font-size:        $font-size !default;
-$button-small-font-size:  $font-size - 2px !default;
-$button-large-font-size:  $font-size + 8px !default;
+$button-disabled-color: $button-disabled-color !default;
+$button-disabled-background-color: $button-disabled-background-color !default;
+
+$button-padding: $spacing-unit ($spacing-unit * 3) !default;
+$button-small-padding: $spacing-unit ($spacing-unit * 2) !default;
+$button-large-padding: ($spacing-unit * 2) ($spacing-unit * 4) !default;
+
+$button-font-size: 12px !default;
+$button-secondary-font-size: 18px !default;
+$button-small-font-size: 12px !default;
+$button-large-font-size: 15px !default;
 
 
 /**
@@ -23,11 +35,36 @@ $button-large-font-size:  $font-size + 8px !default;
     padding: $button-padding;
     color: $button-color;
     font-size: $button-font-size;
+    letter-spacing: 1px;
     background: $button-bg-color;
     cursor: pointer;
 
+    &:focus,
     &:hover {
         text-decoration: none; /* [1] */
+        background-color: $button-bg-color-hover;
+    }
+
+    &:disabled {
+        color: $button-disabled-color;
+        background-color: $button-disabled-background-color;
+    }
+}
+
+.button--secondary {
+    color: $button-secondary-color;
+    font-size: $button-secondary-font-size;
+    background: $button-secondary-bg-color;
+    border: $button-secondary-border-width solid $button-secondary-border-color;
+
+    &:focus,
+    &:hover {
+        background-color: $button-secondary-bg-color-hover;
+    }
+
+    &:disabled {
+        background-color: $button-disabled-background-color;
+        border-color: $button-secondary-border-color-disabled;
     }
 }
 
@@ -39,9 +76,37 @@ $button-large-font-size:  $font-size + 8px !default;
 .button--large {
     padding: $button-large-padding;
     font-size: $button-large-font-size;
+    text-transform: uppercase;
 }
 
 .button--full {
     width: 100%;
     text-align: center;
 }
+
+    .button__icon {
+        display: inline-block;
+        vertical-align: middle;
+        transform: translateX($spacing-unit);
+        fill: $button-color;
+
+        .button--large & {
+            transform: translateX($spacing-unit * 2);
+        }
+
+        .button--secondary & {
+            fill: $button-secondary-color;
+        }
+    }
+
+    .button__icon--shift-right {
+        transition: transform $transition-time ease-in;
+
+        .button:hover & {
+            transform: translateX($spacing-unit + 4px);
+        }
+
+        .button--large:hover & {
+            transform: translateX(($spacing-unit * 2) + $spacing-unit);
+        }
+    }
