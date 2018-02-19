@@ -16,7 +16,10 @@ a,
     &:hover {
         color: $link-color-hover;
     }
+}
 
+%link--with-arrow,
+.link--with-arrow {
     &:after {
         padding: $spacing-unit;
         opacity: 0;
