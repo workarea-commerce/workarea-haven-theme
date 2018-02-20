@@ -2,10 +2,12 @@
     #SVG-ICON
 \*------------------------------------*/
 
-$svg-icon-size:              $spacing-unit * 3;
-$svg-icon-small-size:        $spacing-unit * 2;
-$svg-icon-large-size:        $spacing-unit * 4;
-$svg-icon-extra-large-size:  $spacing-unit * 6;
+$svg-icon-size:              $spacing-unit * 2 !default;
+$svg-icon-small-size:        $spacing-unit !default;
+$svg-icon-large-size:        $spacing-unit * 3 !default;
+$svg-icon-extra-large-size:  $spacing-unit * 4 !default;
+$svg-icon-theme-header-color: $header-icon-color !default;
+$svg-icon-theme-header-color-hover: $header-icon-color-hover !default;
 
 
 .svg-icon {
@@ -41,10 +43,25 @@ $svg-icon-extra-large-size:  $spacing-unit * 6;
     height: $svg-icon-extra-large-size;
 }
 
+.svg-icon--theme-header {
+    fill: $svg-icon-theme-header-color;
+
+    &:hover {
+        fill: $svg-icon-theme-header-color-hover;
+    }
+}
+
+.svg-icon--hover-primary-color {
+    &:hover {
+        fill: $primary-color;
+    }
+}
 
 /**
  * Color Modifiers
  */
+.svg-icon--primary-color { fill: $primary-color; }
+.svg-icon--link-color { fill: $link-color; }
 .svg-icon--blue { fill: $blue; }
 .svg-icon--yellow { fill: $yellow; }
 .svg-icon--red { fill: $red; }

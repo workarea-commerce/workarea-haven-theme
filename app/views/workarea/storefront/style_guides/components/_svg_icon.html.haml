@@ -36,8 +36,20 @@
           = inline_svg path, title: File.basename(path), class: 'svg-icon svg-icon--large'
           %p= File.basename(path, '.svg')
 
+#svg-icon--extra-large.style-guide__subsection
 
-- %w(blue yellow red green white gray black black-alpha-50 black-alpha-15).each do |color|
+  %h3= link_to_style_guide('components', 'svg_icon__extra-large')
+
+  %p should resize the icon to a extra-large size:
+  .grid.grid--auto.grid--huge
+    - style_guide_icons.each do |path|
+      .grid__cell
+        .align-center
+          = inline_svg path, title: File.basename(path), class: 'svg-icon svg-icon--extra-large'
+          %p= File.basename(path, '.svg')
+
+
+- %w(hover-primary-color theme-header primary-color link-color blue yellow red green white gray black black-alpha-50 black-alpha-15).each do |color|
   .style-guide__subsection{ id: "svg-icon--#{color}" }
 
     %h3= link_to_style_guide('components', "svg_icon__#{color}")
