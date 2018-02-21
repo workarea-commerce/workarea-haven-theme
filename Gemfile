@@ -21,3 +21,6 @@ group :test do
   # TODO: remove git reference once workarea-theme is released
   gem "workarea-theme", git: "ssh://git@stash.tools.weblinc.com:7999/wp/workarea-theme.git", branch: :master
 end
+
+# TODO: Remove this before releasing
+gem "pry"

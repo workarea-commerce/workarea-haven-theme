@@ -58,49 +58,63 @@
 
       .page-header{ role: 'banner' }
 
-        .content-wrapper
+        .page-header__main
+          = link_to menus_path, id: 'mobile_nav_button', class: 'page-header__button page-header__button--menu page-header__button--mobile-only' do
+            = inline_svg('workarea/storefront/icons/menu.svg', class: 'page-header__button-icon', title: t('workarea.storefront.layouts.mobile_navigation'))
 
-          - if locale_options.many?
-            .page-header__locale
-              = form_tag url_for(locale: nil), method: 'get' do
-                = switch_locale_fields
-                .value= select_tag :locale, options_for_select(locale_options, I18n.locale), required: true, data: { form_submitting_control: '' }
-                %p.hidden-if-js-enabled= button_tag t('workarea.storefront.forms.go'), value: 'switch', class: 'button'
+          = button_tag value: 'open_search', type: 'button', class: 'page-header__button page-header__button--search page-header__button--mobile-only' do
+            = inline_svg('workarea/storefront/icons/search.svg', class: 'page-header__button-icon', title: t('workarea.storefront.searches.open'))
 
-          .grid.grid--middle
-            .grid__cell.grid__cell--20
-              = link_to menus_path, id: 'mobile_nav_button' do
-                = inline_svg('workarea/storefront/icons/menu.svg', class: 'svg-icon svg-icon--large svg-icon--blue visible visible--for-small-only', title: t('workarea.storefront.layouts.mobile_navigation'))
+          .page-header__logo-container
+            = link_to image_tag('workarea/storefront/logo.png', alt: t('workarea.storefront.layouts.logo'), class: 'page-header__logo', width: 256), root_path, rel: 'home'
 
-            .grid__cell.grid__cell--80
-              .grid.grid--auto.grid--right
-                = append_partials('storefront.utility_nav')
-                .grid__cell
-                  = link_to t('workarea.storefront.users.account'), users_account_path, class: 'page-header__account-link'
-                  %span{ data: { log_out_link_placeholder: '' } }
-                .grid__cell
-                  = link_to t('workarea.storefront.carts.title'), cart_path, accesskey: 'Y', class: 'page-header__cart-link', id: 'cart_link'
+          .page-header__navigation-container
+            %ul#navigation.primary-nav{ role: 'navigation' }
+              - navigation_menus.each do |menu|
+                %li.primary-nav__item{ data: navigation_menu_item_data_attribute(menu) }
+                  = link_to menu.name, storefront_path_for(menu.taxon), class: (link_selected?(menu.taxon) ? 'primary-nav__link primary-nav__link--selected' : 'primary-nav__link'), data: { analytics: primary_navigation_analytics_data(menu.taxon).to_json }
 
-          .grid.grid--middle
-            .grid__cell.grid__cell--50-at-medium
-              = link_to image_tag('workarea/storefront/logo.png', alt: t('workarea.storefront.layouts.logo'), class: 'page-header__logo', width: 256), root_path, rel: 'home'
-            .grid__cell.grid__cell--50-at-medium
-              .page-header__search
-                = form_tag search_path, method: 'get', class: 'page-header__search-form', role: 'search' do
-                  .page-header__search-value
-                    .value= search_field_tag :q, params[:q], id: 'storefront_search', class: 'text-box', title: t('workarea.storefront.searches.search'), placeholder: t('workarea.storefront.searches.search'), tabindex: 1, required: true, data: { search_field: '' }
-                  .page-header__search-button= button_tag t('workarea.storefront.forms.go'), value: 'search', class: 'button', tabindex: 2
 
-          %ul#navigation.primary-nav{ role: 'navigation' }
-            - navigation_menus.each do |menu|
-              %li.primary-nav__item{ data: navigation_menu_item_data_attribute(menu) }
-                = link_to menu.name, storefront_path_for(menu.taxon), class: (link_selected?(menu.taxon) ? 'primary-nav__link primary-nav__link--selected' : 'primary-nav__link'), data: { analytics: primary_navigation_analytics_data(menu.taxon).to_json }
+          = button_tag value: 'open_search', type: 'button', class: 'page-header__button page-header__button--search page-header__button--mobile-hidden' do
+            = inline_svg('workarea/storefront/icons/search.svg', class: 'page-header__button-icon', title: t('workarea.storefront.searches.open'))
 
-          - if layout_content.content_blocks_for('header_promo').present?
-            .page-header__promo
-              = render_content_blocks(layout_content.content_blocks_for('header_promo'))
+          = button_tag 'Account', value: 'open_account_menu', type: 'button', class: 'page-header__button page-header__button--account', data: { toggle_class_button: { target: '#account-menu', class: 'account-menu--open' }.to_json } do
+            = inline_svg('workarea/storefront/icons/account.svg', class: 'page-header__button-icon', title: t('workarea.storefront.users.account'))
 
-          = append_partials('storefront.page_header')
+          = link_to cart_path, accesskey: 'Y', class: 'page-header__button page-header__button--cart', id: 'cart_link' do
+            = inline_svg('workarea/storefront/icons/cart.svg', class: 'page-header__button-icon', title: t('workarea.storefront.carts.title'))
+
+        #account-menu.account-menu
+          %span{ data: { user_welcome_placeholder: '' } }
+          %ul.account-menu__items
+            %li.account-menu__item= link_to t('workarea.storefront.users.account'), users_account_path, class: 'page-header__account-link'
+            %li.account-menu__item= link_to t('workarea.storefront.users.your_orders'), users_orders_path, class: 'page-header__account-link'
+
+            - if locale_options.many?
+              %li.account-menu__item
+                .account-menu__locale
+                  = form_tag url_for(locale: nil), method: 'get' do
+                    = switch_locale_fields
+                    .value= select_tag :locale, options_for_select(locale_options, I18n.locale), required: true, data: { form_submitting_control: '' }
+                    %p.hidden-if-js-enabled= button_tag t('workarea.storefront.forms.go'), value: 'switch', class: 'button'
+
+            %li{ data: { log_out_link_placeholder: '' } }
+            = append_partials('storefront.utility_nav')
+
+        = append_partials('storefront.page_header')
+
+      -# TODO: This component will be refactored out of the page-header.
+      .page-header__search
+        = form_tag search_path, method: 'get', class: 'page-header__search-form', role: 'search' do
+          .page-header__search-value
+            .value= search_field_tag :q, params[:q], id: 'storefront_search', class: 'text-box', title: t('workarea.storefront.searches.search'), placeholder: t('workarea.storefront.searches.search'), tabindex: 1, required: true, data: { search_field: '' }
+          .page-header__search-button= button_tag t('workarea.storefront.forms.go'), value: 'search', class: 'button', tabindex: 2
+
+        -# TODO: This component will be refactored out of the page-header
+        - if layout_content.content_blocks_for('header_promo').present?
+          .page-header__promo
+            = render_content_blocks(layout_content.content_blocks_for('header_promo'))
+
 
       .page-content
 
