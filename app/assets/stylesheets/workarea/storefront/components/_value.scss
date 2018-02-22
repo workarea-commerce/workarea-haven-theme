@@ -2,8 +2,13 @@
     #VALUE
 \*------------------------------------*/
 
-$value-error-color:  $red !default;
-
+$value-error-color: $invalid-color !default;
+$value-valid-color: $valid-color !default;
+$value-icon-size: $form-control-font-size !default;
+$value-icon-color: $input-icon-color !default;
+$value-icon-color-error: $invalid-color !default;
+$value-icon-color-valid: $valid-color !default;
+$value-icon-top-offset: 20px !default;
 
 /**
  * 1. for use with `p` tags
@@ -11,6 +16,7 @@ $value-error-color:  $red !default;
 
 .value {
     display: inline-block;
+    position: relative;
     margin: 0; /* [1] */
 }
 
@@ -33,5 +39,31 @@ $value-error-color:  $red !default;
 
         &.text-box {/* [2] */
             border-color: $value-error-color;
+        }
+    }
+
+    /**
+     * 1. Offset position from top when messaging is present.
+     */
+
+    .value__icon {
+        @include center($to: vertical);
+        position: absolute;
+        right: $spacing-unit;
+        width: $value-icon-size;
+        height: $value-icon-size;
+        fill: $value-icon-color;
+
+        .value__error ~ &,
+        .value__note ~ & {
+            top: $value-icon-top-offset; /* [1] */
+        }
+
+        .value__error ~ & {
+            fill: $value-icon-color-error;
+        }
+
+        .value--valid & {
+            fill: $value-icon-color-valid;
         }
     }

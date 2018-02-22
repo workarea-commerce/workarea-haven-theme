@@ -62,7 +62,7 @@ $background-color-component: $white !default;
 
 $border-color: $light-gray !default;
 $highlight-color: $highlighter !default;
-$overlay-shadow-color: rgba($black, 0.1) !default;
+$overlay-shadow-color: rgba($black, 0.8) !default;
 $ui-dialog-titlebar-bg-color: $background-color !default;
 
 // Site header colors
@@ -107,9 +107,13 @@ $button-disabled-background-color: $medium-gray !default;
 // Inputs
 $label-color: $midnight !default;
 $input-color: $midnight !default;
+$placeholder-color: $midnight !default;
 $input-background-color: $light-gray !default;
 $input-border-color: $medium-gray !default;
 $input-border-color-focus: $primary-color !default;
+$input-disabled-color: rgba($input-color, 0.18) !default;
+$input-disabled-background-color: $input-background-color !default;
+$input-icon-color: $medium-gray !default;
 
 $valid-color: $green !default;
 $invalid-color: $red !default;
