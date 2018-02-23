@@ -1,0 +1,54 @@
+/*------------------------------------*\
+    #PROPERTY
+\*------------------------------------*/
+
+.property {
+    margin-bottom: $vertical-margin;
+}
+
+.property--responsive {
+    @include respond-to($medium-breakpoint) {
+        display: table-row;
+        margin: 0;
+    }
+
+    /**
+     * Extend `.value {}` in _value.scss
+     *
+     * 1. bottom padding matches default property bottom margin
+     */
+
+    .value {
+        display: block;
+
+        @include respond-to($medium-breakpoint) {
+            display: table-cell;
+            padding: $spacing-unit; /* [1] */
+            vertical-align: top;
+        }
+    }
+}
+
+    /**
+     * 1. allows use of `strong` elements
+     * 2. bottom padding matches default property bottom margin
+     */
+
+    .property__name {
+        display: block;
+        font-weight: normal; /* [1] */
+
+        .property--responsive & {
+            @include respond-to($medium-breakpoint) {
+                display: table-cell;
+                padding: $spacing-unit; /* [2] */
+                vertical-align: top;
+            }
+        }
+    }
+
+        .property__text {}
+
+        .property__requirement {}
+
+        .property__requirement--optional {}

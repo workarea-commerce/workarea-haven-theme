@@ -1,0 +1,37 @@
+/*------------------------------------*\
+    #VALUE
+\*------------------------------------*/
+
+$value-error-color:  $red !default;
+
+
+/**
+ * 1. for use with `p` tags
+ */
+
+.value {
+    display: inline-block;
+    margin: 0; /* [1] */
+}
+
+    .value__note {
+        display: block;
+    }
+
+    /**
+     * 1. focus ring matches error color
+     * 2. when specifically applied to a `.text-box` component
+     */
+
+    .value__error {
+        display: block;
+        color: $value-error-color;
+
+        &:focus {
+            @include focus-ring($value-error-color); /* [1] */
+        }
+
+        &.text-box {/* [2] */
+            border-color: $value-error-color;
+        }
+    }
