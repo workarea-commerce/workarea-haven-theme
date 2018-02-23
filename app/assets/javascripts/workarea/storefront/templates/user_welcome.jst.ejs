@@ -1,0 +1,7 @@
+<h4 class="account-menu__heading">
+<% if(_.isEmpty(username)) { %>
+  <%= I18n.t('workarea.storefront.users.welcome_generic') %></h4>
+<% } else { %>
+  <%= I18n.t('workarea.storefront.users.welcome_name', { name: username }) %>
+<% } %>
+</h4>
