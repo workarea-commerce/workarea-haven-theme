@@ -27,3 +27,8 @@ $components: (
         page-content,
         page-header
     ) !default;
+
+    $page-header: (
+        account-menu,
+        header-main
+    ) !default;

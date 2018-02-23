@@ -41,6 +41,7 @@ $button-large-font-size: 15px !default;
 
     &:focus,
     &:hover {
+        color: $button-color;
         text-decoration: none; /* [1] */
         background-color: $button-bg-color-hover;
     }
@@ -59,6 +60,7 @@ $button-large-font-size: 15px !default;
 
     &:focus,
     &:hover {
+        color: $button-secondary-color;
         background-color: $button-secondary-bg-color-hover;
     }
 

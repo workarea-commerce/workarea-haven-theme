@@ -66,8 +66,10 @@ $overlay-shadow-color: rgba($black, 0.1) !default;
 $ui-dialog-titlebar-bg-color: $background-color !default;
 
 // Site header colors
+$header-background-color: $white !default;
 $header-icon-color: $gray !default;
 $header-icon-color-hover: $primary-color !default;
+$header-icon-color-cart: $white !default;
 $utility-nav-background-color: $gray !default;
 
 // Navigation colors

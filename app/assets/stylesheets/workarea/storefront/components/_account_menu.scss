@@ -1,0 +1,39 @@
+/*------------------------------------*\
+    #ACCOUNT-MENU
+\*------------------------------------*/
+
+$account-menu-width: 240px !default;
+$account-menu-background-color: $light-gray !default;
+$account-menu-item-list-background-color: $white !default;
+
+
+.account-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: index($page-header, account-menu);
+    padding: $spacing-unit;
+    width: $account-menu-width;
+    background-color: $account-menu-background-color;
+    transform: translateY(-100%);
+    transition: transform $transition-time ease-in;
+}
+
+.account-menu--open {
+    transform: translateY($page-header-height);
+}
+
+    .account-menu__heading {}
+
+    .account-menu__items {
+        @extend %list-reset;
+        background-color: $account-menu-item-list-background-color;
+    }
+
+        .account-menu__item {
+            padding: $spacing-unit * 2;
+        }
+
+        .account-menu__logout-link {}
+
+        .account-menu__locale {}

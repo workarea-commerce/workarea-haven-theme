@@ -1,0 +1,9 @@
+en:
+  workarea:
+    storefront:
+      searches:
+        open: Open search
+      users:
+        your_orders: Your orders
+        welcome_name: Welcome, %{name}
+        welcome_generic: Welcome back!

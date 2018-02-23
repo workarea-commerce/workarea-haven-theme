@@ -11,6 +11,7 @@ $primary-nav-content-bg-color:  $white !default;
 .primary-nav {
     @extend %inline-list;
     display: none;
+    line-height: 80px;
 
     @include respond-to($medium-breakpoint) {
         display: block;
