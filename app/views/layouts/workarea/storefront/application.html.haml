@@ -23,6 +23,7 @@
       @-ms-viewport { width: device-width; }
       @viewport { width: device-width; }
     = yield :head
+    = favicon_link_tag Workarea.config.favicon_path, rel: 'shortcut icon', type: 'image/x-icon'
     = stylesheet_link_tag 'workarea/storefront/application', media: 'all'
     = yield :css
 

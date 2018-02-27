@@ -4,9 +4,13 @@
 
 $page-header-background-color: $header-background-color !default;
 
-$page-header-height: $spacing-unit * 10 !default;
-$page-header-button-padding: 25px !default;
-$page-header-button-icon-size: 28px !default;
+$page-header-height: $spacing-unit * 5 !default;
+$page-header-height-medium: $spacing-unit * 10 !default;
+$page-header-button-padding: $spacing-unit * 2 !default;
+$page-header-button-padding-medium: 25px !default;
+
+$page-header-button-icon-size: 18px !default;
+$page-header-button-icon-size-medium: 28px !default;
 $page-header-button-icon-color: $header-icon-color !default;
 $page-header-button-icon-color-hover: $header-icon-color-hover !default;
 
@@ -19,6 +23,9 @@ $page-header-logo-width:   72px !default;
 $page-header-logo-height:  18px !default;
 $page-header-logo-width-medium:   144px !default;
 $page-header-logo-height-medium:  36px !default;
+
+$page-header-breakpoint: $small-horizontal-breakpoint !default;
+
 
 .page-header {
     position: sticky;
@@ -58,6 +65,10 @@ $page-header-logo-height-medium:  36px !default;
             border-right: 1px solid $border-color;
             border-left: 1px solid $border-color;
             cursor: pointer;
+
+            @include respond-to($page-header-breakpoint) {
+                padding: $page-header-button-padding-medium;
+            }
 
             & + & {
                 border-left: 0;
@@ -114,6 +125,11 @@ $page-header-logo-height-medium:  36px !default;
                 fill: $page-header-button-icon-color;
                 transition: fill $transition-time ease-in;
 
+                @include respond-to($page-header-breakpoint) {
+                    width: $page-header-button-icon-size-medium;
+                    height: $page-header-button-icon-size-medium;
+                }
+
                 .page-header__button:hover & {
                     fill: $page-header-button-icon-color-hover;
                 }
@@ -131,9 +147,13 @@ $page-header-logo-height-medium:  36px !default;
                 position: absolute;
                 top: 0;
                 right: 0;
-                padding: $spacing-unit;
+                padding: $spacing-unit / 2;
                 line-height: 1;
-                background-color: $page-header-cart-count-background-color;
+
+                @include respond-to($page-header-breakpoint) {
+                    padding: $spacing-unit;
+                    background-color: $page-header-cart-count-background-color;
+                }
             }
 
     .page-header__logo-container {
@@ -141,6 +161,10 @@ $page-header-logo-height-medium:  36px !default;
         width: 100%;
         line-height: $page-header-height;
         text-align: center;
+
+        @include respond-to($page-header-breakpoint) {
+            line-height: $page-header-height-medium;
+        }
 
         @include respond-to($medium-breakpoint) {
             width:  auto;
@@ -153,7 +177,7 @@ $page-header-logo-height-medium:  36px !default;
             width:  $page-header-logo-width;
             height: $page-header-logo-height;
 
-            @include respond-to($medium-breakpoint) {
+            @include respond-to($page-header-breakpoint) {
                 margin: 0;
                 width:  $page-header-logo-width-medium;
                 height: $page-header-logo-height-medium;
