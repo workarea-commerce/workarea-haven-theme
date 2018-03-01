@@ -156,28 +156,42 @@
         .content-wrapper
 
           .grid
-
-            - footer_navigation_content = layout_content.content_blocks_for('footer_navigation')
-
-            - if footer_navigation_content.present?
-              .grid__cell.grid__cell--33-at-medium
-                .page-footer__nav= render_content_blocks(footer_navigation_content)
-
-            .grid__cell.align-center{ class: ('grid__cell--33-at-medium' if footer_navigation_content.present?)}
-              %ul.page-footer__help
-                %li.page-footer__help-item= link_to t('workarea.storefront.contacts.contact_us'), contact_path, class: 'page-footer__help-link'
-                %li.page-footer__help-item= link_to t('workarea.storefront.sitemaps.heading'), sitemap_path, class: 'page-footer__help-link'
-                = append_partials('storefront.footer_help')
-            .grid__cell{ class: ('grid__cell--33-at-medium' if footer_navigation_content.present?)}
+            .grid__cell.grid__cell--33-at-medium
               .page-footer__email-signup
                 = form_tag email_signup_path, method: :post, id: 'footer_email_signup_form', authenticity_token: !http_caching?, class: 'page-footer__email-signup-form', data: { analytics: email_signup_analytics_data.to_json } do
                   .page-footer__email-value
                     .value= email_field_tag :email, nil, id: 'footer_email_signup_field', class: 'text-box', placeholder: t('workarea.storefront.forms.email_placeholder'), title: t('workarea.storefront.users.email'), required: true, type: 'email', autocapitalize: 'off', autocorrect: 'off', autocomplete: 'email'
                   .page-footer__email-button= button_tag t('workarea.storefront.users.join'), value: 'sign_up', class: 'button'
 
-          %p.page-footer__copyright © #{Time.now.year}
+            .grid__cell.grid__cell--66-at-medium
+              .grid
+                - footer_col_1_content = layout_content.content_blocks_for('footer_column_1')
+                - if footer_col_1_content.present?
+                  .grid__cell.grid__cell--50-at-medium.grid__cell--25-at-wide
+                    .page-footer__nav= render_content_blocks(footer_col_1_content)
 
-          %p.visually-hidden= link_to t('workarea.storefront.layouts.top_of_page'), '#top'
+                - footer_col_2_content = layout_content.content_blocks_for('footer_column_2')
+                - if footer_col_2_content.present?
+                  .grid__cell.grid__cell--50-at-medium.grid__cell--25-at-wide
+                    .page-footer__nav= render_content_blocks(footer_col_2_content)
+
+                - footer_col_3_content = layout_content.content_blocks_for('footer_column_3')
+                - if footer_col_3_content.present?
+                  .grid__cell.grid__cell--50-at-medium.grid__cell--25-at-wide
+                    .page-footer__nav= render_content_blocks(footer_col_3_content)
+
+                .grid__cell.grid__cell--50-at-medium.grid__cell--25-at-wide
+                  .page-footer__nav
+                    %ul.page-footer__help
+                      %li.page-footer__help-item= link_to t('workarea.storefront.contacts.contact_us'), contact_path, class: 'page-footer__help-link'
+                      %li.page-footer__help-item= link_to t('workarea.storefront.sitemaps.heading'), sitemap_path, class: 'page-footer__help-link'
+                      = append_partials('storefront.footer_help')
+        .page-footer__copyright
+          %p.text.text--small.text--no-margin
+            = t('workarea.storefront.layouts.terms_and_conditions')
+            © #{Time.now.year}
+
+        %p.visually-hidden= link_to t('workarea.storefront.layouts.top_of_page'), '#top'
 
     = javascript_include_tag 'workarea/storefront/application'
     = yield :javascript

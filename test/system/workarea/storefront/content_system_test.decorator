@@ -1,0 +1,21 @@
+require 'test_helper'
+
+module Workarea
+  decorate Storefront::ContentSystemTest, with: :haven_theme do
+    def test_layout_content
+      create_content(
+        name: 'Layout',
+        blocks: [
+          {
+            area: :footer_column_1,
+            type: 'html',
+            data: { html: 'foo bar' }
+          }
+        ]
+      )
+
+      visit storefront.root_path
+      assert(page.has_content?('foo bar'))
+    end
+  end
+end
