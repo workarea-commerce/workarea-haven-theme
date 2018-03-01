@@ -1,0 +1,70 @@
+/*------------------------------------*\
+    #TAXONOMY-CONTENT-BLOCK
+\*------------------------------------*/
+
+.taxonomy-content-block {
+    @include respond-to($medium-breakpoint) {
+        display: table;
+        width: 100%;
+    }
+}
+
+.taxonomy-content-block--two-column {}
+.taxonomy-content-block--three-column {}
+
+
+    .taxonomy-content-block__container {
+        @include respond-to($medium-breakpoint) {
+            display: table-cell;
+            width: 50%;
+            vertical-align: top;
+        }
+
+        .taxonomy-content-block--two-column & {
+            @include respond-to($medium-breakpoint) {
+                width: 33.33%;
+            }
+        }
+
+        .taxonomy-content-block--three-column & {
+            @include respond-to($medium-breakpoint) {
+                width: 25%;
+            }
+        }
+    }
+
+    .taxonomy-content-block__container--without-image {
+        @include respond-to($medium-breakpoint) {
+            width: 100%;
+        }
+
+        .taxonomy-content-block--two-column & {
+            @include respond-to($medium-breakpoint) {
+                width: 50%;
+            }
+        }
+
+        .taxonomy-content-block--three-column & {
+            @include respond-to($medium-breakpoint) {
+                width: 33.33%;
+            }
+        }
+    }
+
+
+        .taxonomy-content-block__image-link {}
+
+            .taxonomy-content-block__image {}
+
+
+        .taxonomy-content-block__menu-heading {
+            font-weight: bold;
+        }
+
+        .taxonomy-content-block__menu {
+            @extend %list-reset;
+        }
+
+            .taxonomy-content-block__menu-item {}
+
+                .taxonomy-content-block__menu-link {}
