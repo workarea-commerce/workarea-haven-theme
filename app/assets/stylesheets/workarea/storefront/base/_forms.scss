@@ -4,13 +4,14 @@
 
 // scss-lint:disable QualifyingElement
 
-$forms-color:              $font-color !default;
-$forms-bg-color:           $white !default;
-$forms-disabled-color:     $gray !default;
-$forms-disabled-bg-color:  $light-gray !default;
-$forms-placeholder-color:  $gray !default;
-
-$forms-disabled-opacity:  0.5 !default; // TODO: v4 Remove
+$form-padding-right: 12px !default;
+$forms-color: $input-color !default;
+$forms-label-color: $label-color !default;
+$forms-bg-color: $input-background-color !default;
+$forms-disabled-color: $input-disabled-color !default;
+$forms-disabled-bg-color: $input-disabled-background-color !default;
+$forms-placeholder-color: $placeholder-color !default;
+$forms-border-color-error: $invalid-color !default;
 
 
 /**
@@ -26,12 +27,16 @@ fieldset, legend {
  */
 select,
 input, textarea {
+    padding: $spacing-unit;
+    padding-right: $form-padding-right;
     color: $forms-color;
     font-size: $form-control-font-size;
     background-color: $forms-bg-color;
+    border: 0;
 }
 
 label {
+    color: $forms-label-color;
     font-size: $form-control-font-size;
 }
 

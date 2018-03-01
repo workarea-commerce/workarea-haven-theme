@@ -17,7 +17,6 @@
 ///     }
 @mixin focus-ring($color: $focus-ring-color) {
     border-color: $color;
-    box-shadow: 0 0 0 2px $color;
     outline: none;
-    transition: border 0.1s, box-shadow 0.1s;
+    transition: border 0.1s;
 }

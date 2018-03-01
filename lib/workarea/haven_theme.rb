@@ -3,6 +3,8 @@ require "workarea/storefront"
 require "workarea/admin"
 require "workarea/theme"
 
+require "workarea/styled_selects"
+
 require "workarea/haven_theme/engine"
 require "workarea/haven_theme/version"
 
