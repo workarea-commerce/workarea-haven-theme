@@ -75,7 +75,9 @@ $utility-nav-background-color: $gray !default;
 // Navigation colors
 $primary-nav-background-color: $background-color !default;
 $primary-nav-border-color: $border-color !default;
-$primary-nav-links: $midnight !default;
+$primary-nav-links-color: $midnight !default;
+$primary-nav-links-color-hover: $midnight !default;
+$primary-nav-link-hover-border-color: $highlighter !default;
 $primary-nav-dropdown-links: $midnight !default;
 $primary-nav-dropdown-links-hover: $purple-blue !default;
 $mobile-nav-links: $midnight !default;

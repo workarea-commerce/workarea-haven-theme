@@ -21,6 +21,10 @@ $account-menu-item-list-background-color: $white !default;
 
 .account-menu--open {
     transform: translateY($page-header-height);
+
+    @include respond-to($page-header-breakpoint) {
+        transform: translateY($page-header-height-medium);
+    }
 }
 
     .account-menu__heading {}

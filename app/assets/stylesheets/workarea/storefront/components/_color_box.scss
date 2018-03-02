@@ -37,7 +37,8 @@ $color-box-outline: 1px solid $black !default;
     // Navigation colors
     .color-box__swatch--primary-nav-background-color { background: $primary-nav-background-color; }
     .color-box__swatch--primary-nav-border-color { background: $primary-nav-border-color; }
-    .color-box__swatch--primary-nav-links { background: $primary-nav-links; }
+    .color-box__swatch--primary-nav-links-color { background: $primary-nav-links-color; }
+    .color-box__swatch--primary-nav-links-color-hover { background: $primary-nav-links-color-hover; }
     .color-box__swatch--primary-nav-dropdown-links { background: $primary-nav-dropdown-links; }
     .color-box__swatch--primary-nav-dropdown-links-hover { background: $primary-nav-dropdown-links-hover; }
     .color-box__swatch--mobile-nav-links { background: $mobile-nav-links; }
