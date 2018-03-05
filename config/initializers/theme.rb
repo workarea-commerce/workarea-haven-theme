@@ -27,4 +27,8 @@ Workarea.configure do |config|
   }
 
   config.favicon_path = "workarea/storefront/favicon.ico"
+
+  config.content_areas = config.content_areas.merge(
+    "layout" => %w(header_promo footer_column_1 footer_column_2 footer_column_3)
+  )
 end

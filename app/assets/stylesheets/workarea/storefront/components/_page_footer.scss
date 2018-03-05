@@ -2,8 +2,15 @@
     #PAGE-FOOTER
 \*------------------------------------*/
 
+$page-footer-color: $footer-color !default;
+$page-footer-background-color: $footer-background-color !default;
+$page-footer-border: 1px solid $footer-border-color !default;
+
+
 .page-footer {
-    padding: ($spacing-unit * 4) 0 $spacing-unit;
+    padding-top: $spacing-unit * 4;
+    color: $page-footer-color;
+    background-color: $page-footer-background-color;
 }
 
 
@@ -11,17 +18,21 @@
      * 1. make sure no content block can inject `p` tags that will break layout.
      */
     .page-footer__nav {
-        text-align: center;
+        margin: 0 auto;
+        padding: ($spacing-unit * 3) 0;
+        max-width: 50%;
+        text-align: left;
 
         @include respond-to($medium-breakpoint) {
-            text-align: left;
+            padding: ($spacing-unit * 6) 0;
+            max-width: none;
         }
 
         p { margin: 0; } /* [1] */
     }
 
     .page-footer__help {
-        @extend %inline-list;
+        @extend %list-reset;
     }
 
         .page-footer__help-item {}
@@ -53,5 +64,7 @@
 
     .page-footer__copyright {
         margin: 0;
+        padding: $spacing-unit * 2;
         text-align: center;
+        border-top: $page-footer-border;
     }

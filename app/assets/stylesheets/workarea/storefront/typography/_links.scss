@@ -3,6 +3,7 @@
 \*------------------------------------*/
 
 $link-font-size: $font-size-small !default;
+$link-footer-font-size: $font-size !default;
 
 a,
 %link,
@@ -15,6 +16,16 @@ a,
 
     &:hover {
         color: $link-color-hover;
+    }
+
+    .page-footer & {
+        color: $footer-link-color;
+        font-size: $link-footer-font-size;
+        line-height: 2;
+
+        &:hover {
+            color: $footer-link-color-hover;
+        }
     }
 }
 

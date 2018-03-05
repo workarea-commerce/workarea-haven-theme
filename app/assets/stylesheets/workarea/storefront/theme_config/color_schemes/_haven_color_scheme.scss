@@ -83,6 +83,9 @@ $mobile-nav-links: $midnight !default;
 // Footer colors
 $footer-background-color: $midnight !default;
 $footer-color: $white !default;
+$footer-border-color: rgba($white, 0.3) !default;
+$footer-link-color: $white !default;
+$footer-link-color-hover: $highlighter !default;
 
 // Typography colors
 $font-color: $midnight !default;

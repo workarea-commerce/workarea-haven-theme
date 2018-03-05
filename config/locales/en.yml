@@ -1,6 +1,8 @@
 en:
   workarea:
     storefront:
+      layouts:
+        terms_and_conditions: Terms and Conditions
       searches:
         open: Open search
       users:
