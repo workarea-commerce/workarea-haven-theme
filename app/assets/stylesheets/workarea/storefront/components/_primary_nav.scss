@@ -9,6 +9,8 @@ $primary-nav-link-font-size: 15px !default;
 $primary-nav-item-weight: 500 !default; //Medium
 $primary-nav-link-color: $primary-nav-links-color !default;
 $primary-nav-link-color-hover: $primary-nav-links-color-hover !default;
+$primary-nav-link-border: 3px solid $transparent !default;
+$primary-nav-link-hover-border-color: $primary-nav-link-hover-border-color !default;
 
 $primary-nav-content-bg-color:  $primary-nav-background-color !default;
 
@@ -37,7 +39,7 @@ $primary-nav-content-bg-color:  $primary-nav-background-color !default;
             padding: $spacing-unit;
             color: $primary-nav-link-color;
             font-size: $primary-nav-link-font-size;
-            border: 3px solid transparent; /* [1] */
+            border: $primary-nav-link-border; /* [1] */
             transition: border-color $transition-time ease-in;
 
             .primary-nav__item:hover & {
