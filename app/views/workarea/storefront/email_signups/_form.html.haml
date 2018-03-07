@@ -1,7 +1,7 @@
 .email-signup
   = form_tag email_signup_path, method: 'post', id: "#{location}_email_signup_form", class: 'email-signup__form', data: { analytics: email_signup_analytics_data.to_json } do
-    -# TODO - reqrite this label properly
-    %label.email-signup__label{ for: "#{location}_email_signup_field" } Email Signup
+    = label_tag "#{location}_email_signup_field", nil, class: 'email-signup__label' do
+      %span.email-signup__label-text= t('workarea.storefront.layouts.email_signup')
     .email-signup__value
       = email_field_tag :email, nil, id: "#{location}_email_signup_field", class: 'text-box text-box--full text-box--secondary', placeholder: t('workarea.storefront.forms.email_placeholder'), title: t('workarea.storefront.users.email'), required: true, type: 'email', autocomplete: 'email', autocapitalize: 'off', autocorrect: 'off'
       = button_tag value: 'sign_up', class: 'email-signup__button' do

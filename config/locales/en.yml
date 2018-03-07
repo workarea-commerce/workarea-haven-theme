@@ -2,6 +2,7 @@ en:
   workarea:
     storefront:
       layouts:
+        email_signup: Email Sign Up
         terms_and_conditions: Terms and Conditions
       searches:
         open: Open search
