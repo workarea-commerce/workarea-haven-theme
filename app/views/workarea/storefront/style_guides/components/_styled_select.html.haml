@@ -1,0 +1,9 @@
+#styled-select.style-guide__subsection
+
+  %h3= link_to_style_guide('components', 'styled_select')
+
+  %p Provides a stylized select menu UI
+  %p The select_tag helper is decorated to automatically wrap most select tags in your application. You will need to update the markup of select tags injected as JST templates
+
+  .style-guide__example-block
+    = select_tag "style-guide-example", options_for_select([ "Option 1", "Option 2", "Option 3" ], "Option 1")
