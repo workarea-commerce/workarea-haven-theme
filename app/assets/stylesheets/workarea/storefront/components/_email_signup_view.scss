@@ -1,0 +1,18 @@
+/*------------------------------------*\
+    #EMAIL-SIGNUP-VIEW
+\*------------------------------------*/
+
+$email-signup-view-bg-color: $footer-background-color !default;
+$email-signup-view-content-bg-color: $background-color !default;
+
+.email-signup-view {
+    text-align: center;
+    background-color: $email-signup-view-bg-color;
+}
+
+    .email-signup-view__content {
+        padding: ($spacing-unit * 3) 0;
+        background-color: $email-signup-view-content-bg-color;
+    }
+
+    .email-signup-view__form {}

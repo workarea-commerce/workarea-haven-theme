@@ -6,8 +6,9 @@ module Workarea
 
   Plugin.append_stylesheets(
     "storefront.components",
+    "workarea/storefront/components/account_menu",
     "workarea/storefront/components/color_box",
-    "workarea/storefront/components/account_menu"
+    "workarea/storefront/components/email_signup_view"
   )
 
   Plugin.append_javascripts(

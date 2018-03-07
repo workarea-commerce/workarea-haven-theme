@@ -1,0 +1,54 @@
+/*------------------------------------*\
+    #EMAIL-SIGNUP
+\*------------------------------------*/
+
+$email-signup-max-width: 288px !default;
+
+$email-signup-button-bg-color: $email-signup-button-bg-color !default;
+
+$email-signup-button-icon-size: 18px !default;
+$email-signup-button-icon-size-medium: 28px !default;
+$email-signup-button-icon-color: $email-signup-button-icon-color !default;
+$email-signup-button-icon-color-hover: $email-signup-button-icon-color-hover !default;
+
+
+.email-signup {
+    margin: 0 auto;
+    padding: ($spacing-unit * 3) 0;
+    max-width: $email-signup-max-width;
+
+    @include respond-to($medium-breakpoint) {
+        padding: ($spacing-unit * 6) 0;
+    }
+}
+
+    .email-signup__form {}
+
+        .email-signup__label {
+            @extend %heading;
+            @extend %heading--5;
+            display: block;
+            color: $white;
+            text-transform: uppercase;
+        }
+
+        .email-signup__value {
+            display: flex;
+            vertical-align: top;
+        }
+
+        .email-signup__button {
+            @extend %button-reset;
+            padding: $spacing-unit;
+            width: $spacing-unit * 5;
+            height: 100%;
+            background-color: $email-signup-button-bg-color;
+            cursor: pointer;
+        }
+
+            .email-signup__button-icon {
+                width: $email-signup-button-icon-size;
+                height: $email-signup-button-icon-size;
+                vertical-align: middle;
+                fill: $email-signup-button-icon-color;
+            }

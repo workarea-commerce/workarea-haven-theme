@@ -9,7 +9,8 @@ $text-box-valid-border-color: $valid-color !default;
 
 $text-box-color-page-footer: $footer-color !default;
 
-$text-box-secondary-border: 2px solid $highlight-color !default;
+$text-box-secondary-border: 1px solid $text-box-secondary-border-color !default;
+$text-box-secondary-placeholder-color: $text-box-color-page-footer !default;
 
 $text-box-width:              200px !default;
 $text-box-x-small-width:       62px !default;
@@ -37,6 +38,10 @@ $text-box-multi-line-height:  168px !default;
 .text-box--secondary {
     background: transparent;
     border: $text-box-secondary-border;
+
+    &::placeholder {
+        color: $text-box-secondary-placeholder-color;
+    }
 }
 
 .text-box--x-small    { width:  $text-box-x-small-width;     }
