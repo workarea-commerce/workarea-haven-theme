@@ -39,29 +39,6 @@ $page-footer-border: 1px solid $footer-border-color !default;
 
             .page-footer__help-link {}
 
-    .page-footer__email-signup {
-        text-align: center;
-
-        @include respond-to($medium-breakpoint) {
-            text-align: right;
-        }
-    }
-
-        .page-footer__email-signup-form {
-            display: inline-block;
-        }
-
-            .page-footer__email-value {
-                display: inline-block;
-                vertical-align: top;
-            }
-
-            .page-footer__email-button {
-                display: inline-block;
-                vertical-align: top;
-            }
-
-
     .page-footer__copyright {
         margin: 0;
         padding: $spacing-unit * 2;

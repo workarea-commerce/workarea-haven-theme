@@ -89,6 +89,14 @@ $footer-border-color: rgba($white, 0.3) !default;
 $footer-link-color: $white !default;
 $footer-link-color-hover: $highlighter !default;
 
+$footer-icon-color: $midnight !default;
+$footer-icon-color-hover: $primary-color !default;
+
+// Email signup colors
+$email-signup-button-bg-color: $highlighter !default;
+$email-signup-button-icon-color: $footer-icon-color !default;
+$email-signup-button-icon-color-hover: $footer-icon-color-hover !default;
+
 // Typography colors
 $font-color: $midnight !default;
 $heading-color: $midnight !default;
@@ -121,6 +129,7 @@ $input-border-color-focus: $primary-color !default;
 $input-disabled-color: rgba($input-color, 0.18) !default;
 $input-disabled-background-color: $input-background-color !default;
 $input-icon-color: $medium-gray !default;
+$text-box-secondary-border-color: $highlighter !default;
 
 $valid-color: $green !default;
 $invalid-color: $red !default;

@@ -1,0 +1,8 @@
+.email-signup-view
+  .email-signup-view__content
+    %h2= @content.title
+
+    - if @content.content_blocks.present?
+      = render_content_blocks(@content.content_blocks)
+
+  = render 'workarea/storefront/email_signups/form', location: 'dialog', analytics: email_signup_analytics_data
