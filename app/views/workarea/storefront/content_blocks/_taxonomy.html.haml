@@ -1,0 +1,19 @@
+.taxonomy-content-block
+
+  - if view_model.left_image?
+    .taxonomy-content-block__container.taxonomy-content-block__container--media
+  .taxonomy-content-block__container{ class: ('taxonomy-content-block__container--without-image' unless image.present? )}
+    - if view_model.data[:header].present?
+      %span.taxonomy-content-block__menu-heading= view_model.data[:header]
+
+    %ul.taxonomy-content-block__menu
+      - view_model.taxons.each do |taxon|
+        %li.taxonomy-content-block__menu-item
+          - if taxon.placeholder?
+            = taxon.name
+          - else
+            = link_to taxon.name, storefront_path_for(taxon), data: { analytics: primary_navigation_analytics_data(taxon).to_json }, class: 'taxonomy-content-block__menu-link'
+
+  - if view_model.right_image?
+    .taxonomy-content-block__container.taxonomy-content-block__container--media
+      = render_image_with_link(view_model.find_asset(image).url, image_alt, 'taxonomy-content-block', image_link)

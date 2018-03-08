@@ -1,0 +1,96 @@
+/*------------------------------------*\
+    #TAXONOMY-CONTENT-BLOCK
+\*------------------------------------*/
+
+$taxonomy-content-block-item-weight: 300 !default; // Light
+$taxonomy-content-block-item-font-size: $font-size !default; // Light
+$taxonomy-content-block-link-color: $primary-nav-dropdown-links !default;
+$taxonomy-content-block-link-color-hover: $primary-nav-dropdown-links-hover !default;
+
+.taxonomy-content-block {
+    @include respond-to($medium-breakpoint) {
+        display: table;
+        width: 100%;
+    }
+}
+
+.taxonomy-content-block--two-column {}
+.taxonomy-content-block--three-column {}
+
+
+    .taxonomy-content-block__container {
+        @include respond-to($medium-breakpoint) {
+            display: table-cell;
+            width: 50%;
+            vertical-align: top;
+        }
+
+        .taxonomy-content-block--two-column & {
+            @include respond-to($medium-breakpoint) {
+                width: 33.33%;
+            }
+        }
+
+        .taxonomy-content-block--three-column & {
+            @include respond-to($medium-breakpoint) {
+                width: 25%;
+            }
+        }
+
+        .primary-nav & {
+            padding: $spacing-unit * 4;
+        }
+    }
+
+    .taxonomy-content-block__container--without-image {
+        @include respond-to($medium-breakpoint) {
+            width: 100%;
+        }
+
+        .taxonomy-content-block--two-column & {
+            @include respond-to($medium-breakpoint) {
+                width: 50%;
+            }
+        }
+
+        .taxonomy-content-block--three-column & {
+            @include respond-to($medium-breakpoint) {
+                width: 33.33%;
+            }
+        }
+    }
+
+    .taxonomy-content-block__container--media {
+        .primary-nav & {
+            padding: 0;
+        }
+    }
+
+        .taxonomy-content-block__image-link {}
+
+            .taxonomy-content-block__image {}
+
+
+        .taxonomy-content-block__menu-heading {
+            font-weight: 500; // Medium
+        }
+
+        .taxonomy-content-block__menu {
+            @extend %list-reset;
+        }
+
+            .taxonomy-content-block__menu-item {
+                font-size: $taxonomy-content-block-item-font-size;
+                font-weight: $taxonomy-content-block-item-weight;
+                text-transform: none;
+            }
+
+                .taxonomy-content-block__menu-link {
+                    color: $taxonomy-content-block-link-color;
+                    font-size: $taxonomy-content-block-item-font-size;
+                    font-weight: $taxonomy-content-block-item-weight;
+
+                    &:hover {
+                        color: $taxonomy-content-block-link-color-hover;
+                    }
+                }

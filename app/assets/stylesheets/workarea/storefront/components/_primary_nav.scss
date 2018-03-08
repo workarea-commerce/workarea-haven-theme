@@ -2,30 +2,51 @@
     #PRIMARY-NAV
 \*------------------------------------*/
 
-$primary-nav-content-bg-color:  $white !default;
+$primary-nav-bg-color:  $primary-nav-background-color !default;
+$primary-nav-border:  1px solid $primary-nav-border-color !default;
 
+$primary-nav-link-font-size: 15px !default;
+$primary-nav-item-weight: 500 !default; //Medium
+$primary-nav-link-color: $primary-nav-links-color !default;
+$primary-nav-link-color-hover: $primary-nav-links-color-hover !default;
+$primary-nav-link-border: 3px solid $transparent !default;
+$primary-nav-link-hover-border-color: $primary-nav-link-hover-border-color !default;
 
-/**
- * 1. provides positioning context for `.primary-nav__content`
- */
+$primary-nav-content-bg-color:  $primary-nav-background-color !default;
+
 .primary-nav {
     @extend %inline-list;
     display: none;
     line-height: 80px;
+    text-align: left;
 
     @include respond-to($medium-breakpoint) {
         display: block;
-        position: relative; /* [1] */
-        text-align: center;
     }
 }
 
 
     .primary-nav__item {
         margin: 0 $spacing-unit;
+        font-weight: $primary-nav-item-weight;
+        text-transform: uppercase;
     }
 
-        .primary-nav__link {}
+        /**
+         * 1. Transparent border prevents re-flow and content shift on hover
+         */
+        .primary-nav__link {
+            padding: $spacing-unit;
+            color: $primary-nav-link-color;
+            font-size: $primary-nav-link-font-size;
+            border: $primary-nav-link-border; /* [1] */
+            transition: border-color $transition-time ease-in;
+
+            .primary-nav__item:hover & {
+                color: $primary-nav-link-color-hover;
+                border-color: $primary-nav-link-hover-border-color;
+            }
+        }
 
         .primary-nav__link--selected {
             font-weight: bold;
@@ -44,6 +65,9 @@ $primary-nav-content-bg-color:  $white !default;
                 top: 100%;
                 right: 0;
                 left: 0;
+                line-height: 2;
                 background: $primary-nav-content-bg-color;
+                border-top: $primary-nav-border;
+                border-bottom: $primary-nav-border;
             }
         }
