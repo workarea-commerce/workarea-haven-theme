@@ -8,7 +8,8 @@ module Workarea
     "storefront.components",
     "workarea/storefront/components/account_menu",
     "workarea/storefront/components/color_box",
-    "workarea/storefront/components/email_signup_view"
+    "workarea/storefront/components/email_signup_view",
+    "workarea/storefront/components/overlay"
   )
 
   Plugin.append_javascripts(

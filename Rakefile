@@ -49,7 +49,7 @@ task :changelog, :from, :to do |t, args|
     next if message =~ /^\s*Merge pull request/
     next if message =~ /No changelog/i
 
-    project_key = nil # TODO Replace with your Project's Jira key
+    project_key = 'HAVNTHEME' # TODO Replace with your Project's Jira key
 
     if project_key.blank?
       puts "To clean up your release notes, add your project's Jira key to the Changelog Rake task!"

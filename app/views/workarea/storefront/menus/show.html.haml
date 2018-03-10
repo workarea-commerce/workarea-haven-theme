@@ -1,0 +1,10 @@
+= link_to 'X', mobile_nav_return_path, class: 'mobile-nav__close-button'
+
+- if params[:mobile_nav]
+  = link_to menus_path(return_to: mobile_nav_return_path), class: 'mobile-nav__back-button' do
+    %h4.mobile-nav__back-button-text= @menu.name
+    = inline_svg('workarea/storefront/icons/long_arrow.svg', class: 'mobile-nav__back-button-icon', title: t('workarea.storefront.layouts.navigate_back'))
+
+%div{ class: params[:mobile_nav] ? 'mobile-nav__content' : 'primary-nav__content' }
+  = link_to "All #{@menu.name}", storefront_path_for(@menu.taxon), class: 'mobile-nav__link mobile-nav__link--all'
+  = render_content_blocks(@menu.content_blocks)

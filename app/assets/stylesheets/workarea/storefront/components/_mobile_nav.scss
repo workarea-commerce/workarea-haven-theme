@@ -6,10 +6,17 @@ $mobile-nav-bg-color:   $white !default;
 $mobile-nav-box-shadow: 8px 0 8px rgba($black, 0.5);
 
 $mobile-nav-width:  90% !default;
+$mobile-nav-close-button-size: 20px !default;
+$mobile-nav-close-button-color: $mobile-nav-close-button-color !default;
+$mobile-nav-item-border: 1px solid $border-color !default;
+$mobile-nav-link-font-size: 14px !default;
+$mobile-nav-link-color: $mobile-nav-links !default;
 
+$mobile-nav-back-button-icon-size: 24px !default;
+$mobile-nav-back-button-icon-fill: $primary-color !default;
+$mobile-nav-back-button-bg-color: $mobile-nav-back-button-bg-color !default;
 
 .mobile-nav {
-    display: none;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -18,14 +25,47 @@ $mobile-nav-width:  90% !default;
     width: $mobile-nav-width;
     background: $mobile-nav-bg-color;
     box-shadow: $mobile-nav-box-shadow;
+    transform: translateX(-110%);
+    transition: transform $transition-time ease-out;
 }
 
 .mobile-nav--active {
-    display: block;
+    transform: translateX(0);
 }
+    /**
+     * 1. offset based on vw to ensure equal positioning on any device
+     */
+    .mobile-nav__close-button {
+        position: fixed;
+        top: $spacing-unit * 2;
+        right: -6vw; /* [1] */
+        color: $mobile-nav-close-button-color;
+        font-size: $mobile-nav-close-button-size;
+
+        &:hover {
+            color: $mobile-nav-close-button-color;
+        }
+    }
 
 
-    .mobile-nav__close-button {}
+    .mobile-nav__back-button {
+        display: block;
+        padding: ($spacing-unit * 2) ($spacing-unit * 4);
+        background-color: $mobile-nav-back-button-bg-color;
+    }
+
+        .mobile-nav__back-button-icon {
+            float: right;
+            height: $mobile-nav-back-button-icon-size;
+            width: $mobile-nav-back-button-icon-size;
+            transform: rotate(180deg);
+            fill: $mobile-nav-back-button-icon-fill;
+        }
+
+        .mobile-nav__back-button-text {
+            display: inline-block;
+            margin: 0;
+        }
 
 
     /**
@@ -37,22 +77,26 @@ $mobile-nav-width:  90% !default;
 
 
         .mobile-nav__item {
-            margin: 0 $spacing-unit;
+            border-bottom: $mobile-nav-item-border;
         }
 
-        .mobile-nav__item--has-children {
-            &:after {
-                content: '→';
+        .mobile-nav__item--has-children {}
+
+            .mobile-nav__link {
+                display: block;
+                padding: ($spacing-unit * 2) $spacing-unit ($spacing-unit * 2) ($spacing-unit * 4);
+                font-size: $mobile-nav-link-font-size;
+                text-transform: uppercase;
+                color: $mobile-nav-link-color;
             }
-        }
-
-
-            .mobile-nav__link {}
-
-            .mobile-nav__link
 
             .mobile-nav__link--selected {
-                font-weight: bold;
+                font-weight: bold; //TODO - update this to use global var from master
+            }
+
+            .mobile-nav__link--all {
+                font-weight: 300; //TODO - update this to use global var from master
+                text-transform: none;
             }
 
 

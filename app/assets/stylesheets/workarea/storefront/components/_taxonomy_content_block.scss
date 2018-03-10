@@ -7,6 +7,8 @@ $taxonomy-content-block-item-font-size: $font-size !default; // Light
 $taxonomy-content-block-link-color: $primary-nav-dropdown-links !default;
 $taxonomy-content-block-link-color-hover: $primary-nav-dropdown-links-hover !default;
 
+$taxonomy-content-block-mobile-nav-node-padding: ($spacing-unit * 2) $spacing-unit ($spacing-unit * 2) ($spacing-unit * 4);
+
 .taxonomy-content-block {
     @include respond-to($medium-breakpoint) {
         display: table;
@@ -64,6 +66,10 @@ $taxonomy-content-block-link-color-hover: $primary-nav-dropdown-links-hover !def
         .primary-nav & {
             padding: 0;
         }
+
+        .mobile-nav & {
+            display: none;
+        }
     }
 
         .taxonomy-content-block__image-link {}
@@ -73,6 +79,12 @@ $taxonomy-content-block-link-color-hover: $primary-nav-dropdown-links-hover !def
 
         .taxonomy-content-block__menu-heading {
             font-weight: 500; // Medium
+
+            .mobile-nav & {
+                display: block;
+                padding: $taxonomy-content-block-mobile-nav-node-padding;
+                font-size: $mobile-nav-link-font-size;
+            }
         }
 
         .taxonomy-content-block__menu {
@@ -83,6 +95,13 @@ $taxonomy-content-block-link-color-hover: $primary-nav-dropdown-links-hover !def
                 font-size: $taxonomy-content-block-item-font-size;
                 font-weight: $taxonomy-content-block-item-weight;
                 text-transform: none;
+
+                .mobile-nav & {
+                    display: block;
+                    padding: $taxonomy-content-block-mobile-nav-node-padding;
+                    font-size: $mobile-nav-link-font-size;
+                    color: $mobile-nav-link-color;
+                }
             }
 
                 .taxonomy-content-block__menu-link {
@@ -93,4 +112,6 @@ $taxonomy-content-block-link-color-hover: $primary-nav-dropdown-links-hover !def
                     &:hover {
                         color: $taxonomy-content-block-link-color-hover;
                     }
+
+                    .mobile-nav & {}
                 }
