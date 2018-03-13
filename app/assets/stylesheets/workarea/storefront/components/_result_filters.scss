@@ -7,6 +7,16 @@ $result-filters-selected-color:  $highlight-color !default;
 
 .result-filters {}
 
+    .result-filters__heading {
+        @extend %heading;
+        @extend %heading--4;
+        text-transform: uppercase;
+    }
+
+    .result-filters__count {
+        color: $category-count-color;
+    }
+
 .result-filters--color {}
 .result-filters--price {}
 .result-filters--category {}
@@ -14,6 +24,12 @@ $result-filters-selected-color:  $highlight-color !default;
     .result-filters__section {
         margin-bottom: $vertical-margin;
     }
+
+        .result-filters__section-heading {
+            font-size: $font-size;
+            font-weight: $font-weight-heavy;
+            text-transform: uppercase;
+        }
 
         .result-filters__group {
             @extend %list-reset;

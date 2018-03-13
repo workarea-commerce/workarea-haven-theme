@@ -1,5 +1,5 @@
 .result-filters__section.result-filters__section--price
-  %h2= t('workarea.storefront.products.filter_title', name: t('workarea.storefront.products.price'))
+  %h2.result-filters__section-heading= t('workarea.storefront.products.price')
   %ul.result-filters__group
     - facet.results.each do |range, count|
       %li.result-filters__filter{ class: facet.selected?(range) ? 'result-filters__filter--selected' : nil }

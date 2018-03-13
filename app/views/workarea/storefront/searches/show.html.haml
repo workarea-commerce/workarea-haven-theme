@@ -36,8 +36,6 @@
     - if @search.customization_content_blocks_for('above_results').present?
       .search-results__content= render_content_blocks(@search.customization_content_blocks_for('above_results'))
 
-    %h1= pluralize(@search.total, t('workarea.storefront.searches.result'))
-
     - if @search.message.present?
       = render_message 'info', @search.message
 
@@ -59,9 +57,11 @@
 
   - else
 
-    .grid.grid--auto.grid--middle
-      .grid__cell
-        = form_tag search_path, method: 'get' do
+    .grid
+      .grid__cell.grid__cell--50-at-medium.grid__cell--75-at-wide
+        %h1.result-filters__heading= pluralize(@search.total, t('workarea.storefront.searches.result'))
+      .grid__cell.grid__cell--50-at-medium.grid__cell--25-at-wide
+        = form_tag search_path, method: 'get', class: 'hidden hidden--for-small-only' do
           = facet_hidden_inputs(@search.facets)
           = hidden_field_tag :q, @search.query_string
           .property.property--responsive
@@ -77,10 +77,18 @@
         .mobile-filters
           = check_box_tag 'toggle_mobile_filters', nil, false, class: 'mobile-filters__control'
           .mobile-filters__trigger
-            = label_tag 'toggle_mobile_filters', t('workarea.storefront.products.filter_results'), class: 'button button--large', data: { mobile_filter_button: '' }
+            = label_tag 'toggle_mobile_filters', t('workarea.storefront.products.filter_results', count: @search.filters.count), class: 'button button--large', data: { mobile_filter_button: '' }
           .mobile-filters__content
             - if @search.facets.any?
               .result-filters
+                = form_tag search_path, method: 'get' do
+                  = facet_hidden_inputs(@search.facets)
+                  = hidden_field_tag :q, @search.query_string, {id: 'not_q'}
+                  .property.property--responsive
+                    = label_tag 'sort_drawer', nil, class: 'property__name' do
+                      %span.property__text= t('workarea.storefront.searches.sort_by')
+                    %span.value= select_tag :sort, options_for_select(@search.sorts, selected: @search.sort), id: 'sort_drawer', data: { form_submitting_control: '' }
+                  .hidden-if-js-enabled= button_tag t('workarea.storefront.searches.sort'), value: 'sort_products_top', class: 'button'
                 - @search.facets.each do |facet|
                   - unless @search.autoselected_filter?(facet.system_name)
                     = render "workarea/storefront/facets/#{facet.type}", facet: facet
@@ -88,7 +96,7 @@
     .pagination{ data: { analytics: product_list_analytics_data("Search Results for \"#{@search.query_string}\"").to_json, pagination: pagination_data(@search.products),  back_to_top_button: '' } }
       .grid
         - @search.products.each_with_index do |product, position|
-          .grid__cell.grid__cell--50.grid__cell--25-at-medium.grid__cell--20-at-wide{ data: { pagination_item: '' } }
+          .grid__cell.grid__cell--50.grid__cell--25-at-medium{ data: { pagination_item: '' } }
             .product-summary{ itemscope: true, itemtype: 'http://schema.org/Product', data: { search_results_product_grid_summary: { id: product.catalog_id, position: position }.to_json } }
               = render 'workarea/storefront/products/summary', product: product
       - if show_pagination?(@search.products)

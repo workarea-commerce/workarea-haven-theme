@@ -13,10 +13,26 @@
     .secondary-nav__item--has-children {}
 
 
-        .secondary-nav__link {}
+        .secondary-nav__link {
+            display: block;
+            padding: ($spacing-unit / 2) 0;
+            color: $secondary-nav-link-color;
+            font-size: $font-size;
+        }
 
         .secondary-nav__link--selected {
-            font-weight: bold;
+            color: $secondary-nav-link-selected-color;
+            font-weight: $font-weight-heavy;
+
+            &:before {
+                display: inline-block;
+                margin-right: 4px;
+                width: 2px;
+                height: 24px;
+                background-color: $secondary-nav-link-selected-color;
+                content: '';
+                vertical-align: middle;
+            }
         }
 
 

@@ -1,5 +1,5 @@
 %div{ class: "result-filters__section result-filters__section--#{facet.system_name}" }
-  %h2= t('workarea.storefront.products.filter_title', name: facet.display_name)
+  %h2.result-filters__section-heading= facet.display_name
   %ul.result-filters__group
     - facet.results.each do |value_name, count|
       %li.result-filters__filter{ class: facet.selected?(value_name) ? 'result-filters__filter--selected' : nil }
