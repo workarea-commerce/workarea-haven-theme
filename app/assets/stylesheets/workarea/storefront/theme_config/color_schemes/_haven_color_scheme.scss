@@ -82,6 +82,10 @@ $primary-nav-dropdown-links: $midnight !default;
 $primary-nav-dropdown-links-hover: $purple-blue !default;
 $mobile-nav-links: $midnight !default;
 
+// Secondary navigation colors
+$secondary-nav-link-selected-color: $purple-blue !default;
+$secondary-nav-link-color: $black !default;
+
 // Footer colors
 $footer-background-color: $midnight !default;
 $footer-color: $white !default;
@@ -134,3 +138,6 @@ $text-box-secondary-border-color: $highlighter !default;
 $valid-color: $green !default;
 $invalid-color: $red !default;
 $focus-ring-color: $primary-color !default;
+
+// Browse page colors
+$category-count-color: $gray !default;

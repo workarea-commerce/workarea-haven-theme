@@ -2,7 +2,8 @@
     #BREADCRUMBS
 \*------------------------------------*/
 
-$breadcrumb-node-separator:  '/' !default;
+$breadcrumb-node-separator: '/' !default;
+$breadcrumbs-container-max-width: 1360px !default;
 
 
 /**
@@ -10,7 +11,8 @@ $breadcrumb-node-separator:  '/' !default;
  */
 
 .breadcrumbs {
-    margin-bottom: $vertical-margin;
+    margin: 0 auto $vertical-margin;
+    max-width: $breadcrumbs-container-max-width;
 }
 
     .breadcrumbs__node-group {}

@@ -117,9 +117,13 @@
             = render_content_blocks(layout_content.content_blocks_for('header_promo'))
 
 
+      - if content_for?(:above_content)
+        = yield :above_content
+
       .page-content
 
         .content-wrapper
+
           - if content_for?(:breadcrumbs)
             .breadcrumbs{ role: 'navigation' }
               = yield :breadcrumbs
@@ -135,21 +139,20 @@
                     - else
                       = taxon.name
 
-          - content_for_page_aside = yield :page_aside
+        - content_for_page_aside = yield :page_aside
 
-          .grid.grid--rev
-            .grid__cell{ class: ('grid__cell--80-at-medium' if content_for_page_aside.present?)}
-              #main_content.page-content__main{ role: 'main' }
-                = yield
+        .grid.grid--rev
+          .grid__cell{ class: ('grid__cell--80-at-medium' if content_for_page_aside.present?)}
+            #main_content.page-content__main{ role: 'main', class: ('page-content__main--with-aside' if content_for_page_aside.present?) }
+              = yield
+              %p.visually-hidden= link_to t('workarea.storefront.layouts.top_of_page'), '#top'
+
+          - if content_for_page_aside.present?
+            .grid__cell.grid__cell--20-at-medium
+              .page-content__aside{ role: 'complementary' }
+                = content_for_page_aside
+                = append_partials('storefront.page_aside')
                 %p.visually-hidden= link_to t('workarea.storefront.layouts.top_of_page'), '#top'
-
-            - if content_for_page_aside.present?
-              .grid__cell.grid__cell--20-at-medium
-                .page-content__aside{ role: 'complementary' }
-                  = content_for_page_aside
-                  %div{ data: { recommendations_placeholder: recent_views_path(view: 'aside') } }
-                  = append_partials('storefront.page_aside')
-                  %p.visually-hidden= link_to t('workarea.storefront.layouts.top_of_page'), '#top'
 
       .page-footer{ role: 'contentinfo' }
 
