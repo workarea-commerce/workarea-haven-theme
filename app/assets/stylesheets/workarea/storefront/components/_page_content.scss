@@ -7,7 +7,12 @@ $page-content-main-with-aside-width: 1128px !default;
 
 .page-content {
     position: relative;
+    padding: 0 ($spacing-unit / 2);
     z-index: index($page-container, page-content);
+
+    @include respond-to($medium-breakpoint) {
+        padding: 0;
+    }
 }
 
 .page-content__main--with-aside {
