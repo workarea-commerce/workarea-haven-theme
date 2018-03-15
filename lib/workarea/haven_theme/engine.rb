@@ -7,6 +7,7 @@ module Workarea
 
       config.to_prepare do
         Storefront::ApplicationController.helper(Storefront::StyleGuideIconsHelper)
+        Storefront::ApplicationController.helper(Storefront::ProductRetinaImageSrcsetHelper)
       end
     end
   end

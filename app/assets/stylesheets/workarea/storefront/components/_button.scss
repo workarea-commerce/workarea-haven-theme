@@ -35,7 +35,7 @@ $button-large-font-size: 15px !default;
     padding: $button-padding;
     color: $button-color;
     font-size: $button-font-size;
-    letter-spacing: 1px;
+    letter-spacing: $font-letter-spacing;
     background: $button-bg-color;
     cursor: pointer;
 

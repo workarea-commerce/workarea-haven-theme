@@ -1,0 +1,26 @@
+require 'test_helper'
+
+# Updated assert(page.has_content?('$7.00')). Price is not displayed on a sliding scale per theme design.
+
+module Workarea
+  decorate Storefront::SearchSystemTest, with: :haven_theme do
+    def test_standard_results
+      %w(test testing tests tested).each do |term|
+        visit storefront.search_path(q: term)
+
+        save_and_open_page
+
+        assert(page.has_content?('Test Product 1'))
+        assert(page.has_content?('Test Product 2'))
+
+        assert(page.has_content?('$10.00'))
+        assert(page.has_content?('$5.00'))
+        assert(page.has_no_content?('$7.00')) #[1]
+
+        assert(page.has_content?('Medium (2)'))
+        assert(page.has_content?('Small (1)'))
+        assert(page.has_no_content?('Red'))
+      end
+    end
+  end
+end

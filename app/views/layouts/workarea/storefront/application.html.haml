@@ -143,13 +143,13 @@
         - content_for_page_aside = yield :page_aside
 
         .grid.grid--rev
-          .grid__cell{ class: ('grid__cell--80-at-medium' if content_for_page_aside.present?)}
+          .grid__cell{ class: ('grid__cell--80-at-wide' if content_for_page_aside.present?)}
             #main_content.page-content__main{ role: 'main', class: ('page-content__main--with-aside' if content_for_page_aside.present?) }
               = yield
               %p.visually-hidden= link_to t('workarea.storefront.layouts.top_of_page'), '#top'
 
           - if content_for_page_aside.present?
-            .grid__cell.grid__cell--20-at-medium
+            .grid__cell.grid__cell--20-at-wide
               .page-content__aside{ role: 'complementary' }
                 = content_for_page_aside
                 = append_partials('storefront.page_aside')

@@ -2,31 +2,51 @@
     #PRODUCT-SUMMARY
 \*------------------------------------*/
 
-$product-summary-width:                 232px !default;
-$product-summary-height:                232px !default;
-$product-summary-small-width:           200px !default;
+$product-summary-width-medium: 232px !default;
+$product-summary-height-medium: 232px !default;
+$product-summary-min-height-mobile: 265px !default;
+$product-summary-min-height-desktop: 392px !default;
+$product-summary-width: 136px !default;
+$product-summary-height: 136px !default;
+$product-summary-small-width: 200px !default;
 
-$product-summary-media-ratio:           1 !default;
+$product-summary-media-ratio: 1 !default;
 
 
 /**
  * 1. sets positioning context for any absolutely positioned product summary
  *    child elements
+ * 2. sets height for the children of product-summary
  */
 
 .product-summary {
     position: relative; /* [1] */
-    margin-bottom: $vertical-margin;
+    margin-bottom: $spacing-unit;
+    min-height: $product-summary-min-height-mobile;
     border: 2px solid $product-summary-border-color;
+
+    @include respond-to($medium-breakpoint) {
+        display: flex;
+        margin-bottom: $vertical-margin;
+        min-height: $product-summary-min-height-desktop;
+        flex-direction: column;
+    }
 }
 
 .product-summary--small {}
 
     .product-summary__media {
-        margin: 0 auto $spacing-unit;
+        margin: $spacing-unit auto;
         max-width: $product-summary-width;
         max-height: $product-summary-height;
         text-align: center;
+        flex: 1; /* [2] */
+
+        @include respond-to($small-horizontal-breakpoint) {
+            margin: ($spacing-unit * 2) auto;
+            max-width: $product-summary-width-medium;
+            max-height: $product-summary-height-medium;
+        }
 
         .product-summary--small & {
             max-width: $product-summary-small-width;
@@ -41,16 +61,44 @@ $product-summary-media-ratio:           1 !default;
 
             .product-summary__media-image {}
 
-    .product-summary__info {
-        margin: 0 auto;
-        max-width: $product-summary-width;
+    .product-summary__divider {
+        @include respond-to($medium-breakpoint) {
+            position: relative;
+            width: 100%;
+            border-top: 2px solid $product-summary-border-color;
+            flex: 1; /* [2] */
 
-        .product-summary--small & {
-            max-width: $product-summary-small-width;
+            .product-summary:hover & {
+                background: $product-summary-border-color;
+            }
         }
     }
 
-        .product-summary__name {
-            @extend %break-word;
-            margin: 0 0 $spacing-unit;
+        .product-summary__info {
+            margin: $spacing-unit auto;
+            max-width: $product-summary-width;
+
+            @include respond-to($medium-breakpoint) {
+                margin: ($spacing-unit * 2) auto;
+                max-width: $product-summary-width-medium;
+            }
+
+            .product-summary--small & {
+                max-width: $product-summary-width;
+            }
         }
+
+            .product-summary__name {
+                @extend %break-word;
+                margin: 0 0 ($spacing-unit / 2);
+            }
+
+                .product-summary__name-link {
+                    color: $product-summary-name-color;
+                    font-size: $font-size-tiny;
+                    font-weight: $font-weight-regular;
+
+                    @include respond-to($medium-breakpoint) {
+                        font-size: $font-size;
+                    }
+                }

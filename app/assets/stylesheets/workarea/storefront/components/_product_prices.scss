@@ -1,0 +1,36 @@
+/*------------------------------------*\
+    #PRODUCT-PRICES
+\*------------------------------------*/
+
+.product-prices {}
+
+.product-prices--summary {}
+
+.product-prices--details {
+    margin-bottom: $vertical-margin;
+}
+
+    .product-prices__price {
+        display: inline-block;
+        margin: 0;
+        font-size: $font-size-tiny;
+        font-weight: $font-weight-bold;
+        white-space: nowrap;
+
+        @include respond-to($medium-breakpoint) {
+            font-size: $font-size;
+        }
+
+        .product-prices--details & {
+            display: inline;
+            white-space: normal;
+        }
+
+        & + & {
+            margin-left: $spacing-unit / 2;
+        }
+    }
+
+        .product-prices__price-final {
+            color: $product-summary-final-price-color;
+        }

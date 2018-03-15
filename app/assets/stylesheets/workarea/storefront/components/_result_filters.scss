@@ -10,11 +10,21 @@ $result-filters-selected-color:  $highlight-color !default;
     .result-filters__heading {
         @extend %heading;
         @extend %heading--4;
+        padding: ($spacing-unit * 2) 0 $spacing-unit;
+        text-align: center;
         text-transform: uppercase;
+
+        @include respond-to($medium-breakpoint) {
+            text-align: left;
+        }
     }
 
     .result-filters__count {
         color: $category-count-color;
+    }
+
+    .result-filters__sort {
+        float: right;
     }
 
 .result-filters--color {}
