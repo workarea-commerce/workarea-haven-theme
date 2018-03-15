@@ -2,10 +2,11 @@
     #PRODUCT-SUMMARY
 \*------------------------------------*/
 
-$product-summary-width:                 264px !default;
+$product-summary-width:                 232px !default;
+$product-summary-height:                232px !default;
 $product-summary-small-width:           200px !default;
 
-$product-summary-media-ratio:           2 / 3 !default;
+$product-summary-media-ratio:           1 !default;
 
 
 /**
@@ -16,6 +17,7 @@ $product-summary-media-ratio:           2 / 3 !default;
 .product-summary {
     position: relative; /* [1] */
     margin-bottom: $vertical-margin;
+    border: 2px solid $product-summary-border-color;
 }
 
 .product-summary--small {}
@@ -23,6 +25,8 @@ $product-summary-media-ratio:           2 / 3 !default;
     .product-summary__media {
         margin: 0 auto $spacing-unit;
         max-width: $product-summary-width;
+        max-height: $product-summary-height;
+        text-align: center;
 
         .product-summary--small & {
             max-width: $product-summary-small-width;
@@ -40,7 +44,6 @@ $product-summary-media-ratio:           2 / 3 !default;
     .product-summary__info {
         margin: 0 auto;
         max-width: $product-summary-width;
-        text-align: center;
 
         .product-summary--small & {
             max-width: $product-summary-small-width;

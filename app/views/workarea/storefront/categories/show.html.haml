@@ -100,9 +100,9 @@
                   = render "workarea/storefront/facets/#{facet.type}", facet: facet
 
       .pagination{ data: { analytics: product_list_analytics_data(@category.name).to_json, pagination: pagination_data(@category.products), back_to_top_button: '' } }
-        .grid
+        .grid.grid--large
           - @category.products.each do |product|
-            .grid__cell.grid__cell--50.grid__cell--25-at-medium{ data: { pagination_item: '' } }
+            .grid__cell.grid__cell--50.grid__cell--33-at-medium.grid__cell--25-at-wide{ data: { pagination_item: '' } }
               .product-summary{ itemscope: true, itemtype: 'http://schema.org/Product' }
                 = render 'workarea/storefront/products/summary', product: product
         - if show_pagination?(@category.products)
