@@ -65,6 +65,11 @@ $highlight-color: $highlighter !default;
 $overlay-shadow-color: rgba($black, 0.8) !default;
 $ui-dialog-titlebar-bg-color: $background-color !default;
 
+// Breadcrumbs
+$breadcrumbs-divider-color: $light-gray !default;
+$breadcrumbs-color: $gray !default;
+$breadcrumbs-arrow-color: $medium-gray !default;
+
 // Site header colors
 $header-background-color: $white !default;
 $header-icon-color: $gray !default;

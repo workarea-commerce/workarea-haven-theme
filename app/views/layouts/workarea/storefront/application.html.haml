@@ -122,22 +122,23 @@
 
       .page-content
 
-        .content-wrapper
-
-          - if content_for?(:breadcrumbs)
-            .breadcrumbs{ role: 'navigation' }
-              = yield :breadcrumbs
-          - elsif @breadcrumbs.present?
-            .breadcrumbs{ role: 'navigation' }
-              %p.breadcrumbs__node-group
-                - @breadcrumbs.each do |taxon|
-                  %span.breadcrumbs__node{ itemprop: 'breadcrumb' }
-                    - if taxon.navigable.present?
-                      = link_to_unless @breadcrumbs.last == taxon, taxon.name, storefront_path_for(taxon)
-                    - elsif !current_page?(taxon.url)
-                      = link_to taxon.name, storefront_path_for(taxon)
+        - if content_for?(:breadcrumbs)
+          .breadcrumbs{ role: 'navigation' }
+            = yield :breadcrumbs
+        - elsif @breadcrumbs.present?
+          .breadcrumbs{ role: 'navigation' }
+            %p.breadcrumbs__node-group
+              - @breadcrumbs.each do |taxon|
+                %span.breadcrumbs__node{ itemprop: 'breadcrumb' }
+                  - if taxon.navigable.present?
+                    - if @breadcrumbs.last == taxon
+                      %span= taxon.name
                     - else
-                      = taxon.name
+                      = link_to taxon.name, storefront_path_for(taxon)
+                  - elsif !current_page?(taxon.url)
+                    = link_to taxon.name, storefront_path_for(taxon)
+                  - else
+                    %span= taxon.name
 
         - content_for_page_aside = yield :page_aside
 

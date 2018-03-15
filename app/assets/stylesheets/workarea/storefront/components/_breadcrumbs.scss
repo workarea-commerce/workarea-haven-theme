@@ -2,24 +2,48 @@
     #BREADCRUMBS
 \*------------------------------------*/
 
-$breadcrumb-node-separator: '/' !default;
+$breadcrumb-node-separator: '>' !default;
 $breadcrumbs-container-max-width: 1360px !default;
-
+$breadcrumb-node-separator-font-size: $font-size-tiny;
 
 /**
  * 1. adds visual separator for adjacent `.breadcrumbs_node`
  */
 
 .breadcrumbs {
-    margin: 0 auto $vertical-margin;
-    max-width: $breadcrumbs-container-max-width;
+    display: none;
+
+    @include respond-to($medium-breakpoint) {
+        display: block;
+        margin: 0 auto $vertical-margin;
+        border-color: $breadcrumbs-divider-color;
+        border-style: solid;
+        border-width: 1px 0;
+    }
 }
 
-    .breadcrumbs__node-group {}
+    .breadcrumbs__node-group {
+        margin: $spacing-unit auto;
+        max-width: $breadcrumbs-container-max-width;
+    }
+
+        /**
+         * TODO: Update the selector to use classes once base is patched
+        */
 
         .breadcrumbs__node {
+            a, span {
+                color: $breadcrumbs-color;
+                letter-spacing: $font-size-small;
+                text-transform: capitalize;
+                vertical-align: middle;
+            }
+
             & + &:before { /* [1] */
+                display: inline-block;
                 margin: 0 ($spacing-unit / 2);
+                color: $breadcrumbs-arrow-color;
+                font-size: $breadcrumb-node-separator-font-size;
                 content: $breadcrumb-node-separator;
             }
         }
