@@ -1,0 +1,16 @@
+- cache "#{product.cache_key}/prices", expires_in: 1.week do
+  - if product.one_price?
+    %p.product-prices__price
+      %span= render 'workarea/storefront/products/price', price: product.sell_min_price
+
+  - else
+    %p.product-prices__price
+      %s= number_to_currency product.original_min_price
+
+    - if product.on_sale?
+      %p.product-prices__price
+        %strong.product-prices__price-final= render 'workarea/storefront/products/price', price: product.sell_min_price
+
+    - else
+      %p.product-prices__price
+        %span.product-prices__price-final= render 'workarea/storefront/products/price', price: product.sell_min_price

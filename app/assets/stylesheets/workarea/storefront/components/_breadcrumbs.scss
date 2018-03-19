@@ -32,9 +32,11 @@ $breadcrumb-node-separator-font-size: $font-size-tiny;
         */
 
         .breadcrumbs__node {
+            font-size: $font-size-small;
+
             a, span {
                 color: $breadcrumbs-color;
-                letter-spacing: $font-size-small;
+                font-weight: $font-weight-regular;
                 text-transform: capitalize;
                 vertical-align: middle;
             }

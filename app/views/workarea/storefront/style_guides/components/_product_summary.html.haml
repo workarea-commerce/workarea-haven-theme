@@ -5,15 +5,21 @@
   %p Displays a compact product summary for use within #{link_to_style_guide('components', 'product_grid', true)} on product browse and search results pages.
 
   .style-guide__example-block
-    .product-summary
-      %p.product-summary__media
-        = link_to('#', class: 'product-summary__media-link') do
-          = image_tag('workarea/storefront/style_guide_product.jpg', alt: 'Product Name', class: 'product-summary__media-image')
-      .product-summary__info
-        %p.product-summary__name= link_to('Product Name', '#')
-        .product-prices.product-prices--summary
-          %p.product-prices__price
-            %span= number_to_currency(109.99)
+    .grid
+      .grid__cell--50.grid__cell--33-at-medium.grid__cell--25-at-wide
+        .product-summary
+          %p.product-summary__media
+            = link_to('#', class: 'product-summary__media-link') do
+              %picture
+                %source{ srcset: '/../assets/workarea/storefront/style_guide_product.jpg, /../assets/workarea/storefront/style_guide_product_retina.jpg 2x', media: "(min-width: #{Workarea.config.storefront_break_points[:small_horizontal]}px)" }
+                %source{ srcset: '/../assets/workarea/storefront/style_guide_product.jpg, /../assets/workarea/storefront/style_guide_product_retina.jpg 2x'}
+                = image_tag('workarea/storefront/style_guide_product.jpg', alt: 'Product Name', class: 'product-summary__media-image')
+          .product-summary__divider
+            .product-summary__info
+              %p.product-summary__name= link_to('Product Name', '#', class: 'product-summary__name-link')
+              .product-prices.product-prices--summary
+                %p.product-prices__price
+                  %span= number_to_currency(109.99)
 
   = append_partials('storefront.style_guide_product_summary')
 
@@ -24,12 +30,18 @@
   %p Displays a compact #{link_to_style_guide('components', 'product_summary', true)} for independent use. Reduces the overall size of the component, by shrinking and/or reducing its contents. Frequently used within #{link_to_style_guide('components', 'product_grid__small_summaries', true)} components.
 
   .style-guide__example-block
-    .product-summary.product-summary--small
-      %p.product-summary__media
-        = link_to('#', class: 'product-summary__media-link') do
-          = image_tag('workarea/storefront/style_guide_product.jpg', alt: 'Product Name', class: 'product-summary__media-image')
-      .product-summary__info
-        %p.product-summary__name= link_to('Product Name', '#')
-        .product-prices.product-prices--summary
-          %p.product-prices__price
-            %span= number_to_currency(109.99)
+    .grid
+      .grid__cell--50.grid__cell--33-at-medium.grid__cell--25-at-wide
+        .product-summary.product-summary--small
+          %p.product-summary__media
+            = link_to('#', class: 'product-summary__media-link') do
+              %picture
+                %source{ srcset: '/../assets/workarea/storefront/style_guide_product.jpg, /../assets/workarea/storefront/style_guide_product_retina.jpg 2x', media: "(min-width: #{Workarea.config.storefront_break_points[:small_horizontal]}px)" }
+                %source{ srcset: '/../assets/workarea/storefront/style_guide_product.jpg, /../assets/workarea/storefront/style_guide_product_retina.jpg 2x'}
+                = image_tag('workarea/storefront/style_guide_product.jpg', alt: 'Product Name', class: 'product-summary__media-image')
+          .product-summary__divider
+            .product-summary__info
+              %p.product-summary__name= link_to('Product Name', '#', class: 'product-summary__name-link')
+              .product-prices.product-prices--summary
+                %p.product-prices__price
+                  %span= number_to_currency(109.99)

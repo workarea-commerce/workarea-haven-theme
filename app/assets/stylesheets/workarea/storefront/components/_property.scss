@@ -46,7 +46,7 @@
             @include respond-to($medium-breakpoint) {
                 display: table-cell;
                 padding: $spacing-unit; /* [2] */
-                vertical-align: top;
+                vertical-align: middle;
             }
         }
     }

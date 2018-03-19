@@ -8,6 +8,7 @@ $blockquote-color:     $heading-color;
 p, blockquote,
 pre {
     margin-bottom: $vertical-margin;
+    letter-spacing: $font-letter-spacing;
 }
 
 blockquote {

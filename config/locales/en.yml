@@ -5,7 +5,7 @@ en:
         email_signup: Email Sign Up
         terms_and_conditions: Terms and Conditions
       products:
-        filter_results: Refine Results %{count}
+        filter_results: Refine Results (%{count})
       searches:
         open: Open search
       users:

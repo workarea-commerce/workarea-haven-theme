@@ -1,0 +1,16 @@
+require 'test_helper'
+
+# Updated assert(page.has_content?('$15.00')). Price is not displayed on a sliding scale per theme design.
+
+module Workarea
+  decorate Storefront::ProductsSystemTest, with: :haven_theme do
+    def test_showing_a_product
+      visit storefront.product_path(@product)
+      save_and_open_page
+      assert(page.has_content?('Integration Product'))
+      assert(page.has_content?('$10.00'))
+      assert(page.has_no_content?('$15.00')) #[1]
+      assert(page.has_select?('sku', options: ['Select options', 'SKU1', 'SKU2', 'SKU3']))
+    end
+  end
+end
