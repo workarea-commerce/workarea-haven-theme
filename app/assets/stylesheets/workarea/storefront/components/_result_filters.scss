@@ -148,3 +148,7 @@ $result-filters-truncation-limit: 8 !default;
             content: '-'
         }
     }
+
+    .applied-filters {
+        background-color: $result-filters-applied-background-color;
+    }
