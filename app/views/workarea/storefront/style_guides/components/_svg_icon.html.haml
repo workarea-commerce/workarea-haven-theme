@@ -11,6 +11,19 @@
           %p= File.basename(path, '.svg')
 
 
+#svg-icon--tiny.style-guide__subsection
+
+  %h3= link_to_style_guide('components', 'svg_icon__tiny')
+
+  %p should resize the icon to a tiny size:
+  .grid.grid--auto.grid--huge
+    - style_guide_icons.each do |path|
+      .grid__cell
+        .align-center
+          = inline_svg path, title: File.basename(path), class: 'svg-icon svg-icon--tiny'
+          %p= File.basename(path, '.svg')
+
+
 #svg-icon--small.style-guide__subsection
 
   %h3= link_to_style_guide('components', 'svg_icon__small')

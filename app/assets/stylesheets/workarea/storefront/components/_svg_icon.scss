@@ -3,6 +3,7 @@
 \*------------------------------------*/
 
 $svg-icon-size:              $font-size !default;
+$svg-icon-tiny-size:         8px !default;
 $svg-icon-small-size:        $font-size-small !default;
 $svg-icon-large-size:        $font-size + 4px !default;
 $svg-icon-extra-large-size:  $font-size * 2 !default;
@@ -28,6 +29,12 @@ $svg-icon-theme-header-color-hover: $header-icon-color-hover !default;
 /**
  * Size Modifiers
  */
+
+.svg-icon--tiny {
+    width: $svg-icon-tiny-size;
+    height: $svg-icon-tiny-size;
+}
+
 .svg-icon--small {
     width: $svg-icon-small-size;
     height: $svg-icon-small-size;

@@ -27,7 +27,6 @@ $product-summary-media-ratio: 1 !default;
 
     @include respond-to($medium-breakpoint) {
         display: flex;
-        margin-bottom: $vertical-margin;
         min-height: $product-summary-min-height-desktop;
         flex-direction: column;
     }

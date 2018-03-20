@@ -11,6 +11,19 @@ $mobile-filters-action-max-width: 276px !default;
     max-width: $mobile-filters-action-max-width;
 }
 
+    .mobile-filters__heading {
+        @extend %heading;
+        @extend %heading--4;
+        margin: 0;
+        padding: ($spacing-unit * 2) 0;
+        color: $mobile-filters-heading-color;
+        text-transform: uppercase;
+    }
+
+    .mobile-filters__sort {
+        background: $mobile-filters-sort-background-color;
+    }
+
     .mobile-filters__control {
         display: none;
     }
@@ -24,6 +37,10 @@ $mobile-filters-action-max-width: 276px !default;
         display: none;
 
         .mobile-filters__control:checked ~ & {
+            display: block;
+        }
+
+        .mobile-filters-nav & {
             display: block;
         }
     }

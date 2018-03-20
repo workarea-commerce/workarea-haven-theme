@@ -1,0 +1,127 @@
+require 'test_helper'
+
+module Workarea
+  decorate Storefront::CategoriesSystemTest, with: :haven_theme do
+    def test_basic_category_setup
+      category = create_category
+      categorize_products(category)
+
+      visit storefront.category_path(category)
+
+      assert(page.has_content?('Integration Product 1'))
+      assert(page.has_content?('Integration Product 2'))
+
+      find(".result-filters__attribute", :text => "Price").click
+      assert(page.has_content?('$10.00'))
+      assert(page.has_content?('$5.00'))
+
+      find(".result-filters__attribute", :text => "Size").click
+
+      assert(page.has_content?('Medium 3'))
+      assert(page.has_content?('Small 2'))
+    end
+
+    def test_filtering_products
+      category = create_category
+      categorize_products(category)
+
+      visit storefront.category_path(category)
+
+      Capybara.match = :first
+
+      find(".result-filters__attribute", :text => "Price").click
+      click_link '$10.00 - $19.99 1'
+
+      assert(page.has_content?('Integration Product 1'))
+      assert(page.has_no_content?('Integration Product 2'))
+
+      find(".result-filters__attribute", :text => "Price").click
+      click_link "$10.00 - $19.99"
+
+      assert(page.has_content?('Integration Product 1'))
+      assert(page.has_content?('Integration Product 2'))
+
+      click_link 'Green 1'
+
+      assert(page.has_content?('Integration Product 1'))
+      assert(page.has_no_content?('Integration Product 2'))
+
+      click_link "Green"
+
+      assert(page.has_content?('Integration Product 1'))
+      assert(page.has_content?('Integration Product 2'))
+
+      # Mobile Filters Nav
+      resize_window_to('small')
+      visit storefront.category_path(category)
+
+      find('[data-mobile-filter-button]').click
+      assert(page.has_selector?('.mobile-filters-nav', visible: true))
+
+      within '.mobile-filters-nav' do
+        find(".result-filters__attribute", :text => "Price").click
+        assert(page.has_content?('$10.00 - $19.99 1'))
+      end
+
+      find('body').trigger('click')
+      assert(page.has_selector?('.mobile-filters-nav', visible: false))
+
+      find('[data-mobile-filter-button]').click
+      assert(page.has_selector?('.mobile-filters-nav', visible: true))
+
+      within '.mobile-filters-nav' do
+        click_button t('workarea.storefront.products.filter_nav_close_button')
+      end
+
+      assert(page.has_selector?('.mobile-filters-nav', visible: false))
+    end
+
+    def test_filtering_products_and_sorting
+      category = create_category
+      categorize_products(category)
+
+      visit storefront.category_path(category)
+
+      find(".result-filters__attribute", :text => "Price").click
+      Capybara.match = :first
+      click_link '$10.00 - $19.99 1'
+
+      assert(page.has_content?('Integration Product 1'))
+      assert(page.has_no_content?('Integration Product 2'))
+
+      select(t('workarea.sorts.price_asc'), from: 'sort_top')
+
+      assert(page.has_content?('Integration Product 1'))
+      assert(page.has_no_content?('Integration Product 2'))
+    end
+
+    def test_custom_filters
+      category = create_category
+      categorize_products(category)
+
+      visit storefront.category_path(category)
+
+      assert(page.has_content?('Size'))
+
+      find(".result-filters__attribute", :text => "Size").click
+      assert(page.has_content?('Medium 3'))
+
+      find(".result-filters__attribute", :text => "Price").click
+      assert(page.has_content?('$10.00 - $19.99 1'))
+
+      category.terms_facets = ['Color']
+      category.range_facets = { 'price' => [{ 'to' => 10 }, { 'from' => 10 }] }
+      category.save!
+
+      clear_driver_cache
+      visit storefront.category_path(category)
+
+      assert(page.has_no_content?('Size'))
+      assert(page.has_no_content?('Medium 3'))
+
+      find(".result-filters__attribute", :text => "Price").click
+      assert(page.has_content?('Under $10.00 2'))
+      assert(page.has_content?('Over $10.00 1'))
+    end
+  end
+end

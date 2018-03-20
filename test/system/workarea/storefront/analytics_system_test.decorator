@@ -1,0 +1,72 @@
+require 'test_helper'
+
+module Workarea
+  decorate Storefront::AnalyticsSystemTest, with: :haven_theme do
+    def test_announcing_category_view_event
+      visit storefront.category_path(@category)
+
+      click_link 'Green'
+
+      find(".result-filters__attribute", :text => "Size").click
+      click_link 'Medium'
+
+      events = find_analytics_events(for_event: 'categoryView')
+
+      assert_equal(1, events.count)
+      payload = events.first['arguments'].first
+
+      assert_equal('Test Category', payload['name'])
+      assert_equal('featured', payload['sort'])
+      assert_equal(1, payload['page'])
+      assert_equal(['Green'], payload['filters']['color'])
+      assert_equal(['Medium'], payload['filters']['size'])
+      assert_page_view
+    end
+
+
+    def test_announcing_search_results_view_event
+      analytics = create_analytics_search(id: 'test')
+      assert_equal(0, analytics.searches.this_week)
+
+      visit storefront.search_path(q: 'test')
+      wait_for_xhr
+      assert_equal(1, analytics.reload.searches.this_week)
+
+      events = find_analytics_events(for_event: 'searchResultsView')
+      assert_equal(1, events.count)
+      payload = events.first['arguments'].first
+
+      assert_equal('test', payload['terms'])
+      assert_equal('relevance', payload['sort'])
+      assert_equal(1, payload['page'])
+      assert_equal({}, payload['filters'])
+      assert_equal(2, payload['totalResults'])
+      assert_page_view
+
+      click_link 'Green'
+
+      events = find_analytics_events(for_event: 'searchResultsView')
+      assert_equal(1, events.count)
+      payload = events.first['arguments'].first
+
+      assert_equal(['Green'], payload['filters']['color'])
+      assert_equal(1, payload['totalResults'])
+      assert_page_view
+    end
+
+    def test_filter_tracking
+      analytics = create_analytics_filter(id: 'color_green')
+      assert_equal(0, analytics.reload.clicks.this_week)
+
+      visit storefront.category_path(@category)
+      click_link 'Green'
+      wait_for_xhr
+      assert_equal(1, analytics.reload.clicks.this_week)
+
+      visit storefront.search_path(q: 'test')
+      click_link 'Green'
+      wait_for_xhr
+      assert_equal(2, analytics.reload.clicks.this_week)
+    end
+  end
+end

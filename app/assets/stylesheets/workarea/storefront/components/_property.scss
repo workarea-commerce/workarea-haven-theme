@@ -51,7 +51,16 @@
         }
     }
 
-        .property__text {}
+        .property__text {
+            letter-spacing: $font-letter-spacing;
+
+            .mobile-filters-nav & {
+                display: block;
+                padding: $spacing-unit 0;
+                font-weight: $font-weight-heavy;
+                text-transform: uppercase;
+            }
+        }
 
         .property__requirement {}
 

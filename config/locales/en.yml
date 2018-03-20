@@ -1,12 +1,16 @@
 en:
   workarea:
     storefront:
+      filters:
+        view_more: View More
+        view_less: View Less
       layouts:
         email_signup: Email Sign Up
         navigate_back: Navigate back
         terms_and_conditions: Terms and Conditions
       products:
         filter_results: Refine Results (%{count})
+        refine_results: Refine Results
       searches:
         open: Open search
       users:

@@ -22,7 +22,7 @@
 - content_for :page_aside do
   .page-content__aside-filters
     - if @search.facets.any?
-      .result-filters
+      .result-filters{ data: { filter_view_more: '', accordion: { presetConfig: 'alternativeAccordionOptions' }.to_json } }
         - @search.facets.each do |facet|
           - unless @search.autoselected_filter?(facet.system_name)
             = render "workarea/storefront/facets/#{facet.type}", facet: facet
@@ -80,16 +80,18 @@
           .mobile-filters__trigger
             = label_tag 'toggle_mobile_filters', t('workarea.storefront.products.filter_results', count: @search.filters.count), class: 'button button--full', data: { mobile_filter_button: '' }
           .mobile-filters__content
+            .mobile-filters__sort
             - if @search.facets.any?
-              .result-filters
-                = form_tag search_path, method: 'get' do
-                  = facet_hidden_inputs(@search.facets)
-                  = hidden_field_tag :q, @search.query_string, {id: 'not_q'}
-                  .property.property--responsive
-                    = label_tag 'sort_drawer', nil, class: 'property__name' do
-                      %span.property__text= t('workarea.storefront.searches.sort_by')
-                    %span.value= select_tag :sort, options_for_select(@search.sorts, selected: @search.sort), id: 'sort_drawer', data: { form_submitting_control: '' }
-                  .hidden-if-js-enabled= button_tag t('workarea.storefront.searches.sort'), value: 'sort_products_top', class: 'button'
+              %h2.mobile-filters__heading= t('workarea.storefront.products.refine_results')
+              = form_tag search_path, method: 'get' do
+                = facet_hidden_inputs(@search.facets)
+                = hidden_field_tag :q, @search.query_string, {id: 'not_q'}
+                .property.property--responsive
+                  = label_tag 'sort_drawer', nil, class: 'property__name' do
+                    %span.property__text= t('workarea.storefront.searches.sort_by')
+                  %span.value= select_tag :sort, options_for_select(@search.sorts, selected: @search.sort), id: 'sort_drawer', data: { form_submitting_control: '' }
+                .hidden-if-js-enabled= button_tag t('workarea.storefront.searches.sort'), value: 'sort_products_top', class: 'button'
+              .result-filters{ data: { filter_view_more: '', accordion: { presetConfig: 'alternativeAccordionOptions' }.to_json } }
                 - @search.facets.each do |facet|
                   - unless @search.autoselected_filter?(facet.system_name)
                     = render "workarea/storefront/facets/#{facet.type}", facet: facet
