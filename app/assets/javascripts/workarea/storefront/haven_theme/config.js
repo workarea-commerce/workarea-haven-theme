@@ -8,6 +8,4 @@
            icons: false
         }
     };
-
-    WORKAREA.config.maximumFilterCount = 7
 })();

@@ -25,6 +25,11 @@ module Workarea
   )
 
   Plugin.append_javascripts(
+    "storefront.config",
+    "workarea/storefront/haven_theme/config"
+  )
+
+  Plugin.append_javascripts(
     "storefront.templates",
     "workarea/storefront/templates/user_welcome"
   )
