@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6,
 .heading {
     display: block;
     margin-bottom: $spacing-unit * 2;
-    font-weight: $font-weight-bold;
+    font-weight: $font-weight-medium;
     letter-spacing: $heading-letter-spacing;
 
     .content-block & {

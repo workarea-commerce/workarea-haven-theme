@@ -91,11 +91,11 @@ $mobile-nav-back-button-bg-color: $mobile-nav-back-button-bg-color !default;
             }
 
             .mobile-nav__link--selected {
-                font-weight: bold; //TODO - update this to use global var from master
+                font-weight: $font-weight-medium;
             }
 
             .mobile-nav__link--all {
-                font-weight: 300; //TODO - update this to use global var from master
+                font-weight: $font-weight-light;
                 text-transform: none;
             }
 

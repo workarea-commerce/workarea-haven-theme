@@ -2,7 +2,7 @@
     #TAXONOMY-CONTENT-BLOCK
 \*------------------------------------*/
 
-$taxonomy-content-block-item-weight: 300 !default; // Light
+$taxonomy-content-block-item-weight: $font-weight-light !default; // Light
 $taxonomy-content-block-item-font-size: $font-size !default; // Light
 $taxonomy-content-block-link-color: $primary-nav-dropdown-links !default;
 $taxonomy-content-block-link-color-hover: $primary-nav-dropdown-links-hover !default;
@@ -78,7 +78,7 @@ $taxonomy-content-block-mobile-nav-node-padding: ($spacing-unit * 2) $spacing-un
 
 
         .taxonomy-content-block__menu-heading {
-            font-weight: 500; // Medium
+            font-weight: $font-weight-medium; // Medium
 
             .mobile-nav & {
                 display: block;

@@ -14,7 +14,7 @@
         display: inline-block;
         margin: 0;
         font-size: $font-size-tiny;
-        font-weight: $font-weight-bold;
+        font-weight: $font-weight-medium;
         white-space: nowrap;
 
         @include respond-to($medium-breakpoint) {
