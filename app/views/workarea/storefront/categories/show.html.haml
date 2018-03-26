@@ -45,16 +45,10 @@
   - cache "#{@category.cache_key}/aside", expires_in: 1.hour do
     = left_navigation if @category.show_navigation?
 
+    - if @category.has_filters?
+      .applied-filters
+        .result-filters= render "workarea/storefront/facets/applied", facets: @category.facets
     - if @category.facets.any?
-      .test
-        - @category.facets.each do |facet|
-          - facet.results.each do |value_name, count|
-            - if facet.selected?
-              %li.result-filters__filter{ class: facet.selected?(value_name) ? 'result-filters__filter--selected' : nil }
-                = link_to facet_path(facet, value_name), rel: 'nofollow', class: 'result-filters__filter-link' do
-                  %span.result-filters__filter-text= value_name
-                  - if facet.selected?(value_name)
-                    %span.result-filters__filter-remove= inline_svg('workarea/storefront/icons/x.svg', class: 'svg-icon svg-icon--tiny svg-icon--primary-color', title: t('workarea.storefront.products.remove_filter'))
       .result-filters{ data: { filter_view_more: '', accordion: { presetConfig: 'alternativeAccordionOptions' }.to_json } }
         - @category.facets.each do |facet|
           = render "workarea/storefront/facets/#{facet.type}", facet: facet
@@ -97,15 +91,20 @@
               = label_tag 'toggle_mobile_filters', t('workarea.storefront.products.filter_results', count: @category.filters.count), class: 'button button--full', data: { mobile_filter_button: '' }
             .mobile-filters__content
               .mobile-filters__sort
-                %h2.mobile-filters__heading= t('workarea.storefront.products.refine_results')
-                = form_tag request.path, method: :get do
-                  = facet_hidden_inputs(@category.facets)
-                  .property.property--responsive
-                    = label_tag 'sort_drawer', nil, class: 'property__name' do
-                      %span.property__text= t('workarea.storefront.searches.sort_by')
-                    %span.value= select_tag :sort, options_for_select(@category.sorts, selected: @category.sort), id: 'sort_drawer', data: { form_submitting_control: '' }
-                  .hidden-if-js-enabled
-                    = button_tag t('workarea.storefront.searches.sort'), value: 'sort_products_top', class: 'button'
+                .mobile-filters__wrapper
+                  %h2.mobile-filters__heading= t('workarea.storefront.products.refine_results')
+                  = form_tag request.path, method: :get do
+                    = facet_hidden_inputs(@category.facets)
+                    .property.property--responsive
+                      = label_tag 'sort_drawer', nil, class: 'property__name' do
+                        %span.property__text= t('workarea.storefront.searches.sort_by')
+                      %span.value= select_tag :sort, options_for_select(@category.sorts, selected: @category.sort), id: 'sort_drawer', data: { form_submitting_control: '' }
+                    .hidden-if-js-enabled
+                      = button_tag t('workarea.storefront.searches.sort'), value: 'sort_products_top', class: 'button'
+              - if @category.has_filters?
+                .applied-filters
+                  .mobile-filters__wrapper
+                    .result-filters= render "workarea/storefront/facets/applied", facets: @category.facets
               .result-filters{ data: { filter_view_more: '', accordion: { presetConfig: 'alternativeAccordionOptions' }.to_json } }
                 - @category.facets.each do |facet|
                   = render "workarea/storefront/facets/#{facet.type}", facet: facet

@@ -4,6 +4,7 @@
 \*------------------------------------*/
 
 $mobile-filters-action-max-width: 276px !default;
+$mobile-filters-max-width: 75% !default;
 
 
 .mobile-filters {
@@ -15,13 +16,18 @@ $mobile-filters-action-max-width: 276px !default;
         @extend %heading;
         @extend %heading--4;
         margin: 0;
-        padding: ($spacing-unit * 2) 0;
         color: $mobile-filters-heading-color;
         text-transform: uppercase;
     }
 
     .mobile-filters__sort {
+        padding: ($spacing-unit * 4) 0;
         background: $mobile-filters-sort-background-color;
+    }
+
+    .mobile-filters__wrapper {
+        margin: 0 auto;
+        max-width: $mobile-filters-max-width;
     }
 
     .mobile-filters__control {

@@ -1,0 +1,7 @@
+%h2.result-filters__attribute= t('workarea.storefront.filters.applied')
+- applied_facets(facets).each do |facet, value|
+  %ul.result-filters__group
+    %li.result-filters__filter.result-filters__filter--selected
+      = link_to facet_path(facet, value), rel: 'nofollow', class: 'result-filters__filter-link' do
+        %span.result-filters__filter-text= value
+        %span.result-filters__filter-remove= inline_svg('workarea/storefront/icons/x.svg', class: 'svg-icon svg-icon--tiny svg-icon--blue', title: t('workarea.storefront.products.remove_filter'))

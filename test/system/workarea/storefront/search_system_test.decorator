@@ -73,7 +73,7 @@ module Workarea
       assert(page.has_selector?('.mobile-filters-nav', visible: true))
 
       within '.mobile-filters-nav' do
-        click_button t('workarea.storefront.products.filter_nav_close_button')
+        find(".mobile-filters-nav__close-action", :text => "Close").click
       end
 
       assert(page.has_selector?('.mobile-filters-nav', visible: false))

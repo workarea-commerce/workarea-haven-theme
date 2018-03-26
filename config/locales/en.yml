@@ -2,6 +2,7 @@ en:
   workarea:
     storefront:
       filters:
+        applied: Applied Filters
         view_more: View More
         view_less: View Less
       layouts:
