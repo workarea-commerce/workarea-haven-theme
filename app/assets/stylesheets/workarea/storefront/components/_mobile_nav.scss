@@ -55,9 +55,9 @@ $mobile-nav-back-button-bg-color: $mobile-nav-back-button-bg-color !default;
     }
 
         .mobile-nav__back-button-icon {
-            float: right;
-            height: $mobile-nav-back-button-icon-size;
             width: $mobile-nav-back-button-icon-size;
+            height: $mobile-nav-back-button-icon-size;
+            float: right;
             transform: rotate(180deg);
             fill: $mobile-nav-back-button-icon-fill;
         }
@@ -85,9 +85,9 @@ $mobile-nav-back-button-bg-color: $mobile-nav-back-button-bg-color !default;
             .mobile-nav__link {
                 display: block;
                 padding: ($spacing-unit * 2) $spacing-unit ($spacing-unit * 2) ($spacing-unit * 4);
+                color: $mobile-nav-link-color;
                 font-size: $mobile-nav-link-font-size;
                 text-transform: uppercase;
-                color: $mobile-nav-link-color;
             }
 
             .mobile-nav__link--selected {

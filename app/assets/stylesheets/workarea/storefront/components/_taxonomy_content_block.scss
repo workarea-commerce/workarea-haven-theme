@@ -99,8 +99,8 @@ $taxonomy-content-block-mobile-nav-node-padding: ($spacing-unit * 2) $spacing-un
                 .mobile-nav & {
                     display: block;
                     padding: $taxonomy-content-block-mobile-nav-node-padding;
-                    font-size: $mobile-nav-link-font-size;
                     color: $mobile-nav-link-color;
+                    font-size: $mobile-nav-link-font-size;
                 }
             }
 
