@@ -23,7 +23,7 @@
 
         .secondary-nav__link--selected {
             color: $secondary-nav-link-selected-color;
-            font-weight: $font-weight-heavy;
+            font-weight: $font-weight-bold;
 
             &:before {
                 display: inline-block;
