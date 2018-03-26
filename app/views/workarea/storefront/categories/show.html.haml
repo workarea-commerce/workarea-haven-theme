@@ -46,6 +46,15 @@
     = left_navigation if @category.show_navigation?
 
     - if @category.facets.any?
+      .test
+        - @category.facets.each do |facet|
+          - facet.results.each do |value_name, count|
+            - if facet.selected?
+              %li.result-filters__filter{ class: facet.selected?(value_name) ? 'result-filters__filter--selected' : nil }
+                = link_to facet_path(facet, value_name), rel: 'nofollow', class: 'result-filters__filter-link' do
+                  %span.result-filters__filter-text= value_name
+                  - if facet.selected?(value_name)
+                    %span.result-filters__filter-remove= inline_svg('workarea/storefront/icons/x.svg', class: 'svg-icon svg-icon--tiny svg-icon--primary-color', title: t('workarea.storefront.products.remove_filter'))
       .result-filters{ data: { filter_view_more: '', accordion: { presetConfig: 'alternativeAccordionOptions' }.to_json } }
         - @category.facets.each do |facet|
           = render "workarea/storefront/facets/#{facet.type}", facet: facet
