@@ -26,11 +26,14 @@ $mobile-nav-back-button-bg-color: $mobile-nav-back-button-bg-color !default;
     background: $mobile-nav-bg-color;
     box-shadow: $mobile-nav-box-shadow;
     transform: translateX(-110%);
-    transition: transform $transition-time ease-out;
+    visibility: hidden;
+    transition: visibility 0s linear $transition-time, transform $transition-time ease-out 0s;
 }
 
 .mobile-nav--active {
+    visibility: visible;
     transform: translateX(0);
+    transition: visibility 0s linear 0s, transform $transition-time ease-out $transition-time;
 }
     /**
      * 1. offset based on vw to ensure equal positioning on any device

@@ -8,8 +8,6 @@ module Workarea
       %w(test testing tests tested).each do |term|
         visit storefront.search_path(q: term)
 
-        save_and_open_page
-
         assert(page.has_content?('Test Product 1'))
         assert(page.has_content?('Test Product 2'))
 
