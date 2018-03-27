@@ -20,6 +20,7 @@ $heading-letter-spacing-wide: 3px !default;
 $heading-letter-spacing-narrow: 1px !default;
 
 $heading-content-font-family: $secondary-font-family !default;
+$heading-content-font-family-footer: $font-family !default;
 
 /**
  * Defines common heading element styles.
@@ -34,6 +35,12 @@ h1, h2, h3, h4, h5, h6,
 
     .content-block & {
         font-family: $heading-content-font-family;
+    }
+
+    .page-footer,
+    .page-footer .content-block & {
+        font-family: $heading-content-font-family-footer;
+        text-transform: uppercase;
     }
 }
 

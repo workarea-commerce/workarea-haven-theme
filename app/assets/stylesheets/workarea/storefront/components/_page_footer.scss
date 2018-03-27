@@ -31,6 +31,11 @@ $page-footer-border: 1px solid $footer-border-color !default;
         p { margin: 0; } /* [1] */
     }
 
+        .page-footer__heading {
+            @extend %heading;
+            @extend %heading--5;
+        }
+
     .page-footer__help {
         @extend %list-reset;
     }
