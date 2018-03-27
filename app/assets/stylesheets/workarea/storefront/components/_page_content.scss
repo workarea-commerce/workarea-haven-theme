@@ -2,42 +2,37 @@
     #PAGE-CONTENT
 \*------------------------------------*/
 
-$page-aside-max-width: 214px !default;
-$page-content-main-with-aside-width: 1128px !default;
+$page-content-max-width: 1410px !default;
 
 .page-content {
     position: relative;
     z-index: index($page-container, page-content);
+    margin: 0 auto;
     padding: 0 ($spacing-unit / 2);
+    max-width: $page-content-max-width;
 
     @include respond-to($medium-breakpoint) {
         padding: 0;
     }
 }
 
-.page-content__main--with-aside {
-    max-width: $page-content-main-with-aside-width;
-}
+    .page-content__main {}
 
-.page-content--checkout {}
-
-    .page-content__aside {
-        margin: 0 auto;
-        max-width: $page-aside-max-width;
-    }
-
-    .page-content__aside-filters {
-        display: none;
+    .page-content__main--with-aside {
 
         @include respond-to($wide-breakpoint) {
-            display: block;
+            display: table-cell;
+            width: 80%;
         }
     }
 
-        .page-content__aside-heading {
-            font-size: $font-size;
-            font-weight: $font-weight-bold;
-            text-transform: uppercase;
-        }
+    .page-content--checkout {}
 
-    .page-content__main {}
+        .page-content__aside {
+            display: none;
+
+            @include respond-to($wide-breakpoint) {
+                display: table-cell;
+                background-color: $page-aside-background-color;
+            }
+        }

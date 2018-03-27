@@ -2,10 +2,20 @@
     #RESULT-FILTERS
 \*------------------------------------*/
 
-$result-filters-selected-color:  $highlight-color !default;
+$result-filters-width-selected: 32px !default;
+$result-filters-height-selected: 32px !default;
+$result-filters-max-width:  196px !default;
+$result-filters-truncation-limit: 8 !default;
 
 
-.result-filters {}
+.result-filters {
+    padding: ($spacing-unit * 2) 0;
+
+    @include respond-to($wide-breakpoint) {
+        margin: 0 auto;
+        max-width: $result-filters-max-width;
+    }
+}
 
     .result-filters__heading {
         @extend %heading;
@@ -16,6 +26,25 @@ $result-filters-selected-color:  $highlight-color !default;
 
         @include respond-to($medium-breakpoint) {
             text-align: left;
+        }
+    }
+
+    .result-filters__attribute {
+        @extend %heading;
+        @extend %heading--6;
+        display: flex;
+        margin: 0;
+        padding: ($spacing-unit * 2) $spacing-unit;
+        text-transform: uppercase;
+        align-items: center;
+
+        &:after {
+            margin-left: auto;
+            width: 16px;
+            height: 3px;
+            background-color: $result-filters-icon-background-color;
+            content: '';
+            vertical-align: middle;
         }
     }
 
@@ -32,21 +61,90 @@ $result-filters-selected-color:  $highlight-color !default;
 .result-filters--category {}
 
     .result-filters__section {
-        margin-bottom: $vertical-margin;
-    }
+        display: none;
 
-        .result-filters__section-heading {
-            font-size: $font-size;
-            font-weight: $font-weight-bold;
-            text-transform: uppercase;
+        &:nth-of-type(1) {
+            display: block;
         }
+
+        .no-js & {
+            display: block;
+        }
+    }
 
         .result-filters__group {
             @extend %list-reset;
+            padding: ($spacing-unit / 2) 0 0;
         }
 
-            .result-filters__filter {}
+            .result-filters__filter {
+                padding: $spacing-unit;
+            }
+
+                .result-filters__filter-link {
+                    display: flex;
+                    color: $result-filters-text-color;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .result-filters__filter--selected & {
+                        padding: 0 $spacing-unit;
+                        height: $result-filters-width-selected;
+                        background: $result-filters-selected-color;
+                        border-radius: 16px;
+                    }
+                }
+
+                    .result-filters__filter-text {
+                        font-size: $font-size;
+                    }
+
+                    .result-filters__filter-count {
+                        width: 26px;
+                        height: 16px;
+                        color: $result-filters-count-text-color;
+                        font-size: $font-size-tiny;
+                        line-height: 1.5;
+                        text-align: center;
+                        background-color: $result-filters-count-background-color;
+                        border-radius: 8px;
+                    }
+
+                    .result-filters__filter-remove {
+                        width: 26px;
+                        text-align: center;
+                    }
 
             .result-filters__filter--selected {
-                background: $result-filters-selected-color;
+                padding: $spacing-unit 0;
             }
+
+    .result-filters__filter:nth-child(n+#{$result-filters-truncation-limit}) {
+
+        .result-filters__group--truncated &{
+            display: none;
+
+            .no-js & {
+                display: block;
+            }
+        }
+    }
+
+    .result-filters__view-more-button {
+        margin: 0;
+        padding: $spacing-unit;
+        color: $result-filters-view-more-text-color;
+
+        &:after {
+            display: inline-block;
+            padding-left: $spacing-unit;
+            vertical-align: middle;
+            content: '+';
+        }
+    }
+
+    .result-filters__view-more-button--expanded {
+        &:after {
+            content: '-'
+        }
+    }

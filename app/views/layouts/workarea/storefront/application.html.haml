@@ -120,40 +120,36 @@
       - if content_for?(:above_content)
         = yield :above_content
 
-      .page-content
-
-        - if content_for?(:breadcrumbs)
-          .breadcrumbs{ role: 'navigation' }
-            = yield :breadcrumbs
-        - elsif @breadcrumbs.present?
-          .breadcrumbs{ role: 'navigation' }
-            %p.breadcrumbs__node-group
-              - @breadcrumbs.each do |taxon|
-                %span.breadcrumbs__node{ itemprop: 'breadcrumb' }
-                  - if taxon.navigable.present?
-                    - if @breadcrumbs.last == taxon
-                      %span= taxon.name
-                    - else
-                      = link_to taxon.name, storefront_path_for(taxon)
-                  - elsif !current_page?(taxon.url)
-                    = link_to taxon.name, storefront_path_for(taxon)
-                  - else
+      - if content_for?(:breadcrumbs)
+        .breadcrumbs{ role: 'navigation' }
+          = yield :breadcrumbs
+      - elsif @breadcrumbs.present?
+        .breadcrumbs{ role: 'navigation' }
+          %p.breadcrumbs__node-group
+            - @breadcrumbs.each do |taxon|
+              %span.breadcrumbs__node{ itemprop: 'breadcrumb' }
+                - if taxon.navigable.present?
+                  - if @breadcrumbs.last == taxon
                     %span= taxon.name
+                  - else
+                    = link_to taxon.name, storefront_path_for(taxon)
+                - elsif !current_page?(taxon.url)
+                  = link_to taxon.name, storefront_path_for(taxon)
+                - else
+                  %span= taxon.name
+
+      .page-content
 
         - content_for_page_aside = yield :page_aside
 
-        .grid.grid--rev
-          .grid__cell{ class: ('grid__cell--80-at-wide' if content_for_page_aside.present?)}
-            #main_content.page-content__main{ role: 'main', class: ('page-content__main--with-aside' if content_for_page_aside.present?) }
-              = yield
-              %p.visually-hidden= link_to t('workarea.storefront.layouts.top_of_page'), '#top'
-
-          - if content_for_page_aside.present?
-            .grid__cell.grid__cell--20-at-wide
-              .page-content__aside{ role: 'complementary' }
-                = content_for_page_aside
-                = append_partials('storefront.page_aside')
-                %p.visually-hidden= link_to t('workarea.storefront.layouts.top_of_page'), '#top'
+        - if content_for_page_aside.present?
+          .page-content__aside{ role: 'complementary' }
+            = content_for_page_aside
+            = append_partials('storefront.page_aside')
+            %p.visually-hidden= link_to t('workarea.storefront.layouts.top_of_page'), '#top'
+        #main_content.page-content__main{ role: 'main', class: ('page-content__main--with-aside' if content_for_page_aside.present?) }
+          = yield
+          %p.visually-hidden= link_to t('workarea.storefront.layouts.top_of_page'), '#top'
 
       .page-footer{ role: 'contentinfo' }
 

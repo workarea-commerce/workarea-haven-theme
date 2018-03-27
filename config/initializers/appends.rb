@@ -13,7 +13,13 @@ module Workarea
   )
 
   Plugin.append_javascripts(
+    "storefront.config",
+    "workarea/storefront/haven_theme/config"
+  )
+
+  Plugin.append_javascripts(
     "storefront.modules",
+    "workarea/storefront/modules/filter_view_more",
     "workarea/storefront/modules/toggle_class_button",
     "workarea/storefront/modules/user_welcome_placeholder"
   )

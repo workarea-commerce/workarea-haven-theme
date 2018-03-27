@@ -1,24 +1,26 @@
 - cache "#{taxon.cache_key}/left_navigation", expires_in: 1.day do
-  %h2.page-content__aside-heading= taxon.name
-  %ul.secondary-nav{ role: 'navigation' }
-    - taxon.children.each do |taxon|
-      - if taxon.active?
-        %li.secondary-nav__item{ class: ('secondary-nav__item--has-children' if taxon.has_children?) }
-          - if taxon.placeholder?
-            = taxon.name
-          - elsif link_selected?(taxon)
-            %span.secondary-nav__link.secondary-nav__link--selected= taxon.name
-          - else
-            = link_to taxon.name, storefront_path_for(taxon), class: (link_selected?(taxon) ? 'secondary-nav__link secondary-nav__link--selected' : 'secondary-nav__link')
+  .secondary-nav
+    .secondary-nav__wrapper
+      %h2.secondary-nav__heading= taxon.name
+      %ul.secondary-nav__items{ role: 'navigation' }
+        - taxon.children.each do |taxon|
+          - if taxon.active?
+            %li.secondary-nav__item{ class: ('secondary-nav__item--has-children' if taxon.has_children?) }
+              - if taxon.placeholder?
+                = taxon.name
+              - elsif link_selected?(taxon)
+                %span.secondary-nav__link.secondary-nav__link--selected= taxon.name
+              - else
+                = link_to taxon.name, storefront_path_for(taxon), class: (link_selected?(taxon) ? 'secondary-nav__link secondary-nav__link--selected' : 'secondary-nav__link')
 
-          - if taxon.has_children? && link_selected?(taxon)
-            %ul.secondary-nav__children
-              - taxon.children.each do |taxon|
-                - if taxon.active?
-                  %li.secondary-nav__item{ class: ('secondary-nav__item--has-children' if taxon.has_children?) }
-                    - if taxon.placeholder?
-                      = taxon.name
-                    - elsif link_selected?(taxon)
-                      %span.secondary-nav__link.secondary-nav__link--selected= taxon.name
-                    - else
-                      = link_to taxon.name, storefront_path_for(taxon), class: (link_selected?(taxon) ? 'secondary-nav__link secondary-nav__link--selected' : 'secondary-nav__link')
+              - if taxon.has_children? && link_selected?(taxon)
+                %ul.secondary-nav__children
+                  - taxon.children.each do |taxon|
+                    - if taxon.active?
+                      %li.secondary-nav__item{ class: ('secondary-nav__item--has-children' if taxon.has_children?) }
+                        - if taxon.placeholder?
+                          = taxon.name
+                        - elsif link_selected?(taxon)
+                          %span.secondary-nav__link.secondary-nav__link--selected= taxon.name
+                        - else
+                          = link_to taxon.name, storefront_path_for(taxon), class: (link_selected?(taxon) ? 'secondary-nav__link secondary-nav__link--selected' : 'secondary-nav__link')

@@ -2,39 +2,57 @@
     #SECONDARY-NAV
 \*------------------------------------*/
 
+$secondary-nav-max-width:  196px !default;
+
 .secondary-nav {
-    @extend %list-reset;
-    margin-bottom: $vertical-margin;
+    padding: ($spacing-unit * 2) 0;
+    background: $white;
 }
 
+    .secondary-nav__wrapper {
+        margin: 0 auto;
+        max-width: $secondary-nav-max-width;
+    }
 
-    .secondary-nav__item {}
-
-    .secondary-nav__item--has-children {}
-
-
-        .secondary-nav__link {
-            display: block;
-            padding: ($spacing-unit / 2) 0;
-            color: $secondary-nav-link-color;
-            font-size: $font-size;
-            font-weight: $font-weight-regular;
+        .secondary-nav__heading {
+            @extend %heading;
+            @extend %heading--5;
+            margin: 0;
+            padding: $spacing-unit;
+            text-transform: uppercase;
         }
 
-        .secondary-nav__link--selected {
-            color: $secondary-nav-link-selected-color;
-            font-weight: $font-weight-bold;
+        .secondary-nav__items {
+            @extend %list-reset;
+        }
 
-            &:before {
-                display: inline-block;
-                margin-right: 4px;
-                width: 2px;
-                height: 24px;
-                background-color: $secondary-nav-link-selected-color;
-                content: '';
-                vertical-align: middle;
+        .secondary-nav__item {}
+
+        .secondary-nav__item--has-children {}
+
+
+            .secondary-nav__link {
+                display: block;
+                padding: $spacing-unit;
+                color: $secondary-nav-link-color;
+                font-size: $font-size;
+                font-weight: $font-weight-regular;
             }
-        }
+
+            .secondary-nav__link--selected {
+                color: $secondary-nav-link-selected-color;
+                font-weight: $font-weight-heavy;
+
+                &:before {
+                    display: inline-block;
+                    margin-right: 4px;
+                    width: 2px;
+                    height: 24px;
+                    background-color: $secondary-nav-link-selected-color;
+                    content: '';
+                    vertical-align: middle;
+                }
+            }
 
 
-        .secondary-nav__children {}
+            .secondary-nav__children {}

@@ -11,14 +11,86 @@ module Workarea
         assert(page.has_content?('Test Product 1'))
         assert(page.has_content?('Test Product 2'))
 
+        find(".result-filters__attribute", :text => "Price").click
         assert(page.has_content?('$10.00'))
         assert(page.has_content?('$5.00'))
         assert(page.has_no_content?('$7.00')) #[1]
 
-        assert(page.has_content?('Medium (2)'))
-        assert(page.has_content?('Small (1)'))
+        find(".result-filters__attribute", :text => "Size").click
+        assert(page.has_content?('Medium 2'))
+        find(".result-filters__attribute", :text => "Size").click
+        assert(page.has_content?('Small 1'))
         assert(page.has_no_content?('Red'))
       end
+    end
+
+    def test_filtering_results
+      visit storefront.search_path(q: 'test')
+
+      Capybara.match = :first
+      click_link 'First 1'
+
+      # Primary nav filtering
+      assert(page.has_content?('Test Product 1'))
+      assert(page.has_no_content?('Test Product 2'))
+      click_link "First #{t('workarea.storefront.products.remove_filter')}"
+
+      # Price filtering
+      find(".result-filters__attribute", :text => "Price").click
+      click_link '$10.00 - $19.99 1'
+      assert(page.has_content?('Test Product 1'))
+      assert(page.has_no_content?('Test Product 2'))
+      find(".result-filters__attribute", :text => "Price").click
+      click_link "$10.00 - $19.99"
+
+      # Config filtering
+      find(".result-filters__attribute", :text => "Size").click
+      click_link 'Small 1'
+      assert(page.has_content?('Test Product 2'))
+      assert(page.has_no_content?('Test Product 1'))
+      find(".result-filters__attribute", :text => "Size").click
+      click_link "Small"
+
+      assert(page.has_content?('Test Product 1'))
+      assert(page.has_content?('Test Product 2'))
+
+      # Mobile Filters Nav
+      resize_window_to('small')
+      visit storefront.search_path(q: 'test')
+
+      find('[data-mobile-filter-button]').click
+      assert(page.has_selector?('.mobile-filters-nav', visible: true))
+
+      within '.mobile-filters-nav' do
+        find(".result-filters__attribute", :text => "Price").click
+        assert(page.has_content?('$10.00 - $19.99 1'))
+      end
+
+      find('body').trigger('click')
+      assert(page.has_selector?('.mobile-filters-nav', visible: false))
+
+      find('[data-mobile-filter-button]').click
+      assert(page.has_selector?('.mobile-filters-nav', visible: true))
+
+      within '.mobile-filters-nav' do
+        click_button t('workarea.storefront.products.filter_nav_close_button')
+      end
+
+      assert(page.has_selector?('.mobile-filters-nav', visible: false))
+    end
+
+    def test_filter_and_sorting_results
+      visit storefront.search_path(q: 'test')
+
+      Capybara.match = :first
+      click_link 'First 1'
+      assert(page.has_content?('Test Product 1'))
+      assert(page.has_no_content?('Test Product 2'))
+
+      select(t('workarea.sorts.price_asc'), from: 'sort_top')
+
+      assert(page.has_content?('Test Product 1'))
+      assert(page.has_no_content?('Test Product 2'))
     end
   end
 end
