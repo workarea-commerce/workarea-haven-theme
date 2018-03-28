@@ -5,6 +5,7 @@ en:
         applied: Applied Filters
         view_more: View More
         view_less: View Less
+        clear: Clear All
       layouts:
         email_signup: Email Sign Up
         navigate_back: Navigate back
