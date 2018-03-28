@@ -50,10 +50,6 @@ $button-large-font-size: 15px !default;
         color: $button-disabled-color;
         background-color: $button-disabled-background-color;
     }
-
-    .result-filters & {
-        margin: ($spacing-unit * 2) 0 0 $spacing-unit;
-    }
 }
 
 .button--secondary {

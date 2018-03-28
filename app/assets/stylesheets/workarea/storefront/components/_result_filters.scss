@@ -91,6 +91,10 @@ $result-filters-truncation-limit: 8 !default;
         .result-filters__group {
             @extend %list-reset;
             padding: ($spacing-unit / 2) 0 0;
+
+            .applied-filters & {
+                margin-bottom: $vertical-margin;
+            }
         }
 
             .result-filters__filter {
