@@ -48,6 +48,10 @@ $mobile-nav-back-button-bg-color: $mobile-nav-back-button-bg-color !default;
         &:hover {
             color: $mobile-nav-close-button-color;
         }
+
+        .primary-nav & {
+            display: none;
+        }
     }
 
 
@@ -90,6 +94,10 @@ $mobile-nav-back-button-bg-color: $mobile-nav-back-button-bg-color !default;
                 color: $mobile-nav-link-color;
                 font-size: $mobile-nav-link-font-size;
                 text-transform: uppercase;
+
+                .primary-nav & {
+                    display: none;
+                }
             }
 
             .mobile-nav__link--selected {
