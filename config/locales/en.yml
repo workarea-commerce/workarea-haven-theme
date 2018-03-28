@@ -14,6 +14,7 @@ en:
         filter_results: Refine Results (%{count})
         refine_results: Refine Results
       searches:
+        heading: What can we help you find?
         open: Open search
       users:
         your_orders: Your orders

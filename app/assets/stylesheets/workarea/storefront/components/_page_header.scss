@@ -194,27 +194,6 @@ $page-header-breakpoint: $small-horizontal-breakpoint !default;
         }
     }
 
-    .page-header__search {
-        text-align: center;
-
-        @include respond-to($medium-breakpoint) {
-            text-align: right;
-        }
-    }
-
-        .page-header__search-form {}
-
-            .page-header__search-value {
-                display: inline-block;
-                vertical-align: top;
-            }
-
-            .page-header__search-button {
-                display: inline-block;
-                vertical-align: top;
-            }
-
-
     /**
      * 1. make sure no content block can inject `p` tags that will break layout.
      */

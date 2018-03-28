@@ -68,5 +68,26 @@ module Workarea
       wait_for_xhr
       assert_equal(2, analytics.reload.clicks.this_week)
     end
+
+    def test_announcing_product_click_event_search_type_ahead
+      @products.each { |p| Search::Storefront::Product.new(p).save }
+      visit storefront.root_path
+      disable_dom_events
+
+      find('.page-header__button--search').click
+      page.evaluate_script('$("#storefront_search").categorizedAutocomplete("search", "test");')
+
+      find('li', text: 'Test Product 1').click
+
+      events = find_analytics_events(for_event: 'productClick')
+      assert_equal(1, events.count)
+      payload = events.first['arguments'].first
+
+      assert_equal('PROD1', payload['id'])
+      assert_equal('Test Product 1', payload['name'])
+      assert_equal('SKU1', payload['sku'])
+      assert_equal(false, payload['sale'])
+      assert_equal(10, payload['price'])
+    end
   end
 end

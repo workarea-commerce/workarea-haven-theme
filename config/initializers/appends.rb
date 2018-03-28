@@ -9,7 +9,8 @@ module Workarea
     "workarea/storefront/components/account_menu",
     "workarea/storefront/components/color_box",
     "workarea/storefront/components/email_signup_view",
-    "workarea/storefront/components/overlay"
+    "workarea/storefront/components/overlay",
+    "workarea/storefront/components/search"
   )
 
   Plugin.append_javascripts(
@@ -21,7 +22,8 @@ module Workarea
     "storefront.modules",
     "workarea/storefront/modules/filter_view_more",
     "workarea/storefront/modules/toggle_class_button",
-    "workarea/storefront/modules/user_welcome_placeholder"
+    "workarea/storefront/modules/user_welcome_placeholder",
+    "workarea/storefront/modules/search_buttons"
   )
 
   Plugin.append_javascripts(
