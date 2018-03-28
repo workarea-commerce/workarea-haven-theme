@@ -78,7 +78,7 @@ $header-icon-color-cart: $white !default;
 $utility-nav-background-color: $gray !default;
 
 // Site layout colors
-$page-aside-background-color:  $medium-gray !default;
+$page-aside-background-color:  $gray !default;
 
 // Navigation colors
 $primary-nav-background-color: $background-color !default;
@@ -162,11 +162,12 @@ $result-filters-text-color: $black !default;
 $result-filters-count-background-color: $white !default;
 $result-filters-count-text-color: $medium-gray !default;
 $result-filters-selected-color: $white !default;
-$result-filters-icon-background-color: $black !default
+$result-filters-icon-background-color: $black !default;
 $result-filters-view-more-text-color: $purple-blue !default;
+$result-filters-applied-background-color: $medium-gray !default;
 
 // Mobile Filters
 $mobile-filters-heading-color: $purple-blue !default;
 $mobile-filters-overlay-color: $black-alpha-50 !default;
-$mobile-filters-background-color: $medium-gray !default;
+$mobile-filters-background-color: $gray !default;
 $mobile-filters-sort-background-color: $white !default;

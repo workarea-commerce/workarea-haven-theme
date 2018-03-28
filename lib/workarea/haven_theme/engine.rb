@@ -6,6 +6,7 @@ module Workarea
       isolate_namespace Workarea::HavenTheme
 
       config.to_prepare do
+        Storefront::ApplicationController.helper(Storefront::AppliedFacetsHelper)
         Storefront::ApplicationController.helper(Storefront::StyleGuideIconsHelper)
         Storefront::ApplicationController.helper(Storefront::ProductRetinaImageSrcsetHelper)
       end

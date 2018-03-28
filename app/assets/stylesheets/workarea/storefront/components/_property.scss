@@ -4,6 +4,10 @@
 
 .property {
     margin-bottom: $vertical-margin;
+
+    .mobile-filters__content & {
+        margin: 0;
+    }
 }
 
 .property--responsive {
@@ -57,7 +61,7 @@
             .mobile-filters-nav & {
                 display: block;
                 padding: $spacing-unit 0;
-                font-weight: $font-weight-heavy;
+                font-weight: $font-weight-medium;
                 text-transform: uppercase;
             }
         }

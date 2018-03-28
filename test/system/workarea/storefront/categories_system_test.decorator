@@ -70,7 +70,7 @@ module Workarea
       assert(page.has_selector?('.mobile-filters-nav', visible: true))
 
       within '.mobile-filters-nav' do
-        click_button t('workarea.storefront.products.filter_nav_close_button')
+        find(".mobile-filters-nav__close-action", :text => "Close").click
       end
 
       assert(page.has_selector?('.mobile-filters-nav', visible: false))
@@ -106,6 +106,7 @@ module Workarea
       find(".result-filters__attribute", :text => "Size").click
       assert(page.has_content?('Medium 3'))
 
+      sleep 1.second
       find(".result-filters__attribute", :text => "Price").click
       assert(page.has_content?('$10.00 - $19.99 1'))
 
