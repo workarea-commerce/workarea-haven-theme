@@ -19,9 +19,9 @@ $page-content-max-width: 1410px !default;
     .page-content__main {}
 
     .page-content__main--with-aside {
-
         @include respond-to($wide-breakpoint) {
             display: table-cell;
+            padding-left: $spacing-unit * 2;
             width: 80%;
         }
     }

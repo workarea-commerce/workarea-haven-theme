@@ -62,7 +62,6 @@ $product-summary-media-ratio: 1 !default;
 
     .product-summary__divider {
         @include respond-to($medium-breakpoint) {
-            position: relative;
             width: 100%;
             border-top: 2px solid $product-summary-border-color;
             flex: 1; /* [2] */

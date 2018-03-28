@@ -3,33 +3,36 @@ Workarea Haven Theme
 
 Haven Theme plugin for the Workarea platform.
 
-
 Browser Support
 --------------------------------------------------------------------------------
 
 Based on current browser usage statistics Haven Theme supports evergreen browsers and IE11+ see the browserlist file for specifics.
+
 * Note that Haven Theme uses flexbox, if you need to support IE10 or lower significant changes to styles may be requried
 * Haven theme uses position: sticky; for the sticky header. This does not work in IE11 but has been deemed as progressive enhancement. A polyfill can be used to make the header stick in IE11 if necessary.
 
 Notable features
 --------------------------------------------------------------------------------
+
 * Sticky header - note this feature is not supported by IE11
 
 Optimal Image Sizes
 --------------------------------------------------------------------------------
+
 | Image Type| Optimum size | Note |
 |----------|--------|-------|
 | Logo | 140 x 37px ||
 | Product Images | 720px x 960px | This size does not account for use of image-zoom, it is recommended to *at least* double this size if your client is likely to want zoom functionality. |
-
 
 Out of the box plugin support
 --------------------------------------------------------------------------------
 The following workarea plugins are supported by OneTheme, and are dependencies of the plugin.
 
 * Product Quickview
-* Clothing
 * Package Products
+* Styled selects
+* Accordions
+* Badges
 
 Theme Configuration
 --------------------------------------------------------------------------------

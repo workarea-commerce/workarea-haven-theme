@@ -171,3 +171,11 @@ $mobile-filters-heading-color: $purple-blue !default;
 $mobile-filters-overlay-color: $black-alpha-50 !default;
 $mobile-filters-background-color: $gray !default;
 $mobile-filters-sort-background-color: $white !default;
+
+// Badge Colors
+$badge-color: $white;
+$badge-background-color: $primary-color;
+// TODO - discuss these colors with Kelly. They are not in the styleguide.
+$badge-new-background-color: #fdb635;
+$badge-sale-background-color: #e50461;
+$badge-best-seller-background-color: #21c0af;
