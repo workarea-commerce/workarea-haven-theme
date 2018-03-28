@@ -47,7 +47,9 @@
 
     - if @category.has_filters?
       .applied-filters
-        .result-filters= render "workarea/storefront/facets/applied", facets: @category.facets
+        .result-filters
+          = render "workarea/storefront/facets/applied", facets: @category.facets
+          = link_to t('workarea.storefront.filters.clear'), category_path(@category), class: 'button button--small'
     - if @category.facets.any?
       .result-filters{ data: { filter_view_more: '', accordion: { presetConfig: 'alternativeAccordionOptions' }.to_json } }
         - @category.facets.each do |facet|
@@ -104,7 +106,9 @@
               - if @category.has_filters?
                 .applied-filters
                   .mobile-filters__wrapper
-                    .result-filters= render "workarea/storefront/facets/applied", facets: @category.facets
+                    .result-filters
+                      = render "workarea/storefront/facets/applied", facets: @category.facets
+                      = link_to t('workarea.storefront.filters.clear'), category_path(@category), class: 'button button--small'
               .result-filters{ data: { filter_view_more: '', accordion: { presetConfig: 'alternativeAccordionOptions' }.to_json } }
                 - @category.facets.each do |facet|
                   = render "workarea/storefront/facets/#{facet.type}", facet: facet

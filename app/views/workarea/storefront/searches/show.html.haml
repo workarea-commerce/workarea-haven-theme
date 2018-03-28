@@ -22,7 +22,9 @@
 - content_for :page_aside do
   - if @search.has_filters?
     .applied-filters
-      .result-filters= render "workarea/storefront/facets/applied", facets: @search.facets
+      .result-filters
+        = render "workarea/storefront/facets/applied", facets: @search.facets
+        = link_to t('workarea.storefront.filters.clear'), search_path(q: @search.query_string), class: 'button button--small'
   - if @search.facets.any?
     .result-filters{ data: { filter_view_more: '', accordion: { presetConfig: 'alternativeAccordionOptions' }.to_json } }
       - @search.facets.each do |facet|
@@ -95,7 +97,9 @@
                   .hidden-if-js-enabled= button_tag t('workarea.storefront.searches.sort'), value: 'sort_products_top', class: 'button'
             - if @search.has_filters?
               .applied-filters
-                .result-filters= render "workarea/storefront/facets/applied", facets: @search.facets
+                .result-filters
+                  = render "workarea/storefront/facets/applied", facets: @search.facets
+                  = link_to t('workarea.storefront.filters.clear'), search_path(q: @search.query_string), class: 'button button--small'
             .result-filters{ data: { filter_view_more: '', accordion: { presetConfig: 'alternativeAccordionOptions' }.to_json } }
               - @search.facets.each do |facet|
                 - unless @search.autoselected_filter?(facet.system_name)
