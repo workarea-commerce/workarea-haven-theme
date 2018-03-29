@@ -18,8 +18,8 @@ gem "bundler-audit", require: false
 gem "workarea", source: "https://gems.weblinc.com"
 group :test do
   gem "workarea-testing", source: "https://gems.weblinc.com"
-  # TODO: remove git reference once workarea-theme is released
-  gem "workarea-theme", git: "ssh://git@stash.tools.weblinc.com:7999/wp/workarea-theme.git", branch: :master
+  gem "workarea-theme"
+  gem "workarea-badges", git: "ssh://git@stash.tools.weblinc.com:7999/wp/workarea-badges.git", branch: :master
 end
 
 # TODO: Remove this before releasing
