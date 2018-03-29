@@ -22,4 +22,5 @@ Gem::Specification.new do |s|
   s.add_dependency "workarea-clothing"
   s.add_dependency "workarea-styled_selects"
   s.add_dependency "workarea-accordions"
+  s.add_dependency "workarea-badges"
 end

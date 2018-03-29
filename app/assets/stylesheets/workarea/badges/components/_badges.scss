@@ -1,0 +1,65 @@
+/*------------------------------------*\
+    #BADGES
+\*------------------------------------*/
+
+$badges-top-offset: 0 !default;
+$badges-left-offset: $spacing-unit * -0.5 !default;
+
+$badge-color: $badge-color !default;
+$badge-background-color: $badge-background-color !default;
+$badge-new-background-color: $badge-new-background-color !default;
+$badge-sale-background-color: $badge-sale-background-color !default;
+$badge-best-seller-background-color: $badge-best-seller-background-color !default;
+
+$badge-shadow-size: $spacing-unit / 2;
+$badge-shadow-darken-amount: 20%;
+
+.badges {
+    position: absolute;
+    top: $badges-top-offset;
+    left: $badges-left-offset;
+}
+
+    .badges__badge {
+        position: relative;
+        margin-top: $spacing-unit;
+        padding: ($spacing-unit / 2) ($spacing-unit * 2);
+        color: $badge-color;
+        background-color: $badge-background-color;
+
+        &:before {
+            display: block;
+            position: absolute;
+            bottom: $badges-left-offset;
+            left: 0;
+            border-top: $badge-shadow-size solid darken($badge-background-color, $badge-shadow-darken-amount);
+            border-left: $badge-shadow-size solid $transparent;
+            content: '';
+        }
+    }
+
+    .badges__badge--new {
+        background-color: $badge-new-background-color;
+
+        &:before {
+            border-top-color: darken($badge-new-background-color, $badge-shadow-darken-amount);
+        }
+    }
+
+    .badges__badge--sale {
+        background-color: $badge-sale-background-color;
+
+        &:before {
+            border-top-color: darken($badge-sale-background-color, $badge-shadow-darken-amount);
+        }
+    }
+
+    .badges__badge--best-seller {
+        background-color: $badge-best-seller-background-color;
+
+        &:before {
+            border-top-color: darken($badge-best-seller-background-color, $badge-shadow-darken-amount);
+        }
+    }
+
+        .badges__badge-text {}
