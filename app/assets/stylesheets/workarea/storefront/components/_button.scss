@@ -13,6 +13,9 @@ $button-secondary-border-color: $button-secondary-border-color !default;
 $button-secondary-border-color-disabled: $button-secondary-border-color-disabled !default;
 $button-secondary-border-width: 3px !default;
 
+$button-secondary-color-alt: $button-secondary-color-alt !default;
+$button-secondary-border-color-alt: $button-secondary-border-color-alt !default;
+
 $button-disabled-color: $button-disabled-color !default;
 $button-disabled-background-color: $button-disabled-background-color !default;
 
@@ -75,6 +78,18 @@ $button-large-font-size: 15px !default;
     }
 }
 
+// This modifier must always be used along with .button--secondary
+.button--secondary-alt {
+    color: $button-secondary-color-alt;
+    border-color: $button-secondary-border-color-alt;
+
+    &:focus,
+    &:hover {
+        color: $button-secondary-color-alt;
+        background-color: $button-secondary-bg-color;
+    }
+}
+
 .button--small {
     padding: $button-small-padding;
     font-size: $button-small-font-size;
@@ -93,16 +108,24 @@ $button-large-font-size: 15px !default;
 
     .button__icon {
         display: inline-block;
+        height: $button-font-size;
+        width: $button-font-size * 2;
         vertical-align: middle;
         transform: translateX($spacing-unit);
         fill: $button-color;
 
         .button--large & {
+            height: $button-large-font-size;
+            width: $button-large-font-size * 2;
             transform: translateX($spacing-unit * 2);
         }
 
         .button--secondary & {
             fill: $button-secondary-color;
+        }
+
+        .button--secondary-alt & {
+            fill: $button-secondary-color-alt;
         }
     }
 

@@ -1,0 +1,11 @@
+module Workarea
+  decorate Storefront::ContentBlocks::ProductGridCellViewModel, with: :haven_theme do
+    def button_icon?
+      data[:link_style].include? "button--secondary"
+    end
+
+    def content_styles
+      "color: #{model.data[:text_color]};"
+    end
+  end
+end

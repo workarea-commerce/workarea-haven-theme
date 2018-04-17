@@ -1,0 +1,23 @@
+.grid__cell{ class: view_model.cell_width_class, style: view_model.cell_styles, data: { pagination_item: '' } }
+  .product-grid-cell-content-block{ data: { match_product_summary_height: { rows: height }.to_json } }
+    - if heading.present? || link_text.present?
+      .product-grid-cell-content-block__content{ style: view_model.content_styles }
+        - if heading.present?
+          %h3.product-grid-cell-content-block__heading= heading
+        - if sub_heading.present?
+          %h5.product-grid-cell-content-block__sub-heading= sub_heading
+        - if link_text.present? && view_model.button_icon?
+          %p.product-grid-cell-content-block__action
+            = link_to link.present? ? link : '#', class: link_style do
+              = link_text
+              = inline_svg('workarea/storefront/icons/long_arrow.svg', class: 'button__icon button__icon--shift-right')
+
+        - elsif link_text.present?
+          %p.product-grid-cell-content-block__action= link_to link_text, link.present? ? link : '#', class: link_style
+
+    .product-grid-cell-content-block__media-container.product-grid-cell-content-block__media-container--maintain-aspect-ratio
+      - if link.present?
+        = link_to link, class: 'product-grid-cell-content-block__image-link' do
+          = image_tag view_model.image.url, alt: "image alt", class: 'product-grid-cell-content-block__image'
+      - else
+        = image_tag view_model.image.url, alt: "image alt", class: 'product-grid-cell-content-block__image'

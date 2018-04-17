@@ -24,4 +24,5 @@ Gem::Specification.new do |s|
   s.add_dependency "workarea-accordions"
   s.add_dependency "workarea-product_badges"
   s.add_dependency "workarea-content_search"
+  s.add_dependency "workarea-product_grid_content"
 end

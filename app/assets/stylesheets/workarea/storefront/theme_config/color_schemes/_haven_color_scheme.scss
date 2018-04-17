@@ -78,7 +78,7 @@ $header-icon-color-cart: $white !default;
 $utility-nav-background-color: $gray !default;
 
 // Site layout colors
-$page-aside-background-color:  $gray !default;
+$page-aside-background-color:  $light-gray !default;
 
 // Navigation colors
 $primary-nav-background-color: $background-color !default;
@@ -136,10 +136,13 @@ $button-background-color-hover: $primary-color-dark !default;
 $button-border-color: $transparent !default;
 
 $button-secondary-color: $midnight !default;
-$button-secondary-background-color: $white !default;
+$button-secondary-background-color: $transparent !default;
 $button-secondary-background-color-hover: $white !default;
 $button-secondary-border-color: $primary-color !default;
 $button-secondary-border-color-disabled: $white !default;
+
+$button-secondary-color-alt: $white !default;
+$button-secondary-border-color-alt: $white !default;
 
 $button-disabled-color: $white !default;
 $button-disabled-background-color: $medium-gray !default;
