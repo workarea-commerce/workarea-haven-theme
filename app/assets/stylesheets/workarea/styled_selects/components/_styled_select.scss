@@ -3,14 +3,14 @@
 \*------------------------------------*/
 
 $select-menu-color: $input-color !default;
-$select-menu-bg-color: $input-background-color !default;
+$select-menu-bg-color: $select-menu-bg-color !default;
 $select-menu-border-color: $input-border-color !default;
 $select-menu-border-radius: 2px !default;
 
 $select-menu-arrow-size: 10px !default;
 $select-menu-arrow-width: $spacing-unit * 5 !default;
 $select-menu-arrow-color: $input-color !default;
-$select-menu-arrow-bg-color: $input-background-color !default;
+$select-menu-arrow-bg-color: $select-menu-bg-color !default;
 
 
 /**
@@ -20,16 +20,13 @@ $select-menu-arrow-bg-color: $input-background-color !default;
     position: relative; /* [1] */
 
     &:before {
+        @include svg('icons/arrow_down.svg', $select-menu-arrow-size);
         @include center($to: vertical);
-        right: 1px;
+        right: $spacing-unit;
         bottom: 0;
         padding-top: $spacing-unit / 2;
-        width: $select-menu-arrow-width;
         color: $select-menu-arrow-color;
-        font-size: $select-menu-arrow-size;
-        text-align: center;
-        background-color: $select-menu-arrow-bg-color;
-        content: '▼';
+        content: '';
         pointer-events: none;
     }
 

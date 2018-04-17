@@ -9,6 +9,8 @@ module Workarea
         Storefront::ApplicationController.helper(Storefront::AppliedFacetsHelper)
         Storefront::ApplicationController.helper(Storefront::StyleGuideIconsHelper)
         Storefront::ApplicationController.helper(Storefront::ProductRetinaImageSrcsetHelper)
+        # TODO - Remove this helper once v3.3 is released, this method was added to base.
+        Storefront::ApplicationController.helper(Storefront::OptionalFieldHelper)
       end
     end
   end
