@@ -1,0 +1,82 @@
+!!!
+/
+  Platform: Workarea Ecommerce
+  Web:      http://workarea.com
+  Email:    sales@workarea.com
+  Phone:    215-925-1800
+%html{ lang: 'en' }
+  %head
+    %meta{ charset: 'utf-8' }
+    %title= page_title
+    %meta{ name: 'robots', content: 'noodp' }
+    = csrf_meta_tags
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
+    %meta{ property: 'locale', content: I18n.locale }
+    %meta{ property: 'environment', content: Rails.env }
+    = alternate_locales_tags
+
+    :css
+      @-ms-viewport { width: device-width; }
+      @viewport { width: device-width; }
+    = yield :head
+    = stylesheet_link_tag 'workarea/storefront/application', media: 'all'
+    = yield :css
+
+    = append_partials('storefront.document_head')
+    = javascript_include_tag 'workarea/storefront/head'
+
+  %body{ itemscope: true, itemtype: 'http://schema.org/WebPage' }
+    = append_partials('storefront.body_top')
+
+    %ul.accessibility-nav.visually-hidden
+      %li= link_to t('workarea.storefront.layouts.accessibility_info'), accessibility_path
+      %li= link_to t('workarea.storefront.layouts.main_content'), '#main_content', accesskey: 'S'
+
+    .page-messages
+      = flash_messages if flash.present?
+
+    #top.page-container
+
+      .page-header.page-header--checkout{ role: 'banner' }
+        .page-header__main
+          = link_to image_tag('workarea/storefront/logo.png', alt: t('workarea.storefront.layouts.logo'), class: 'page-header__logo', width: 256), root_path, rel: 'home'
+
+      .page-content.page-content--checkout
+        .content-wrapper
+          - content_for_page_aside = yield :page_aside
+
+          .grid
+            .grid__cell{ class: ('grid__cell--66-at-medium' if content_for_page_aside.present?)}
+              = render 'workarea/storefront/checkouts/checkout_progress' if @checkout_step.present?
+
+              #main_content.page-content__main{ role: 'main', class: ('page-content__main--full-width' if content_for_page_aside.empty?) }
+                = yield
+                %p.visually-hidden= link_to t('workarea.storefront.layouts.top_of_page'), '#top'
+
+            - if content_for_page_aside.present?
+              .grid__cell.grid__cell--33-at-medium
+                .page-content__aside{ role: 'complementary' }
+                  = content_for_page_aside
+                  %p.visually-hidden= link_to t('workarea.storefront.layouts.top_of_page'), '#top'
+
+      .page-footer{ role: 'contentinfo' }
+
+        %ul.order-help-menu
+          %li.order-help-menu__item
+            = link_to t('workarea.storefront.layouts.contact_us'), contact_path, data: { dialog_button: '' }
+          %li.order-help-menu__item
+            = link_to page_path('shipping-information'), target: '_blank', rel: 'noopener', data: { dialog_button: '' } do
+              = t('workarea.storefront.layouts.shipping_policy')
+          %li.order-help-menu__item
+            = link_to page_path('return-information'), target: '_blank', rel: 'noopener', data: { dialog_button: '' } do
+              = t('workarea.storefront.layouts.returns')
+
+        %p.page-footer__copyright
+          © #{Time.current.year}
+          = t('workarea.storefront.layouts.powered_by')
+
+        %p.visually-hidden= link_to t('workarea.storefront.layouts.top_of_page'), '#top'
+
+    = javascript_include_tag 'workarea/storefront/application'
+    = yield :javascript
+    = append_partials('storefront.javascript')
