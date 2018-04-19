@@ -1,5 +1,5 @@
 /**
- * @namespace WORKAREA.filterViewAll
+ * @namespace WORKAREA.filterViewMore
  */
 WORKAREA.registerModule('filterViewMore', (function () {
     'use strict';

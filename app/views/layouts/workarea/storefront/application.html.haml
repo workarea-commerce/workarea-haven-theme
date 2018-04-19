@@ -63,7 +63,7 @@
           = link_to menus_path, id: 'mobile_nav_button', class: 'page-header__button page-header__button--menu page-header__button--mobile-only' do
             = inline_svg('workarea/storefront/icons/menu.svg', class: 'page-header__button-icon', title: t('workarea.storefront.layouts.mobile_navigation'))
 
-          = button_tag value: 'open_search', type: 'button', class: 'page-header__button page-header__button--search page-header__button--mobile-only' do
+          = button_tag value: 'open_search', type: 'button', class: 'page-header__button page-header__button--search page-header__button--mobile-only', data: { search_button: '' } do
             = inline_svg('workarea/storefront/icons/search.svg', class: 'page-header__button-icon', title: t('workarea.storefront.searches.open'))
 
           .page-header__logo-container
@@ -76,7 +76,7 @@
                   = link_to menu.name, storefront_path_for(menu.taxon), class: (link_selected?(menu.taxon) ? 'primary-nav__link primary-nav__link--selected' : 'primary-nav__link'), data: { analytics: primary_navigation_analytics_data(menu.taxon).to_json }
 
 
-          = button_tag value: 'open_search', type: 'button', class: 'page-header__button page-header__button--search page-header__button--mobile-hidden' do
+          = button_tag value: 'open_search', type: 'button', class: 'page-header__button page-header__button--search page-header__button--mobile-hidden', data: { search_button: '' } do
             = inline_svg('workarea/storefront/icons/search.svg', class: 'page-header__button-icon', title: t('workarea.storefront.searches.open'))
 
           = button_tag 'Account', value: 'open_account_menu', type: 'button', class: 'page-header__button page-header__button--account', data: { toggle_class_button: { target: '#account-menu', class: 'account-menu--open' }.to_json } do
@@ -104,18 +104,10 @@
 
         = append_partials('storefront.page_header')
 
-      -# TODO: This component will be refactored out of the page-header.
-      .page-header__search
-        = form_tag search_path, method: 'get', class: 'page-header__search-form', role: 'search' do
-          .page-header__search-value
-            .value= search_field_tag :q, params[:q], id: 'storefront_search', class: 'text-box', title: t('workarea.storefront.searches.search'), placeholder: t('workarea.storefront.searches.search'), tabindex: 1, required: true, data: { search_field: '' }
-          .page-header__search-button= button_tag t('workarea.storefront.forms.go'), value: 'search', class: 'button', tabindex: 2
-
         -# TODO: This component will be refactored out of the page-header
         - if layout_content.content_blocks_for('header_promo').present?
           .page-header__promo
             = render_content_blocks(layout_content.content_blocks_for('header_promo'))
-
 
       - if content_for?(:above_content)
         = yield :above_content
@@ -139,6 +131,16 @@
                   %span= taxon.name
 
       .page-content
+
+        #search.search
+          %h5.search__heading= t('workarea.storefront.searches.heading')
+          = form_tag search_path, method: 'get', class: 'search__form', role: 'search' do
+            .search__value
+              = search_field_tag :q, params[:q], id: 'storefront_search', class: 'text-box text-box--search', title: t('workarea.storefront.searches.search'), placeholder: t('workarea.storefront.searches.search'), tabindex: 1, required: true, data: { search_field: '' }
+              .search__button
+                = button_tag value: 'search', class: 'button', tabindex: 2 do
+                  = inline_svg('workarea/storefront/icons/search.svg', class: 'search__button-icon', title: t('workarea.storefront.forms.go'))
+            .search__results
 
         - content_for_page_aside = yield :page_aside
 

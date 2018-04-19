@@ -12,7 +12,10 @@ $text-box-color-page-footer: $footer-color !default;
 $text-box-secondary-border: 1px solid $text-box-secondary-border-color !default;
 $text-box-secondary-placeholder-color: $text-box-color-page-footer !default;
 
-$text-box-width:              200px !default;
+$text-box-search-color: $white !default;
+$text-box-search-background-color: $transparent !default;
+
+$text-box-width:              100% !default;
 $text-box-x-small-width:       62px !default;
 $text-box-small-width:         96px !default;
 $text-box-wide-width:         256px !default;
@@ -36,11 +39,22 @@ $text-box-multi-line-height:  168px !default;
 }
 
 .text-box--secondary {
-    background: transparent;
+    background: $transparent;
     border: $text-box-secondary-border;
 
     &::placeholder {
         color: $text-box-secondary-placeholder-color;
+    }
+}
+
+.text-box--search {
+    padding-left: $spacing-unit * 5;
+    color: $text-box-search-color;
+    background: $text-box-search-background-color;
+    border: 0;
+
+    &::placeholder {
+        color: $text-box-search-color;
     }
 }
 

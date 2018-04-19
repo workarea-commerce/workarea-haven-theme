@@ -1,0 +1,13 @@
+/*------------------------------------*\
+    #UI-AUTOCOMPLETE
+\*------------------------------------*/
+
+$ui-autocomplete-bg-color:  $transparent !default;
+
+
+.ui-autocomplete {
+    @extend %list-reset;
+    z-index: index($components, ui-autocomplete);
+    padding: $spacing-unit;
+    background: $ui-autocomplete-bg-color;
+}

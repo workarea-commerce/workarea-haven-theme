@@ -1,0 +1,63 @@
+/*------------------------------------*\
+    #SEARCH
+\*------------------------------------*/
+
+$search-width: 90% !default;
+$search-top-offset: 15vh !default;
+$search-color: $search-color !default;
+$search-background-color: $search-overlay-background-color !default;
+$search-input-border-color: $search-input-border-color !default;
+$search-input-border: 3px solid $search-input-border-color !default;
+$search-button-icon-size: 16px !default;
+
+
+.search {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-top: $search-top-offset;
+    color: $search-color;
+    background-color: $search-background-color;
+}
+
+.search--open {
+    display: block;
+    z-index: index($page-container, search);
+}
+
+    .search__heading {
+        margin: ($spacing-unit * 2) auto;
+        width: $search-width;
+    }
+
+    .search__form {}
+
+        .search__value {
+            display: block;
+            position: relative;
+            margin: 0 auto;
+            padding: $spacing-unit;
+            width: $search-width;
+            border: $search-input-border;
+        }
+
+        .search__button {
+            position: absolute;
+            top: $spacing-unit;
+            left: $spacing-unit;
+        }
+
+            .search__button-icon {
+                width: $search-button-icon-size;
+                height: $search-button-icon-size;
+                fill: $search-color;
+            }
+
+        .search__results {
+            position: relative;
+            margin: 0 auto;
+            width: $search-width;
+        }

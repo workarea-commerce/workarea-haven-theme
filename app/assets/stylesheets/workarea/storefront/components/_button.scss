@@ -50,6 +50,11 @@ $button-large-font-size: 15px !default;
         color: $button-disabled-color;
         background-color: $button-disabled-background-color;
     }
+
+    .search__button & {
+        padding: $spacing-unit ($spacing-unit * 2);
+        background-color: $transparent;
+    }
 }
 
 .button--secondary {

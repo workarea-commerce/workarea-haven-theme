@@ -31,4 +31,8 @@ Workarea.configure do |config|
   config.content_areas = config.content_areas.merge(
     "layout" => %w(header_promo footer_column_1 footer_column_2 footer_column_3)
   )
+
+  # How many search suggestions should be shown in the
+  # autocomplete searches
+  config.search_suggestions = 4
 end

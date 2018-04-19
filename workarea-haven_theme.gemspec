@@ -15,12 +15,13 @@ Gem::Specification.new do |s|
 
   s.files = `git ls-files`.split("\n")
 
-  s.add_dependency "workarea", "~> 3.x"
+  s.add_dependency "workarea", "~> 3.x" #TODO: Update to v3.3.x once v3.3 is released
   s.add_dependency "workarea-theme"
   s.add_dependency "workarea-product_quickview"
   s.add_dependency "workarea-blog"
   s.add_dependency "workarea-clothing"
   s.add_dependency "workarea-styled_selects"
   s.add_dependency "workarea-accordions"
-  s.add_dependency "workarea-badges"
+  s.add_dependency "workarea-product_badges"
+  s.add_dependency "workarea-content_search"
 end

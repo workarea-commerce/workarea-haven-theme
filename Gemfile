@@ -19,7 +19,6 @@ gem "workarea", source: "https://gems.weblinc.com"
 group :test do
   gem "workarea-testing", source: "https://gems.weblinc.com"
   gem "workarea-theme"
-  gem "workarea-badges", git: "ssh://git@stash.tools.weblinc.com:7999/wp/workarea-badges.git", branch: :master
 end
 
 # TODO: Remove this before releasing

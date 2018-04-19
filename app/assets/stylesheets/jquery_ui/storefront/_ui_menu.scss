@@ -1,0 +1,130 @@
+/*------------------------------------*\
+    #UI-MENU
+\*------------------------------------*/
+
+$ui-menu-item-width: 25% !default;
+$ui-menu-item-color: $search-item-color !default;
+$ui-menu-item-background-color: $search-item-background-color !default;
+$ui-menu-item-border-color: $search-item-border-color !default;
+$ui-menu-item-border: 2px solid $ui-menu-item-border-color !default;
+$ui-menu-item-selected-border-width: 2px;
+$ui-menu-item-selected-border-color: $highlight-color !default;
+$ui-menu-item-content-color: $search-item-content-result-color !default;
+$ui-menu-item-content-background-color: $search-item-content-result-background-color !default;
+
+$ui-menu-item-suggested-term-max-width: 264px !default;
+$ui-menu-item-suggested-term-icon-size: 16px !default;
+
+$ui-menu-heading-color: $search-color !default;
+
+
+/**
+ * 1. default menu item state
+ * 2. hovered menu item state
+ * 3. the displayed result image
+ * 4. menu headings
+ */
+
+.ui-menu {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .ui-menu-heading { /* [4] */
+        @extend %heading;
+        @extend %heading--5;
+        margin-bottom: 0;
+        padding: $spacing-unit;
+        width: 100%;
+        color: $ui-menu-heading-color;
+    }
+
+    .ui-menu-item { /* [1] */
+        @extend %clearfix;
+        display: inline-block;
+        position: relative;
+        margin: $spacing-unit;
+        width: $ui-menu-item-width;
+        color: $ui-menu-item-color;
+        background: $ui-menu-item-background-color;
+        vertical-align: top;
+        cursor: pointer;
+        flex: 1 0 45%;
+
+        @include respond-to($medium-breakpoint) {
+            flex: 1 0 20%;
+        }
+
+        &:hover { /* [2] */
+            border-color: $ui-menu-item-selected-border-color;
+        }
+
+        .ui-menu-item__image { /* [3] */
+            display: block;
+            margin: 0 auto $spacing-unit;
+            padding: $spacing-unit;
+        }
+
+        .ui-menu-item__text {
+            display: block;
+            padding: $spacing-unit;
+        }
+    }
+
+    .ui-menu-item--searches {
+        max-width: $ui-menu-item-suggested-term-max-width;
+
+        &:before {
+            @include svg($image: 'icons/search.svg', $width: $ui-menu-item-suggested-term-icon-size);
+            display: inline-block;
+            margin: $spacing-unit;
+            vertical-align: middle;
+            content: '';
+        }
+
+        .ui-menu-item-wrapper {
+            display: inline-block;
+        }
+    }
+
+    .ui-menu-item--products {
+        .ui-menu-item__text {
+            border-top: $ui-menu-item-border;
+        }
+    }
+
+    .ui-menu-item--pages {
+        margin: 0;
+        color: $ui-menu-item-content-color;
+        background: $ui-menu-item-content-background-color;
+        flex: 1 0 100%;
+
+        .ui-menu-item__text {
+            border-top: 0;
+        }
+    }
+
+    .ui-menu-item-wrapper {
+        display: block;
+    }
+
+    .ui-state-active {
+        &:after {
+            display: block;
+            position: absolute;
+            bottom: ($spacing-unit * -1);
+            left: 0;
+            width: 100%;
+            height: $ui-menu-item-selected-border-width;
+            background-color: $ui-menu-item-selected-border-color;
+            content: '';
+        }
+
+        .ui-menu-item--pages & {
+            color: $ui-menu-item-selected-border-color;
+
+            &:after {
+                display: none;
+            }
+        }
+    }
