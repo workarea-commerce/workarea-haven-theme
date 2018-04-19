@@ -1,0 +1,143 @@
+.checkout-step-summary
+  .checkout-step-summary__items
+    %h6.checkout-step-summary__heading= t('workarea.storefront.checkouts.summary.products')
+
+    %ul.checkout-step-summary__item-list
+      - cart.items.each_with_index do |item, index|
+        %li.order-item
+          %p.order-item__media= link_to image_tag(product_image_url(item.image, :small_thumb), alt: item.product_name, class: 'order-item__media-image'), product_url(item.product, sku: item.sku), class: 'order-item__media-link'
+
+          .order-item__info
+            %p.order-item__name= link_to item.product_name, product_path(item.product, sku: item.sku)
+            - if item.has_options?
+              .order-item__option-group
+                - item.details.each do |name, value|
+                  %p.order-item__option #{name.titleize}: #{value}
+            - item.customizations.each do |name, value|
+              %p.order-item__customization #{name.titleize}: #{value}
+            = append_partials('storefront.cart_item_details', item: item, index: index)
+            .order-item__prices
+              %p.order-item__quantity
+                %span.order-item__quantity-text Qty:
+                = item.quantity
+              .order-item__price
+                = render 'workarea/storefront/carts/pricing', item: item, css_block: 'table'
+
+            .order-item__adjustments
+              - item.total_adjustments.each do |adjustment|
+                %p.table__price
+                  - if item.total_adjustments.many?
+                    %span.table__price-label= adjustment.description.titleize
+
+                  - if adjustment.discount?
+                    %strong.table__price-discount= number_to_currency(adjustment.amount)
+
+              - if item.total_adjustments.many?
+                %p.order-item__total-price
+                  %span.table__price-label= t('workarea.storefront.orders.item_total')
+                  %span= number_to_currency(item.total_price)
+
+  .checkout-step-summary__totals
+    %h6.checkout-step-summary__heading= t('workarea.storefront.checkouts.totals')
+    %table.table.table--totals
+      %tbody
+        %tr
+          %th
+            %span= t('workarea.storefront.orders.subtotal')
+          %td= number_to_currency(cart.subtotal_price)
+        - if cart.total_adjustments.any?
+          - cart.total_adjustments.each do |adjustment|
+            %tr
+              %th
+                %span= adjustment.description.titleize
+              %td
+                - if adjustment.discount?
+                  %strong= number_to_currency(adjustment.amount)
+                - else
+                  %span= number_to_currency(adjustment.amount)
+
+        %tr
+          %th
+            %span= t('workarea.storefront.orders.shipping')
+          %td
+            - if !cart.requires_shipping?
+              = t('workarea.storefront.checkouts.not_applicable')
+            - elsif !summary.shipping_determined?
+              = t('workarea.storefront.checkouts.to_be_determined')
+            - else
+              = number_to_currency(cart.shipping_total)
+
+        %tr
+          %th
+            %span= t('workarea.storefront.orders.tax')
+          %td
+            - if summary.taxes_determined?
+              = number_to_currency(cart.tax_total)
+            - else
+              = t('workarea.storefront.checkouts.to_be_determined')
+
+        - if summary.store_credit?
+          %tr
+            %th
+              %span= t('workarea.storefront.orders.store_credit')
+            %td
+              %strong.table__price-discount −#{number_to_currency(summary.store_credit_amount)}
+
+        = append_partials('storefront.checkout_summary_payment', summary: summary)
+
+        %tr.table__total
+          %th
+            %span= t('workarea.storefront.orders.total')
+          %td= number_to_currency(summary.order_balance)
+
+  .checkout-step-summary__step.checkout-step-summary__step--hidden-for-small
+
+    - if summary.show_addresses?
+      %h2.checkout-step-summary__step-heading= t('workarea.storefront.checkouts.addresses')
+
+      .checkout-step-summary__section
+        %h3.checkout-step-summary__section-heading= t('workarea.storefront.checkouts.email')
+        %p.checkout-step-summary__section-content= summary.email
+
+        - unless current_page?(checkout_addresses_path)
+          %p.checkout-step-summary__section-action= link_to t('workarea.storefront.forms.edit'), checkout_addresses_path, class: 'button button--small', data: { analytics: checkout_edit_analytics_data('addresses') }
+
+      - if summary.show_shipping_address?
+        .checkout-step-summary__section
+          %h3.checkout-step-summary__section-heading= t('workarea.storefront.checkouts.shipping_address')
+          %p.checkout-step-summary__section-content= formatted_address(summary.shipping_address)
+
+          - unless current_page?(checkout_addresses_path)
+            %p.checkout-step-summary__section-action= link_to t('workarea.storefront.forms.edit'), checkout_addresses_path, class: 'button button--small', data: { analytics: checkout_edit_analytics_data('addresses') }
+
+      .checkout-step-summary__section
+        %h3.checkout-step-summary__section-heading= t('workarea.storefront.checkouts.billing_address')
+        %p.checkout-step-summary__section-content= formatted_address(summary.billing_address)
+
+        - unless current_page?(checkout_addresses_path)
+          %p.checkout-step-summary__section-action= link_to t('workarea.storefront.forms.edit'), checkout_addresses_path, class: 'button button--small', data: { analytics: checkout_edit_analytics_data('addresses') }
+
+    = append_partials('storefront.checkout_summary_addresses', summary: summary)
+
+  .checkout-step-summary__step.checkout-step-summary__step--hidden-for-small
+
+    - if summary.show_shipping_options?
+      %h2.checkout-step-summary__step-heading= t('workarea.storefront.checkouts.shipping_options')
+
+      - summary.shippings.each_with_index do |shipping, index|
+        - if shipping.show_options?
+          .checkout-step-summary__section
+            %h3.checkout-step-summary__section-heading
+              - if shipping.partial?
+                = t('workarea.storefront.checkouts.shipping_service_with_index', index: index + 1)
+              - else
+                = t('workarea.storefront.checkouts.shipping_service')
+            %p.checkout-step-summary__section-content #{shipping.shipping_service.name} - #{number_to_currency(shipping.shipping_total)}
+
+            - unless checkout_shipping_path == request.original_fullpath
+              %p.checkout-step-summary__section-action= link_to t('workarea.storefront.forms.edit'), checkout_shipping_path, class: 'button button--small', data: { analytics: checkout_edit_analytics_data('shipping') }
+
+          = append_partials('storefront.checkout_summary_shipping_attributes', summary: summary, shipping: shipping, index: index)
+
+
+    = append_partials('storefront.checkout_summary_shipping', summary: summary)

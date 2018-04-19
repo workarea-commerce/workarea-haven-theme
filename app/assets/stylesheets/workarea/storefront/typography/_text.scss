@@ -17,19 +17,23 @@ blockquote {
     font-weight: bold;
 }
 
+%text,
 .text {
     font-size: 1rem;
     line-height: $line-height;
 }
 
+%text--small,
 .text--small {
     font-size: $font-size-small;
 }
 
+%text--large,
 .text--large {
     font-size: 1.2rem;
 }
 
+%text--no-margin,
 .text--no-margin {
     margin: 0;
 }

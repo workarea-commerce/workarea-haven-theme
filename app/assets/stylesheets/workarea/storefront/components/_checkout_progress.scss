@@ -19,6 +19,10 @@ $checkout-progress-step-font-size-wide: 12px !default;
 $checkout-progress-step-number-size: $spacing-unit * 4 !default;
 $checkout-progress-step-complete-icon-size: 8px !default;
 $checkout-progress-step-complete-icon-size-wide: 16px !default;
+$checkout-progress-step-line-height: 2px !default;
+$checkout-progress-step-line-width: 20vw !default;
+$checkout-progress-step-line-width-medium: 10vw !default;
+$checkout-progress-step-line-width-wide: 14vw !default;
 
 .checkout-progress {
     @extend %list-reset;
@@ -56,8 +60,8 @@ $checkout-progress-step-complete-icon-size-wide: 16px !default;
             &:before {
                 display: inline-block;
                 margin: 0 $spacing-unit;
-                width: 20vw;
-                height: 2px;
+                width: $checkout-progress-step-line-width;
+                height: $checkout-progress-step-line-height;
                 background-color: $primary-color;
                 vertical-align: middle;
                 content: '';
@@ -70,7 +74,13 @@ $checkout-progress-step-complete-icon-size-wide: 16px !default;
 
         @include respond-to($medium-breakpoint) {
             &:before {
-                width: 14vw;
+                width: $checkout-progress-step-line-width-medium;
+            }
+        }
+
+        @include respond-to($wide-breakpoint) {
+            &:before {
+                width: $checkout-progress-step-line-width-wide;
             }
         }
     }
@@ -139,7 +149,6 @@ $checkout-progress-step-complete-icon-size-wide: 16px !default;
                     fill: $checkout-progress-step-number-color;
 
                     @include respond-to($medium-breakpoint) {
-
                         width: $checkout-progress-step-complete-icon-size-wide;
                         height: $checkout-progress-step-complete-icon-size-wide;
                     }
