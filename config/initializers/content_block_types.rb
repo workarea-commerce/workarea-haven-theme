@@ -25,7 +25,7 @@ Workarea::Content.define_block_types do
       field "Sub Heading", :string, default: "Tie the room together with our chairs and desks"
       field "Link", :url, default: "/"
       field "Link Text", :string, default: "Click Me!"
-      field "Link Style", :options, values: [["button", "button"], ["Secondary button" , "button button--secondary"], ["Secondary Button Alternative" , "button button--secondary button--secondary-alt"], ["Text Button", "text-button"], ["Link", "link"]], default: "button"
+      field "Link Style", :options, values: [["button", "button"], ["Secondary button" , "button button--secondary"], ["Secondary Button Alternative" , "button button--secondary-alt"], ["Text Button", "text-button"], ["Link", "link"]], default: "button"
       field "Text Color", :color, default: "#000000", presets: ["#000000", "#ffffff", "#999999", "#ff0000", "#00ff00", "#0000ff"]
     end
   end

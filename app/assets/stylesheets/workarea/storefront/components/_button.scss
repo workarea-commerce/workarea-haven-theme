@@ -32,6 +32,7 @@ $button-large-font-size: 15px !default;
 /**
  * 1. ensure button text won't receive an underline on hover
  */
+%button,
 .button {
     @extend %button-reset;
     display: inline-block;
@@ -60,6 +61,7 @@ $button-large-font-size: 15px !default;
     }
 }
 
+%button--secondary,
 .button--secondary {
     color: $button-secondary-color;
     font-size: $button-secondary-font-size;
@@ -78,8 +80,9 @@ $button-large-font-size: 15px !default;
     }
 }
 
-// This modifier must always be used along with .button--secondary
+%button--secondary-alt,
 .button--secondary-alt {
+    @extend %button--secondary;
     color: $button-secondary-color-alt;
     border-color: $button-secondary-border-color-alt;
 
@@ -108,15 +111,15 @@ $button-large-font-size: 15px !default;
 
     .button__icon {
         display: inline-block;
-        height: $button-font-size;
         width: $button-font-size * 2;
+        height: $button-font-size;
         vertical-align: middle;
         transform: translateX($spacing-unit);
         fill: $button-color;
 
         .button--large & {
-            height: $button-large-font-size;
             width: $button-large-font-size * 2;
+            height: $button-large-font-size;
             transform: translateX($spacing-unit * 2);
         }
 
