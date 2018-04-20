@@ -6,7 +6,8 @@
         = t('workarea.storefront.checkouts.addresses_step_text')
     - else
       = link_to checkout_addresses_path, class: 'checkout-progress__link' do
-        %span.checkout-progress__step-number v
+        %span.checkout-progress__step-number= inline_svg('workarea/storefront/icons/checkmark.svg', class: 'checkout-progress__step-checkmark')
+
         = t('workarea.storefront.checkouts.addresses_step_text')
 
   %li.checkout-progress__step{ class: ('checkout-progress__step--active' if @checkout_step == 'shipping') }
@@ -16,7 +17,7 @@
         = t('workarea.storefront.checkouts.shipping_step_text')
     - else
       = link_to checkout_shipping_path, class: 'checkout-progress__link' do
-        %span.checkout-progress__step-number v
+        %span.checkout-progress__step-number= inline_svg('workarea/storefront/icons/checkmark.svg', class: 'checkout-progress__step-checkmark')
         = t('workarea.storefront.checkouts.shipping_step_text')
 
   %li.checkout-progress__step{ class: ('checkout-progress__step--active' if @checkout_step == 'payment') }

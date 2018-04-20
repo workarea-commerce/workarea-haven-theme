@@ -13,6 +13,16 @@ $forms-disabled-bg-color: $input-disabled-background-color !default;
 $forms-placeholder-color: $placeholder-color !default;
 $forms-border-color-error: $invalid-color !default;
 
+// Checkbox settings
+$checkbox-size: 18px !default;
+$checkbox-color: $white !default;
+$checkbox-border: 1px solid $gray !default;
+
+$checkbox-fill-color: $primary-color !default;
+$checkbox-box-shadow: 0 0 0 0 $checkbox-fill-color inset !default;
+$checkbox-box-shadow-checked: 0 0 0 ($checkbox-size / 2) $checkbox-fill-color inset !default;
+$checkbox-easing-function: ease-in !default;
+
 
 /**
  * Provide default margins for form containment elements.
@@ -114,4 +124,42 @@ select, optgroup, option {
  */
 ::placeholder {
     color: $forms-placeholder-color;
+}
+
+/**
+ * 1. animating box-shadow isn't preferable but it's the best way to acheive this effect
+ */
+input[type='checkbox'] {
+    position: relative;
+    width: $checkbox-size;
+    height: $checkbox-size;
+    border: $checkbox-border;
+    border-radius: 50%;
+    box-shadow: $checkbox-box-shadow;
+    transition: box-shadow 0.15s $checkbox-easing-function; /* [1] */
+    vertical-align: middle;
+    appearance: none;
+
+    &:after {
+        display: block;
+        position: absolute;
+        top: -50%;
+        width: $checkbox-size;
+        height: $checkbox-size / 2;
+        color: $checkbox-color;
+        text-align: center;
+        content: '✓';
+        opacity: 0;
+        transform: scale(0.2) translateY(50%);
+        transition: transform 0.15s $checkbox-easing-function, opacity 0.15s $checkbox-easing-function;
+    }
+
+    &:checked:after {
+        opacity: 1;
+        transform: scale(1) translateY(75%);
+    }
+
+    &:checked {
+        box-shadow: $checkbox-box-shadow-checked;
+    }
 }

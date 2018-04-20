@@ -50,8 +50,9 @@
               = render 'workarea/storefront/checkouts/checkout_progress' if @checkout_step.present?
 
               #main_content.page-content__main{ role: 'main', class: ('page-content__main--full-width' if content_for_page_aside.empty?) }
-                = yield
-                %p.visually-hidden= link_to t('workarea.storefront.layouts.top_of_page'), '#top'
+                .page-content__checkout-container
+                  = yield
+                  %p.visually-hidden= link_to t('workarea.storefront.layouts.top_of_page'), '#top'
 
             - if content_for_page_aside.present?
               .grid__cell.grid__cell--33-at-medium

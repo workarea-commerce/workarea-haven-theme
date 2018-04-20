@@ -1,0 +1,21 @@
+/*------------------------------------*\
+    #CHECKOUT-ADDRESSES
+\*------------------------------------*/
+
+.checkout-addresses {}
+
+    .checkout-addresses__section {
+        margin-bottom: $spacing-unit * 4;
+    }
+
+    .checkout-addresses__section--email {}
+    .checkout-addresses__section--shipping {}
+    .checkout-addresses__section--billing {}
+
+        .checkout-addresses__heading {
+            @extend %heading;
+            @extend %heading--6;
+            text-transform: uppercase;
+        }
+
+        .checkout-addresses__fields {}
