@@ -1,6 +1,13 @@
 en:
   workarea:
     storefront:
+      checkouts:
+        addresses_step_number: 1
+        addresses_step_text: Addresses
+        shipping_step_number: 2
+        shipping_step_text: Shipping
+        payment_step_number: 3
+        payment_step_text: Payment
       filters:
         applied: Applied Filters
         view_more: View More
