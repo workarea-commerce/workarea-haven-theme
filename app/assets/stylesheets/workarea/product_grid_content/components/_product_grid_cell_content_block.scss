@@ -1,0 +1,23 @@
+/*------------------------------------*\
+    #PRODUCT-GRID-CELL-CONTENT-BLOCK
+\*------------------------------------*/
+
+.product-grid-cell-content-block {
+    position: relative;
+    margin-bottom: $spacing-unit;
+    height: 100%;
+    overflow: hidden;
+}
+
+    .product-grid-cell-content-block__content {
+        @include center;
+    }
+
+        .product-grid-cell-content-block__heading {}
+        .product-grid-cell-content-block__sub-heading {}
+        .product-grid-cell-content-block__action {}
+
+    .product-grid-cell-content-block__media-container {}
+    .product-grid-cell-content-block__media-container--maintain-aspect-ratio {}
+
+        .product-grid-cell-content-block__image {}

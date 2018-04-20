@@ -23,9 +23,12 @@ Optimal Image Sizes
 |----------|--------|-------|
 | Logo | 140 x 37px ||
 | Product Images | 720px x 960px | This size does not account for use of image-zoom, it is recommended to *at least* double this size if your client is likely to want zoom functionality. |
+| Product Grid Content (1 cell) | 272px x 400px | Background image for product grid content block |
+| Product Grid Content (2 cells) | 552px x 400px | Background image for product grid content block spanning 2 grid cells |
 
 Out of the box plugin support
 --------------------------------------------------------------------------------
+
 The following workarea plugins are supported by OneTheme, and are dependencies of the plugin.
 
 * Product Quickview
@@ -33,9 +36,11 @@ The following workarea plugins are supported by OneTheme, and are dependencies o
 * Styled selects
 * Accordions
 * Badges
+* Product Grid Content
 
 Theme Configuration
 --------------------------------------------------------------------------------
+
 ### Recommended initializer configuration
 
 While you are able to configure the Workarea OneTheme from any initializer it is recommended
@@ -64,11 +69,11 @@ Default:
 
     Workarea.config.theme[:color_scheme] = "haven"
 
-
-
 #### Creating a new color scheme
+
 We will be creating a gem for theme infastructure in the near future that will make this process
 more developer friendly. In the meantime you can create a new color scheme by:
+
 1. Copying one of the existing color scheme files into your application re-nameing the file,
 2. Update the color_scheme config to match the name of your new color scheme file.
 
@@ -78,9 +83,8 @@ From your ~/src directory, ensure you have workarea-one-theme pulled down
 
     cp -i workarea-haven-theme/app/assets/stylesheets/workarea/storefront/theme_config/_haven_color_scheme.scss <your-app-name>/app/assets/stylesheets/workarea/storefront/theme_config/_custom_color_scheme.scss
 
----
-
 ### Font Stacks
+
 Haven Theme includes configurable font-stack functionality!
 
 A developer is able to configure the primary and secondary font stacks using the theme

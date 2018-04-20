@@ -35,4 +35,9 @@ Workarea.configure do |config|
   # How many search suggestions should be shown in the
   # autocomplete searches
   config.search_suggestions = 4
+
+  config.product_grid_cell_classes = {
+    "1": "grid__cell--50 grid__cell--33-at-medium grid__cell--25-at-wide",
+    "2": "grid__cell--50-at-medium"
+  }
 end

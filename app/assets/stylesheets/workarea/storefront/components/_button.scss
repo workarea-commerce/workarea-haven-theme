@@ -13,6 +13,9 @@ $button-secondary-border-color: $button-secondary-border-color !default;
 $button-secondary-border-color-disabled: $button-secondary-border-color-disabled !default;
 $button-secondary-border-width: 3px !default;
 
+$button-secondary-color-alt: $button-secondary-color-alt !default;
+$button-secondary-border-color-alt: $button-secondary-border-color-alt !default;
+
 $button-disabled-color: $button-disabled-color !default;
 $button-disabled-background-color: $button-disabled-background-color !default;
 
@@ -29,6 +32,7 @@ $button-large-font-size: 15px !default;
 /**
  * 1. ensure button text won't receive an underline on hover
  */
+%button,
 .button {
     @extend %button-reset;
     display: inline-block;
@@ -57,6 +61,7 @@ $button-large-font-size: 15px !default;
     }
 }
 
+%button--secondary,
 .button--secondary {
     color: $button-secondary-color;
     font-size: $button-secondary-font-size;
@@ -72,6 +77,19 @@ $button-large-font-size: 15px !default;
     &:disabled {
         background-color: $button-disabled-background-color;
         border-color: $button-secondary-border-color-disabled;
+    }
+}
+
+%button--secondary-alt,
+.button--secondary-alt {
+    @extend %button--secondary;
+    color: $button-secondary-color-alt;
+    border-color: $button-secondary-border-color-alt;
+
+    &:focus,
+    &:hover {
+        color: $button-secondary-color-alt;
+        background-color: $button-secondary-bg-color;
     }
 }
 
@@ -93,16 +111,24 @@ $button-large-font-size: 15px !default;
 
     .button__icon {
         display: inline-block;
+        width: $button-font-size * 2;
+        height: $button-font-size;
         vertical-align: middle;
         transform: translateX($spacing-unit);
         fill: $button-color;
 
         .button--large & {
+            width: $button-large-font-size * 2;
+            height: $button-large-font-size;
             transform: translateX($spacing-unit * 2);
         }
 
         .button--secondary & {
             fill: $button-secondary-color;
+        }
+
+        .button--secondary-alt & {
+            fill: $button-secondary-color-alt;
         }
     }
 
