@@ -37,6 +37,26 @@
                   %span.table__price-label= t('workarea.storefront.orders.item_total')
                   %span= number_to_currency(item.total_price)
 
+      - cart.free_gifts.each_with_index do |item, index|
+        %li.order-item
+          %p.order-item__media= link_to image_tag(product_image_url(item.image, :small_thumb), alt: item.product_name, class: 'order-item__media-image'), product_url(item.product, sku: item.sku), class: 'order-item__media-link'
+
+          .order-item__info
+            %p.order-item__name= link_to item.product_name, product_path(item.product, sku: item.sku)
+            - if item.has_options?
+              .order-item__option-group
+                - item.details.each do |name, value|
+                  %p.order-item__option #{name.titleize}: #{value}
+            - item.customizations.each do |name, value|
+              %p.order-item__customization #{name.titleize}: #{value}
+            = append_partials('storefront.cart_item_details', item: item, index: index)
+            .order-item__prices
+              %p.order-item__quantity
+                %span.order-item__quantity-text Qty:
+                = item.quantity
+              .order-item__price
+                = t('workarea.storefront.carts.free_gift')
+
   .checkout-step-summary__totals
     %h6.checkout-step-summary__heading= t('workarea.storefront.checkouts.totals')
     %table.table.table--totals

@@ -4,7 +4,7 @@ source "https://rubygems.org"
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.
 gemspec
-gem "rubocop", "~> 0.48", require: false
+gem "rubocop", "0.52.1", require: false
 gem "bundler-audit", require: false
 
 # Declare any dependencies that are still in development here instead of in
@@ -15,12 +15,14 @@ gem "bundler-audit", require: false
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
 
+# TODO: to using source: "https://gems.weblinc.com" once v3.3 is released
 gem "workarea", git: "ssh://git@stash.tools.weblinc.com:7999/wl/workarea.git", ref: "3846146b639"
 group :test do
   # TODO: to using source: "https://gems.weblinc.com" once v3.3 is released
   gem "workarea-testing", git: "ssh://git@stash.tools.weblinc.com:7999/wl/workarea.git", ref: "3846146b639"
   gem "workarea-theme", source: "https://gems.weblinc.com"
-end
+  # gem "workarea-gift_cards", git: "ssh://git@stash.tools.weblinc.com:7999/wl/workarea-gift-cards.git", ref: "0ca9aa3425c"
 
-# TODO: Remove this before releasing
-gem "pry"
+  # TODO: Remove this before releasing
+  gem "pry"
+end

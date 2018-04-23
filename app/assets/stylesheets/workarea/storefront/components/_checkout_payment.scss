@@ -1,0 +1,78 @@
+/*------------------------------------*\
+    #CHECKOUT-PAYMENT
+\*------------------------------------*/
+
+$checkout-payment-method-border-color:  $border-color !default;
+$checkout-payment-method-selected-border-color:  $primary-color !default;
+$checkout-payment-primary-method-max-width: 420px !default;
+$checkout-payment-secondary-method-max-width: 420px !default;
+
+.checkout-payment {}
+
+    .checkout-payment__heading {
+        @extend %heading;
+        @extend %heading--4;
+    }
+
+    .checkout-payment__section {
+        margin-bottom: $vertical-margin;
+    }
+
+    .checkout-payment__secondary {}
+
+        .checkout-payment__secondary-method {
+            margin-bottom: $vertical-margin;
+            max-width: $checkout-payment-secondary-method-max-width;
+        }
+
+    .checkout-payment__primary-payment {}
+
+        .checkout-payment__primary-method-group {
+            margin-bottom: $vertical-margin;
+        }
+
+            .checkout-payment__primary-method {
+                margin-bottom: $vertical-margin;
+                padding: ($spacing-unit * 2);
+                max-width: $checkout-payment-primary-method-max-width;
+                border: 1px solid $checkout-payment-method-border-color;
+            }
+
+            .checkout-payment__primary-method--selected {
+                border-color: $checkout-payment-method-selected-border-color;
+            }
+
+                .checkout-payment__primary-method-description {
+                    @extend %text;
+                    @extend %text--tiny;
+                    @extend %text--no-margin;
+                    margin-left: $spacing-unit * 3;
+                }
+
+                    .checkout-payment__primary-method-name-on-card {
+                        @extend %text;
+                        @extend %text--tiny;
+                        @extend %text--no-margin;
+                        display: block;
+                    }
+
+                .checkout-payment__primary-method-edit {
+                    .js & {
+                        display: none;
+                    }
+
+                    .checkout-payment__primary-method--selected & {
+                        .js & {
+                            display: block;
+                        }
+                    }
+                }
+
+                .checkout-payment__all-payment-icons {
+                    display: inline-block;
+                    padding-left: $spacing-unit;
+                }
+
+    .checkout-payment__cart-items {}
+
+    .checkout-payment__place-order {}

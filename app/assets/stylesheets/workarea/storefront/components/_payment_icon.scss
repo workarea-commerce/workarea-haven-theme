@@ -1,0 +1,30 @@
+/*------------------------------------*\
+    #PAYMENT-ICON
+\*------------------------------------*/
+
+$payment-icon-width: 38px !default;
+$payment-icon-height: 25px !default;
+$payment-icon-unselected-opacity: 0.2 !default;
+
+.payment-icon {
+    display: inline-block;
+    width:  $payment-icon-width;
+    height: $payment-icon-height;
+    vertical-align: middle;
+    transition: opacity $transition-time ease-in;
+
+    .checkout-payment__primary-method--new-card.checkout-payment__primary-method--selected & {
+        opacity: $payment-icon-unselected-opacity;
+    }
+}
+
+.payment-icon--selected {
+    .checkout-payment__primary-method--new-card.checkout-payment__primary-method--selected & {
+        opacity: 1;
+    }
+}
+
+.payment-icon--visa {}
+.payment-icon--mastercard {}
+.payment-icon--amex {}
+.payment-icon--discover {}

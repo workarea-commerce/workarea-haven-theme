@@ -8,6 +8,8 @@ require "workarea/product_quickview"
 require "workarea/accordions"
 require "workarea/product_badges"
 require "workarea/product_grid_content"
+# require "workarea/gift_cards"
+require "jquery_payment-rails"
 
 require "workarea/haven_theme/engine"
 require "workarea/haven_theme/version"

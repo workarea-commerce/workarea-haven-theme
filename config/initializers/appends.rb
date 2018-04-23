@@ -26,6 +26,11 @@ module Workarea
   )
 
   Plugin.append_javascripts(
+    "storefront.dependencies",
+    "jquery.payment"
+  )
+
+  Plugin.append_javascripts(
     "storefront.modules",
     "workarea/storefront/modules/filter_view_more",
     "workarea/storefront/modules/toggle_class_button",

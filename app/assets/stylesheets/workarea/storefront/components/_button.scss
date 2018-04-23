@@ -19,9 +19,9 @@ $button-secondary-border-color-alt: $button-secondary-border-color-alt !default;
 $button-disabled-color: $button-disabled-color !default;
 $button-disabled-background-color: $button-disabled-background-color !default;
 
-$button-padding: $spacing-unit ($spacing-unit * 3) !default;
-$button-small-padding: $spacing-unit ($spacing-unit * 2) !default;
-$button-large-padding: ($spacing-unit * 2) ($spacing-unit * 4) !default;
+$button-padding: $spacing-unit ($spacing-unit * 2) !default;
+$button-small-padding: ($spacing-unit / 2) $spacing-unit !default;
+$button-large-padding: $spacing-unit ($spacing-unit * 3) !default;
 
 $button-font-size: 12px !default;
 $button-secondary-font-size: 18px !default;

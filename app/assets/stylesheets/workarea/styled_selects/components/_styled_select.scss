@@ -5,6 +5,8 @@
 $select-menu-color: $input-color !default;
 $select-menu-bg-color: $select-menu-bg-color !default;
 $select-menu-border-color: $input-border-color !default;
+$select-menu-focus-border-color: $input-border-color-focus !default;
+$select-menu-invalid-border-color: $invalid-color !default;
 $select-menu-border-radius: 2px !default;
 
 $select-menu-arrow-size: 10px !default;
@@ -49,6 +51,15 @@ $select-menu-arrow-bg-color: $select-menu-bg-color !default;
 
         &::-ms-expand {
             display: none;
+        }
+
+        &.jquery-validation-error,
+        &:invalid {
+            border-color: $select-menu-invalid-border-color;
+        }
+
+        &:focus {
+            border-color: $select-menu-focus-border-color;
         }
     }
 }
