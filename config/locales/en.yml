@@ -4,6 +4,10 @@ en:
       checkouts:
         addresses_step_number: 1
         addresses_step_text: Addresses
+        continue_to_shipping: Continue to Shipping
+        continue_to_shipping_disabled_text: Continuing to Shipping...
+        continue_to_payment: Continue to Payment
+        continue_to_payment_disabled_text: Continuing to Payment...
         shipping_step_number: 2
         shipping_step_text: Shipping
         payment_step_number: 3
