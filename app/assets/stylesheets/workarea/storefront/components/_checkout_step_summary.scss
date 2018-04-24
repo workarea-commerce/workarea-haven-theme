@@ -1,0 +1,77 @@
+/*------------------------------------*\
+    #CHECKOUT-STEP-SUMMARY
+\*------------------------------------*/
+
+$checkout-step-summary-section-border-color: $checkout-summary-section-border-color !default;
+
+
+.checkout-step-summary {
+    padding: ($spacing-unit * 4) ($spacing-unit * 2);
+}
+
+    .checkout-step-summary__step {
+
+        & + & {
+            border-top: 1px solid $checkout-step-summary-section-border-color;
+        }
+    }
+
+    .checkout-step-summary__step--hidden-for-small {
+        display: none;
+
+        @include respond-to($medium-breakpoint) {
+            display: block;
+        }
+    }
+
+        .checkout-step-summary__step-heading {
+            @extend %visually-hidden;
+        }
+
+        .checkout-step-summary__section {
+            position: relative;
+            padding: ($spacing-unit * 2) 0;
+            border-bottom: 1px solid $checkout-step-summary-section-border-color;
+
+            &:last-of-type {
+                border-bottom: 0;
+            }
+        }
+
+            .checkout-step-summary__section-heading {
+                @extend %heading;
+                @extend %heading--6;
+                text-transform: uppercase;
+            }
+
+            .checkout-step-summary__section-content {
+                @extend %text;
+                @extend %text--small;
+                @extend %text--no-margin;
+            }
+
+            .checkout-step-summary__section-action {
+                position: absolute;
+                top: $spacing-unit;
+                right: 0;
+            }
+
+        .checkout-step-summary__items {
+            margin-bottom: $vertical-margin;
+        }
+
+            .checkout-step-summary__heading {
+                text-transform: uppercase;
+            }
+
+            .checkout-step-summary__item-list {
+                @extend %list-reset;
+            }
+
+            .checkout-step-summary__totals {
+                margin-bottom: $spacing-unit * 2;
+
+                @include respond-to($medium-breakpoint) {
+                    margin-bottom: $spacing-unit * 4;
+                }
+            }

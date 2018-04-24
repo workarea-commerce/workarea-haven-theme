@@ -10,7 +10,8 @@ module Workarea
     "workarea/storefront/components/color_box",
     "workarea/storefront/components/email_signup_view",
     "workarea/storefront/components/overlay",
-    "workarea/storefront/components/search"
+    "workarea/storefront/components/search",
+    "workarea/storefront/components/order_item"
   )
 
   Plugin.append_javascripts(
