@@ -4,6 +4,8 @@
 
 $cart-item-count-color: $cart-item-count-color !default;
 $cart-aside-background-color: $cart-aside-background-color !default;
+$cart-action-max-width: 360px !default;
+
 
 .cart {
     padding: 0 $spacing-unit;
@@ -33,6 +35,7 @@ $cart-aside-background-color: $cart-aside-background-color !default;
 
         .cart__checkout-action {
             margin-bottom: $vertical-margin;
+            max-width: $cart-action-max-width;
         }
 
     .cart__aside {

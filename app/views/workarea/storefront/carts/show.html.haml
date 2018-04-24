@@ -99,7 +99,7 @@
 
         = append_partials('storefront.cart_additional_information', cart: @cart)
 
-        %p.cart__checkout-action= link_to t('workarea.storefront.carts.checkout'), checkout_path, class: 'button button--large'
+        %p.cart__checkout-action= link_to t('workarea.storefront.carts.checkout'), checkout_path, class: 'button button--large button--full'
         = append_partials('storefront.cart_checkout_actions', cart: @cart)
 
       .grid__cell.grid__cell--33-at-medium
