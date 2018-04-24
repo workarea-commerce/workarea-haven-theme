@@ -2,7 +2,8 @@
     #CART
 \*------------------------------------*/
 
-$cart-item-count-color: $medium-gray !default;
+$cart-item-count-color: $cart-item-count-color !default;
+$cart-aside-background-color: $cart-aside-background-color !default;
 
 .cart {
     padding: 0 $spacing-unit;
@@ -34,12 +35,27 @@ $cart-item-count-color: $medium-gray !default;
             margin-bottom: $vertical-margin;
         }
 
-    .cart__promo-code {
-        margin-bottom: $vertical-margin;
+    .cart__aside {
+        padding: ($spacing-unit * 3) ($spacing-unit * 2);
+        background-color: $cart-aside-background-color;
+
+        @include respond-to($medium-breakpoint) {
+            padding: ($spacing-unit * 5) ($spacing-unit * 3);
+        }
     }
 
-        .cart__promo-code-heading {
+        .cart__aside-heading {
             @extend %heading;
-            @extend %heading--5;
+            @extend %heading--6;
             text-transform: uppercase;
         }
+
+        .cart__promo-code {
+            margin-bottom: $vertical-margin;
+        }
+
+            .cart__promo-code-heading {
+                @extend %heading;
+                @extend %heading--5;
+                text-transform: uppercase;
+            }

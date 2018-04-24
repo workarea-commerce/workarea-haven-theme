@@ -3,6 +3,7 @@ en:
     storefront:
       carts:
         item_count: "- %{count} items"
+        totals: Totals
       checkouts:
         addresses_step_number: 1
         addresses_step_text: Addresses

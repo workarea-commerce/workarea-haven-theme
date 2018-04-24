@@ -194,5 +194,9 @@ $badge-new-background-color: #fdb635;
 $badge-sale-background-color: #e50461;
 $badge-best-seller-background-color: #21c0af;
 
+// Cart page colors
+$cart-item-count-color: $gray !default;
+$cart-aside-background-color: $light-gray !default;
+
 // Checkout colors
-$checkout-summary-section-border-color: $medium-gray;
+$checkout-summary-section-border-color: $medium-gray !default;
