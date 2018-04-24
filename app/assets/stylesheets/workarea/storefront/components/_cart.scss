@@ -2,7 +2,25 @@
     #CART
 \*------------------------------------*/
 
-.cart {}
+$cart-item-count-color: $medium-gray !default;
+
+.cart {
+    padding: 0 $spacing-unit;
+
+    @include respond-to($medium-breakpoint) {
+        padding: 0 ($spacing-unit * 3);
+    }
+}
+
+    .cart__heading {
+        @extend %heading;
+        @extend %heading--4;
+        text-transform: uppercase;
+    }
+
+    .cart__item-count {
+        color: $cart-item-count-color;
+    }
 
     .cart__continue-shopping {}
 
@@ -19,3 +37,9 @@
     .cart__promo-code {
         margin-bottom: $vertical-margin;
     }
+
+        .cart__promo-code-heading {
+            @extend %heading;
+            @extend %heading--5;
+            text-transform: uppercase;
+        }
