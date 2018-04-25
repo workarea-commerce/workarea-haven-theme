@@ -1,6 +1,7 @@
 inherit_from: .rails-rubocop.yml
 
 AllCops:
+  TargetRubyVersion: 2.4
   Exclude:
     - 'test/dummy/**/*'
     - 'lib/haven_theme.rb'

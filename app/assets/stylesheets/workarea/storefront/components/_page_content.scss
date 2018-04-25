@@ -3,6 +3,7 @@
 \*------------------------------------*/
 
 $page-content-max-width: 1410px !default;
+$page-content-checkout-container-max-width: 500px !default;
 
 .page-content {
     position: relative;
@@ -16,6 +17,8 @@ $page-content-max-width: 1410px !default;
     }
 }
 
+.page-content--checkout {}
+
     .page-content__main {}
 
     .page-content__main--with-aside {
@@ -26,13 +29,26 @@ $page-content-max-width: 1410px !default;
         }
     }
 
-    .page-content--checkout {}
-
         .page-content__aside {
             display: none;
 
             @include respond-to($wide-breakpoint) {
                 display: table-cell;
                 background-color: $page-aside-background-color;
+            }
+
+            .page-content--checkout & {
+                display: block;
+                background-color: $page-aside-background-color;
+            }
+        }
+
+        .page-content__checkout-container {
+            margin: 0 auto;
+            max-width: $page-content-checkout-container-max-width;
+
+
+            @include respond-to($wide-breakpoint) {
+                margin: 0 ($spacing-unit * 2);
             }
         }

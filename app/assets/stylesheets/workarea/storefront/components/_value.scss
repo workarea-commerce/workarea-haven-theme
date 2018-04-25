@@ -20,6 +20,10 @@ $value-icon-top-offset: 20px !default;
     margin: 0; /* [1] */
 }
 
+.value--block {
+    display: block;
+}
+
     .value__note {
         display: block;
     }

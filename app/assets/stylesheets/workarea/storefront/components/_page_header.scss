@@ -41,7 +41,7 @@ $page-header-breakpoint: $small-horizontal-breakpoint !default;
 }
 
 .page-header--checkout {
-    padding-top: ($spacing-unit * 2);
+    position: static;
 }
 
 .page-header--sticky {}
@@ -54,6 +54,11 @@ $page-header-breakpoint: $small-horizontal-breakpoint !default;
         background-color: $page-header-background-color;
         border-bottom: 1px solid $border-color;
         flex: 0 1 auto;
+
+        .page-header--checkout & {
+            padding: ($spacing-unit * 2) 0;
+            justify-content: center;
+        }
     }
 
         .page-header__button {

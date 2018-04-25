@@ -108,6 +108,8 @@
     .pagination{ data: { analytics: product_list_analytics_data("Search Results for \"#{@search.query_string}\"").to_json, pagination: pagination_data(@search.products),  back_to_top_button: '' } }
       .grid
         - @search.products.each_with_index do |product, position|
+          = append_partials('storefront.category_browse_grid_item', product: product, position: position)
+
           .grid__cell.grid__cell--50.grid__cell--33-at-medium.grid__cell--25-at-wide{ data: { pagination_item: '' } }
             .product-summary{ itemscope: true, itemtype: 'http://schema.org/Product', data: { search_results_product_grid_summary: { id: product.catalog_id, position: position }.to_json } }
               = render 'workarea/storefront/products/summary', product: product
