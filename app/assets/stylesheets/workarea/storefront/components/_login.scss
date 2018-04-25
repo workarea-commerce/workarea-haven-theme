@@ -1,0 +1,37 @@
+/*------------------------------------*\
+    #LOGIN
+\*------------------------------------*/
+
+$login-form-border-color: $border-color !default;
+
+
+/**
+ * 1. adds visual separator for adjacent `.breadcrumbs_node`
+ */
+
+.login {}
+
+    .login__section {
+        padding: $spacing-unit * 3;
+
+        @include respond-to($medium-breakpoint){
+            margin: $spacing-unit * 5 0;
+        }
+    }
+
+    .login__section--create-account {
+        border-top: 1px solid $login-form-border-color;
+
+        @include respond-to($medium-breakpoint) {
+            border-top: 0;
+            border-left: 1px solid $login-form-border-color;
+        }
+    }
+
+        .login__heading {
+            @extend %heading;
+            @extend %heading--6;
+            text-transform: uppercase;
+        }
+
+        .login__form {}

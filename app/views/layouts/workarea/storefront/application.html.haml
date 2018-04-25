@@ -104,10 +104,9 @@
 
         = append_partials('storefront.page_header')
 
-        -# TODO: This component will be refactored out of the page-header
-        - if layout_content.content_blocks_for('header_promo').present?
-          .page-header__promo
-            = render_content_blocks(layout_content.content_blocks_for('header_promo'))
+      - if layout_content.content_blocks_for('header_promo').present?
+        .page-header__promo
+          = render_content_blocks(layout_content.content_blocks_for('header_promo'))
 
       - if content_for?(:above_content)
         = yield :above_content
