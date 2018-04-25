@@ -24,12 +24,7 @@ module Workarea
               sku = Faker::Code.isbn
               sku_price = Faker::Commerce.price.to_m
 
-              add_details = chance(6)
-              details = if add_details
-                { "Material" => materials.sample, "Color" => colors.sample }
-              else
-                {}
-              end
+              details = { "Material" => materials.sample, "Color" => colors.sample }
 
               product.variants.build(
                 sku: sku,
