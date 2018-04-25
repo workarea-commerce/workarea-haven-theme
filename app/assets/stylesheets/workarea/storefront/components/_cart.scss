@@ -4,7 +4,8 @@
 
 $cart-item-count-color: $cart-item-count-color !default;
 $cart-aside-background-color: $cart-aside-background-color !default;
-$cart-action-max-width: 360px !default;
+$cart-action-max-width: 100% !default;
+$cart-action-max-width-wide: 420px !default;
 
 
 .cart {
@@ -36,6 +37,10 @@ $cart-action-max-width: 360px !default;
         .cart__checkout-action {
             margin-bottom: $vertical-margin;
             max-width: $cart-action-max-width;
+
+            @include respond-to($medium-breakpoint) {
+                max-width: $cart-action-max-width-wide;
+            }
         }
 
     .cart__aside {
