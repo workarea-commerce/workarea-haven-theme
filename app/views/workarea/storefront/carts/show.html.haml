@@ -1,6 +1,6 @@
 - @title = t('workarea.storefront.carts.title')
 
-.cart.view{ data: { analytics: cart_view_analytics_data(@cart).to_json } }
+.cart.view{ class: ('cart--empty' if @cart.no_items?) ,data: { analytics: cart_view_analytics_data(@cart).to_json } }
 
   - if @cart.no_items?
 

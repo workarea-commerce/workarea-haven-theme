@@ -16,6 +16,12 @@ $cart-action-max-width-wide: 420px !default;
     }
 }
 
+.cart--empty {
+    padding-top: $spacing-unit * 5;
+    padding-bottom: $spacing-unit * 5;
+    text-align: center;
+}
+
     .cart__heading {
         @extend %heading;
         @extend %heading--4;
