@@ -12,6 +12,8 @@ $product-summary-small-width: 200px !default;
 
 $product-summary-media-ratio: 1 !default;
 
+$product-summary-background-color: $background-color-component !default;
+
 
 /**
  * 1. sets positioning context for any absolutely positioned product summary
@@ -23,6 +25,7 @@ $product-summary-media-ratio: 1 !default;
     position: relative; /* [1] */
     margin-bottom: $spacing-unit;
     min-height: $product-summary-min-height-mobile;
+    background-color: $product-summary-background-color;
     border: 2px solid $product-summary-border-color;
 
     @include respond-to($medium-breakpoint) {
