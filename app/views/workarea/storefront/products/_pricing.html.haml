@@ -8,9 +8,9 @@
       %s= number_to_currency product.original_min_price
 
     - if product.on_sale?
-      %p.product-prices__price
-        %strong.product-prices__price-final= render 'workarea/storefront/products/price', price: product.sell_min_price
+      %p.product-prices__price.product-prices__price--sale
+        %strong= render 'workarea/storefront/products/price', price: product.sell_min_price
 
     - else
-      %p.product-prices__price
-        %span.product-prices__price-final= render 'workarea/storefront/products/price', price: product.sell_min_price
+      %p.product-prices__price.product-prices__price--sale
+        = render 'workarea/storefront/products/price', price: product.sell_min_price

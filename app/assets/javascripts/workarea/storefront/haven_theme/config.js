@@ -17,4 +17,10 @@
             return WORKAREA.checkoutPrimaryPayments.checkCvvCode(element);
         });
     }
+
+    WORKAREA.config.havenTheme = {
+        quantityControl: {
+            autoSubmitDelay: 500
+        }
+    };
 })();

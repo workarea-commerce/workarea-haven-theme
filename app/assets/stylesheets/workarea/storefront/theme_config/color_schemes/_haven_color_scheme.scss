@@ -158,6 +158,9 @@ $input-disabled-color: rgba($input-color, 0.18) !default;
 $input-disabled-background-color: $input-background-color !default;
 $input-icon-color: $medium-gray !default;
 $text-box-secondary-border-color: $highlighter !default;
+$quantity-control-background-color: $background-color-component !default;
+$quantity-control-button-color: $primary-color !default;
+$quantity-control-button-background-color: $light-gray !default;
 
 $select-menu-bg-color: $white !default;
 
@@ -197,6 +200,14 @@ $badge-best-seller-background-color: #21c0af;
 // Cart page colors
 $cart-item-count-color: $gray !default;
 $cart-aside-background-color: $light-gray !default;
+
+// Product list item colors
+$product-list-item-options-color: $gray !default;
+
+// Product price colors
+$product-price-color: $black !default;
+$product-price-sale-color: $red !default;
+$product-price-discount-color: $red !default;
 
 // Checkout colors
 $checkout-summary-section-border-color: $medium-gray !default;

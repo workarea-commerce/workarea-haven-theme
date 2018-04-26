@@ -21,81 +21,68 @@
         %ul.product-list{ data: { analytics: product_list_analytics_data('Cart').to_json } }
           - @cart.items.each_with_index do |item, index|
             %li.product-list__item
-              .product-list__item-cell
-                .product-list__summary
-                  %p.product-list__media= link_to image_tag(product_image_url(item.image, :small_thumb), alt: item.product_name, class: 'product-list__media-image'), product_url(item.product, sku: item.sku), class: 'product-list__media-link'
-                  .product-list__info
-                    %p.product-list__name= link_to item.product_name, product_path(item.product, sku: item.sku)
-                    %p.product-list__id= item.sku_name
-                    %p.product-list__inventory-status= item.inventory_status
-                    - if item.has_options?
-                      .product-list__option-group
-                        - item.details.each do |name, value|
-                          %p.product-list__option #{name.titleize}: #{value}
-                    - item.customizations.each do |name, value|
-                      %p.product-list__customization #{name.titleize}: #{value}
-                    = append_partials('storefront.cart_item_details', item: item, index: index)
-                .grid.grid--auto
-                  .grid__cell
-                    = form_tag cart_item_path(item), method: 'delete', class: 'action-group__item', data: { analytics: remove_from_cart_analytics_data(item).to_json } do
-                      %p= button_tag t('workarea.storefront.carts.remove'), value: 'remove_item', class: 'text-button'
-                  = append_partials('storefront.cart_item_actions', item: item)
-              .product-list__item-cell
-                %table.table
-                  %thead
-                    %tr
-                      %th.table__prices= t('workarea.storefront.orders.price')
-                      %th.table__quantity= t('workarea.storefront.orders.quantity')
-                      %th.table__prices= t('workarea.storefront.orders.total')
-                  %tbody
-                    %tr
-                      %td.table__prices
-                        = render 'workarea/storefront/carts/pricing', item: item, css_block: 'table'
-                      %td.table__quantity
-                        = form_tag cart_item_path(item), method: :patch, class: 'inline-form', data: { analytics: update_cart_item_analytics_data(item).to_json } do
-                          .inline-form__cell
-                            .value= number_field_tag :quantity, item.quantity, min: 1, required: true, class: 'text-box text-box--x-small', data: { form_submitting_control: '' }, title: t('workarea.storefront.orders.quantity'), id: "quantity_#{index}"
-                          %p.inline-form__cell.hidden-if-js-enabled= button_tag t('workarea.storefront.carts.update'), value: 'change_quantity', class: 'button'
-                      %td.table__prices
-                        - item.total_adjustments.each do |adjustment|
-                          %p.table__price
-                            - if item.total_adjustments.many?
-                              %span.table__price-label= adjustment.description.titleize
+              .product-list__summary
+                .product-list__media= link_to image_tag(product_image_url(item.image, :small_thumb), alt: item.product_name, class: 'product-list__media-image'), product_url(item.product, sku: item.sku), class: 'product-list__media-link'
+                .product-list__info
+                  %p.product-list__name= link_to item.product_name, product_path(item.product, sku: item.sku)
+                  - if item.has_options?
+                    .product-list__option-group
+                      - item.details.each do |name, value|
+                        %p.product-list__option #{name.titleize}: #{value}
+                  - item.customizations.each do |name, value|
+                    %p.product-list__customization #{name.titleize}: #{value}
+                  = append_partials('storefront.cart_item_details', item: item, index: index)
+              .product-list__actions
+                = form_tag cart_item_path(item), method: :patch, class: 'inline-form', data: { analytics: update_cart_item_analytics_data(item).to_json } do
+                  .inline-form__cell
 
-                            - if adjustment.discount?
-                              %strong.table__price-discount= number_to_currency(adjustment.amount)
-                            - else
+                    .quantity-control
+                      = button_tag '-', { type: 'button', data: { quantity_control: { 'direction': 'dec', 'autosubmit': true }.to_json }, class: 'quantity-control__button quantity-control__button--decrement'}
+                      .value= number_field_tag :quantity, item.quantity, min: 1, required: true, class: 'quantity-control__input text-box text-box--x-small', data: { form_submitting_control: '' }, title: t('workarea.storefront.orders.quantity'), id: "quantity_#{index}"
+                      = button_tag '+', { type: 'button', data: { quantity_control: { 'direction': 'inc', 'autosubmit': true }.to_json }, class: 'quantity-control__button quantity-control__button--increment'}
+
+                  %p.inline-form__cell.hidden-if-js-enabled= button_tag t('workarea.storefront.carts.update'), value: 'change_quantity', class: 'button'
+
+                = form_tag cart_item_path(item), method: 'delete', class: 'action-group__item', data: { analytics: remove_from_cart_analytics_data(item).to_json } do
+                  %p= button_tag t('workarea.storefront.carts.remove'), value: 'remove_item', class: 'text-button'
+
+                = append_partials('storefront.cart_item_actions', item: item)
+
+              .product-list__prices
+                .product-prices
+                  = render 'workarea/storefront/carts/pricing', item: item, css_block: 'product-prices'
+                  - if item.total_adjustments.many?
+                    .product-prices__discounts
+                      - item.total_adjustments.drop(1).each do |adjustment|
+                        .product-prices__discount
+                          - if item.total_adjustments.many?
+                            %span.product-prices__label= adjustment.description.titleize
+
+                          - if adjustment.discount?
+                            %strong.product-prices__discount-price= number_to_currency(adjustment.amount)
+                          - else
+                            .product-list__total-price
                               %span= number_to_currency(adjustment.amount)
 
-                        - if item.total_adjustments.many?
-                          %p.table__price
-                            %span.table__price-label= t('workarea.storefront.orders.item_total')
-                            %span= number_to_currency(item.total_price)
+                    .product-list__total-price
+                      %span.product-prices__label= t('workarea.storefront.orders.item_total')
+                      %span= number_to_currency(item.total_price)
+
           - @cart.free_gifts.each do |item|
             %li.product-list__item
-              .product-list__item-cell
-                .product-list__summary
-                  %p.product-list__media= link_to image_tag(product_image_url(item.image, :small_thumb), alt: item.product_name, class: 'product-list__media-image'), product_url(item.product, sku: item.sku), class: 'product-list__media-link'
-                  .product-list__info
-                    %p.product-list__name= link_to item.product_name, product_path(item.product, sku: item.sku)
-                    %p.product-list__id= item.sku
-              .product-list__item-cell
-                %table.table
-                  %thead
-                    %tr
-                      %th.table__prices= t('workarea.storefront.orders.price')
-                      %th.table__quantity= t('workarea.storefront.orders.quantity')
-                      %th.table__prices= t('workarea.storefront.orders.total')
-                  %tbody
-                    %tr
-                      %td.table__prices
-                        %p.table__price
-                          %span= t('workarea.storefront.carts.free_gift')
-                      %td.table__quantity
-                        %p= item.quantity
-                      %td.table__prices
-                        %p.table__price
-                          %span= t('workarea.storefront.carts.free_gift')
+              .product-list__summary
+                .product-list__media= link_to image_tag(product_image_url(item.image, :small_thumb), alt: item.product_name, class: 'product-list__media-image'), product_url(item.product, sku: item.sku), class: 'product-list__media-link'
+                .product-list__info
+                  %p.product-list__name= link_to item.product_name, product_path(item.product, sku: item.sku)
+              .product-list__actions
+                %p.product-list__quantity
+                  = t('workarea.storefront.orders.quantity')
+                  = item.quantity
+
+              .product-list__prices
+                .product-prices
+                  .product-prices__price
+                    %span= t('workarea.storefront.carts.free_gift')
 
         = append_partials('storefront.cart_additional_information', cart: @cart)
 

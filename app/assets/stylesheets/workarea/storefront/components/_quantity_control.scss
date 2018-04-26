@@ -1,0 +1,85 @@
+/*------------------------------------*\
+    #QUANTITY-CONTROL
+\*------------------------------------*/
+
+$quantity-input-color: $font-color !default;
+$quantity-control-background-color: $background-color !default;
+$quantity-control-width-mobile: 50px !default;
+$quantity-control-width: 100px !default;
+$quantity-control-border: 1px solid $border-color !default;
+
+$quantity-control-error-label-top-offset: 4em !default;
+$quantity-control-error-label-width: 300px !default;
+$quantity-control-error-label-width-dialog: 100px !default;
+
+$quantity-control-button-color: $quantity-control-button-color !default;
+$quantity-control-button-background-color: $quantity-control-button-background-color !default;
+
+/**
+ * 1. Remove arrows from number field styles on non-mobile devices
+ * 2. Some margins are still there even though it's hidden
+ */
+
+.quantity-control {
+    position: relative;
+    border: $quantity-control-border;
+
+    /**
+     * Extend .value__error from _value.scss
+     */
+
+    label.value__error {
+        position: absolute;
+        bottom: $quantity-control-error-label-top-offset;
+        width: $quantity-control-error-label-width;
+
+        .ui-dialog & {
+            width: $quantity-control-error-label-width-dialog;
+        }
+    }
+}
+
+    .quantity-control__input {
+        padding: $spacing-unit;
+        width: $quantity-control-width-mobile;
+        color: $quantity-input-color;
+        text-align: center;
+        background-color: $quantity-control-background-color;
+        border: 0;
+
+        /* [1] */
+        @include respond-to($medium-breakpoint) {
+            width: $quantity-control-width;
+            appearance: textfield;
+
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                margin: 0; /* [2] */
+                appearance: none;
+            }
+        }
+    }
+
+    .quantity-control__button {
+        display: none;
+
+        @include respond-to($medium-breakpoint) {
+            @include center($to: vertical);
+            display: inline-block;
+            z-index: index($quantity-control, button);
+            padding: $spacing-unit;
+            height: 100%;
+            color: $quantity-control-button-color;
+            background: $quantity-control-button-background-color;
+            border: 0;
+            cursor: pointer;
+        }
+    }
+
+    .quantity-control__button--increment {
+        right: 0;
+    }
+
+    .quantity-control__button--decrement {
+        left: 0;
+    }

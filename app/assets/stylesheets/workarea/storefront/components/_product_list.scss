@@ -2,8 +2,15 @@
     #PRODUCT-LIST
 \*------------------------------------*/
 
-$product-list-media-ratio:  2 / 3 !default;
+$product-list-media-ratio:  1 / 1 !default;
+$product-list-media-size:  80px !default;
 
+$product-list-item-font-size: $font-size-tiny !default;
+$product-list-item-font-size-small: $font-size-tiny - 2px !default;
+$product-list-item-background-color: $background-color-component !default;
+$product-list-item-options-color: $product-list-item-options-color !default;
+$product-list-item-border: 1px solid $border-color !default;
+$product-list-item-info-items-margin: ($spacing-unit / 2) 0 0 !default;
 
 .product-list {
     @extend %list-reset;
@@ -12,140 +19,147 @@ $product-list-media-ratio:  2 / 3 !default;
 
 .product-list--narrow {}
 
+    /**
+     * 1. Left margin must be auto to ensure flex alignment is correct.
+     */
     .product-list__item {
         @extend %clearfix;
-        padding: 0 0 ($spacing-unit * 2);
+        margin-bottom: $spacing-unit * 2;
+        padding: ($spacing-unit * 2) $spacing-unit;
+        background-color: $product-list-item-background-color;
+        border: $product-list-item-border;
 
-        @include respond-to ($medium-breakpoint) {
-            display: table;
+        @include respond-to($medium-breakpoint) {
+            display: flex;
+            margin-bottom: $spacing-unit * 3;
+            padding: ($spacing-unit * 2);
             width: 100%;
             border-spacing:  0;
             border-collapse: collapse;
+            justify-content: space-between;
         }
 
         .product-list--narrow & {
-            @include respond-to ($medium-breakpoint) {
+            @include respond-to($medium-breakpoint) {
                 display: block;
                 width: auto;
             }
         }
     }
 
-        /**
-         * 1. this block is designed to have two cells, maximum
-         */
+        .product-list__summary {
+            display: inline-block;
 
-        .product-list__item-cell {
-            padding: ($spacing-unit * 2) 0;
-
-            @include respond-to ($medium-breakpoint) {
-                display: table-cell;
-                vertical-align: top;
+            @include respond-to($medium-breakpoint) {
+                width: 50%;
             }
 
             .product-list--narrow & {
-                @include respond-to ($medium-breakpoint) {
-                    display: block;
-                    vertical-align: baseline;
-                }
-            }
-
-            & + & { /* [1] */
-                @include respond-to ($medium-breakpoint) {
-                    padding-left: ($spacing-unit * 2);
-                }
-
-                .product-list--narrow & {
-                    @include respond-to ($medium-breakpoint) {
-                        padding-left: 0;
-                    }
-                }
-
-                /**
-                 * Extend `.table {}` in _table.scss.
-                 */
-
-                .table {
-                    margin: 0;
-                }
-            }
-
-            /**
-             * Extend `.property {}` in _property.scss.
-             */
-
-            .property {
-                margin: $vertical-margin 0 0;
+                width: 100%;
             }
         }
 
-            .product-list__summary {
-                display: table;
-                width: 100%;
-                border-spacing:  0;
-                border-collapse: collapse;
+            .product-list__media {
+                display: inline-block;
+                padding: 0 $spacing-unit 0 0;
+                width: $product-list-media-size;
+                max-width: $product-list-media-size;
+                vertical-align: top;
             }
 
-                .product-list__media {
-                    display: table-cell;
-                    padding: 0 $spacing-unit 0 0;
-                    width: 60px;
-                    max-width: 60px;
-                    vertical-align: top;
+                .product-list__media-link {
+                    display: block;
+                    padding: 0 0 ((1 / $product-list-media-ratio) * 100%);
+                    height: 0;
                 }
 
-                    .product-list__media-link {
+                    .product-list__media-image {
                         display: block;
-                        padding: 0 0 ((1 / $product-list-media-ratio) * 100%);
-                        height: 0;
                     }
 
-                        .product-list__media-image {
-                            display: block;
-                        }
 
-                .product-list__info {
-                    display: table-cell;
-                    text-align: left;
-                    vertical-align: top;
+            .product-list__info {
+                display: inline-block;
+                text-align: left;
+                vertical-align: top;
+            }
+
+                .product-list__name {
+                    margin: $product-list-item-info-items-margin;
                 }
 
-                    .product-list__name {
-                        margin: ($spacing-unit / 2) 0 0;
+                .product-list__option-group {
+                    margin: $product-list-item-info-items-margin;
+                }
+
+                    .product-list__option {
+                        display: block;
+                        margin: 0 ($spacing-unit / 2) 0 0;
+                        color: $product-list-item-options-color;
+                        font-size: $product-list-item-font-size-small;
                     }
 
-                    .product-list__id {
-                        margin: ($spacing-unit / 2) 0 0;
-                    }
+                .product-list__customization {
+                    margin: $product-list-item-info-items-margin;
+                }
 
-                    .product-list__price-group {
-                        margin: ($spacing-unit / 2) 0 0;
-                    }
+                .product-list__quantity {
+                    margin: $product-list-item-info-items-margin;
+                    font-size: $product-list-item-font-size-small;
+                    white-space: nowrap;
+                }
 
-                        .product-list__price {
-                            display: inline-block;
-                            margin: 0 ($spacing-unit / 2) 0 0;
-                            white-space: nowrap;
-                        }
+        .product-list__actions {
+            margin-left: $product-list-media-size;
 
-                    .product-list__option-group {
-                        margin: ($spacing-unit / 2) 0 0;
-                    }
+            @include respond-to($medium-breakpoint) {
+                display: inline-block;
+                margin-left: 0;
+            }
 
-                        .product-list__option {
-                            display: inline-block;
-                            margin: 0 ($spacing-unit / 2) 0 0;
-                            white-space: nowrap;
-                        }
+            .product-list--narrow & {
+                display: block;
+                margin-bottom: $spacing-unit;
+                margin-left: $product-list-media-size;
+            }
+        }
 
-                    .product-list__customization {
-                        margin: ($spacing-unit / 2) 0 0;
-                    }
+            .product-list__quantity {}
 
-                    .product-list__quantity {
-                        margin: ($spacing-unit / 2) 0 0;
-                    }
+        .product-list__prices {
+            margin: 0 ($spacing-unit * 2);
+            text-align: right;
 
-                    .product-list__inventory-status {
-                        margin: ($spacing-unit / 2) 0 0;
-                    }
+            @include respond-to($medium-breakpoint) {
+                display: inline-block;
+                margin: 0 ($spacing-unit * 2) 0 auto; /* [1] */
+            }
+
+            .product-list--narrow & {
+                display: block;
+                margin-left: $product-list-media-size;
+                text-align: left;
+            }
+        }
+
+            .product-list__total-price {
+                padding-top: $spacing-unit;
+                border-top: $product-list-item-border;
+
+                @include respond-to($medium-breakpoint) {
+                    padding-left: $spacing-unit * 2;
+                }
+            }
+
+        .product-list__shipments {}
+
+            .product-list__shipments-heading {}
+
+            .product-list__tracking {
+                display: block;
+                margin-bottom: $spacing-unit;
+                text-align: right;
+            }
+
+                .product-list__tracking__qty {}
+                .product-list__tracking__link {}

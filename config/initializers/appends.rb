@@ -16,8 +16,8 @@ module Workarea
     "workarea/storefront/components/email_signup_view",
     "workarea/storefront/components/login",
     "workarea/storefront/components/overlay",
-    "workarea/storefront/components/search",
-    "workarea/storefront/components/order_item"
+    "workarea/storefront/components/quantity_control",
+    "workarea/storefront/components/search"
   )
 
   Plugin.append_javascripts(
@@ -33,9 +33,10 @@ module Workarea
   Plugin.append_javascripts(
     "storefront.modules",
     "workarea/storefront/modules/filter_view_more",
+    "workarea/storefront/modules/quantity_control",
+    "workarea/storefront/modules/search_buttons",
     "workarea/storefront/modules/toggle_class_button",
-    "workarea/storefront/modules/user_welcome_placeholder",
-    "workarea/storefront/modules/search_buttons"
+    "workarea/storefront/modules/user_welcome_placeholder"
   )
 
   Plugin.append_javascripts(
