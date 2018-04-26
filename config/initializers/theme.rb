@@ -40,4 +40,17 @@ Workarea.configure do |config|
     "1": "grid__cell--50 grid__cell--33-at-medium grid__cell--25-at-wide",
     "2": "grid__cell--50-at-medium"
   }
+
+  # Number of recommendations to show on the detail page
+  config.detail_page_recommendations_count = 4
+
+  # Number of recommendations to show in the personalized recommendations
+  # content block
+  config.personalized_recommendations_count = 4
+
+  # Number of recommendations to show in transactional emails
+  config.email_recommendations_count = 4
+
+  # Number of recommendations to show on the cart
+  config.cart_recommendations_count = 4
 end
