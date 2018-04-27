@@ -23,4 +23,15 @@
             autoSubmitDelay: 500
         }
     };
+
+    _.merge(WORKAREA.config.dialog, {
+        options: {
+            initModules: true,
+
+            uiDialogOptions: {
+                width: 'auto',
+                modal: true
+            }
+        },
+    });
 })();

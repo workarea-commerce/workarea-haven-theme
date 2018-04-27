@@ -17,6 +17,8 @@ $product-list-item-info-items-margin: ($spacing-unit / 2) 0 0 !default;
     margin-bottom: $vertical-margin;
 }
 
+.product-list--medium {}
+
 .product-list--narrow {}
 
     /**
@@ -54,6 +56,7 @@ $product-list-item-info-items-margin: ($spacing-unit / 2) 0 0 !default;
                 width: 50%;
             }
 
+            .product-list--medium,
             .product-list--narrow & {
                 width: 100%;
             }
@@ -124,8 +127,6 @@ $product-list-item-info-items-margin: ($spacing-unit / 2) 0 0 !default;
             }
         }
 
-            .product-list__quantity {}
-
         .product-list__prices {
             margin: 0 ($spacing-unit * 2);
             text-align: right;
@@ -133,6 +134,10 @@ $product-list-item-info-items-margin: ($spacing-unit / 2) 0 0 !default;
             @include respond-to($medium-breakpoint) {
                 display: inline-block;
                 margin: 0 ($spacing-unit * 2) 0 auto; /* [1] */
+            }
+
+            .product-list--medium {
+                margin: 0 ($spacing-unit * 2);
             }
 
             .product-list--narrow & {

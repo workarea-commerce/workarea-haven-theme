@@ -9,10 +9,10 @@ $cart-action-max-width-wide: 420px !default;
 
 
 .cart {
-    padding: 0 $spacing-unit;
+    padding: 0 $spacing-unit $spacing-unit;
 
     @include respond-to($medium-breakpoint) {
-        padding: 0 ($spacing-unit * 3);
+        padding: 0 ($spacing-unit * 3) ($spacing-unit * 3);
     }
 }
 
@@ -65,6 +65,8 @@ $cart-action-max-width-wide: 420px !default;
             padding: ($spacing-unit * 5) ($spacing-unit * 3);
         }
     }
+
+        .cart__discount-messaging {}
 
         .cart__aside-heading {
             @extend %heading;

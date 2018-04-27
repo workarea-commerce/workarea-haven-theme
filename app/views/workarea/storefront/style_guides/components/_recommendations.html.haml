@@ -1,0 +1,43 @@
+#recommendations.style-guide__subsection
+
+  %h3= link_to_style_guide('components', 'recommendations')
+
+  %p Displays a set of recommended products
+
+  .style-guide__example-block
+    .recommendations
+      .content-wrapper
+        %h2.recommendations__heading You may also like...
+
+        %ul.recommendations__list
+          .grid
+            - (1..4).each do |i|
+              .grid__cell.grid__cell--50.grid__cell--25-at-medium
+                .recommendations__item
+                  .product-summary.product-summary--small
+                    .product-summary__media
+                      .product-summary__image-wrapper
+                        = image_tag 'workarea/core/placeholder.png', size: '232x232', class: 'product-summary__image'
+                    .product-summary__divider
+                      .product-summary__info
+                        %p.product-summary__name= link_to "Product Title #{i}", nil, class: 'product-summary__name-link', itemprop: 'url'
+                        .product-prices.product-prices--summary{ itemprop: 'offers', itemscope: true, itemtype: 'http://schema.org/Offer' } $49.95
+
+  %p Can be displayed in a vertical layout by using recommendations--vertical modifier and removing grid and grid cell markup. This is designed to be used within an aside or other narrow layout area. Height is not restricted, this example sets the height inline as an example only.
+  .style-guide__example-block
+    .grid
+      .grid__cell.grid__cell--33
+        .recommendations.recommendations--vertical{ style: "height: 500px;" }
+          %h2.recommendations__heading You may also like...
+
+          %ul.recommendations__list
+            - (1..4).each do |i|
+              .recommendations__item
+                .product-summary.product-summary--small
+                  .product-summary__media
+                    .product-summary__image-wrapper
+                      = image_tag 'workarea/core/placeholder.png', size: '232x232', class: 'product-summary__image'
+                  .product-summary__divider
+                    .product-summary__info
+                      %p.product-summary__name= link_to "Product Title #{i}", nil, class: 'product-summary__name-link', itemprop: 'url'
+                      .product-prices.product-prices--summary{ itemprop: 'offers', itemscope: true, itemtype: 'http://schema.org/Offer' } $49.95

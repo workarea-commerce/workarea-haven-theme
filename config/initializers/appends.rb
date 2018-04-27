@@ -12,10 +12,12 @@ module Workarea
   Plugin.append_stylesheets(
     "storefront.components",
     "workarea/storefront/components/account_menu",
+    "workarea/storefront/components/add_to_cart",
     "workarea/storefront/components/color_box",
     "workarea/storefront/components/email_signup_view",
     "workarea/storefront/components/login",
     "workarea/storefront/components/overlay",
+    "workarea/storefront/components/recommendations",
     "workarea/storefront/components/quantity_control",
     "workarea/storefront/components/search"
   )
@@ -47,5 +49,10 @@ module Workarea
   Plugin.append_partials(
     "storefront.current_user",
     "workarea/storefront/users/haven_current_user"
+  )
+
+  Plugin.remove_partials(
+    "storefront.cart_checkout_actions",
+    "workarea/storefront/carts/shipping_message"
   )
 end

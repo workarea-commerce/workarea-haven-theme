@@ -1,0 +1,77 @@
+.view.add-to-cart{ class: ('add-to-cart--with-aside' if @cart.recommendations.any?) }
+  .add-to-cart__items>
+    - if @item.blank?
+      = render_message 'error', data: { message_show_dismiss: 'false' } do
+        = t('workarea.storefront.flash_messages.cart_item_error')
+
+    - else
+      = render_message 'success', data: { message_show_dismiss: 'false' } do
+        = t('workarea.storefront.flash_messages.cart_item_added')
+
+      .product-list.product-list--medium
+        .product-list__item{ data: { cart_count: current_order.quantity, analytics: add_to_cart_confirmation_analytics_data(@item).to_json } }
+          .product-list__summary
+            .product-list__media= link_to image_tag(product_image_url(@item.image, :small_thumb), alt: @item.product_name, class: 'product-list__media-image'), product_url(@item.product, sku: @item.sku), class: 'product-list__media-link'
+            .product-list__info
+              %p.product-list__name= link_to @item.product_name, product_path(@item.product, sku: @item.sku)
+              - if @item.has_options?
+                .product-list__option-group
+                  - @item.details.each do |name, value|
+                    %p.product-list__option #{name.titleize}: #{value}
+              - @item.customizations.each do |name, value|
+                %p.product-list__customization #{name.titleize}: #{value}
+              = append_partials('storefront.cart_item_details', item: @item, index: 0)
+          .product-list__actions
+            = form_tag cart_item_path(@item), method: :patch, class: 'inline-form', data: { analytics: update_cart_item_analytics_data(@item).to_json } do
+              .inline-form__cell
+                .quantity-control
+                  = button_tag '-', { type: 'button', data: { quantity_control: { 'direction': 'dec', 'autosubmit': true }.to_json }, class: 'quantity-control__button quantity-control__button--decrement'}
+                  .value= number_field_tag :quantity, @item.quantity, min: 1, required: true, class: 'quantity-control__input text-box text-box--x-small', data: { form_submitting_control: '' }, title: t('workarea.storefront.orders.quantity'), id: "quantity_0"
+                  = button_tag '+', { type: 'button', data: { quantity_control: { 'direction': 'inc', 'autosubmit': true }.to_json }, class: 'quantity-control__button quantity-control__button--increment'}
+
+              %p.inline-form__cell.hidden-if-js-enabled= button_tag t('workarea.storefront.carts.update'), value: 'change_quantity', class: 'button'
+
+          .product-list__prices
+            .product-prices
+              = render 'workarea/storefront/carts/pricing', item: @item, css_block: 'product-prices'
+              - if @item.total_adjustments.many?
+                .product-prices__discounts
+                  - @item.total_adjustments.drop(1).each do |adjustment|
+                    .product-prices__discount
+                      - if @item.total_adjustments.many?
+                        %span.product-prices__label= adjustment.description.titleize
+
+                      - if adjustment.discount?
+                        %strong.product-prices__discount-price= number_to_currency(adjustment.amount)
+                      - else
+                        .product-list__total-price
+                          %span= number_to_currency(adjustment.amount)
+
+                .product-list__total-price
+                  %span.product-prices__label= t('workarea.storefront.orders.item_total')
+                  %span= number_to_currency(@item.total_price)
+
+      .add-to-cart__info
+        %p.add-to-cart__cart-info
+          = link_to t('workarea.storefront.carts.view_cart'), cart_path, class: 'text-button'
+          = t('workarea.storefront.carts.item_count', count: @cart.items.count)
+
+        %p.add-to-cart__discount-messaging
+          = render "workarea/storefront/carts/shipping_message", cart: @cart
+
+        .add-to-cart__actions
+          .grid.grid--auto.grid--middle
+            .grid__cell= link_to t('workarea.storefront.carts.continue_shopping'), root_path, class: 'text-button', data: { dialog_close_button: true }
+            .grid__cell= link_to t('workarea.storefront.carts.checkout'), checkout_path, class: 'button button--large'
+
+  - if @cart.recommendations.any?
+    .add-to-cart__recommendations
+      .hidden.hidden--for-small-only
+        .recommendations.recommendations--vertical
+          %h2.recommendations__heading= t('workarea.storefront.recommendations.you_may_also_like')
+
+          %ul.recommendations__list
+            - @cart.recommendations.each do |product|
+              .recommendations__item
+                .product-summary.product-summary--small{ itemscope: true, itemtype: 'http://schema.org/Product' }
+                  = render 'workarea/storefront/products/summary', product: product

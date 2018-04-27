@@ -1,0 +1,31 @@
+/*------------------------------------*\
+    #RECOMMENDATIONS
+\*------------------------------------*/
+
+$recommendations-background-color: $recommendations-background-color !default;
+
+
+.recommendations {
+    padding: ($spacing-unit * 5) 0;
+    background-color: $personalized-recommendations-content-block-background-color;
+}
+
+.recommendations--full-bleed {
+    @include full-bleed-container;
+}
+
+.recommendations--vertical {
+    padding: ($spacing-unit * 2) ($spacing-unit * 4);
+    overflow-y: scroll;
+}
+
+    .recommendations__heading {
+        @extend %heading;
+        @extend %heading--4;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .recommendations__list {
+        @extend %list-reset;
+    }

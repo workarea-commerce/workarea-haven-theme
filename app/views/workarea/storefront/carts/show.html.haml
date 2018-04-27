@@ -99,6 +99,10 @@
 
       .grid__cell.grid__cell--33-at-medium
         .cart__aside
+
+          %p.cart__discount-messaging
+            = render "workarea/storefront/carts/shipping_message", cart: @cart
+
           %h3.cart__aside-heading= t('workarea.storefront.carts.totals')
           %table.table.table--totals
             %tbody
@@ -152,15 +156,16 @@
   = append_partials('storefront.cart_show', cart: @cart)
 
 - cache @cart.cache_key, expires_in: 3.hours do
-  .recommendations
+  .recommendations.recommendations--full-bleed
     - if @cart.recommendations.any?
-      %h2= t('workarea.storefront.recommendations.heading')
+      .content-wrapper
+        %h2.recommendations__heading= t('workarea.storefront.recommendations.heading')
 
-      .grid
-        - @cart.recommendations.each do |product|
-          .grid__cell.grid__cell--50.grid__cell--33-at-medium.grid__cell--16-at-wide
-            .product-summary.product-summary--small{ itemscope: true, itemtype: 'http://schema.org/Product' }
-              = render 'workarea/storefront/products/summary', product: product
+        .grid
+          - @cart.recommendations.each do |product|
+            .grid__cell.grid__cell--50.grid__cell--25-at-medium
+              .product-summary.product-summary--small{ itemscope: true, itemtype: 'http://schema.org/Product' }
+                = render 'workarea/storefront/products/summary', product: product
 
 - if @cart.quantity.zero?
   %div{ data: { recommendations_placeholder: recommendations_path } }
