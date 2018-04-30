@@ -1,0 +1,19 @@
+/*------------------------------------*\
+    #PERSONALIZED-RECOMMENDATIONS-CONTENT-BLOCK
+\*------------------------------------*/
+
+$personalized-recommendations-content-block-background-color: $recommendations-background-color !default;
+
+
+.personalized-recommendations-content-block {
+    @include full-bleed-container;
+    padding: ($spacing-unit * 5) 0;
+    background-color: $personalized-recommendations-content-block-background-color;
+}
+
+    .personalized-recommendations-content-block__heading {
+        @extend %heading;
+        @extend %heading--4;
+        text-align: center;
+        text-transform: uppercase;
+    }

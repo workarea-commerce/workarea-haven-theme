@@ -1,0 +1,15 @@
+/**
+ * full-bleed-container
+ *
+ * Used to make content full bleed when it is wrapped by parent with a max-width
+ * https://css-tricks.com/full-width-containers-limited-width-parents/
+ */
+
+@mixin full-bleed-container {
+    position: relative;
+    right: 50%;
+    left: 50%;
+    margin-right: -50vw;
+    margin-left: -50vw;
+    width: 100vw;
+}
