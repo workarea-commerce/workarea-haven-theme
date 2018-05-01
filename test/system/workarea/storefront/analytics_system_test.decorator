@@ -10,6 +10,8 @@ module Workarea
       find(".result-filters__attribute", :text => "Size").click
       click_link 'Medium'
 
+      assert(page.has_content?('Test Product 2'))
+
       events = find_analytics_events(for_event: 'categoryView')
 
       assert_equal(1, events.count)
@@ -88,6 +90,24 @@ module Workarea
       assert_equal('SKU1', payload['sku'])
       assert_equal(false, payload['sale'])
       assert_equal(10, payload['price'])
+    end
+
+    def test_announcing_checkout_edit_event
+      setup_checkout_specs
+      add_user_data
+      start_guest_checkout
+
+      fill_in_email
+      fill_in_shipping_address
+      click_button t('workarea.storefront.checkouts.continue_to_shipping')
+
+      disable_dom_events
+      click_link t('workarea.storefront.forms.edit'), match: :first
+
+      events = find_analytics_events(for_event: 'checkoutEdit')
+      assert_equal(1, events.count)
+      payload = events.first['arguments'].first
+      assert_equal('addresses', payload['type'])
     end
   end
 end

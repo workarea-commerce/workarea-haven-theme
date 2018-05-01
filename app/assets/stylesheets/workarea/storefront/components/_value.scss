@@ -71,3 +71,9 @@ $value-icon-top-offset: 20px !default;
             fill: $value-icon-color-valid;
         }
     }
+
+    .value__button {
+        position: absolute;
+        top: $spacing-unit / 2;
+        right: $spacing-unit;
+    }

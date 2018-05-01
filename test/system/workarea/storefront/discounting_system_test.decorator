@@ -1,0 +1,142 @@
+require 'test_helper'
+
+module Workarea
+  decorate Storefront::DiscountingSystemTest, with: :haven_theme do
+    def test_product_promo_code_discount
+      create_product_discount(
+        name: 'Integration Item Discount',
+        amount_type: 'flat',
+        amount: 1,
+        promo_codes: ['PROMOCODE'],
+        product_ids: [@product.id]
+      )
+
+      add_product_to_cart
+      click_link t('workarea.storefront.carts.view_cart')
+
+      assert(page.has_no_content?('Integration Item Discount'))
+      assert(page.has_no_content?("#{t('workarea.storefront.orders.total')} $4.00"))
+
+      assert(page.has_content?(t('workarea.storefront.carts.enter_promo_code_prompt')))
+      click_button t('workarea.storefront.carts.enter_promo_code_prompt')
+      within '#promo_code_form' do
+        fill_in 'promo_code', with: 'PROMOCODE'
+        click_button t('workarea.storefront.carts.add')
+      end
+
+      assert(page.has_content?('Integration Item Discount'))
+      assert(page.has_content?("#{t('workarea.storefront.orders.total')} $4.00"))
+
+      start_user_checkout
+
+      assert(page.has_content?('Integration Item Discount'))
+      assert(page.has_content?("#{t('workarea.storefront.orders.total')} $4.00"))
+    end
+
+    def test_free_gift_discounts
+      free_product = create_product(
+        name: 'Free Product',
+        variants: [{ sku: 'FREESKU', regular: 5.to_m }]
+      )
+
+      create_free_gift_discount(
+        name: 'Free Item Discount',
+        sku: free_product.skus.first,
+        promo_codes: ['PROMOCODE']
+      )
+
+      add_product_to_cart
+      click_link t('workarea.storefront.carts.view_cart')
+      within '.product-list__info' do
+        assert(page.has_no_content?('Free Product'))
+      end
+
+      assert(page.has_content?(t('workarea.storefront.carts.enter_promo_code_prompt')))
+      click_button t('workarea.storefront.carts.enter_promo_code_prompt')
+      within '#promo_code_form' do
+        fill_in 'promo_code', with: 'PROMOCODE'
+        click_button t('workarea.storefront.carts.add')
+      end
+
+      assert(page.has_content?('Free Product'))
+      assert(page.has_content?('FREESKU'))
+      assert(page.has_content?("#{t('workarea.storefront.orders.total')} $5.00"))
+
+      start_user_checkout
+
+      assert(page.has_content?('Free Product'))
+    end
+
+    def test_order_total_discounts
+      create_order_total_discount(
+        name: 'Test Discount',
+        amount_type: 'flat',
+        amount: 1,
+        promo_codes: ['PROMOCODE']
+      )
+
+      add_product_to_cart
+      click_link t('workarea.storefront.carts.view_cart')
+      assert(page.has_no_content?('Test Discount'))
+
+      assert(page.has_content?(t('workarea.storefront.carts.enter_promo_code_prompt')))
+      click_button t('workarea.storefront.carts.enter_promo_code_prompt')
+      within '#promo_code_form' do
+        fill_in 'promo_code', with: 'PROMOCODE'
+        click_button t('workarea.storefront.carts.add')
+      end
+
+      assert(page.has_content?('Test Discount'))
+      assert(page.has_content?("#{t('workarea.storefront.orders.total')} $4.00"))
+
+      start_user_checkout
+
+      assert(page.has_content?('Test Discount'))
+      assert(page.has_content?("#{t('workarea.storefront.orders.total')} $11.77"))
+    end
+
+    def test_generated_promo_code
+      code_list = create_code_list
+
+      create_order_total_discount(
+        name: 'Test Discount',
+        amount_type: 'percent',
+        amount: 20,
+        generated_codes_id: code_list.id
+      )
+
+      add_product_to_cart
+      click_link t('workarea.storefront.carts.view_cart')
+
+      click_button t('workarea.storefront.carts.enter_promo_code_prompt')
+      within '#promo_code_form' do
+        fill_in 'promo_code', with: code_list.promo_codes.first.code
+        click_button t('workarea.storefront.carts.add')
+      end
+
+      assert(page.has_content?('Test Discount'))
+      assert(page.has_content?('$1.00'))
+      assert(page.has_content?('$4.00'))
+
+      start_user_checkout
+
+      assert(page.has_content?('Test Discount'))
+      assert(page.has_content?('$1.00'))
+      assert(page.has_content?("#{t('workarea.storefront.orders.total')} $11.77"))
+
+      click_button t('workarea.storefront.checkouts.place_order')
+
+      add_product_to_cart
+      click_link t('workarea.storefront.carts.view_cart')
+
+      assert(page.has_content?(t('workarea.storefront.carts.enter_promo_code_prompt')))
+      click_button t('workarea.storefront.carts.enter_promo_code_prompt')
+      within '#promo_code_form' do
+        fill_in 'promo_code', with: code_list.promo_codes.first.code
+        click_button t('workarea.storefront.carts.add')
+      end
+
+      assert(page.has_content?('Error'))
+    end
+  end
+end

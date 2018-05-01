@@ -11,17 +11,23 @@ en:
         continue_to_shipping_disabled_text: Continuing to Shipping...
         continue_to_payment: Continue to Payment
         continue_to_payment_disabled_text: Continuing to Payment...
-        shipping_step_number: 2
-        shipping_step_text: Shipping
+        new_credit_card: New Card
         payment_step_number: 3
         payment_step_text: Payment
+        shipping_step_number: 2
+        shipping_step_text: Shipping
         summary:
           products: Products
+      credit_cards:
+        name_on_card_name: "Name on card: %{name}"
+        summary: "ending in %{number}"
       filters:
         applied: Applied Filters
         view_more: View More
         view_less: View Less
         clear: Clear All
+      gift_cards:
+        enter_gift_card_prompt: Enter a gift card number
       layouts:
         email_signup: Email Sign Up
         navigate_back: Navigate back

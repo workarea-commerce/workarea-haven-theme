@@ -16,6 +16,12 @@
       = text_field_tag 'wl_value_text_field_div_with_icon', nil, class: 'text-box'
       = inline_svg('workarea/storefront/icons/email.svg', class: 'value__icon')
 
+  %p Can contain a button
+  .style-guide__example-block
+    .value
+      = text_field_tag 'wl_value_text_field_div_with_button', nil, class: 'text-box'
+      .value__button= button_tag 'Button', value: 'button_action', class: 'button button--small'
+
   .style-guide__unit-test
 
     %h4 Unit Test

@@ -25,4 +25,7 @@ Gem::Specification.new do |s|
   s.add_dependency "workarea-product_badges"
   s.add_dependency "workarea-content_search"
   s.add_dependency "workarea-product_grid_content"
+  # s.add_dependency "workarea-gift_cards"
+
+  s.add_dependency "jquery_payment-rails"
 end

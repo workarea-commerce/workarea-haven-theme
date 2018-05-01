@@ -35,7 +35,96 @@ module Workarea
       click_button t('workarea.storefront.checkouts.continue_to_shipping')
 
       assert(page.has_content?('1019 S. 47th St.'))
+      # TODO - add binding.pry here and debug test failure
+      # bin/rails test /Users/jakeberesford/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/bundler/gems/workarea-3846146b6395/storefront/test/system/workarea/storefront/logged_in_checkout_system_test.rb
       assert(page.has_no_content?('22 S. 3rd St.'))
+    end
+
+    def test_successfully_compelting_checkout
+      assert_current_path(storefront.checkout_payment_path)
+      assert(page.has_content?('Info'))
+
+      assert(page.has_content?('22 S. 3rd St.'))
+      assert(page.has_content?('Philadelphia'))
+      assert(page.has_content?('PA'))
+      assert(page.has_content?('19106'))
+      assert(page.has_content?('Ground'))
+
+      assert(page.has_content?('Integration Product'))
+
+      assert(page.has_content?('$5.00')) # Subtotal
+      assert(page.has_content?('$7.00')) # Shipping
+      assert(page.has_content?('$0.84')) # Tax
+      assert(page.has_content?('$12.84')) # Total
+
+      click_button t('workarea.storefront.checkouts.place_order')
+
+      assert_current_path(storefront.checkout_confirmation_path)
+
+      assert(page.has_content?('Success'))
+      assert(page.has_content?('Thanks'))
+      assert(page.has_content?(Order.first.id))
+
+      assert(page.has_content?('22 S. 3rd St.'))
+      assert(page.has_content?('Philadelphia'))
+      assert(page.has_content?('PA'))
+      assert(page.has_content?('19106'))
+      assert(page.has_content?('Ground'))
+
+      assert(page.has_content?('1019 S. 47th St.'))
+      assert(page.has_content?('Philadelphia'))
+      assert(page.has_content?('PA'))
+      assert(page.has_content?('19143'))
+
+      # TODO: Order confirmation should display card type in payment summary
+      # assert(page.has_content?('Test Card'))
+      assert(page.has_content?('XX-1'))
+
+      assert(page.has_content?('Integration Product'))
+      assert(page.has_content?('SKU'))
+
+      assert(page.has_content?('$5.00')) # Subtotal
+      assert(page.has_content?('$7.00')) # Shipping
+      assert(page.has_content?('$0.84')) # Tax
+      assert(page.has_content?('$12.84')) # Total
+    end
+
+    def test_express_checkout
+      assert_current_path(storefront.checkout_payment_path)
+
+      assert(page.has_content?('Ben'))
+      assert(page.has_content?('Crouse'))
+      assert(page.has_content?('1019 S. 47th St.'))
+      assert(page.has_content?('Philadelphia'))
+      assert(page.has_content?('19143'))
+      assert(page.has_content?('PA'))
+      assert(page.has_content?('US'))
+      assert(page.has_content?('215-925-1800'))
+
+      assert(page.has_content?('Ben'))
+      assert(page.has_content?('Crouse'))
+      assert(page.has_content?('22 S. 3rd St.'))
+      assert(page.has_content?('Philadelphia'))
+      assert(page.has_content?('19106'))
+      assert(page.has_content?('PA'))
+      assert(page.has_content?('US'))
+      assert(page.has_content?('215-925-1800'))
+
+      credit_card_id = Payment::SavedCreditCard.first.id
+      assert(find_field("payment_#{credit_card_id}"))
+      refute(find_field('payment_new_card')[:checked])
+
+      assert(page.has_content?('Integration Product'))
+
+      assert(page.has_content?('$5.00')) # Subtotal
+      assert(page.has_content?('$7.00')) # Shipping
+      assert(page.has_content?('$0.84')) # Tax
+      assert(page.has_content?('$12.84')) # Total
+
+      click_button t('workarea.storefront.checkouts.place_order')
+
+      assert_current_path(storefront.checkout_confirmation_path)
+      assert(page.has_content?('Success'))
     end
   end
 end

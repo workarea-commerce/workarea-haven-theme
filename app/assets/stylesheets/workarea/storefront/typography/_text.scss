@@ -28,6 +28,11 @@ blockquote {
     font-size: $font-size-small;
 }
 
+%text--tiny,
+.text--tiny {
+    font-size: $font-size-tiny;
+}
+
 %text--large,
 .text--large {
     font-size: 1.2rem;
