@@ -1,0 +1,42 @@
+/*------------------------------------*\
+    #BOX
+\*------------------------------------*/
+
+$box-border-color: $border-color !default;
+$box-background-color: $background-color-component !default;
+$box-border-radius: 0 !default;
+
+$box-padding: $spacing-unit ($spacing-unit * 2) !default;
+
+.box {
+    margin-bottom: $spacing-unit * 2;
+    background-color: $box-background-color;
+    border-radius: $box-border-radius;
+}
+
+
+    .box__header {
+        @extend %clearfix;
+        padding: $box-padding;
+        border-bottom: 1px solid $box-border-color;
+    }
+
+        /**
+         * 1. approximate the height of a button
+         */
+        .box__heading {
+            @extend %heading;
+            @extend %heading--5;
+            @extend %heading--upcase;
+            margin-bottom: 0;
+            line-height: 1.75; /* [1] */
+        }
+
+        .box__action {
+            float: right;
+        }
+
+
+    .box__body {
+        padding: $spacing-unit 0;
+    }

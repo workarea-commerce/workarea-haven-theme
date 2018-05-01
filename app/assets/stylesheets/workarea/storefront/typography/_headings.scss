@@ -128,10 +128,17 @@ h6,
     }
 }
 
+%heading--content,
 .heading--content {
     font-family: $heading-content-font-family;
 }
 
+%heading--no-margin,
 .heading--no-margin {
     margin: 0;
+}
+
+%heading--upcase,
+.heading--upcase {
+    text-transform: uppercase;
 }

@@ -8,11 +8,12 @@ $page-content-checkout-container-max-width: 500px !default;
 .page-content {
     position: relative;
     z-index: index($page-container, page-content);
-    margin: 0 auto;
+    margin: 0 auto $spacing-unit;
     padding: 0 ($spacing-unit / 2);
     max-width: $page-content-max-width;
 
     @include respond-to($medium-breakpoint) {
+        margin: 0 auto ($spacing-unit * 2);
         padding: 0;
     }
 }
