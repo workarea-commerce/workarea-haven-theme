@@ -2,6 +2,10 @@
 
 .cart.view{ class: ('cart--empty' if @cart.no_items?) ,data: { analytics: cart_view_analytics_data(@cart).to_json } }
 
+  - if layout_content.content_blocks_for('cart').present?
+    .page-header__promo
+      = render_content_blocks(layout_content.content_blocks_for('cart'))
+
   - if @cart.no_items?
 
     %h1.cart__heading= t('workarea.storefront.carts.empty')
@@ -16,7 +20,6 @@
         %h1.cart__heading
           = t('workarea.storefront.carts.title')
           %span.cart__item-count= t('workarea.storefront.carts.item_count', count: @cart.items.count)
-
 
         %ul.product-list{ data: { analytics: product_list_analytics_data('Cart').to_json } }
           - @cart.items.each_with_index do |item, index|
