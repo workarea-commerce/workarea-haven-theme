@@ -2,7 +2,19 @@
     #PRODUCT-PRICES
 \*------------------------------------*/
 
-.product-prices {}
+$product-price-color: $product-price-color !default;
+$product-price-sale-color: $product-price-sale-color !default;
+$product-price-discount-color: $product-price-discount-color !default;
+
+
+.product-prices {
+    font-size: $font-size;
+    font-weight: $font-weight-medium;
+
+    @include respond-to($medium-breakpoint) {
+        font-size: $font-size-tiny;
+    }
+}
 
 .product-prices--summary {}
 
@@ -13,17 +25,21 @@
     .product-prices__price {
         display: inline-block;
         margin: 0;
-        font-size: $font-size-tiny;
-        font-weight: $font-weight-medium;
+        color: $product-price-color;
         white-space: nowrap;
-
-        @include respond-to($medium-breakpoint) {
-            font-size: $font-size;
-        }
 
         .product-prices--details & {
             display: inline;
             white-space: normal;
+        }
+
+        .product-prices--summary & {
+            font-size: $font-size-tiny;
+            font-weight: $font-weight-medium;
+
+            @include respond-to($medium-breakpoint) {
+                font-size: $font-size;
+            }
         }
 
         & + & {
@@ -31,6 +47,16 @@
         }
     }
 
-        .product-prices__price-final {
-            color: $product-summary-final-price-color;
-        }
+    .product-prices__price--sale {
+        color: $product-price-sale-color;
+        font-weight: $font-weight-heavy;
+    }
+
+
+    .product-prices__discounts {
+        color: $product-price-discount-color;
+    }
+
+        .product-prices__discount {}
+
+            .product-prices__discount-price {}

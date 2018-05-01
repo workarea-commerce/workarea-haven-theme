@@ -1,0 +1,222 @@
+#product-list.style-guide__subsection
+
+  %h3= link_to_style_guide('components', 'product_list')
+
+  %p Displays a list of product line-items. Uses include cart, checkout payment, checkout shipping, order summary, public wish list, and private wish list.
+
+  %p Cart items:
+  .style-guide__example-block
+    .product-list
+      .product-list__item
+        .product-list__summary
+          .product-list__media= link_to(image_tag('workarea/storefront/style_guide_product.jpg', alt: 'Product Name', class: 'product-list__media-image'), '#', class: 'product-list__media-link')
+          .product-list__info
+            %p.product-list__name= link_to('Product Name', '#')
+            .product-list__option-group
+              %p.product-list__option Color: Blue
+              %p.product-list__option Size: Small
+            %p.product-list__customization Custom 1: Value of Custom 1
+        .product-list__actions
+          = form_tag nil, method: :patch, class: 'inline-form' do
+            .inline-form__cell
+
+              .quantity-control
+                = button_tag '-', { type: 'button', data: { quantity_control: { 'direction': 'dec', 'autosubmit': true }.to_json }, class: 'quantity-control__button quantity-control__button--decrement'}
+                .value= number_field_tag :quantity, 1, min: 1, required: true, class: 'quantity-control__input text-box text-box--x-small', data: { form_submitting_control: '' }, title: t('workarea.storefront.orders.quantity'), id: "product_list_item_quantity_1"
+                = button_tag '+', { type: 'button', data: { quantity_control: { 'direction': 'inc', 'autosubmit': true }.to_json }, class: 'quantity-control__button quantity-control__button--increment'}
+
+            %p.inline-form__cell.hidden-if-js-enabled= button_tag t('workarea.storefront.carts.update'), value: 'change_quantity', class: 'button'
+
+          = form_tag nil, class: 'action-group__item' do
+            %p= button_tag 'Remove', class: 'text-button'
+
+        .product-list__prices
+          .product-prices
+            %p.product-prices__price
+              %s= number_to_currency(100.00)
+            %p.product-prices__price
+              %strong.product-prices__price--sale= number_to_currency(90.00)
+            %p.product-prices__price
+              %span.product-prices__price-label Customizations:
+              %span= number_to_currency(10.00)
+            .product-prices__discounts
+              .product-prices__discount
+                %span.product-prices__price-label Item Level Discount:
+                %strong.product-prices__discount-price= number_to_currency(-5.00)
+              .product-prices__discount
+                %span.product-prices__price-label An Item Level Discount With a Longer Name Than the Last:
+                %strong.product-prices__discount-price= number_to_currency(-5.00)
+            .product-list__total-price
+              %span.product-prices__price-label Total:
+              %span= number_to_currency(100.00)
+
+      .product-list__item
+        .product-list__summary
+          .product-list__media= link_to(image_tag('workarea/storefront/style_guide_product.jpg', alt: 'Product Name', class: 'product-list__media-image'), '#', class: 'product-list__media-link')
+          .product-list__info
+            %p.product-list__name= link_to('Product Name', '#')
+        .product-list__actions
+          %p.product-list__quantity
+            = t('workarea.storefront.orders.quantity')
+            1
+        .product-list__prices
+          .product-prices
+            .product-prices__price
+              %span= t('workarea.storefront.carts.free_gift')
+
+  %p Checkout summary:
+  .style-guide__example-block
+    .product-list
+      .product-list__item
+        .product-list__summary
+          .product-list__media= link_to(image_tag('workarea/storefront/style_guide_product.jpg', alt: 'Product Name', class: 'product-list__media-image'), '#', class: 'product-list__media-link')
+          .product-list__info
+            %p.product-list__name= link_to('Product Name', '#')
+            .product-list__option-group
+              %p.product-list__option Color: Blue
+              %p.product-list__option Size: Small
+        .product-list__actions
+          %p.product-list__quantity
+            = t('workarea.storefront.orders.quantity')
+            1
+
+        .product-list__prices
+          .product-prices
+            %p.product-prices__price
+              %s= number_to_currency(100.00)
+            %p.product-prices__price
+              %strong.product-prices__price--sale= number_to_currency(90.00)
+            %p.product-prices__price
+              %span.product-prices__price-label Customizations:
+              %span= number_to_currency(10.00)
+            .product-prices__discounts
+              .product-prices__discount
+                %span.product-prices__price-label Item Level Discount:
+                %strong.product-prices__discount-price= number_to_currency(-5.00)
+              .product-prices__discount
+                %span.product-prices__price-label An Item Level Discount With a Longer Name Than the Last:
+                %strong.product-prices__discount-price= number_to_currency(-5.00)
+            .product-list__total-price
+              %span.product-prices__price-label Total:
+              %span= number_to_currency(100.00)
+
+      .product-list__item
+        .product-list__summary
+          .product-list__media= link_to(image_tag('workarea/storefront/style_guide_product.jpg', alt: 'Product Name', class: 'product-list__media-image'), '#', class: 'product-list__media-link')
+          .product-list__info
+            %p.product-list__name= link_to('Product Name', '#')
+        .product-list__actions
+          %p.product-list__quantity
+            = t('workarea.storefront.orders.quantity')
+            1
+        .product-list__prices
+          .product-prices
+            .product-prices__price
+              %span= t('workarea.storefront.carts.free_gift')
+
+  %p Order shipments:
+  .style-guide__example-block
+    .product-list
+      - 2.times do
+        .product-list__item
+          .product-list__summary
+            .product-list__media= link_to(image_tag('workarea/storefront/style_guide_product.jpg', alt: 'Product Name', class: 'product-list__media-image'), '#', class: 'product-list__media-link')
+            .product-list__info
+              %p.product-list__name= link_to('Product Name', '#')
+              %p.product-list__id 1234
+              .product-list__option-group
+                %p.product-list__option Color: Blue
+                %p.product-list__option Size: Small
+
+          .product-list__shipments
+            %h6.product-list__shipments-heading Tracking
+            .product-list__tracking
+              %span.product-list__tracking__qty 1
+              %span.product-list__tracking__link UPS #123456789 #{link_to 'Track Shipment', '#', target: '_blank', rel: 'noopener', class: 'button button--small'}
+            .product-list__tracking
+              %span.product-list__tracking__quantity 3
+              %span.product-list__tracking__link UPS #987654321 #{link_to 'Track Shipment', '#', target: '_blank', rel: 'noopener', class: 'button button--small'}
+
+  %p Order pending/canceled items:
+  .style-guide__example-block
+    .product-list
+      - 2.times do
+        .product-list__item
+          .product-list__summary
+            .product-list__media= link_to(image_tag('workarea/storefront/style_guide_product.jpg', alt: 'Product Name', class: 'product-list__media-image'), '#', class: 'product-list__media-link')
+            .product-list__info
+              %p.product-list__name= link_to('Product Name', '#')
+              .product-list__option-group
+                %p.product-list__option Color: Blue
+                %p.product-list__option Size: Small
+          .product-list__actions
+            %p.product-list__quantity
+              = t('workarea.storefront.orders.quantity')
+              1
+
+  = append_partials('storefront.style_guide_product_list')
+
+#product-list--narrow.style-guide__subsection
+
+  %h3= link_to_style_guide('components', 'product_list__narrow')
+
+  %p For when #{link_to_style_guide('components', 'product_list', true)} appears in narrow contexts such as an off canvas menu or dialog.
+
+  .style-guide__example-block
+    .product-list.product-list--narrow
+      .product-list__item
+        .product-list__summary
+          .product-list__media= link_to(image_tag('workarea/storefront/style_guide_product.jpg', alt: 'Product Name', class: 'product-list__media-image'), '#', class: 'product-list__media-link')
+          .product-list__info
+            %p.product-list__name= link_to('Product Name', '#')
+            .product-list__option-group
+              %p.product-list__option Color: Blue
+              %p.product-list__option Size: Small
+            %p.product-list__customization Custom 1: Value of Custom 1
+        .product-list__actions
+          = form_tag nil, method: :patch, class: 'inline-form' do
+            .inline-form__cell
+
+              .quantity-control
+                = button_tag '-', { type: 'button', data: { quantity_control: { 'direction': 'dec', 'autosubmit': true }.to_json }, class: 'quantity-control__button quantity-control__button--decrement'}
+                .value= number_field_tag :quantity, 1, min: 1, required: true, class: 'quantity-control__input text-box text-box--x-small', data: { form_submitting_control: '' }, title: t('workarea.storefront.orders.quantity'), id: "product_list_item_quantity_2"
+                = button_tag '+', { type: 'button', data: { quantity_control: { 'direction': 'inc', 'autosubmit': true }.to_json }, class: 'quantity-control__button quantity-control__button--increment'}
+
+            %p.inline-form__cell.hidden-if-js-enabled= button_tag t('workarea.storefront.carts.update'), value: 'change_quantity', class: 'button'
+
+          = form_tag nil, class: 'action-group__item' do
+            %p= button_tag 'Remove', class: 'text-button'
+
+        .product-list__prices
+          .product-prices
+            %p.product-prices__price
+              %s= number_to_currency(100.00)
+            %p.product-prices__price
+              %strong.product-prices__price--sale= number_to_currency(90.00)
+            %p.product-prices__price
+              %span.product-prices__price-label Customizations:
+              %span= number_to_currency(10.00)
+            .product-prices__discounts
+              .product-prices__discount
+                %span.product-prices__price-label Item Level Discount:
+                %strong.product-prices__discount-price= number_to_currency(-5.00)
+              .product-prices__discount
+                %span.product-prices__price-label An Item Level Discount With a Longer Name Than the Last:
+                %strong.product-prices__discount-price= number_to_currency(-5.00)
+            .product-list__total-price
+              %span.product-prices__price-label Total:
+              %span= number_to_currency(100.00)
+
+      .product-list__item
+        .product-list__summary
+          .product-list__media= link_to(image_tag('workarea/storefront/style_guide_product.jpg', alt: 'Product Name', class: 'product-list__media-image'), '#', class: 'product-list__media-link')
+          .product-list__info
+            %p.product-list__name= link_to('Product Name', '#')
+        .product-list__actions
+          %p.product-list__quantity
+            = t('workarea.storefront.orders.quantity')
+            1
+        .product-list__prices
+          .product-prices
+            .product-prices__price
+              %span= t('workarea.storefront.carts.free_gift')

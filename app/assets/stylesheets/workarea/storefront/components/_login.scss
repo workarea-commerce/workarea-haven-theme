@@ -14,7 +14,7 @@ $login-form-border-color: $border-color !default;
     .login__section {
         padding: $spacing-unit * 3;
 
-        @include respond-to($medium-breakpoint){
+        @include respond-to($medium-breakpoint) {
             margin: $spacing-unit * 5 0;
         }
     }

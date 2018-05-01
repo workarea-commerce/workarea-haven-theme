@@ -2,39 +2,42 @@
   .checkout-step-summary__items
     %h6.checkout-step-summary__heading= t('workarea.storefront.checkouts.summary.products')
 
-    %ul.checkout-step-summary__item-list
+    %ul.product-list.product-list--narrow
       - cart.items.each_with_index do |item, index|
-        %li.order-item
-          %p.order-item__media= link_to image_tag(product_image_url(item.image, :small_thumb), alt: item.product_name, class: 'order-item__media-image'), product_url(item.product, sku: item.sku), class: 'order-item__media-link'
+        %li.product-list__item
+          .product-list__summary
+            .product-list__media= link_to image_tag(product_image_url(item.image, :small_thumb), alt: item.product_name, class: 'product-list__media-image'), product_url(item.product, sku: item.sku), class: 'product-list__media-link'
 
-          .order-item__info
-            %p.order-item__name= link_to item.product_name, product_path(item.product, sku: item.sku)
-            - if item.has_options?
-              .order-item__option-group
-                - item.details.each do |name, value|
-                  %p.order-item__option #{name.titleize}: #{value}
-            - item.customizations.each do |name, value|
-              %p.order-item__customization #{name.titleize}: #{value}
-            = append_partials('storefront.cart_item_details', item: item, index: index)
-            .order-item__prices
-              %p.order-item__quantity
-                %span.order-item__quantity-text Qty:
-                = item.quantity
-              .order-item__price
-                = render 'workarea/storefront/carts/pricing', item: item, css_block: 'table'
+            .product-list__info
+              %p.product-list__name= link_to item.product_name, product_path(item.product, sku: item.sku)
+              - if item.has_options?
+                .product-list__option-group
+                  - item.details.each do |name, value|
+                    %p.product-list__option #{name.titleize}: #{value}
+              - item.customizations.each do |name, value|
+                %p.product-list__customization #{name.titleize}: #{value}
+              = append_partials('storefront.cart_item_details', item: item, index: index)
+          .product-list__actions
+            %p.product-list__quantity
+              %span.product-list__quantity-text Qty:
+              = item.quantity
+          .product-list__prices
+            = render 'workarea/storefront/carts/pricing', item: item, css_block: 'product-prices'
+            - if item.total_adjustments.many?
+              .product-prices__discounts
+                - item.total_adjustments.drop(1).each do |adjustment|
+                  .product-prices__discount
+                    - if item.total_adjustments.many?
+                      %span.product-prices__label= adjustment.description.titleize
 
-            .order-item__adjustments
-              - item.total_adjustments.each do |adjustment|
-                %p.table__price
-                  - if item.total_adjustments.many?
-                    %span.table__price-label= adjustment.description.titleize
+                    - if adjustment.discount?
+                      %strong.product-prices__discount-price= number_to_currency(adjustment.amount)
+                    - else
+                      .product-list__total-price
+                        %span= number_to_currency(adjustment.amount)
 
-                  - if adjustment.discount?
-                    %strong.table__price-discount= number_to_currency(adjustment.amount)
-
-              - if item.total_adjustments.many?
-                %p.order-item__total-price
-                  %span.table__price-label= t('workarea.storefront.orders.item_total')
+                .product-list__total-price
+                  %span.product-prices__label= t('workarea.storefront.orders.item_total')
                   %span= number_to_currency(item.total_price)
 
       - cart.free_gifts.each_with_index do |item, index|

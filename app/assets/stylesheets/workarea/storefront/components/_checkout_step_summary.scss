@@ -64,10 +64,6 @@ $checkout-step-summary-section-border-color: $checkout-summary-section-border-co
                 text-transform: uppercase;
             }
 
-            .checkout-step-summary__item-list {
-                @extend %list-reset;
-            }
-
             .checkout-step-summary__totals {
                 margin-bottom: $spacing-unit * 2;
 
