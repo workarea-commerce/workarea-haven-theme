@@ -146,9 +146,9 @@
             .cart__promo-code
               %h2.cart__promo-code-heading= t('workarea.storefront.orders.promo_code')
               = form_tag add_promo_code_to_cart_path, id: 'promo_code_form', method: 'post', class: 'inline-form' do
-                .value.value__block
+                .value.value--block
                   = text_field_tag :promo_code, params[:promo_code], class: 'text-box', autocomplete: 'off', autocorrect: 'off', autocapitalize: 'off', required: true, title: t('workarea.storefront.orders.promo_code')
-                  .value__button= button_tag t('workarea.storefront.carts.add'), value: 'add_promo_code', class: 'button'
+                  .value__button= button_tag t('workarea.storefront.carts.add'), value: 'add_promo_code', class: 'button button--small'
 
           .cart__checkout-action-group
             %p.cart__checkout-action= link_to t('workarea.storefront.carts.checkout'), checkout_path, class: 'button button--large button--full'
