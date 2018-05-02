@@ -70,6 +70,6 @@ $cart-action-max-width-wide: 420px !default;
 
             .cart__promo-code-heading {
                 @extend %heading;
-                @extend %heading--5;
+                @extend %heading--6;
                 text-transform: uppercase;
             }
