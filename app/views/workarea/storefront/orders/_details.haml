@@ -1,0 +1,169 @@
+
+.order-details
+  .order-details__info
+    %h2.order-details__heading= t('workarea.storefront.checkouts.order_details')
+    %p.order-details__order-number
+      %strong #{t('workarea.storefront.orders.order')}
+      %span ##{@order.id}
+    %p.order-details__order-date
+      %strong
+        #{t('workarea.storefront.orders.placed_at')}:
+      = local_time(@order.placed_at, '%B %e, %Y')
+    %p.order-details__order-status
+      %strong
+        #{t('workarea.storefront.orders.status')}:
+      = @order.fulfillment_status
+
+  .order-details__section
+    %h3.order-details__heading= t('workarea.storefront.orders.billing_address')
+    = order.billing_address.first_name
+    = order.billing_address.last_name
+    - if order.billing_address.company.present?
+      %br
+      = order.billing_address.company
+    %br
+    = order.billing_address.street
+    - if order.billing_address.street_2.present?
+      %br
+      = order.billing_address.street_2
+    %br
+    = order.billing_address.city
+    = order.billing_address.region
+    = order.billing_address.postal_code
+    %br
+    = order.billing_address.country
+    %br
+    = number_to_phone order.billing_address.phone_number, extension: order.billing_address.phone_extension
+
+  .order-details__section
+    %h3.order-details__heading= t('workarea.storefront.orders.payment_method')
+    - order.tenders.each do |tender|
+      = render "workarea/storefront/orders/tenders/#{tender.slug}", tender: tender
+
+  = append_partials('storefront.orders_summary_top', order: order)
+
+  - if order.requires_shipping?
+    .order-details__section
+      %h3.order-details__heading= t('workarea.storefront.orders.shipping')
+      .grid
+        - order.shippings.each do |shipping|
+          .grid__cell.grid__cell--33-at-medium
+            %p
+              = shipping.address.first_name
+              = shipping.address.last_name
+              - if shipping.address.company.present?
+                %br
+                = shipping.address.company
+              %br
+              = shipping.address.street
+              - if shipping.address.street_2.present?
+                %br
+                = shipping.address.street_2
+              %br
+              = shipping.address.city
+              = shipping.address.region
+              = shipping.address.postal_code
+              %br
+              = shipping.address.country
+              %br
+              = number_to_phone shipping.address.phone_number, extension: shipping.address.phone_extension
+
+            %p
+              %strong= t('workarea.storefront.orders.shipping_service')
+              = shipping.try(:shipping_service).try(:name)
+          .grid__cell.grid__cell--66-at-medium
+            - if shipping.partial?
+              %ul.product-list
+                - shipping.items.each do |item|
+                  %li.product-list__item
+                    .product-list__item-cell
+                      .product-list__summary
+                        %p.product-list__media= link_to image_tag(product_image_url(item.image, :small_thumb), alt: item.product_name, class: 'product-list__media-image'), product_url(item.product, sku: item.sku), class: 'product-list__media-link'
+                        .product-list__info
+                          %p.product-list__name= link_to item.product_name, product_path(item.product, sku: item.sku)
+                          %p.product-list__id= item.sku_name
+                          - if item.has_options?
+                            .product-list__option-group
+                              - item.details.each do |name, value|
+                                %p.product-list__option #{name.titleize}: #{value}
+                          - item.customizations.each do |name, value|
+                            %p.product-list__customization #{name.titleize}: #{value}
+                          = append_partials('storefront.order_summary_item_details', item: item)
+                    .product-list__item-cell
+                      %table.table
+                        %thead
+                          %tr
+                            %th.table__quantity= t('workarea.storefront.orders.quantity')
+                        %tbody
+                          %tr
+                            %td.table__quantity
+                              %p= item.quantity
+
+            - if order.packages.any?
+              .box
+                .box__body
+                  .grid
+                    - order.packages.each_with_index do |package, index|
+                      .grid__cell.grid__cell--50-at-medium
+                        .box
+                          .box__header
+                            %h3.box__heading= "#{t('workarea.storefront.orders.package')} #{index + 1}"
+                          .box__body
+                            %ul.product-list
+                              - package.items.each do |item|
+                                %li.product-list__item
+                                  .product-list__item-cell
+                                    .product-list__summary
+                                      %p.product-list__media= link_to image_tag(product_image_url(item.image, :small_thumb), alt: item.product_name, class: 'product-list__media-image'), product_url(item.product, sku: item.sku), class: 'product-list__media-link'
+                                      .product-list__info
+                                        %p.product-list__name= link_to item.product_name, product_path(item.product, sku: item.sku)
+                                        %p.product-list__id= item.sku
+
+                      .grid__cell.grid__cell--50-at-medium
+                        - if !package.tracking_number.present?
+                          %p=  t('workarea.storefront.orders.no_tracking')
+                        - else
+                          %p= link_to t('workarea.storefront.orders.track_package'), package.tracking_link, target: '_blank', rel: 'noopener', class: 'button button--full'
+                        = append_partials('storefront.order_summary_package_actions', package: package)
+
+            = append_partials('storefront.order_summary_shipping', shipping: shipping)
+
+  - if order.pending_items.any?
+    .order-details__section
+      %h2.order-details__heading= t('workarea.storefront.orders.pending')
+
+      %ul.product-list.product-list--narrow
+        - order.pending_items.each do |item|
+          %li.product-list__item
+            .product-list__summary
+              .product-list__media= link_to image_tag(product_image_url(item.image, :small_thumb), alt: item.product_name, class: 'product-list__media-image'), product_url(item.product, sku: item.sku), class: 'product-list__media-link'
+              .product-list__info
+                %p.product-list__name= link_to item.product_name, product_path(item.product, sku: item.sku)
+            .product-list__actions
+              %p.product-list__quantity #{t('workarea.storefront.orders.quantity')}: #{item.quantity}
+
+  - if order.refunds.any?
+    .order-details__section
+      %h2.order-details__heading= t('workarea.storefront.orders.refunds')
+
+      - order.refunds.each do |refund|
+        %ul
+          - refund.tenders.each do |tender, amount|
+            %li
+              = t('workarea.storefront.orders.issued')
+              = local_time(refund.created_at, :short_date_at_time)
+              = t('workarea.storefront.orders.refund_description_html', type: tender.name.downcase, amount: number_to_currency(amount))
+
+  - if order.canceled_items.any?
+    .order-details__section
+      %h6.order-details__heading= t('workarea.storefront.orders.cancelations')
+
+      %ul.product-list.product-list--narrow
+        - order.canceled_items.each do |item|
+          %li.product-list__item
+            .product-list__summary
+              .product-list__media= link_to image_tag(product_image_url(item.image, :small_thumb), alt: item.product_name, class: 'product-list__media-image'), product_url(item.product, sku: item.sku), class: 'product-list__media-link'
+              .product-list__info
+                %p.product-list__name= link_to item.product_name, product_path(item.product, sku: item.sku)
+            .product-list__actions
+              %p.product-list__quantity #{t('workarea.storefront.orders.quantity')}: #{item.quantity}

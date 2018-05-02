@@ -81,7 +81,6 @@ module Workarea
       assert(page.has_content?('XX-1'))
 
       assert(page.has_content?('Integration Product'))
-      assert(page.has_content?('SKU'))
 
       assert(page.has_content?('$5.00')) # Subtotal
       assert(page.has_content?('$7.00')) # Shipping

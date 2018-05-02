@@ -13,7 +13,9 @@ en:
         continue_to_shipping_disabled_text: Continuing to Shipping...
         continue_to_payment: Continue to Payment
         continue_to_payment_disabled_text: Continuing to Payment...
+        create_an_account: Create an account
         new_credit_card: New Card
+        order_details: Order Details
         payment_step_number: 3
         payment_step_text: Payment
         shipping_step_number: 2

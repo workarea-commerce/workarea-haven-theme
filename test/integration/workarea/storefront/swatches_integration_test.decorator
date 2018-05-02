@@ -1,0 +1,28 @@
+require 'test_helper'
+
+module Workarea
+  decorate Storefront::SwatchesIntegrationTest, with: :haven_theme do
+    def test_showing_swatch_filters_on_search
+      get storefront.search_path(q: 'test')
+      assert_select('.swatch-facet--red', 2)
+      assert_select('.swatch-facet--blue', 2)
+      assert_select('.swatch-facet--green', 2)
+      assert_includes(response.body, '#ff0000')
+      assert_includes(response.body, '#0000ff')
+
+      get storefront.search_path(q: 'test', color: ['Red'])
+      assert_select('.swatch-facet--red', 4)
+      assert_select('.swatch-facet--blue', 2)
+      assert_select('.swatch-facet--green', 2)
+      assert_includes(response.body, '#ff0000')
+      assert_includes(response.body, '#0000ff')
+
+      get storefront.search_path(q: 'test', color: ['Blue'])
+      assert_select('.swatch-facet--red', 2)
+      assert_select('.swatch-facet--blue', 4)
+      assert_select('.swatch-facet--green', 2)
+      assert_includes(response.body, '#ff0000')
+      assert_includes(response.body, '#0000ff')
+    end
+  end
+end

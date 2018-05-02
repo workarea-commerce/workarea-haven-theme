@@ -1,0 +1,57 @@
+/*------------------------------------*\
+    #CHECKOUT-CONFIRMATION
+\*------------------------------------*/
+
+$checkout-confirmation-border: 1px solid $border-color !default;
+
+$checkout-confirmation-checkmark-size: 46px !default;
+$checkout-confirmation-checkmark-background-color: $green;
+$checkout-confirmation-checkmark-icon-size: 23px !default;
+$checkout-confirmation-checkmark-icon-color: $white;
+
+$checkout-confirmation-account-min-height: 230px !default;
+
+.checkout-confirmation {
+    margin-top: $spacing-unit * 5;
+}
+
+    .checkout-confirmation__content {
+        padding: $spacing-unit * 2;
+
+        @include respond-to($medium-breakpoint) {
+            display: inline-block;
+            padding-left: 0;
+            width: 50%;
+            vertical-align: top;
+        }
+    }
+
+        .checkout-confirmation__checkmark {
+            position: relative;
+            margin: 0 auto ($spacing-unit * 4);
+            width: $checkout-confirmation-checkmark-size;
+            height: $checkout-confirmation-checkmark-size;
+            background-color: $checkout-confirmation-checkmark-background-color;
+            border-radius: 50%;
+        }
+
+            .checkout-confirmation__checkmark-icon {
+                @include center;
+                width: $checkout-confirmation-checkmark-icon-size;
+                height: $checkout-confirmation-checkmark-icon-size;
+                fill: $checkout-confirmation-checkmark-icon-color;
+            }
+
+    .checkout-confirmation__account {
+        padding: $spacing-unit * 2;
+        border-top: $checkout-confirmation-border;
+
+        @include respond-to($medium-breakpoint) {
+            display: inline-block;
+            padding-right: 0;
+            width: 50%;
+            min-height: $checkout-confirmation-account-min-height;
+            border-top: 0;
+            border-left: $checkout-confirmation-border;
+        }
+    }
