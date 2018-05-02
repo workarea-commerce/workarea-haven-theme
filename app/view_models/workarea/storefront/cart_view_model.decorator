@@ -1,0 +1,7 @@
+module Workarea
+  decorate Storefront::CartViewModel, with: :haven_theme do
+    decorated do
+      include Storefront::CartContent
+    end
+  end
+end

@@ -22,6 +22,14 @@ $cart-action-max-width-wide: 420px !default;
     text-align: center;
 }
 
+    .cart__content {
+        margin-bottom: $spacing-unit;
+
+        @include respond-to($medium-breakpoint) {
+            margin-bottom: $spacing-unit * 2;
+        }
+    }
+
     .cart__heading {
         @extend %heading;
         @extend %heading--4;

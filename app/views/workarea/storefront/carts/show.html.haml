@@ -6,6 +6,10 @@
 
     %h1.cart__heading= t('workarea.storefront.carts.empty')
 
+    - if @cart.content_blocks_for('empty').present?
+      .page-header__promo
+        = render_content_blocks(@cart.content_blocks_for('empty'))
+
     %p.cart__continue-shopping
       = link_to t('workarea.storefront.carts.continue_shopping'), root_path, class: 'button'
 
@@ -13,10 +17,14 @@
 
     .grid.grid--top.grid--large
       .grid__cell.grid__cell--66-at-medium
+
+        - if @cart.content_blocks_for('with_items').present?
+          .page-header__promo
+            = render_content_blocks(@cart.content_blocks_for('with_items'))
+
         %h1.cart__heading
           = t('workarea.storefront.carts.title')
           %span.cart__item-count= t('workarea.storefront.carts.item_count', count: @cart.items.count)
-
 
         %ul.product-list{ data: { analytics: product_list_analytics_data('Cart').to_json } }
           - @cart.items.each_with_index do |item, index|
