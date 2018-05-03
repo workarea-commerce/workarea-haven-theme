@@ -11,7 +11,7 @@
 
 .view
 
-  %h1= t('workarea.storefront.users.order_history')
+  %h1.heading.heading--3.heading--upcase= t('workarea.storefront.users.order_history')
 
   - if @orders.empty?
     %p= t('workarea.storefront.users.no_orders')
