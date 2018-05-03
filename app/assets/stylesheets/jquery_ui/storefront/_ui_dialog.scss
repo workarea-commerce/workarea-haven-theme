@@ -135,6 +135,7 @@ $ui-dialog-close-button-offset: $spacing-unit * -4 !default;
         }
 
     .ui-dialog-content {
+        padding: $spacing-unit * 2;
         // NOTE: Because jQuery UI generates the .ui-dialog-content HTML with
         // an inline style that sets `max-height: none`, we need the
         // `!important` designation here to properly override.
@@ -142,6 +143,7 @@ $ui-dialog-close-button-offset: $spacing-unit * -4 !default;
         max-height: $ui-dialog-content-height !important;
         overflow: auto;
 
+        .ui-dialog-add-to-cart &,
         .ui-dialog-image & {
             padding: 0;
         }
