@@ -92,6 +92,8 @@
             %li.account-menu__item= link_to t('workarea.storefront.users.account'), users_account_path, class: 'page-header__account-link'
             %li.account-menu__item= link_to t('workarea.storefront.users.your_orders'), users_orders_path, class: 'page-header__account-link'
 
+            = append_partials('storefront.utility_nav')
+
             - if locale_options.many?
               %li.account-menu__item
                 .account-menu__locale
@@ -101,7 +103,6 @@
                     %p.hidden-if-js-enabled= button_tag t('workarea.storefront.forms.go'), value: 'switch', class: 'button'
 
             %li{ data: { log_out_link_placeholder: '' } }
-            = append_partials('storefront.utility_nav')
 
         = append_partials('storefront.page_header')
 
