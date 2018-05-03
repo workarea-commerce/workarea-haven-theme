@@ -64,6 +64,8 @@ $product-summary-background-color: $background-color-component !default;
             .product-summary__media-image {}
 
     .product-summary__divider {
+        @extend %clearfix;
+
         @include respond-to($medium-breakpoint) {
             width: 100%;
             border-top: 2px solid $product-summary-border-color;

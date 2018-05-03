@@ -38,6 +38,7 @@ The following workarea plugins are supported by OneTheme, and are dependencies o
 * Badges
 * Product Grid Content
 * Gift Cards
+* Swatches
 
 Theme Configuration
 --------------------------------------------------------------------------------

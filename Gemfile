@@ -22,6 +22,7 @@ group :test do
   gem "workarea-testing", git: "ssh://git@stash.tools.weblinc.com:7999/wl/workarea.git", ref: "3846146b639"
   gem "workarea-theme", source: "https://gems.weblinc.com"
   # gem "workarea-gift_cards", git: "ssh://git@stash.tools.weblinc.com:7999/wl/workarea-gift-cards.git", ref: "0ca9aa3425c"
+  gem "workarea-swatches", git: "ssh://git@stash.tools.weblinc.com:7999/wl/workarea-swatches.git", branch: "master"
 
   # TODO: Remove this before releasing
   gem "pry"
