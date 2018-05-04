@@ -2,7 +2,9 @@ en:
   workarea:
     storefront:
       carts:
-        item_count: "- %{count} items"
+        item_count:
+          one: "- 1 item"
+          other: "- %{count} items"
         totals: Totals
       checkouts:
         addresses_step_number: 1
@@ -26,6 +28,8 @@ en:
         view_more: View More
         view_less: View Less
         clear: Clear All
+      flash_messages:
+        cart_item_added: Item Added to Cart
       gift_cards:
         enter_gift_card_prompt: Enter a gift card number
       layouts:

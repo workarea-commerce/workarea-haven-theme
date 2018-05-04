@@ -77,15 +77,10 @@ $product-summary-background-color: $background-color-component !default;
 
         .product-summary__info {
             margin: $spacing-unit auto;
-            max-width: $product-summary-width;
+            padding: $spacing-unit ($spacing-unit * 2);
 
             @include respond-to($medium-breakpoint) {
                 margin: ($spacing-unit * 2) auto;
-                max-width: $product-summary-width-medium;
-            }
-
-            .product-summary--small & {
-                max-width: $product-summary-width;
             }
         }
 
