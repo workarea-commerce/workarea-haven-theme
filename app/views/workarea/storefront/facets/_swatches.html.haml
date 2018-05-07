@@ -1,12 +1,11 @@
-%h2.result-filters__attribute= t('workarea.storefront.products.filter_title', name: facet.display_name)
-%div{ class: "result-filters__section result-filters__section--#{facet.system_name}" }
-  %ul.result-filters__group
+%h2.result-filters__attribute= facet.display_name
+.result-filters__section{ class: "result-filters__section--#{facet.system_name}" }
+  %ul.result-filters__group.result-filters__group--truncated
     - facet.results.each do |value_name, count|
       %li.result-filters__filter{ class: facet.selected?(value_name) ? 'result-filters__filter--selected' : nil }
         = link_to facet_path(facet, value_name), rel: 'nofollow', class: 'result-filters__filter-link' do
           = render_swatch_facet(value_name)
           %span.result-filters__filter-text= value_name.titleize
-
           - if facet.selected?(value_name)
             %span.result-filters__filter-remove= inline_svg('workarea/storefront/icons/x.svg', class: 'svg-icon svg-icon--tiny svg-icon--primary-color', title: t('workarea.storefront.products.remove_filter'))
           - else

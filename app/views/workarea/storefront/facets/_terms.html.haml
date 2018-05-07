@@ -1,5 +1,5 @@
 %h2.result-filters__attribute= facet.display_name
-%div.result-filters__section{ class: "result-filters__section--#{facet.system_name}"}
+.result-filters__section{ class: "result-filters__section--#{facet.system_name}" }
   %ul.result-filters__group.result-filters__group--truncated
     - facet.results.each do |value_name, count|
       %li.result-filters__filter{ class: facet.selected?(value_name) ? 'result-filters__filter--selected' : nil }
