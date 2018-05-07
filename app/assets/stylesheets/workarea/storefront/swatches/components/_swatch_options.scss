@@ -1,0 +1,79 @@
+/*------------------------------------*\
+    #SWATCH-OPTIONS
+\*------------------------------------*/
+
+$swatch-options-outline: 1px solid $light-gray !default;
+$swatch-options-selected-outline:  1px solid $highlight-color !default;
+$swatch-options-swatch-size: 44px !default;
+$swatch-options-swatch-size-small: 16px !default;
+$swatch-options-swatch-size-small-wide: 24px !default;
+$swatch-options-swatch-margin-top: 12px !default;
+
+$swatch-options-swatch-truncated-color: $link-color !default;
+$swatch-options-swatch-truncated-background-color: $background-color-component !default;
+
+
+.swatch-options {}
+
+.swatch-options--small {
+    display: inline-block;
+}
+
+    .swatch-options__label {
+        margin: 0;
+    }
+
+    .swatch-options__group {
+        @extend %inline-list;
+    }
+
+        .swatch-options__swatch {
+            position: relative;
+            margin: 0 $spacing-unit $spacing-unit 0;
+            width: $swatch-options-swatch-size;
+            height: $swatch-options-swatch-size;
+            outline: $swatch-options-outline;
+
+            .swatch-options--small & {
+                margin-top: $swatch-options-swatch-margin-top;
+                margin-bottom: 0;
+                width:  $swatch-options-swatch-size-small;
+                height: $swatch-options-swatch-size-small;
+
+                @include respond-to($medium-breakpoint) {
+                    width: $swatch-options-swatch-size-small-wide;
+                    height: $swatch-options-swatch-size-small-wide;
+                }
+            }
+        }
+
+        .swatch-options__swatch--selected {
+            outline: $swatch-options-selected-outline;
+        }
+
+        .swatch-options__swatch--truncated {
+            color: $swatch-options-swatch-truncated-color;
+            text-align: center;
+            background-color: $swatch-options-swatch-truncated-background-color;
+
+            .swatch-options--small & {
+                line-height: $swatch-options-swatch-size-small;
+
+                @include respond-to($medium-breakpoint) {
+                    line-height: $swatch-options-swatch-size-small-wide;
+                }
+            }
+        }
+
+            .swatch-options__swatch-button,
+            .swatch-options__swatch-button-image,
+            .swatch-options__swatch-button-text {
+                display: block;
+                position: absolute;
+                top:    0;
+                right:  0;
+                bottom: 0;
+                left:   0;
+            }
+
+            .swatch-options__swatch-name {}

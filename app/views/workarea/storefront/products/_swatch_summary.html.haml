@@ -1,0 +1,20 @@
+- if product.try(:display_browse_swatches?)
+  .swatch-options.swatch-options--small
+    %ul.swatch-options__group
+      - product.browse_swatch_option.selections.take(3).each do |selection|
+        - swatch = product.swatches_by_option[selection.optionize]
+        - swatch_content = render_browse_swatch(selection, swatch)
+
+        - if product.current_browse_selection?(selection)
+          %li.swatch-options__swatch.swatch-options__swatch--selected>
+            = swatch_content
+        - else
+          %li.swatch-options__swatch>
+            - selection_options = option_selection_url_for(product, product.browse_swatch_option, selection)
+            - product_path = product_path(product, product.browse_link_options.merge(selection_options))
+
+            = link_to product_path, title: selection, class: 'swatch-options__swatch-button', data: { product_summary_swatch: { url: summary_product_path(product, selection_options) }.to_json } do
+              = swatch_content
+      - if product.browse_swatch_option.selections.count > 3
+        %li.swatch-options__swatch.swatch-options__swatch--truncated
+          %span.swatch-options__swatch-button-text +

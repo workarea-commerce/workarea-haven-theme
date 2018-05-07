@@ -93,7 +93,7 @@ $result-filters-truncation-limit: 8 !default;
             padding: ($spacing-unit / 2) 0 0;
 
             .applied-filters & {
-                margin-bottom: $vertical-margin;
+                padding: 0;
             }
         }
 
@@ -105,7 +105,6 @@ $result-filters-truncation-limit: 8 !default;
                     display: flex;
                     color: $result-filters-text-color;
                     align-items: center;
-                    justify-content: space-between;
 
                     .result-filters__filter--selected & {
                         padding: 0 $spacing-unit;
@@ -119,7 +118,11 @@ $result-filters-truncation-limit: 8 !default;
                         font-size: $font-size;
                     }
 
+                    /**
+                     * 1. Align item to right within flex container
+                     */
                     .result-filters__filter-count {
+                        margin-left: auto; /* [1] */
                         width: 26px;
                         height: 16px;
                         color: $result-filters-count-text-color;
@@ -131,6 +134,7 @@ $result-filters-truncation-limit: 8 !default;
                     }
 
                     .result-filters__filter-remove {
+                        margin-left: auto; /* [1] */
                         width: 26px;
                         text-align: center;
                     }

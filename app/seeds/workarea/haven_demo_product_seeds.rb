@@ -9,10 +9,13 @@ module Workarea
         Catalog::Category.all.each do |category|
           10.times do
             materials = ["Leather", "Concrete", "Brass", "Ceramic"]
-            colors = Array.new(3) { Faker::Commerce.color.titleize }
+            colors = ["red", "pink", "purple", "blue", "light_blue", "green", "light_green", "yellow", "orange", "grey", "blue_grey", "white", "black"]
             on_sale = rand(10) > 9
 
-            product = Catalog::Product.new(name: Faker::Commerce.product_name)
+            product = Catalog::Product.new(
+              name: Faker::Commerce.product_name,
+              template: "swatches"
+            )
 
             sku_count = if chance(5)
               1

@@ -17,15 +17,15 @@ Gem::Specification.new do |s|
 
   s.add_dependency "workarea", "~> 3.x" #TODO: Update to v3.3.x once v3.3 is released
   s.add_dependency "workarea-theme"
-  s.add_dependency "workarea-product_quickview"
   s.add_dependency "workarea-blog"
-  s.add_dependency "workarea-clothing"
   s.add_dependency "workarea-styled_selects"
   s.add_dependency "workarea-accordions"
   s.add_dependency "workarea-product_badges"
   s.add_dependency "workarea-content_search"
   s.add_dependency "workarea-product_grid_content"
   s.add_dependency "workarea-shipping_message"
+  s.add_dependency "workarea-swatches"
+  s.add_dependency "workarea-product_quickview"
   # s.add_dependency "workarea-gift_cards"
 
   s.add_dependency "jquery_payment-rails"
