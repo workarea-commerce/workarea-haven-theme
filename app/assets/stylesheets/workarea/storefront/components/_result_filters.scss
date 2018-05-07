@@ -32,6 +32,9 @@ $result-filters-truncation-limit: 8 !default;
         }
     }
 
+    /**
+     * 1. position static to override absolute position from .ui-menu-active
+     */
     .result-filters__attribute {
         @extend %heading;
         @extend %heading--6;
@@ -42,6 +45,7 @@ $result-filters-truncation-limit: 8 !default;
         align-items: center;
 
         &:after {
+            position: static; /* [1] */
             margin-left: auto;
             width: 16px;
             height: 3px;
