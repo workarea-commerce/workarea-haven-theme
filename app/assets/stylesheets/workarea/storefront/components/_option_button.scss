@@ -1,0 +1,44 @@
+/*------------------------------------*\
+    #OPTION-BUTTON
+\*------------------------------------*/
+
+$option-button-border-color: $border-color !default;
+$option-button-active-border-color: $focus-ring-color !default;
+/**
+* Extend the `.option-button` class from Workarea to include a swatch option.
+*
+* 1. These dimensions match the :swatch_thumb processor
+*/
+$option-button-swatch-height: 32px !default; /* [1] */
+$option-button-swatch-width: 32px !default; /* [1] */
+
+.option-button {
+    display: inline-block;
+    margin-right: $spacing-unit;
+    margin-bottom: $spacing-unit;
+    padding: $spacing-unit;
+    border: 1px solid $option-button-border-color;
+    vertical-align: top;
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+}
+
+.option-button--active {
+    font-weight: $font-weight-heavy;
+    border-color: $option-button-active-border-color;
+}
+
+.option-button--color {
+    padding: 0;
+}
+
+    .option-button__text {}
+
+    .option-button__image {}
+
+    .option-button__swatch {
+        width: $option-button-swatch-width;
+        height: $option-button-swatch-height;
+    }

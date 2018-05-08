@@ -1,0 +1,9 @@
+require 'test_helper'
+
+module Workarea
+  decorate Storefront::ReviewSystemTest, with: :haven_theme do
+    def test_showing_reviews_on_browse_page
+      skip('removed reviews from product summary')
+    end
+  end
+end

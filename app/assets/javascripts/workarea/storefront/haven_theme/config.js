@@ -34,4 +34,9 @@
             }
         },
     });
+
+    WORKAREA.config.productDetailTabs = {
+        animationSpeed: 500,
+        topOffset: 110
+    };
 })();

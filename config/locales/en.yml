@@ -38,7 +38,9 @@ en:
         powered_by: Haven. Powered by Workarea
         terms_and_conditions: Terms and Conditions
       products:
+        back_to_product: Back to Product
         filter_results: Refine Results (%{count})
+        information_header: Product Information
         refine_results: Refine Results
       recommendations:
         heading: Recommendations for you

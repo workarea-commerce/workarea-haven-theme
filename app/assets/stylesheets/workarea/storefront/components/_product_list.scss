@@ -2,7 +2,7 @@
     #PRODUCT-LIST
 \*------------------------------------*/
 
-$product-list-media-ratio:  1 / 1 !default;
+$product-list-media-ratio: $product-image-ratio !default;
 $product-list-media-size:  80px !default;
 
 $product-list-item-font-size: $font-size-tiny !default;
