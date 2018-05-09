@@ -54,4 +54,10 @@ Workarea.configure do |config|
 
   # Number of recommendations to show on the cart
   config.cart_recommendations_count = 4
+
+  # How many products show in a category summary content block
+  config.category_summary_product_count = 4
+
+  # How many products show in product insights content block
+  config.product_insights_count = 4
 end

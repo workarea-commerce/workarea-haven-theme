@@ -2,7 +2,7 @@
     #RECOMMENDATIONS
 \*------------------------------------*/
 
-$recommendations-background-color: $recommendations-background-color !default;
+$recommendations-background-color: $background-color-alternate !default;
 
 
 .recommendations {
@@ -22,8 +22,8 @@ $recommendations-background-color: $recommendations-background-color !default;
     .recommendations__heading {
         @extend %heading;
         @extend %heading--4;
+        @extend %heading--upcase;
         text-align: center;
-        text-transform: uppercase;
     }
 
     .recommendations__list {

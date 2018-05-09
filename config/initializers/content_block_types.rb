@@ -8,6 +8,71 @@ Workarea::Content.define_block_types do
     end
   end
 
+  block_type "Hero" do
+    description "Positionable button over a background image."
+
+    fieldset "Image" do
+      field "Asset", :asset, required: true, file_types: "image", default: find_asset_id_by_file_name("960x470_light.png")
+      field "Alt Text", :string, default: ""
+    end
+
+    fieldset "Button" do
+      field "Text", :string, default: "Button"
+      field "URL", :url, default: "#"
+      field "Style", :options, values: [
+        ["Primary", "button"],
+        ["Secondary", "button button--secondary"],
+        ["Secondary - alternative", "button button--secondary-alt"]
+      ], default: "Primary"
+      field "Size", :options, values: [
+        "Regular",
+        "Large",
+        "Small"
+      ], default: "Regular"
+      field "Position", :options, values: [
+        "Top, Left",
+        "Top, Center",
+        "Top, Right",
+        "Middle, Left",
+        "Middle, Center",
+        "Middle, Right",
+        "Bottom, Left",
+        "Bottom, Center",
+        "Bottom, Right"
+      ], default: "Middle, Center"
+    end
+  end
+
+  block_type "Category Summary" do
+    description "A category name and its first few products."
+    field "Category", :category, default: -> { Workarea::Catalog::Category.sample.try(:id).try(:to_s) }
+    field "Full Bleed", :boolean, default: false
+  end
+
+  block_type "Product List" do
+    description "A custom list of products."
+
+    field "Title", :string, default: "Featured"
+    field "Products", :products, default: (lambda do
+      result = Array.new(3) { Workarea::Catalog::Product.sample.try(:id) }
+      result.compact
+    end)
+    field "Full Bleed", :boolean, default: false
+  end
+
+  block_type "Product Insights" do
+    description "A list of top selling products."
+
+    field "Title", :string, default: "Top Products"
+    field "Type", :options, values: [
+        "Top Products",
+        "Trending Products"
+      ], default: "Top Products"
+    field "Full Bleed", :boolean, default: false
+  end
+
+  # Custom content blocks
+
   block_type "Product Grid Cell" do
     description "Content block for your product grid"
     view_model "Workarea::Storefront::ContentBlocks::ProductGridCellViewModel"

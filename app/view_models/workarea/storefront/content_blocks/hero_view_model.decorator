@@ -1,0 +1,19 @@
+module Workarea
+  decorate Storefront::ContentBlocks::HeroViewModel, with: :haven_theme do
+    def button_class
+      [button_style_class, button_size_class].join(' ')
+    end
+
+    def button_style_class
+      data[:style]
+    end
+
+    def button_size_class
+      classes = []
+      classes << 'button--large' if data[:size] == 'Large'
+      classes << 'button--small' if data[:size] == 'Small'
+
+      classes.join(' ')
+    end
+  end
+end

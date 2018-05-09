@@ -1,0 +1,27 @@
+/*------------------------------------*\
+    #CATEGORY-SUMMARY-CONTENT-BLOCK
+\*------------------------------------*/
+
+$category-summary-content-block-background-color: $background-color-alternate !default;
+
+
+.category-summary-content-block {
+    padding: ($spacing-unit * 4) 0;
+    background-color: $category-summary-content-block-background-color;
+}
+
+.category-summary-content-block--full-bleed {
+    @include full-bleed-container;
+}
+
+    .category-summary-content-block__heading {
+        text-align: center;
+    }
+
+        .category-summary-content-block__heading-link {
+            @extend %heading;
+            @extend %heading--4;
+            @extend %heading--upcase;
+        }
+
+    .category-summary-content-block__empty-message {}
