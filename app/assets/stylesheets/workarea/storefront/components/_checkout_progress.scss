@@ -34,6 +34,7 @@ $checkout-progress-step-line-width-wide: 14vw !default;
 
     @include respond-to($medium-breakpoint) {
         margin: ($spacing-unit * 3) 0;
+        padding: 0 ($spacing-unit * 2);
     }
 
     @include respond-to($wide-breakpoint) {

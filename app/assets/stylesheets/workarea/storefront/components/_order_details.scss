@@ -1,0 +1,40 @@
+/*------------------------------------*\
+    #ORDER-DETAILS
+\*------------------------------------*/
+
+.order-details {
+    margin-top: $spacing-unit * 5;
+    padding: $spacing-unit * 2;
+    border-top: 1px solid $border-color;
+}
+
+    .order-details__info {
+        padding: $spacing-unit * 2;
+        background-color: $light-gray;
+    }
+
+    .order-details__section {
+        margin: ($spacing-unit * 2) 0;
+        padding: $spacing-unit * 2;
+        border-bottom: 1px solid $border-color;
+
+        @include respond-to($medium-breakpoint) {
+            margin-bottom: $spacing-unit * 2;
+        }
+
+        &:last-of-type {
+            border-bottom: 0;
+        }
+    }
+
+    .order-details__heading {
+        @extend %heading;
+        @extend %heading--6;
+        text-transform: uppercase;
+    }
+
+    .order-details__order-number {}
+
+    .order-details__order-date {}
+
+    .order-details__order-status {}

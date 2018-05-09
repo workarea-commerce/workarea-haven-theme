@@ -1,0 +1,34 @@
+// TODO: v4 remove
+/*------------------------------------*\
+    #ORDER-SUMMARY
+\*------------------------------------*/
+
+.order-summary {
+    padding: ($spacing-unit * 4) ($spacing-unit * 2);
+}
+
+    .order-summary__section {
+        margin-bottom: $vertical-margin;
+    }
+
+    .order-summary__heading {
+        @extend %heading;
+        @extend %heading--6;
+        text-transform: uppercase;
+    }
+
+    .order-summary__items {
+        margin-bottom: $vertical-margin;
+    }
+
+    .order-summary__totals {
+        margin-bottom: $spacing-unit * 2;
+
+        @include respond-to($medium-breakpoint) {
+            margin-bottom: $spacing-unit * 4;
+        }
+    }
+
+    .order-summary__data {}
+
+        .order-summary__data-section {}

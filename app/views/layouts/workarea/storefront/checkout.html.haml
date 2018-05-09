@@ -46,20 +46,17 @@
         .content-wrapper
           - content_for_page_aside = yield :page_aside
 
-          .grid
-            .grid__cell{ class: ('grid__cell--66-at-medium' if content_for_page_aside.present?)}
-              = render 'workarea/storefront/checkouts/checkout_progress' if @checkout_step.present?
 
-              #main_content.page-content__main{ role: 'main', class: ('page-content__main--full-width' if content_for_page_aside.empty?) }
-                .page-content__checkout-container
-                  = yield
-                  %p.visually-hidden= link_to t('workarea.storefront.layouts.top_of_page'), '#top'
+          #main_content.page-content__main.page-content__main--with-aside{ role: 'main' }
+            = render 'workarea/storefront/checkouts/checkout_progress' if @checkout_step.present?
+            .page-content__checkout-container{ class: ('page-content__checkout-container--wide' if @order.present?) }
+              = yield
+              %p.visually-hidden= link_to t('workarea.storefront.layouts.top_of_page'), '#top'
 
-            - if content_for_page_aside.present?
-              .grid__cell.grid__cell--33-at-medium
-                .page-content__aside{ role: 'complementary' }
-                  = content_for_page_aside
-                  %p.visually-hidden= link_to t('workarea.storefront.layouts.top_of_page'), '#top'
+          - if content_for_page_aside.present?
+            .page-content__aside{ role: 'complementary' }
+              = content_for_page_aside
+              %p.visually-hidden= link_to t('workarea.storefront.layouts.top_of_page'), '#top'
 
       .page-footer{ role: 'contentinfo' }
 

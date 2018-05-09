@@ -18,7 +18,11 @@ $page-content-checkout-container-max-width: 500px !default;
     }
 }
 
-.page-content--checkout {}
+.page-content--checkout {
+    @include respond-to($medium-breakpoint) {
+        margin-bottom: 0;
+    }
+}
 
     .page-content__main {}
 
@@ -27,6 +31,13 @@ $page-content-checkout-container-max-width: 500px !default;
             display: table-cell;
             padding-left: $spacing-unit * 2;
             width: 80%;
+        }
+
+        .page-content--checkout & {
+            @include respond-to($wide-breakpoint) {
+                width: 70%;
+                padding-left: 10vw;
+            }
         }
     }
 
@@ -40,7 +51,11 @@ $page-content-checkout-container-max-width: 500px !default;
 
             .page-content--checkout & {
                 display: block;
-                background-color: $page-aside-background-color;
+                vertical-align: top;
+
+                @include respond-to($wide-breakpoint) {
+                    display: table-cell;
+                }
             }
         }
 
@@ -52,4 +67,8 @@ $page-content-checkout-container-max-width: 500px !default;
             @include respond-to($wide-breakpoint) {
                 margin: 0 ($spacing-unit * 2);
             }
+        }
+
+        .page-content__checkout-container--wide {
+            max-width: none;
         }

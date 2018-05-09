@@ -1,0 +1,71 @@
+.order-summary
+
+  %h3.order-summary__heading= t('workarea.storefront.orders.items')
+
+  %ul.product-list.product-list--narrow
+    - order.items.each do |item|
+      %li.product-list__item
+        .product-list__summary
+          .product-list__media= link_to image_tag(product_image_url(item.image, :small_thumb), alt: item.product_name, class: 'product-list__media-image'), product_url(item.product, sku: item.sku), class: 'product-list__media-link'
+          .product-list__info
+            %p.product-list__name= link_to item.product_name, product_path(item.product, sku: item.sku)
+
+            - if item.has_options?
+              .product-list__option-group
+              - item.details.each do |name, value|
+                %p.product-list__option #{name.titleize}: #{value}
+            - item.customizations.each do |name, value|
+              %p.product-list__customization #{name.titleize}: #{value}
+
+            = append_partials('storefront.order_summary_item_details', item: item)
+        .product-list__actions
+          %p.product-list__quantity #{item.quantity} @ #{number_to_currency(item.original_price)} #{t('workarea.storefront.orders.each')}
+
+  .order-summary__totals
+    %h6.order-summary__heading= t('workarea.storefront.orders.totals')
+    %table.table.table--totals
+      %tbody
+        %tr
+          %th
+            %span #{t('workarea.storefront.orders.subtotal')}:
+          %td= number_to_currency(order.subtotal_price)
+
+        - if order.total_adjustments.any?
+          - order.total_adjustments.each do |adjustment|
+            %tr
+              %th
+                %span= adjustment.description.titleize
+              %td
+                - if adjustment.discount?
+                  %strong.table__price-discount= number_to_currency(adjustment.amount)
+                - else
+                  %span= number_to_currency(adjustment.amount)
+
+        - if order.requires_shipping?
+          %tr
+            %th
+              %span #{t('workarea.storefront.orders.shipping')}:
+            %td= number_to_currency(order.shipping_total)
+
+        %tr
+          %th
+            %span #{t('workarea.storefront.orders.tax')}:
+          %td= number_to_currency(order.tax_total)
+
+        - if order.store_credit_amount > 0
+          %tr
+            %th
+              %span= t('workarea.storefront.orders.store_credit')
+            %td
+              %strong.table__price-discount −#{number_to_currency(order.store_credit_amount)}
+
+        = append_partials('storefront.order_summary_payment', order: order)
+
+        %tr.table__total
+          %th
+            %span
+              %strong #{t('workarea.storefront.orders.total')}:
+          %td
+            %strong= number_to_currency(order.paid_amount)
+
+  = append_partials('storefront.orders_summary_bottom', order: order)

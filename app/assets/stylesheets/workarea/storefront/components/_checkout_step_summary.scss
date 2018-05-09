@@ -10,7 +10,6 @@ $checkout-step-summary-section-border-color: $checkout-summary-section-border-co
 }
 
     .checkout-step-summary__step {
-
         & + & {
             border-top: 1px solid $checkout-step-summary-section-border-color;
         }
