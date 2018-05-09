@@ -21,8 +21,11 @@ $page-content-checkout-container-max-width: 500px !default;
 .page-content--checkout {
     @include respond-to($medium-breakpoint) {
         margin-bottom: 0;
+        width: 80%;
     }
 }
+
+.page-content--order {}
 
     .page-content__main {}
 
@@ -35,8 +38,15 @@ $page-content-checkout-container-max-width: 500px !default;
 
         .page-content--checkout & {
             @include respond-to($wide-breakpoint) {
+                padding-right: $spacing-unit * 2;
                 width: 70%;
-                padding-left: 10vw;
+            }
+        }
+
+        .page-content--order & {
+            @include respond-to($wide-breakpoint) {
+                padding-right: $spacing-unit * 2;
+                width: 75%;
             }
         }
     }
@@ -49,6 +59,7 @@ $page-content-checkout-container-max-width: 500px !default;
                 background-color: $page-aside-background-color;
             }
 
+            .page-content--order &,
             .page-content--checkout & {
                 display: block;
                 vertical-align: top;
