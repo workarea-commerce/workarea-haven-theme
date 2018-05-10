@@ -2,10 +2,17 @@
     #ORDER-DETAILS
 \*------------------------------------*/
 
+$order-details-border: 1px solid $border-color !default;
+
+
 .order-details {
-    margin-top: $spacing-unit * 5;
-    padding: $spacing-unit * 2;
-    border-top: 1px solid $border-color;
+    padding: 0 ($spacing-unit * 2) ($spacing-unit * 2);
+
+    .page-content--checkout & {
+        margin-top: $spacing-unit * 5;
+        padding-top: ($spacing-unit * 2);
+        border-top: $order-details-border;
+    }
 }
 
     .order-details__info {
@@ -16,7 +23,7 @@
     .order-details__section {
         margin: ($spacing-unit * 2) 0;
         padding: $spacing-unit * 2;
-        border-bottom: 1px solid $border-color;
+        border-bottom: $order-details-border;
 
         @include respond-to($medium-breakpoint) {
             margin-bottom: $spacing-unit * 2;
@@ -30,7 +37,7 @@
     .order-details__heading {
         @extend %heading;
         @extend %heading--6;
-        text-transform: uppercase;
+        @extend %heading--upcase;
     }
 
     .order-details__order-number {}

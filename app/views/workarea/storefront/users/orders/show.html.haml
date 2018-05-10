@@ -12,9 +12,11 @@
       %span.breadcrumbs__text= t('workarea.storefront.users.order_details')
 
 .view
-  %h1.visually-hidden
+  .page-content.page-content--order
+    .page-content__main.page-content__main--with-aside
+      %h1.visually-hidden= @order.id
+      = render 'workarea/storefront/orders/details', order: @order
+      = append_partials('storefront.order_show')
 
-  = append_partials('storefront.order_show')
-
-  = render 'workarea/storefront/orders/summary', order: @order
-  = render 'workarea/storefront/orders/details', order: @order
+    .page-content__aside
+      = render 'workarea/storefront/orders/summary', order: @order

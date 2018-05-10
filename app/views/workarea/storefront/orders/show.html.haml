@@ -10,8 +10,10 @@
       %span.breadcrumbs__text #{t('workarea.storefront.orders.order')} #{@order.id}
 
 .view
+  .page-content.page-content--order
+    .page-content__main.page-content__main--with-aside
+      %h1.visually-hidden= @order.id
+      = render 'workarea/storefront/orders/details', order: @order
 
-  %h1.visually-hidden= @order.id
-
-  = render 'workarea/storefront/orders/summary', order: @order
-  = render 'workarea/storefront/orders/details', order: @order
+    .page-content__aside
+      = render 'workarea/storefront/orders/summary', order: @order
