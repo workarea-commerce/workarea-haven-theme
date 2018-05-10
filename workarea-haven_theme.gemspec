@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
   s.add_dependency "workarea-shipping_message"
   s.add_dependency "workarea-swatches"
   s.add_dependency "workarea-product_quickview"
+  s.add_dependency "workarea-reviews"
   # s.add_dependency "workarea-gift_cards"
 
   s.add_dependency "jquery_payment-rails"

@@ -19,6 +19,7 @@ module Workarea
     "workarea/storefront/components/login",
     "workarea/storefront/components/order_details",
     "workarea/storefront/components/overlay",
+    "workarea/storefront/components/product_details_media",
     "workarea/storefront/components/recommendations",
     "workarea/storefront/components/quantity_control",
     "workarea/storefront/components/search"
@@ -37,6 +38,7 @@ module Workarea
   Plugin.append_javascripts(
     "storefront.modules",
     "workarea/storefront/modules/filter_view_more",
+    "workarea/storefront/modules/product_detail_tabs",
     "workarea/storefront/modules/quantity_control",
     "workarea/storefront/modules/search_buttons",
     "workarea/storefront/modules/toggle_class_button",
@@ -56,5 +58,15 @@ module Workarea
   Plugin.remove_partials(
     "storefront.cart_checkout_actions",
     "workarea/storefront/carts/shipping_message"
+  )
+
+  Plugin.remove_partials(
+    "storefront.product_details",
+    "workarea/storefront/products/reviews_aggregate"
+  )
+
+  Plugin.remove_partials(
+    "storefront.product_summary",
+    "workarea/storefront/products/reviews_summary"
   )
 end

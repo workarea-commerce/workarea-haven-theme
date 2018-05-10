@@ -1,0 +1,78 @@
+- @title = @product.browser_title
+- @breadcrumbs = @product.breadcrumbs
+
+- content_for :head do
+  - cache "#{@product.cache_key}/head", expires_in: Workarea.config.cache_expirations.product_show_fragment_cache do
+    %meta{ property: 'recent-view', content: recent_view_content(product_id: @product.id) }
+    %meta{ property: 'global-id', content: @product.to_global_id.to_param }
+    = append_partials('storefront.product_head', product: @product)
+
+    %link{ href: product_url(@product), rel: 'canonical' }
+
+    - unless @product.meta_description.blank?
+      %meta{ name: :description, content: strip_tags(@product.meta_description) }
+
+    %meta{ property: 'og:url', content: url_for(only_path: false) }
+    %meta{ property: 'og:title', content: @product.name }
+    %meta{ property: 'og:type', content: 'product' }
+    - @product.images.each do |image|
+      %meta{ property: 'og:image', content: product_image_url(image, :detail) }
+    - unless @product.meta_description.blank?
+      %meta{ property: 'og:description', content: strip_tags(@product.meta_description) }
+
+- cache "#{@product.cache_key}/show", expires_in: Workarea.config.cache_expirations.product_show_fragment_cache do
+  .view
+    .product-detail-container{ itemscope: true, itemtype: 'http://schema.org/Product', data: { analytics: product_view_analytics_data(@product).to_json } }
+
+      .product-details{ class: "product-details--#{@product.template}" }
+        = render "workarea/storefront/products/templates/#{@product.template}", product: @product
+
+      .product-detail-container__tabs
+        .product-detail-container__tab
+          = link_to t('workarea.storefront.products.description'), '#description', class: 'product-detail-container__tab-link', data: { product_detail_tabs: '' }
+        - if @product.details.present?
+          .product-detail-container__tab
+            = link_to t('workarea.storefront.products.information_header'), '#information', class: 'product-detail-container__tab-link', data: { product_detail_tabs: '' }
+        - if @product.reviews.present?
+          .product-detail-container__tab
+            = link_to t('workarea.storefront.reviews.heading'), '#reviews', class: 'product-detail-container__tab-link', data: { product_detail_tabs: '' }
+
+      - if @product.description.present?
+        .product-detail-container__section.product-detail-container__section--description#description
+          .product-detail-container__section-overlay-controls
+            = button_tag value: 'back_to_product', type: 'button', class: 'text-button', data: { product_detail_tabs_close_overlay: '' } do
+              = inline_svg('workarea/storefront/icons/long_arrow.svg', class: 'product-detail-container__section-back-icon', title: t('workarea.storefront.layouts.navigate_back'))
+              = t('workarea.storefront.products.back_to_product')
+          %h2.product-detail-container__section-heading= t('workarea.storefront.products.description')
+          .product-detail-container__section-content
+            .product-detail-container__description{ itemprop: 'description' }!= @product.description
+
+            = append_partials('storefront.product_description', product: @product)
+
+      - if @product.details.present?
+        .product-detail-container__section.product-detail-container__section--information#information
+          .product-detail-container__section-overlay-controls
+            = button_tag value: 'back_to_product', type: 'button', class: 'text-button', data: { product_detail_tabs_close_overlay: '' } do
+              = inline_svg('workarea/storefront/icons/long_arrow.svg', class: 'product-detail-container__section-back-icon', title: t('workarea.storefront.layouts.navigate_back'))
+              = t('workarea.storefront.products.back_to_product')
+          %h2.product-detail-container__section-heading= t('workarea.storefront.products.information_header')
+          .product-detail-container__section-content
+            - @product.details.each do |attribute, values|
+
+              %p.product-detail-container__attribute
+                %span.product-detail-container__attribute-name #{attribute}:
+                - values.each do |value|
+                  %span.product-detail-container__attribute-value= value
+
+      = append_partials('storefront.product_show', product: @product)
+
+      - if @product.recommendations.any?
+        .recommendations.recommendations--full-bleed
+          .content-wrapper
+            %h2.recommendations__heading= t('workarea.storefront.recommendations.heading')
+
+            .grid{ data: { analytics: product_list_analytics_data('Product Recommendations').to_json } }
+              - @product.recommendations.each do |product|
+                .grid__cell.grid__cell--50.grid__cell--25-at-medium
+                  .product-summary.product-summary--small{ itemprop: 'isRelatedTo', itemscope: true, itemtype: 'http://schema.org/Product' }
+                    = render 'workarea/storefront/products/summary', product: product

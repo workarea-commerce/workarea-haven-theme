@@ -10,7 +10,7 @@ $product-summary-width: 136px !default;
 $product-summary-height: 136px !default;
 $product-summary-small-width: 200px !default;
 
-$product-summary-media-ratio: 1 !default;
+$product-summary-media-ratio: $product-image-ratio !default;
 
 $product-summary-background-color: $background-color-component !default;
 

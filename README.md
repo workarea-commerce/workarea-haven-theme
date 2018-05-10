@@ -25,6 +25,7 @@ Optimal Image Sizes
 | Product Images | 720px x 960px | This size does not account for use of image-zoom, it is recommended to *at least* double this size if your client is likely to want zoom functionality. |
 | Product Grid Content (1 cell) | 272px x 400px | Background image for product grid content block |
 | Product Grid Content (2 cells) | 552px x 400px | Background image for product grid content block spanning 2 grid cells |
+| Swatch Images | 32px x 32px | Images used for swatch display |
 
 Out of the box plugin support
 --------------------------------------------------------------------------------
@@ -33,12 +34,13 @@ The following workarea plugins are supported by OneTheme, and are dependencies o
 
 * Product Quickview
 * Package Products
+* Product Badges
+* Swatches
+* Reviews
 * Styled selects
 * Accordions
-* Badges
 * Product Grid Content
 * Gift Cards
-* Swatches
 
 Theme Configuration
 --------------------------------------------------------------------------------
