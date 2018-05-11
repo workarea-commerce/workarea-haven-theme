@@ -53,6 +53,11 @@ $product-detail-container-section-back-icon-color: $link-color !default;
             font-size: $product-detail-container-tab-font-size;
             text-transform: uppercase;
 
+            @include respond-to($medium-breakpoint) {
+                padding: 0;
+                font-size: $product-detail-container-tab-font-size-medium;
+            }
+
             &:after {
                 @include svg($image: 'icons/arrow_right.svg', $width: $product-detail-container-tab-font-size);
                 margin-top: $spacing-unit / 2;
@@ -68,12 +73,6 @@ $product-detail-container-section-back-icon-color: $link-color !default;
                 color: $product-detail-container-tab-color-hover;
                 text-decoration: underline;
             }
-
-            @include respond-to($medium-breakpoint) {
-                padding: 0;
-                font-size: $product-detail-container-tab-font-size-medium;
-            }
-
         }
 
         .product-detail-container__section {

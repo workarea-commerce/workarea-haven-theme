@@ -1,10 +1,9 @@
 .product-details__right-column
   .product-details__header
-    .product-details__name
-      %h1{ itemprop: 'name' }= product.name
+    %h1.product-details__name{ itemprop: 'name' }= product.name
 
-      %p.product-details__id
-        %span{ itemprop: 'productID' }= product.id
+    %p.product-details__id
+      %span{ itemprop: 'productID' }= product.id
     = render 'workarea/storefront/products/reviews_aggregate', product: product
 
 .product-details__left-column
