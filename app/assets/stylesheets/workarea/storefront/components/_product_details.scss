@@ -6,6 +6,13 @@ $product-details-left-column-width: 44% !default;
 $product-details-right-column-width: 56% !default;
 $product-details-right-padding-right: 140px !default;
 
+$product-details-name-font-size: 22px !default;
+$product-details-name-font-size-wide: 30px !default;
+$product-details-id-font-size: 30px !default;
+$product-details-id-color: $font-color-light !default;
+
+
+
 /**
  * 1. within a jQuery Dialog, set width since there is no
  *    .product-details-container
@@ -41,9 +48,24 @@ $product-details-right-padding-right: 140px !default;
 
     .product-details__header {}
 
-        .product-details__name {}
+        .product-details__name {
+            margin-bottom: 0;
+            font-size: $product-details-name-font-size;
 
-            .product-details__id {}
+            @include respond-to($medium-breakpoint) {
+                font-size: $product-details-name-font-size-wide;
+            }
+        }
+
+            .product-details__id {
+                color: $product-details-id-color;
+                font-size: $font-size-small;
+
+                @include respond-to($medium-breakpoint) {
+                    display: inline-block;
+                    font-size: $font-size;
+                }
+            }
 
 
     .product-details__short-description {}
