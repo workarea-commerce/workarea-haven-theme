@@ -40,10 +40,10 @@
         .property
           = label_tag :quantity, nil, class: 'property__name', for: "quantity#{dom_id(product)}" do
             %span.property__text= t('workarea.storefront.products.quantity')
-        .quantity-control
-          = button_tag '-', { type: 'button', data: { quantity_control: { 'direction': 'dec' }.to_json }, class: 'quantity-control__button quantity-control__button--decrement'}
-          .value= number_field_tag :quantity, params[:quantity] || 1, min: 1, required: true, class: 'quantity-control__input text-box text-box--x-small', title: t('workarea.storefront.products.quantity'), id: "quantity#{dom_id(product)}"
-          = button_tag '+', { type: 'button', data: { quantity_control: { 'direction': 'inc' }.to_json }, class: 'quantity-control__button quantity-control__button--increment'}
+          .quantity-control
+            = button_tag '-', { type: 'button', data: { quantity_control: { 'direction': 'dec' }.to_json }, class: 'quantity-control__button quantity-control__button--decrement'}
+            .value= number_field_tag :quantity, params[:quantity] || 1, min: 1, required: true, class: 'quantity-control__input text-box text-box--x-small', title: t('workarea.storefront.products.quantity'), id: "quantity#{dom_id(product)}"
+            = button_tag '+', { type: 'button', data: { quantity_control: { 'direction': 'inc' }.to_json }, class: 'quantity-control__button quantity-control__button--increment'}
 
       %p.product-details__add-to-cart-action= button_tag t('workarea.storefront.products.add_to_cart'), value: 'add_to_cart', class: 'button button--large'
 
