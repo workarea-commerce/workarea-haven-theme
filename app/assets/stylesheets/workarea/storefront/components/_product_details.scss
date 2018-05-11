@@ -58,11 +58,13 @@ $product-details-id-color: $font-color-light !default;
         }
 
             .product-details__id {
+                margin-bottom: $spacing-unit;
                 color: $product-details-id-color;
                 font-size: $font-size-small;
 
                 @include respond-to($medium-breakpoint) {
                     display: inline-block;
+                    margin-bottom: $spacing-unit * 2;
                     font-size: $font-size;
                 }
             }
