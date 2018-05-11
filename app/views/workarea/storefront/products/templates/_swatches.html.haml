@@ -49,8 +49,11 @@
         .property
           = label_tag :quantity, nil, class: 'property__name', for: "quantity#{dom_id(product)}" do
             %span.property__text= t('workarea.storefront.products.quantity')
-          .value
-            = number_field_tag :quantity, params[:quantity] || 1, class: 'text-box text-box--x-small', required: true, min: 1, id: "quantity#{dom_id(product)}"
+          .quantity-control
+            = button_tag '-', { type: 'button', data: { quantity_control: { 'direction': 'dec' }.to_json }, class: 'quantity-control__button quantity-control__button--decrement'}
+            .value= number_field_tag :quantity, params[:quantity] || 1, min: 1, required: true, class: 'quantity-control__input text-box text-box--x-small', title: t('workarea.storefront.products.quantity'), id: "quantity#{dom_id(product)}"
+            = button_tag '+', { type: 'button', data: { quantity_control: { 'direction': 'inc' }.to_json }, class: 'quantity-control__button quantity-control__button--increment'}
+
             - if product.current_sku.present?
               .value__note= product.inventory_status
 
