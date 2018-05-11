@@ -1,0 +1,66 @@
+/*------------------------------------*\
+    #PRODUCT-MEDIA
+\*------------------------------------*/
+
+$product-primary-image-max-width: 600px !default;
+$product-primary-image-ratio: $product-image-ratio !default;
+
+$product-media-alt-images-background-color: $background-color-alternate !default;
+$product-media-alt-image-border: 2px solid $transparent !default;
+$product-alt-image-selected-border-color:  $primary-color !default;
+
+.product-media {
+    margin-right: $spacing-unit * 2;
+}
+
+.product-media--carousel {}
+
+    /**
+     * 1. provides positioning context for loading indicator
+     */
+    .product-media__primary-image {
+        position: relative; /* [1] */
+        margin: 0;
+        max-width: $product-primary-image-max-width;
+    }
+
+        .product-media__primary-image-link {
+            display: block;
+            padding: 0 0 ((1 / $product-primary-image-ratio) * 100%);
+            height: 0;
+            vertical-align: top;
+
+            .product-media--carousel & {
+                padding-bottom: 0;
+                height: auto;
+            }
+        }
+
+            .product-media__primary-image-link-image {}
+
+
+    .product-media__alt-images {
+        margin: 0;
+        padding: $spacing-unit ($spacing-unit * 3);
+        background-color: $product-media-alt-images-background-color;
+    }
+
+        .product-media__alt-image {
+            margin: 0 $spacing-unit / 2;
+
+            @include respond-to($medium-breakpoint) {
+                margin: 0 $spacing-unit;
+            }
+        }
+
+            .product-media__alt-image-link {
+                display: inline-block;
+                border-top: $product-media-alt-image-border;
+
+                .slick-current & {
+                    border-color: $product-alt-image-selected-border-color;
+                    cursor: default;
+                }
+            }
+
+            .product-media__alt-image-link--selected {}

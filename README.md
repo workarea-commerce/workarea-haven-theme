@@ -22,7 +22,8 @@ Optimal Image Sizes
 | Image Type| Optimum size | Note |
 |----------|--------|-------|
 | Logo | 140 x 37px ||
-| Product Images | 720px x 960px | This size does not account for use of image-zoom, it is recommended to *at least* double this size if your client is likely to want zoom functionality. |
+| Product Images | 2400 x 2400 | This size accounts for use of image-zoom |
+| Product Images - no zoom | 1200 x 1200 | Minimum image size if you are not using zoom |
 | Product Grid Content (1 cell) | 272px x 400px | Background image for product grid content block |
 | Product Grid Content (2 cells) | 552px x 400px | Background image for product grid content block spanning 2 grid cells |
 | Swatch Images | 32px x 32px | Images used for swatch display |
