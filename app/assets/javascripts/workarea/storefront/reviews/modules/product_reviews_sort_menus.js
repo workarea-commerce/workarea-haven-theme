@@ -5,10 +5,10 @@ WORKAREA.registerModule('productReviewsSortMenus', (function () {
     'use strict';
 
     var insertSortSelectBox = function (index, section) {
-        $('.reviews__header', section).after(
-            JST['workarea/storefront/reviews/templates/sort_by_property']()
-        );
-    },
+            $('.reviews__sort', section).append(
+                JST['workarea/storefront/reviews/templates/sort_by_property']()
+            );
+        },
 
         sortNewToOld = function ($reviews) {
             return _.sortBy($reviews, function (review) {
@@ -37,8 +37,8 @@ WORKAREA.registerModule('productReviewsSortMenus', (function () {
 
         handleSortSelectChange = function (event) {
             var $reviews = $(
-                '[data-product-review-section-entry]', event.delegateTarget
-            ),
+                    '[data-product-review-section-entry]', event.delegateTarget
+                ),
 
                 action = $(event.currentTarget).val(),
 
@@ -58,7 +58,7 @@ WORKAREA.registerModule('productReviewsSortMenus', (function () {
                 };
 
             $('.reviews__review-group', event.delegateTarget)
-                .html(actions[action]());
+            .html(actions[action]());
         },
 
         /**
@@ -68,12 +68,12 @@ WORKAREA.registerModule('productReviewsSortMenus', (function () {
          */
         init = function ($scope) {
             $('.reviews', $scope)
-                .each(insertSortSelectBox)
-                .on(
-                    'change',
-                    '[data-product-reviews-sort-menu]',
-                    handleSortSelectChange
-                );
+            .each(insertSortSelectBox)
+            .on(
+                'change',
+                '[data-product-reviews-sort-menu]',
+                handleSortSelectChange
+            );
         };
 
     return {

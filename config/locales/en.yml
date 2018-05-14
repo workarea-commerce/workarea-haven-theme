@@ -46,6 +46,8 @@ en:
         refine_results: Refine Results
       recommendations:
         heading: Recommendations for you
+      reviews:
+        first_review_for_product: Be the first to write a review for %{product}
       searches:
         heading: What can we help you find?
         open: Open search

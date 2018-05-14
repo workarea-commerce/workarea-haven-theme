@@ -2,37 +2,64 @@
     #REVIEWS
 \*------------------------------------*/
 
-.reviews {
-    margin: ($spacing-unit * 3) 0 0;
-}
+$reviews-meta-color: $font-color-light !default;
+$reviews-meta-font-size: 10px !default;
+$reviews-review-border:  2px solid $border-color !default;
+
+
+.reviews {}
 
     .reviews__header {
-        display: table;
+        display: block;
         margin: 0 0 ($spacing-unit * 2);
-        width: 100%;
+
+        @include respond-to($medium-breakpoint) {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
     }
 
-        .reviews__count {
-            display: table-cell;
-        }
+        .reviews__count {}
 
-        .reviews__write-action {
-            display: table-cell;
-            text-align: right;
+        .reviews__sort {
+            padding: 0 ($spacing-unit * 3);
+
+            @include respond-to($medium-breakpoint) {
+                padding: 0;
+            }
         }
 
     .reviews__review-group {
-        margin: 0;
-        list-style: none;
+        @extend %list-reset;
     }
 
         .reviews__review {
+            margin: ($spacing-unit * 2) 0;
             padding: ($spacing-unit * 2) 0;
+            border-bottom: $reviews-review-border;
+
+            &:last-of-type {
+                border-bottom: 0;
+            }
         }
 
-            .reviews__review-title {}
+            .reviews__review-title {
+                @extend %heading;
+                @extend %heading--6;
+                @extend %heading--upcase;
+                @extend %heading--no-margin;
 
-            .reviews__review-body {}
+                @include respond-to($medium-breakpoint) {
+                    display: inline-block;
+                    margin-left: $spacing-unit * 2;
+                    vertical-align: top;
+                }
+            }
+
+            .reviews__review-body {
+                font-weight: $font-weight-light;
+            }
 
             .reviews__review-meta {
                 @extend %clearfix;
@@ -41,6 +68,8 @@
                 .reviews__review-author {
                     margin: 0;
                     float: left;
+                    color: $reviews-meta-color;
+                    font-size: $reviews-meta-font-size;
                     line-height: 1;
                 }
 
@@ -48,13 +77,17 @@
                     margin: 0 0 0 $spacing-unit;
                     padding-left: $spacing-unit;
                     float: left;
-                    line-height: 1;
                     font-weight: bold;
+                    line-height: 1;
                 }
 
                 .reviews__review-date {
                     margin: 0 0 0 $spacing-unit;
                     padding-left: $spacing-unit;
                     float: left;
+                    color: $reviews-meta-color;
+                    font-size: $reviews-meta-font-size;
                     line-height: 1;
                 }
+
+    .reviews__write-action {}

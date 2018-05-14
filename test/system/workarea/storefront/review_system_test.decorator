@@ -5,5 +5,30 @@ module Workarea
     def test_showing_reviews_on_browse_page
       skip('removed reviews from product summary')
     end
+
+    def test_showing_reviews_on_a_product_detail_page
+      create_review(product_id: product.id, rating: 3)
+      create_review(
+        product_id: product.id,
+        rating: 3,
+        title: 'Integration Review First'
+      )
+      create_review(
+        product_id: product.id,
+        rating: 3,
+        title: 'Integration Review Second'
+      )
+
+      visit storefront.product_path(product)
+
+      assert_includes(page.html, '3.0')
+      assert(page.has_content?('3'))
+      assert(
+        page.has_ordered_text?(
+          'Integration Review Second',
+          'Integration Review First'
+        )
+      )
+    end
   end
 end

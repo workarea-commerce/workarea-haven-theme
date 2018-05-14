@@ -33,9 +33,9 @@ $rating-star-size: 16px !default;
     }
 
     .rating__star--half {
-        .half-star__filled-half {}
+        .rating__star--half__filled-half {}
 
-        .half-star__empty-half {
+        .rating__star--half__empty-half {
             fill: $rating-empty-color;
         }
     }
