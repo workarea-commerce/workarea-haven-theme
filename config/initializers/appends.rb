@@ -19,7 +19,7 @@ module Workarea
     "workarea/storefront/components/login",
     "workarea/storefront/components/order_details",
     "workarea/storefront/components/overlay",
-    "workarea/storefront/components/product_details_media",
+    "workarea/storefront/components/product_media",
     "workarea/storefront/components/recommendations",
     "workarea/storefront/components/quantity_control",
     "workarea/storefront/components/search"

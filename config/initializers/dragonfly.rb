@@ -24,6 +24,19 @@ Dragonfly.app(:workarea).configure do
     content.process!(:optim)
   end
 
+  # PDP Main Image Size - mobile
+  processor :detail_mobile do |content|
+    content.process!(:encode, :jpg, Workarea.config.jpg_encode_options)
+    content.process!(:thumb, "300x300")
+    content.process!(:optim)
+  end
+
+  processor :detail_alt do |content|
+    content.process!(:encode, :jpg, Workarea.config.jpg_encode_options)
+    content.process!(:thumb, "120x120")
+    content.process!(:optim)
+  end
+
   processor :small_thumb do |content|
     content.process!(:encode, :jpg, Workarea.config.jpg_encode_options)
     content.process!(:thumb, "136x136")

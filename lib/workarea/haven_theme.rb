@@ -12,6 +12,7 @@ require "workarea/swatches"
 require "workarea/reviews"
 # require "workarea/gift_cards"
 require "workarea/shipping_message"
+require "workarea/slick_slider"
 require "jquery_payment-rails"
 
 require "workarea/haven_theme/engine"
