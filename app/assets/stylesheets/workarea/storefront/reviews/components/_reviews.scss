@@ -1,0 +1,60 @@
+/*------------------------------------*\
+    #REVIEWS
+\*------------------------------------*/
+
+.reviews {
+    margin: ($spacing-unit * 3) 0 0;
+}
+
+    .reviews__header {
+        display: table;
+        margin: 0 0 ($spacing-unit * 2);
+        width: 100%;
+    }
+
+        .reviews__count {
+            display: table-cell;
+        }
+
+        .reviews__write-action {
+            display: table-cell;
+            text-align: right;
+        }
+
+    .reviews__review-group {
+        margin: 0;
+        list-style: none;
+    }
+
+        .reviews__review {
+            padding: ($spacing-unit * 2) 0;
+        }
+
+            .reviews__review-title {}
+
+            .reviews__review-body {}
+
+            .reviews__review-meta {
+                @extend %clearfix;
+            }
+
+                .reviews__review-author {
+                    margin: 0;
+                    float: left;
+                    line-height: 1;
+                }
+
+                .reviews__review-verified {
+                    margin: 0 0 0 $spacing-unit;
+                    padding-left: $spacing-unit;
+                    float: left;
+                    line-height: 1;
+                    font-weight: bold;
+                }
+
+                .reviews__review-date {
+                    margin: 0 0 0 $spacing-unit;
+                    padding-left: $spacing-unit;
+                    float: left;
+                    line-height: 1;
+                }
