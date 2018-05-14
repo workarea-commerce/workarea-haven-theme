@@ -77,17 +77,17 @@ $share-buttons-animation-duration: 0.2s !default;
         margin: 0;
         padding: $spacing-unit;
         vertical-align: middle;
+        animation: FadeIn $share-buttons-animation-duration linear;
+        animation-fill-mode: both;
+
+        @for $i from 1 through $share-buttons-item-count {
+            &:nth-child(#{$i}) {
+                animation-delay: #{($i * $share-buttons-animation-duration) - 0.1};
+            }
+        }
 
         .share-buttons--open & {
             display: block;
-            animation: FadeIn $share-buttons-animation-duration linear;
-            animation-fill-mode: both;
-
-            @for $i from 1 through $share-buttons-item-count {
-                &:nth-child(#{$i}) {
-                    animation-delay: #{($i * $share-buttons-animation-duration) - 0.1};
-                }
-            }
         }
     }
 
