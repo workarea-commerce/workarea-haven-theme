@@ -6,12 +6,15 @@
 // Update this to match the number of share icons on your site.
 $share-buttons-item-count: 5 !default;
 
+$share-buttons-icon-size: 16px !default;
+$share-buttons-icon-color: $black !default;
+$share-buttons-icon-color-hover: $primary-color !default;
+
 $share-buttons-toggle-button-border: 1px solid $border-color !default;
 $share-buttons-toggle-button-border-color-hover: $primary-color !default;
-$share-buttons-toggle-button-icon-size: 16px !default;
-$share-buttons-toggle-button-icon-color: $black !default;
-$share-buttons-toggle-button-icon-color-hover: $primary-color !default;
 $share-buttons-animation-duration: 0.2s !default;
+
+$share-buttons-item-border: 1px solid $primary-color;
 
 
 @keyframes FadeIn {
@@ -64,14 +67,14 @@ $share-buttons-animation-duration: 0.2s !default;
     }
 
         .share-buttons__toggle-button-icon {
-            width: $share-buttons-toggle-button-icon-size;
-            height: $share-buttons-toggle-button-icon-size;
-            fill: $share-buttons-toggle-button-icon-color;
+            width: $share-buttons-icon-size;
+            height: $share-buttons-icon-size;
             vertical-align: middle;
+            fill: $share-buttons-icon-color;
 
             .share-buttons--open &,
             .share-buttons__toggle-button:hover & {
-                fill: $share-buttons-toggle-button-icon-color-hover;
+                fill: $share-buttons-icon-color-hover;
             }
         }
 
@@ -81,8 +84,10 @@ $share-buttons-animation-duration: 0.2s !default;
 
     .share-buttons__item {
         display: none;
-        margin: 0;
+        margin: $spacing-unit 0;
         padding: $spacing-unit;
+        border: $share-buttons-item-border;
+        border-radius: 50%;
         vertical-align: middle;
         animation: FadeIn $share-buttons-animation-duration linear;
         animation-fill-mode: both;
@@ -99,3 +104,11 @@ $share-buttons-animation-duration: 0.2s !default;
     }
 
         .share-buttons__button {}
+
+            .share-buttons__social-icon {
+                display: inline-block;
+                width: $share-buttons-icon-size;
+                height: $share-buttons-icon-size;
+                vertical-align: middle;
+                fill: $share-buttons-icon-color-hover;
+            }
