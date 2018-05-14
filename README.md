@@ -42,6 +42,7 @@ The following workarea plugins are supported by OneTheme, and are dependencies o
 * Accordions
 * Product Grid Content
 * Gift Cards
+* Share
 
 Theme Configuration
 --------------------------------------------------------------------------------
