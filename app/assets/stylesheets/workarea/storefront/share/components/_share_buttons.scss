@@ -2,13 +2,93 @@
     #SHARE-BUTTONS
 \*------------------------------------*/
 
-.share-buttons {
-    @extend %inline-list;
+// This variable is used to calculate animation offsets for FadeIn
+// Update this to match the number of share icons on your site.
+$share-buttons-item-count: 5 !default;
+
+$share-buttons-toggle-button-border: 1px solid $border-color !default;
+$share-buttons-toggle-button-border-color-hover: $primary-color !default;
+$share-buttons-toggle-button-icon-size: 16px !default;
+$share-buttons-toggle-button-icon-color: $black !default;
+$share-buttons-toggle-button-icon-color-hover: $primary-color !default;
+$share-buttons-animation-duration: 0.2s !default;
+
+
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.1);
+    }
+
+    85% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
+
+.share-buttons {
+    display: none;
+    position: absolute;
+    top: $spacing-unit;
+    right: $spacing-unit * 2;
+
+    @include respond-to($medium-breakpoint) {
+        display: block;
+    }
+}
+
+.share-buttons--open {}
+
+    .share-buttons__toggle-button {
+        @extend %button-reset;
+        padding: $spacing-unit;
+        text-align: center;
+        border: $share-buttons-toggle-button-border;
+        border-radius: 50%;
+        cursor: pointer;
+
+        &:hover {
+            border-color: $share-buttons-toggle-button-border-color-hover;
+        }
+    }
+
+        .share-buttons__toggle-button-icon {
+            width: $share-buttons-toggle-button-icon-size;
+            height: $share-buttons-toggle-button-icon-size;
+            fill: $share-buttons-toggle-button-icon-color;
+            vertical-align: middle;
+
+            .share-buttons__toggle-button:hover & {
+                fill: $share-buttons-toggle-button-icon-color-hover;
+            }
+        }
+
+    .share-buttons__list {
+        @extend %list-reset;
+    }
+
     .share-buttons__item {
-        margin: 0 ($spacing-unit * 2);
+        display: none;
+        margin: 0;
+        padding: $spacing-unit;
         vertical-align: middle;
+
+        .share-buttons--open & {
+            display: block;
+            animation: FadeIn $share-buttons-animation-duration linear;
+            animation-fill-mode: both;
+
+            @for $i from 1 through $share-buttons-item-count {
+                &:nth-child(#{$i}) {
+                    animation-delay: #{($i * $share-buttons-animation-duration) - 0.1};
+                }
+            }
+        }
     }
 
         .share-buttons__button {}
