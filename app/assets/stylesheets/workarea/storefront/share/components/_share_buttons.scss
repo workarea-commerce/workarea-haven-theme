@@ -52,8 +52,14 @@ $share-buttons-animation-duration: 0.2s !default;
         border-radius: 50%;
         cursor: pointer;
 
-        &:hover {
+        &:hover,
+        .share-buttons--open & {
             border-color: $share-buttons-toggle-button-border-color-hover;
+        }
+
+        &:focus,
+        .share-buttons--open & {
+            outline: none;
         }
     }
 
@@ -63,6 +69,7 @@ $share-buttons-animation-duration: 0.2s !default;
             fill: $share-buttons-toggle-button-icon-color;
             vertical-align: middle;
 
+            .share-buttons--open &,
             .share-buttons__toggle-button:hover & {
                 fill: $share-buttons-toggle-button-icon-color-hover;
             }
