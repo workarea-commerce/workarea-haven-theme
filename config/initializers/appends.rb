@@ -69,4 +69,9 @@ module Workarea
     "storefront.product_summary",
     "workarea/storefront/products/reviews_summary"
   )
+
+  Plugin.remove_partials(
+    "storefront.product_description",
+    "workarea/storefront/products/video_link"
+  )
 end

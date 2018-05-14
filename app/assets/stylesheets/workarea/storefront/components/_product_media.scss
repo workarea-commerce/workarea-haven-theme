@@ -42,6 +42,7 @@ $product-alt-image-selected-border-color:  $primary-color !default;
 
 
     .product-media__alt-images {
+        @extend %inline-list;
         margin: 0;
         padding: $spacing-unit ($spacing-unit * 3);
         background-color: $product-media-alt-images-background-color;

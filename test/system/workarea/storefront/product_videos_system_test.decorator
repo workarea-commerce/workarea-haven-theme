@@ -1,0 +1,29 @@
+require "test_helper"
+
+module Workarea
+  decorate Storefront::ProductVideosSystemTest, with: :haven_theme
+    def test_showing_thumbnail_videos_on_product_detail_page
+      product = create_product(
+        name: "Awesome Product with thumbnail video",
+        images: [
+          { image: product_image_file },
+          { image: product_image_file }
+        ],
+        videos: [{ embed_code: youtube_embed, display_option: "thumbnail" }]
+      )
+
+      visit storefront.product_path(product)
+
+      assert(page.has_selector?(".product-video__thumbnail"))
+      refute(page.has_selector?("iframe.product-video__iframe"))
+
+      within ".product-media__alt-images" do
+        page.find(".product-video--thumbnail").trigger("click");
+      end
+
+      wait_for_xhr
+
+      assert(page.has_selector?("iframe.product-video__iframe"))
+    end
+  end
+end

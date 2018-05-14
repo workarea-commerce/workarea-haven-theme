@@ -1,0 +1,11 @@
+- if product.videos.present?
+  - product.videos.each do |video|
+    - if video.display_option == 'thumbnail'
+      %li.product-media__alt-image
+        = link_to(product_video_path(product.id, video.id), class: 'product-details__alt-image-link', target: '_blank', rel: 'noopener', data: { dialog_button: { dialog_options: { ui_dialog_options: { dialog_class: 'ui-dialog-video' } } }.to_json }) do
+          .product-video.product-video--thumbnail
+            = inline_svg('workarea/storefront/icons/video_play.svg', class: 'svg-icon svg-icon--extra-large product-video__play-icon', title: t('workarea.storefront.products.watch_this_video'))
+            - if video.thumbnail.present?
+              = image_tag(video.thumbnail.url, alt: t('workarea.storefront.products.watch_this_video'), class: 'product-video__thumbnail')
+            - else
+              = image_tag(product_image_url(product.images.first, :small_thumb), alt: t('workarea.storefront.products.watch_this_video'), class: 'product-video__thumbnail')

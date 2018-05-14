@@ -1,0 +1,19 @@
+module Workarea
+  decorate Storefront::ProductViewModel, with: :haven_theme do
+    def embedded_videos
+      @embedded_videos ||= videos.reject { |v| v[:display_option] == "thumbnail" }
+    end
+
+    def embedded_videos?
+      embedded_videos.present?
+    end
+
+    def thumbnail_videos
+      @thumbnail_videos ||= videos.select { |v| v[:display_option] == "thumbnail" }
+    end
+
+    def thumbnail_videos?
+      thumbnail_videos.present?
+    end
+  end
+end

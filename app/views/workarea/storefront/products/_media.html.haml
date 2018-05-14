@@ -22,3 +22,9 @@
               - button_class = index == 0 ? 'product-media__alt-image-link product-media__alt-image-link--selected' : 'product-media__alt-image-link'
               = link_to(product_image_url(image, :zoom), class: button_class, target: '_blank', rel: 'noopener', data: { alternate_image_button: { src: product_image_url(image, :detail) }.to_json }) do
                 = image_tag product_image_url(image, :detail_alt), alt: t('workarea.storefront.products.zoom')
+          = append_partials('storefront.product_details_alt_images', product: product)
+
+      - else
+        - if product.thumbnail_videos?
+          %ul.product-media__alt-images{ id: "#{product.id}_alt_media_carousel" }
+            = append_partials('storefront.product_details_alt_images', product: product)
