@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    #SHARE-BUTTONS
+\*------------------------------------*/
+
+.share-buttons {
+    @extend %inline-list;
+}
+
+    .share-buttons__item {
+        margin: 0 ($spacing-unit * 2);
+        vertical-align: middle;
+    }
+
+        .share-buttons__button {}
