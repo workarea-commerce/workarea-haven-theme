@@ -5,6 +5,7 @@
 $product-details-left-column-width: 44% !default;
 $product-details-right-column-width: 56% !default;
 $product-details-right-padding-right: 140px !default;
+$product-details-quantity-width: 96px !default;
 
 /**
  * 1. within a jQuery Dialog, set width since there is no
@@ -51,7 +52,10 @@ $product-details-right-padding-right: 140px !default;
 
     .product-details__add-to-cart-form {}
 
-        .product-details__quantity {}
+        .product-details__quantity {
+            margin-bottom: $spacing-unit * 2;
+            max-width: $product-details-quantity-width;
+        }
 
         .product-details__add-to-cart-action {}
 
