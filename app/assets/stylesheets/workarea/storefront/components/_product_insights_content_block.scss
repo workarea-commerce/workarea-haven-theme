@@ -1,0 +1,22 @@
+/*------------------------------------*\
+    #PRODUCT-INSIGHTS-CONTENT-BLOCK
+\*------------------------------------*/
+
+$product-insights-content-block-background-color: $background-color-alternate !default;
+
+
+.product-insights-content-block {
+    padding: ($spacing-unit * 4) 0;
+    background-color: $product-insights-content-block-background-color;
+}
+
+.product-insights-content-block--full-bleed {
+    @include full-bleed-container;
+}
+
+    .product-insights-content-block__heading {
+        @extend %heading;
+        @extend %heading--4;
+        @extend %heading--upcase;
+        text-align: center;
+    }

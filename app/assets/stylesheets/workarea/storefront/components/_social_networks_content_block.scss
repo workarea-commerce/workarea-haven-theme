@@ -1,0 +1,43 @@
+/*------------------------------------*\
+    #SOCIAL-NETWORKS-CONTENT-BLOCK
+\*------------------------------------*/
+
+$social-networks-content-block-item-size: 32px !default;
+$social-networks-content-block-item-border: 1px solid $primary-color !default;
+$social-networks-content-block-icon-size: 16px !default;
+$social-networks-content-block-icon-color: $primary-color !default;
+$social-networks-content-block-icon-color-hover: $white !default;
+
+
+.social-networks-content-block {
+    @extend %inline-list;
+    padding: $spacing-unit * 4;
+    text-align: center;
+}
+
+    .social-networks-content-block__item {
+        margin: 0 $spacing-unit;
+        border: $social-networks-content-block-item-border;
+
+        &:hover {
+            background-color: $primary-color;
+            border-color: $white;
+        }
+    }
+
+        .social-networks-content-block__button {
+            display: block;
+            padding: $spacing-unit;
+            width: $social-networks-content-block-item-size;
+            height: $social-networks-content-block-item-size;
+        }
+
+            .social-networks-content-block__icon {
+                width: $social-networks-content-block-icon-size;
+                height: $social-networks-content-block-icon-size;
+                fill: $social-networks-content-block-icon-color;
+
+                .social-networks-content-block__item:hover & {
+                    fill: $social-networks-content-block-icon-color-hover;
+                }
+            }

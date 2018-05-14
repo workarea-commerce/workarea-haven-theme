@@ -3,6 +3,7 @@
 \*------------------------------------*/
 
 $order-details-border: 1px solid $border-color !default;
+$order-details-info-background-color: $background-color-alternate !default;
 
 
 .order-details {
@@ -17,7 +18,7 @@ $order-details-border: 1px solid $border-color !default;
 
     .order-details__info {
         padding: $spacing-unit * 2;
-        background-color: $light-gray;
+        background-color: $order-details-info-background-color;
     }
 
     .order-details__section {

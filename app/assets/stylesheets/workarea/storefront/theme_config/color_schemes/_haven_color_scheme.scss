@@ -59,6 +59,8 @@ $primary-color-dark: $dark-purple-blue !default;
 
 $background-color: $white !default;
 $background-color-component: $white !default;
+$background-color-alternate: $light-gray !default;
+$page-aside-background-color: $background-color-alternate !default;
 
 $border-color: $light-gray !default;
 $highlight-color: $highlighter !default;
@@ -66,7 +68,7 @@ $overlay-shadow-color: rgba($black, 0.8) !default;
 $ui-dialog-titlebar-bg-color: $background-color !default;
 
 // Breadcrumbs
-$breadcrumbs-divider-color: $light-gray !default;
+$breadcrumbs-divider-color: $border-color !default;
 $breadcrumbs-color: $gray !default;
 $breadcrumbs-arrow-color: $medium-gray !default;
 
@@ -76,9 +78,6 @@ $header-icon-color: $gray !default;
 $header-icon-color-hover: $primary-color !default;
 $header-icon-color-cart: $white !default;
 $utility-nav-background-color: $gray !default;
-
-// Site layout colors
-$page-aside-background-color:  $light-gray !default;
 
 // Navigation colors
 $primary-nav-background-color: $background-color !default;
@@ -90,7 +89,7 @@ $primary-nav-dropdown-links: $midnight !default;
 $primary-nav-dropdown-links-hover: $purple-blue !default;
 $mobile-nav-links: $midnight !default;
 $mobile-nav-close-button-color: $white !default;
-$mobile-nav-back-button-bg-color: $light-gray !default;
+$mobile-nav-back-button-bg-color: $background-color-alternate !default;
 
 // Secondary navigation colors
 $secondary-nav-link-selected-color: $purple-blue !default;
@@ -152,7 +151,7 @@ $button-disabled-background-color: $medium-gray !default;
 $label-color: $midnight !default;
 $input-color: $midnight !default;
 $placeholder-color: $midnight !default;
-$input-background-color: $light-gray !default;
+$input-background-color: $background-color-alternate !default;
 $input-border-color: $medium-gray !default;
 $input-border-color-focus: $primary-color !default;
 $input-disabled-color: rgba($input-color, 0.18) !default;
@@ -161,7 +160,7 @@ $input-icon-color: $medium-gray !default;
 $text-box-secondary-border-color: $highlighter !default;
 $quantity-control-background-color: $background-color-component !default;
 $quantity-control-button-color: $primary-color !default;
-$quantity-control-button-background-color: $light-gray !default;
+$quantity-control-button-background-color: $background-color-alternate !default;
 
 $select-menu-bg-color: $white !default;
 
@@ -200,7 +199,6 @@ $badge-best-seller-background-color: #21c0af;
 
 // Cart page colors
 $cart-item-count-color: $gray !default;
-$cart-aside-background-color: $light-gray !default;
 
 // Product list item colors
 $product-list-item-options-color: $gray !default;
@@ -213,4 +211,5 @@ $product-price-discount-color: $red !default;
 // Checkout colors
 $checkout-summary-section-border-color: $medium-gray !default;
 
-$recommendations-background-color: $light-gray !default;
+// Content block colors
+$divider-content-block-color: $medium-gray !default;

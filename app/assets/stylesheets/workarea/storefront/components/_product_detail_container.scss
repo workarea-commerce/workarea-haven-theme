@@ -2,14 +2,14 @@
     #PRODUCT-DETAIL-CONTAINER
 \*------------------------------------*/
 
-$product-detail-container-tabs-background-color: $light-gray !default;
+$product-detail-container-tabs-background-color: $background-color-alternate !default;
 $product-detail-container-section-border: 1px solid $border-color !default;
 
 // These offsets must match the height of the sticky header
 $product-detail-container-section-top-offset: 54px !default;
 $product-detail-container-section-top-offset-landscape: 82px !default;
 $product-detail-container-section-background-color: $background-color !default;
-$product-detail-container-section-heading-background-color: $light-gray !default;
+$product-detail-container-section-heading-background-color: $background-color-alternate !default;
 
 $product-detail-container-tab-color: $font-color !default;
 $product-detail-container-tab-color-hover: $link-color !default;

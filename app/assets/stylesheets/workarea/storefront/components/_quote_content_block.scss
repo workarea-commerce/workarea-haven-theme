@@ -1,0 +1,42 @@
+/*------------------------------------*\
+    #QUOTE-CONTENT-BLOCK
+\*------------------------------------*/
+
+// scss-lint:disable StringQuotes
+
+$quote-content-block-quote-size:  5em !default;
+$quote-content-block-quote-width: 100px !default;
+
+
+.quote-content-block {
+    margin: 0;
+    padding: $spacing-unit * 4;
+    quotes: "\201C""\201D""\2018""\2019";
+
+    &:before {
+        display: inline-block;
+        margin-right: $spacing-unit * 3;
+        font-size: $quote-content-block-quote-size;
+        line-height: 1em;
+        vertical-align: top;
+        content: '“';
+    }
+}
+
+    /**
+     * 1. element selector required due to rich text editor content.
+     */
+    .quote-content-block__text {
+        display: inline-block;
+        width: calc(100% - #{$quote-content-block-quote-width});
+
+        p { /* [1] */
+            display: inline;
+        }
+    }
+
+    .quote-content-block__author {
+        display: block;
+        font-style: italic;
+        text-align: right;
+    }
