@@ -36,7 +36,9 @@ $product-alt-image-selected-border-color:  $primary-color !default;
             }
         }
 
-            .product-media__primary-image-link-image {}
+            .product-media__primary-image-link-image {
+                margin: 0 auto;
+            }
 
 
     .product-media__alt-images {
