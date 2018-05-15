@@ -49,6 +49,8 @@ en:
       searches:
         heading: What can we help you find?
         open: Open search
+      shares:
+        share: Share
       users:
         your_orders: Your orders
         welcome_name: Welcome, %{name}
