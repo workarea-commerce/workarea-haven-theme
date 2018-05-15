@@ -1,56 +1,61 @@
 require 'test_helper'
 
+
 module Workarea
-  decorate Storefront::ContentBlocks::ProductInsightsViewModelTest, with: :haven_theme do
-    def test_trending_products
-      create_product(id: 'one')
-      create_analytics_product_revenue(
-        id: 'one',
-        last_four_weeks_revenue: 1,
-        last_four_weeks_delta: 1,
-        last_four_improving_weeks_count: 1
-      )
-      create_product(id: 'two')
-      create_analytics_product_revenue(
-        id: 'two',
-        last_four_weeks_revenue: 2,
-        last_four_weeks_delta: 2,
-        last_four_improving_weeks_count: 2
-      )
-      create_product(id: 'three')
-      create_analytics_product_revenue(
-        id: 'three',
-        last_four_weeks_revenue: 3,
-        last_four_weeks_delta: 3,
-        last_four_improving_weeks_count: 3
-      )
-      create_product(id: 'four')
-      create_analytics_product_revenue(
-        id: 'four',
-        last_four_weeks_revenue: 5,
-        last_four_weeks_delta: 0,
-        last_four_improving_weeks_count: 0
-      )
-      create_product(id: 'foo', active: false)
-      create_analytics_product_revenue(
-        id: 'foo',
-        last_four_weeks_revenue: 4,
-        last_four_weeks_delta: 4,
-        last_four_improving_weeks_count: 4
-      )
-      create_product(id: 'bar')
+  module Storefront
+    module ContentBlocks
+      decorate ProductInsightsViewModelTest, with: :haven_theme do
+        def test_trending_products
+          create_product(id: 'one')
+          create_analytics_product_revenue(
+            id: 'one',
+            last_four_weeks_revenue: 1,
+            last_four_weeks_delta: 1,
+            last_four_improving_weeks_count: 1
+          )
+          create_product(id: 'two')
+          create_analytics_product_revenue(
+            id: 'two',
+            last_four_weeks_revenue: 2,
+            last_four_weeks_delta: 2,
+            last_four_improving_weeks_count: 2
+          )
+          create_product(id: 'three')
+          create_analytics_product_revenue(
+            id: 'three',
+            last_four_weeks_revenue: 3,
+            last_four_weeks_delta: 3,
+            last_four_improving_weeks_count: 3
+          )
+          create_product(id: 'four')
+          create_analytics_product_revenue(
+            id: 'four',
+            last_four_weeks_revenue: 5,
+            last_four_weeks_delta: 0,
+            last_four_improving_weeks_count: 0
+          )
+          create_product(id: 'foo', active: false)
+          create_analytics_product_revenue(
+            id: 'foo',
+            last_four_weeks_revenue: 4,
+            last_four_weeks_delta: 4,
+            last_four_improving_weeks_count: 4
+          )
+          create_product(id: 'bar')
 
-      block = Content::Block.new(
-        type_id: 'product_insights',
-        data: { type: 'Trending Products' }
-      )
+          block = Content::Block.new(
+            type_id: 'product_insights',
+            data: { type: 'Trending Products' }
+          )
 
-      view_model = ContentBlocks::ProductInsightsViewModel.new(block)
-      assert_equal(4, view_model.products.length)
-      assert_equal('three', view_model.products.first.id)
-      assert_equal('two', view_model.products.second.id)
-      assert_equal('one', view_model.products.third.id)
-      assert_equal('four', view_model.products.fourth.id)
+          view_model = ContentBlocks::ProductInsightsViewModel.new(block)
+          assert_equal(4, view_model.products.length)
+          assert_equal('three', view_model.products.first.id)
+          assert_equal('two', view_model.products.second.id)
+          assert_equal('one', view_model.products.third.id)
+          assert_equal('four', view_model.products.fourth.id)
+        end
+      end
     end
   end
 end
