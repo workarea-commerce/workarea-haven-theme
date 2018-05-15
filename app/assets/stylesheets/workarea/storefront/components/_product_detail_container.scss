@@ -113,36 +113,38 @@ $product-detail-container-section-back-icon-color: $link-color !default;
         .product-detail-container__section--information {}
         .product-detail-container__section--reviews {}
 
-            .product-detail-container__section-overlay-controls {
-                padding: ($spacing-unit * 2) ($spacing-unit * 3);
+            .product-detail-container__section-header {}
 
-                @include respond-to($medium-breakpoint) {
-                    display: none;
-                }
-            }
+                .product-detail-container__section-overlay-controls {
+                    padding: ($spacing-unit * 2) ($spacing-unit * 3);
 
-                .product-detail-container__section-back-icon {
-                    display: inline-block;
-                    margin-right: $spacing-unit * 2;
-                    width: $product-detail-container-section-back-icon-size;
-                    height: $product-detail-container-section-back-icon-size;
-                    vertical-align: middle;
-                    transform: rotate(180deg);
-                    fill: $product-detail-container-section-back-icon-color;
+                    @include respond-to($medium-breakpoint) {
+                        display: none;
+                    }
                 }
 
-            .product-detail-container__section-heading {
-                @extend %heading;
-                @extend %heading--4;
-                @extend %heading--upcase;
-                padding: ($spacing-unit * 2) ($spacing-unit * 3);
-                background-color: $product-detail-container-section-heading-background-color;
+                    .product-detail-container__section-back-icon {
+                        display: inline-block;
+                        margin-right: $spacing-unit * 2;
+                        width: $product-detail-container-section-back-icon-size;
+                        height: $product-detail-container-section-back-icon-size;
+                        vertical-align: middle;
+                        transform: rotate(180deg);
+                        fill: $product-detail-container-section-back-icon-color;
+                    }
 
-                @include respond-to($medium-breakpoint) {
-                    padding: 0;
-                    background-color: $transparent;
+                .product-detail-container__section-heading {
+                    @extend %heading;
+                    @extend %heading--4;
+                    @extend %heading--upcase;
+                    padding: ($spacing-unit * 2) ($spacing-unit * 3);
+                    background-color: $product-detail-container-section-heading-background-color;
+
+                    @include respond-to($medium-breakpoint) {
+                        padding: 0;
+                        background-color: $transparent;
+                    }
                 }
-            }
 
             .product-detail-container__section-content {
                 padding: 0 ($spacing-unit * 3);

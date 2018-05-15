@@ -33,17 +33,18 @@
         - if @product.details.present?
           .product-detail-container__tab
             = link_to t('workarea.storefront.products.information_header'), '#information', class: 'product-detail-container__tab-link', data: { product_detail_tabs: '' }
-        - if @product.reviews.present?
-          .product-detail-container__tab
-            = link_to t('workarea.storefront.reviews.heading'), '#reviews', class: 'product-detail-container__tab-link', data: { product_detail_tabs: '' }
+        .product-detail-container__tab
+          = link_to t('workarea.storefront.reviews.heading'), '#reviews', class: 'product-detail-container__tab-link', data: { product_detail_tabs: '' }
 
       - if @product.description.present?
+
         .product-detail-container__section.product-detail-container__section--description#description
-          .product-detail-container__section-overlay-controls
-            = button_tag value: 'back_to_product', type: 'button', class: 'text-button', data: { product_detail_tabs_close_overlay: '' } do
-              = inline_svg('workarea/storefront/icons/long_arrow.svg', class: 'product-detail-container__section-back-icon', title: t('workarea.storefront.layouts.navigate_back'))
-              = t('workarea.storefront.products.back_to_product')
-          %h2.product-detail-container__section-heading= t('workarea.storefront.products.description')
+          .product-details-container__section-header
+            .product-detail-container__section-overlay-controls
+              = button_tag value: 'back_to_product', type: 'button', class: 'text-button', data: { product_detail_tabs_close_overlay: '' } do
+                = inline_svg('workarea/storefront/icons/long_arrow.svg', class: 'product-detail-container__section-back-icon', title: t('workarea.storefront.layouts.navigate_back'))
+                = t('workarea.storefront.products.back_to_product')
+            %h2.product-detail-container__section-heading= t('workarea.storefront.products.description')
           .product-detail-container__section-content
             .product-detail-container__description{ itemprop: 'description' }!= @product.description
 
@@ -51,11 +52,12 @@
 
       - if @product.details.present?
         .product-detail-container__section.product-detail-container__section--information#information
-          .product-detail-container__section-overlay-controls
-            = button_tag value: 'back_to_product', type: 'button', class: 'text-button', data: { product_detail_tabs_close_overlay: '' } do
-              = inline_svg('workarea/storefront/icons/long_arrow.svg', class: 'product-detail-container__section-back-icon', title: t('workarea.storefront.layouts.navigate_back'))
-              = t('workarea.storefront.products.back_to_product')
-          %h2.product-detail-container__section-heading= t('workarea.storefront.products.information_header')
+          .product-details-container__section-header
+            .product-detail-container__section-overlay-controls
+              = button_tag value: 'back_to_product', type: 'button', class: 'text-button', data: { product_detail_tabs_close_overlay: '' } do
+                = inline_svg('workarea/storefront/icons/long_arrow.svg', class: 'product-detail-container__section-back-icon', title: t('workarea.storefront.layouts.navigate_back'))
+                = t('workarea.storefront.products.back_to_product')
+            %h2.product-detail-container__section-heading= t('workarea.storefront.products.information_header')
           .product-detail-container__section-content
             - @product.details.each do |attribute, values|
 
