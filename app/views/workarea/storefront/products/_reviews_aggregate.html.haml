@@ -1,0 +1,13 @@
+- if product.has_reviews?
+  .reviews-aggregate{ itemprop: 'aggregateRating', itemscope: true, itemtype: 'http://schema.org/AggregateRating' }
+    = link_to "#{product_path(product, product.browse_link_options)}#reviews", data: { scroll_to_button: '' }, class: 'reviews-aggregate__rating-link' do
+      = rating_stars(product.average_rating, aggregate: true)
+
+    %span.reviews-aggregate__count{ itemprop: 'reviewCount' }= product.total_reviews
+
+    = link_to "#{product_path(product, product.browse_link_options)}#reviews", data: { scroll_to_button: '' } do
+      %span.reviews-aggregate__read= t('workarea.storefront.reviews.read_reviews')
+
+- else
+  .reviews-aggregate
+    %p.reviews-aggregate__count= t('workarea.storefront.reviews.reviews', count: 0)

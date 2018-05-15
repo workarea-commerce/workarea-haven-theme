@@ -1,0 +1,41 @@
+/*------------------------------------*\
+    #RATING
+\*------------------------------------*/
+
+$rating-fill-color: $rating-star-color !default;
+$rating-empty-color: $rating-star-color-empty !default;
+$rating-star-size: 16px !default;
+
+
+
+.rating {
+    display: inline-block;
+    position: relative;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+
+    .product-summary & {
+        margin: $spacing-unit auto 0;
+    }
+}
+
+    .rating__star {
+        display: inline-block;
+        width:  $rating-star-size;
+        height: $rating-star-size;
+        fill: $rating-fill-color;
+        overflow: hidden;
+    }
+
+    .rating__star--empty {
+        fill: $rating-empty-color;
+    }
+
+    .rating__star--half {
+        .half-star__filled-half {}
+
+        .half-star__empty-half {
+            fill: $rating-empty-color;
+        }
+    }
