@@ -28,8 +28,9 @@
         = render "workarea/storefront/products/templates/#{@product.template}", product: @product
 
       .product-detail-container__tabs
-        .product-detail-container__tab
-          = link_to t('workarea.storefront.products.description'), '#description', class: 'product-detail-container__tab-link', data: { product_detail_tabs: '' }
+        - if @product.description.present?
+          .product-detail-container__tab
+            = link_to t('workarea.storefront.products.description'), '#description', class: 'product-detail-container__tab-link', data: { product_detail_tabs: '' }
         - if @product.details.present?
           .product-detail-container__tab
             = link_to t('workarea.storefront.products.information_header'), '#information', class: 'product-detail-container__tab-link', data: { product_detail_tabs: '' }
@@ -69,11 +70,12 @@
 
       - if @product.embedded_videos?
         #videos.product-detail-container__section.product-detail-container__section--videos
-          .product-detail-container__section-overlay-controls
-            = button_tag value: 'back_to_product', type: 'button', class: 'text-button', data: { product_detail_tabs_close_overlay: '' } do
-              = inline_svg('workarea/storefront/icons/long_arrow.svg', class: 'product-detail-container__section-back-icon', title: t('workarea.storefront.layouts.navigate_back'))
-              = t('workarea.storefront.products.back_to_product')
-          %h2.product-detail-container__section-heading= t('workarea.storefront.products.videos')
+          .product-details-container__section-header
+            .product-detail-container__section-overlay-controls
+              = button_tag value: 'back_to_product', type: 'button', class: 'text-button', data: { product_detail_tabs_close_overlay: '' } do
+                = inline_svg('workarea/storefront/icons/long_arrow.svg', class: 'product-detail-container__section-back-icon', title: t('workarea.storefront.layouts.navigate_back'))
+                = t('workarea.storefront.products.back_to_product')
+            %h2.product-detail-container__section-heading= t('workarea.storefront.products.videos')
           .product-detail-container__section-content
             = render 'workarea/storefront/products/video_link', product: @product
 
