@@ -29,8 +29,6 @@
           %span.property__text= t('workarea.storefront.products.select_options')
         .value
           = select_tag :sku, options_for_select(product.sku_options, params[:sku]), required: true, id: "sku_#{dom_id(product)}", data: { product_details_sku_select: product.slug }
-          - if params[:sku].present?
-            .value__note= product.inventory_status
 
     = append_partials('storefront.add_to_cart_form', product: product)
 
@@ -44,7 +42,10 @@
             .value= number_field_tag :quantity, params[:quantity] || 1, min: 1, required: true, class: 'quantity-control__input text-box text-box--x-small', title: t('workarea.storefront.products.quantity'), id: "quantity#{dom_id(product)}"
             = button_tag '+', { type: 'button', data: { quantity_control: { 'direction': 'inc' }.to_json }, class: 'quantity-control__button quantity-control__button--increment'}
 
-      %p.product-details__add-to-cart-action= button_tag t('workarea.storefront.products.add_to_cart'), value: 'add_to_cart', class: 'button button--large'
+      .product-details__add-to-cart-action= button_tag t('workarea.storefront.products.add_to_cart'), value: 'add_to_cart', class: 'button button--large'
+
+      - if params[:sku].present?
+        %p.product-details__inventory-status= product.inventory_status
 
     - else
       = hidden_field_tag :quantity, params[:quantity] || 1, id: "quantity#{dom_id(product)}"
