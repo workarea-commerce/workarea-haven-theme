@@ -5,12 +5,12 @@ module Workarea
     def test_showing_thumbnail_videos_on_product_detail_page
       product = create_product(
         name: "Awesome Product with thumbnail video",
-        images: [
-          { image: product_image_file },
-          { image: product_image_file }
-        ],
         videos: [{ embed_code: youtube_embed, display_option: "thumbnail" }]
       )
+
+      product.images.build(option: 'green', position: 1)
+      product.images.build(option: 'green', position: 2)
+      product.save!
 
       visit storefront.product_path(product)
 
@@ -18,7 +18,7 @@ module Workarea
       refute(page.has_selector?("iframe.product-video__iframe"))
 
       within ".product-media__alt-images" do
-        page.find(".product-video--thumbnail").trigger("click");
+        page.find(".product-video--thumbnail").click
       end
 
       wait_for_xhr
