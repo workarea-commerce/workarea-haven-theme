@@ -3,26 +3,26 @@
 \*------------------------------------*/
 
 $page-content-max-width: 1410px !default;
+$page-content-checkout-width: 80% !default;
 $page-content-checkout-container-max-width: 500px !default;
 
 
 .page-content {
     position: relative;
     z-index: index($page-container, page-content);
-    margin: 0 auto $spacing-unit;
+    margin: 0 auto;
     padding: 0 ($spacing-unit / 2);
     max-width: $page-content-max-width;
 
     @include respond-to($medium-breakpoint) {
-        margin: 0 auto ($spacing-unit * 2);
+        margin: 0 auto;
         padding: 0;
     }
 }
 
 .page-content--checkout {
     @include respond-to($medium-breakpoint) {
-        margin-bottom: 0;
-        width: 80%;
+        width: $page-content-checkout-width;
     }
 }
 
