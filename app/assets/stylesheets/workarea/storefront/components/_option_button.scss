@@ -2,8 +2,9 @@
     #OPTION-BUTTON
 \*------------------------------------*/
 
-$option-button-border-color: $border-color !default;
-$option-button-active-border-color: $focus-ring-color !default;
+$option-button-color: $font-color !default;
+$option-button-border-color: $input-border-color !default;
+$option-button-active-border-color: $primary-color !default;
 /**
 * Extend the `.option-button` class from Workarea to include a swatch option.
 *
@@ -14,9 +15,13 @@ $option-button-swatch-width: 32px !default; /* [1] */
 
 .option-button {
     display: inline-block;
-    margin-right: $spacing-unit;
-    margin-bottom: $spacing-unit;
+    margin: $spacing-unit;
+    margin-left: 0;
     padding: $spacing-unit;
+    min-width: $spacing-unit * 4;
+    color: $option-button-color;
+    font-weight: $font-weight-medium;
+    text-align: center;
     border: 1px solid $option-button-border-color;
     vertical-align: top;
 
@@ -26,7 +31,6 @@ $option-button-swatch-width: 32px !default; /* [1] */
 }
 
 .option-button--active {
-    font-weight: $font-weight-heavy;
     border-color: $option-button-active-border-color;
 }
 

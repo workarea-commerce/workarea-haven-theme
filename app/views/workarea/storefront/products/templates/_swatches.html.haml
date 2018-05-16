@@ -27,7 +27,7 @@
           %span.property__text= option_label(option)
         .value
           - option.selections.each do |selection|
-            = radio_button_tag option.slug, selection, option.current == selection, required: true, title: selection, class: 'visually-hidden'
+            = radio_button_tag option.slug, selection, option.current == selection, required: true, title: selection, class: 'hidden'
             = link_to option_selection_url_for(product, option, selection), title: selection, class: "option-button option-button--#{selection.downcase.dasherize} option-button--#{option.name.downcase}#{' option-button--active' if option.current == selection}", data: { option_button: '' } do
               - swatch_content = render_swatch_option(selection, product.swatches_by_option[selection.optionize])
 
