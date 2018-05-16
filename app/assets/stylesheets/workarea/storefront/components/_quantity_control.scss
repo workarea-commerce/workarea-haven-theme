@@ -16,8 +16,9 @@ $quantity-control-button-color: $quantity-control-button-color !default;
 $quantity-control-button-background-color: $quantity-control-button-background-color !default;
 
 /**
- * 1. Remove arrows from number field styles on non-mobile devices
- * 2. Some margins are still there even though it's hidden
+ * 1. Arbitrary padding value used to visually center text in input
+ * 2. Remove arrows from number field styles on non-mobile devices
+ * 3. Some margins are still there even though it's hidden
  */
 
 .quantity-control {
@@ -41,20 +42,21 @@ $quantity-control-button-background-color: $quantity-control-button-background-c
 
     .quantity-control__input {
         padding: $spacing-unit;
+        padding-right: 14px; /* [1] */
         width: $quantity-control-width-mobile;
         color: $quantity-input-color;
         text-align: center;
         background-color: $quantity-control-background-color;
         border: 0;
 
-        /* [1] */
+        /* [2] */
         @include respond-to($medium-breakpoint) {
             width: $quantity-control-width;
             appearance: textfield;
 
             &::-webkit-outer-spin-button,
             &::-webkit-inner-spin-button {
-                margin: 0; /* [2] */
+                margin: 0; /* [3] */
                 appearance: none;
             }
         }
