@@ -37,6 +37,7 @@ The following workarea plugins are supported by OneTheme, and are dependencies o
 * Package Products
 * Product Badges
 * Product Videos
+* Product Image Zoom
 * Swatches
 * Reviews
 * Styled selects
