@@ -2,24 +2,52 @@
     #BLOG-ENTRY-SUMMARY
 \*------------------------------------*/
 
-$blog-entry-summary-thumbnail-small-width:  160px !default;
+$blog-entry-summary-thumbnail-small-width: 160px !default;
+$blog-entry-summary-per-row: 4 !default;
+$blog-entry-summary-entry-width: 100% / $blog-entry-summary-per-row !default;
+$blog-entry-summary-entry-border: 1px solid $border-color !default;
 
 
+/**
+ * 1. calc used to account for left + right margins in flex grid
+ */
 .blog-entry-summary {}
 
 .blog-entry-summary--featured {}
 
-    .blog-entry-summary__title {}
+    .blog-entry-summary__title {
+        @extend %heading;
+        @extend %heading--4;
+        @extend %heading--upcase;
+        padding: ($spacing-unit * 2) 0 $spacing-unit;
+        text-align: center;
+
+        @include respond-to($medium-breakpoint) {
+            text-align: left;
+        }
+    }
 
     .blog-entry-summary__banner-content {
         margin-bottom: $vertical-margin;
     }
 
-    .blog-entry-summary__entry-group {}
+    .blog-entry-summary__entry-group {
+        display: flex;
+        flex-wrap: wrap;
+    }
 
         .blog-entry-summary__entry {
             @extend %clearfix;
-            margin-bottom: $vertical-margin;
+            margin: $spacing-unit;
+            padding: $spacing-unit;
+            max-width: calc(#{$blog-entry-summary-entry-width} - (#{$spacing-unit} * 2)); /* [1] */
+            border: $blog-entry-summary-entry-border;
+            flex-grow: 1;
+        }
+
+        .blog-entry-summary__entry--double {
+            max-width: calc((#{$blog-entry-summary-entry-width} * 2) - (#{$spacing-unit} * 2));  /* [1] */
+            flex-grow: 2;
         }
 
             .blog-entry-summary__entry-thumbnail {
