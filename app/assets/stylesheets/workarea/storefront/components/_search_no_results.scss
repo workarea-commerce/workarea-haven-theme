@@ -4,11 +4,17 @@
 
 .search-no-results {}
 
-    .search-no-results__heading {}
+    .search-no-results__heading {
+        @extend %heading;
+        @extend %heading--3;
+    }
 
     .search-no-results__suggestions {}
 
-        .search-no-results__suggestions-heading {}
+        .search-no-results__suggestions-heading {
+            @extend %heading;
+            @extend %heading--5;
+        }
 
         .search-no-results__suggestions-list {}
 
@@ -18,4 +24,11 @@
 
     .search-no-results__search {}
 
-        .search-no-results__search-heading {}
+        .search-no-results__search-heading {
+            @extend %heading;
+            @extend %heading--5;
+        }
+
+    .search-no-results__content {
+        margin: $vertical-margin 0;
+    }
