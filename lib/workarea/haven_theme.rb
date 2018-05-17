@@ -15,6 +15,7 @@ require "workarea/reviews"
 require "workarea/shipping_message"
 require "workarea/slick_slider"
 require "workarea/share"
+require "workarea/hover_zoom"
 require "jquery_payment-rails"
 
 require "workarea/haven_theme/engine"

@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
   s.add_dependency "workarea-slick_slider"
   s.add_dependency "workarea-share"
   s.add_dependency "workarea-product_videos"
+  s.add_dependency "workarea-hover_zoom", "~> 2.x"
   # s.add_dependency "workarea-gift_cards"
 
   s.add_dependency "jquery_payment-rails"
