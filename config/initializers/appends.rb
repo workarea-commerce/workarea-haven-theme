@@ -13,6 +13,7 @@ module Workarea
     "storefront.components",
     "workarea/storefront/components/account_menu",
     "workarea/storefront/components/add_to_cart",
+    "workarea/storefront/blog/components/blog_index",
     "workarea/storefront/components/checkout_confirmation",
     "workarea/storefront/components/color_box",
     "workarea/storefront/components/email_signup_view",

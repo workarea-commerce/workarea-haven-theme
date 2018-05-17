@@ -1,0 +1,11 @@
+module Workarea
+  decorate Storefront::BlogEntryViewModel, with: :haven_theme do
+    def thumbnail_image
+      @thumbnail_image ||= find_asset(model.thumbnail_image)
+    end
+
+    def thumbnail_image_url
+      thumbnail_image.url
+    end
+  end
+end

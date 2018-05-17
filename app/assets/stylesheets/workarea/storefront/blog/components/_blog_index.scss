@@ -1,0 +1,25 @@
+/*------------------------------------*\
+    #BLOG-INDEX
+\*------------------------------------*/
+
+.blog-index {}
+
+    .blog-index__title {
+        @extend %heading;
+        @extend %heading--3;
+        text-align: center;
+    }
+
+    .blog-index__blog {
+        margin-bottom: $spacing-unit * 4;
+    }
+
+        .blog-index__blog-title {
+            @extend %heading;
+            @extend %heading--4;
+            @extend %heading--upcase;
+        }
+
+            .blog-index__blog-title-link {
+                font-size: inherit;
+            }

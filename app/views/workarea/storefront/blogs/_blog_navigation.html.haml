@@ -4,4 +4,4 @@
       %h2.secondary-nav__heading= t('workarea.storefront.blogs.tags')
       %ul.secondary-nav__items
         - blog.tags.each do |tag|
-          %li.secondary-nav__item= link_to "#{tag[:name]} (#{tag[:count]})", blog_tagged_path(blog, tag[:name]), class: 'secondary-nav__link'
+          %li.secondary-nav__item= link_to "#{tag[:name]} (#{tag[:count]})", blog_tagged_path(blog, tag[:name]), class: "secondary-nav__link #{('secondary-nav__link--selected' if blog_tag_selected(tag))}"
