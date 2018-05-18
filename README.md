@@ -27,6 +27,8 @@ Optimal Image Sizes
 | Product Grid Content (1 cell) | 272px x 400px | Background image for product grid content block |
 | Product Grid Content (2 cells) | 552px x 400px | Background image for product grid content block spanning 2 grid cells |
 | Swatch Images | 32px x 32px | Images used for swatch display |
+| Blog Thumbnail | 353px x 172px | Displayed in blog entry summaries, and the featured entry content block |
+| Blog Header Image | 1112px x 544px | Image content blocks can be added to the blog entry 'blog header' content area |
 
 Out of the box plugin support
 --------------------------------------------------------------------------------

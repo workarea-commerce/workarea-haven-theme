@@ -61,15 +61,16 @@ $page-content-checkout-container-max-width: 500px !default;
             @include respond-to($wide-breakpoint) {
                 display: table-cell;
                 background-color: $page-aside-background-color;
+                vertical-align: top;
             }
 
             .page-content--order &,
             .page-content--checkout & {
                 display: block;
-                vertical-align: top;
 
                 @include respond-to($wide-breakpoint) {
                     display: table-cell;
+                    vertical-align: top;
                 }
             }
         }
