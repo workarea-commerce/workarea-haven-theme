@@ -1,0 +1,46 @@
+/*------------------------------------*\
+    #RECENT-VIEWS
+\*------------------------------------*/
+
+$recent-views-section-products-background-color: $background-color-alternate !default;
+
+.recent-views {}
+
+.recent-views--aside {}
+
+    .recent-views__section {
+        margin-bottom: $vertical-margin;
+    }
+
+    .recent-views__section--products {
+        @include full-bleed-container;
+        padding: ($spacing-unit * 5) 0;
+        background-color: $recent-views-section-products-background-color;
+
+        .recent-views--aside & {
+            position: static;
+            right: auto;
+            left: auto;
+            margin: 0;
+            width: auto;
+        }
+    }
+
+    .recent-views__section--categories {}
+
+        .recent-views__heading {
+            @extend %heading;
+            @extend %heading--5;
+
+            .recent-views__section--products & {
+                text-align: center;
+            }
+        }
+
+        .recent-views__list {
+            @extend %list-reset;
+        }
+
+            .recent-views__item {}
+
+                .recent-views__link {}
