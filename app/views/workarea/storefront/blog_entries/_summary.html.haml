@@ -3,6 +3,10 @@
     - if entry.has_thumbnail_image?
       = link_to blog_entry_path(entry), itemprop: 'url' do
         .blog-entry-summary__entry-thumbnail= image_tag(entry.thumbnail_image.process(:blog_thumbnail).url, itemprop: 'image' )
+    - else
+      = link_to blog_entry_path(entry), itemprop: 'url' do
+        .blog-entry-summary__entry-thumbnail.blog-entry-summary__entry-thumbnail--placeholder
+          %p.blog-entry-summary__thumbnail-placeholder-text= entry.name
 
     - if entry.tags.present?
       .blog-entry-summary__entry-tags

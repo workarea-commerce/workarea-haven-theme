@@ -1,0 +1,5 @@
+.featured-entry-content-block
+  - if local_assigns[:entries].present?
+    - local_assigns[:entries].each do |entry|
+      - if entry.active
+        = render 'workarea/storefront/blog_entries/summary', entry: entry
