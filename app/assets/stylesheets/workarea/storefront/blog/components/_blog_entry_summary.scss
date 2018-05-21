@@ -2,10 +2,17 @@
     #BLOG-ENTRY-SUMMARY
 \*------------------------------------*/
 
-$blog-entry-summary-thumbnail-small-width: 160px !default;
 $blog-entry-summary-per-row: 3 !default;
 $blog-entry-summary-entry-width: 100% / $blog-entry-summary-per-row !default;
 $blog-entry-summary-entry-border: 1px solid $border-color !default;
+$blog-entry-summary-entry-title-color: $midnight !default;
+$blog-entry-summary-by-line-color: $font-color-light !default;
+
+$blog-entry-summary-tags-border-radius: 2px !default;
+$blog-entry-summary-tag-color: $white !default;
+$blog-entry-summary-tag-background-color: $primary-color !default;
+
+$blog-entry-summary-comment-count-background-color: $light-gray !default;
 
 
 /**
@@ -38,8 +45,8 @@ $blog-entry-summary-entry-border: 1px solid $border-color !default;
 
         .blog-entry-summary__entry {
             @extend %clearfix;
+            position: relative;
             margin: $spacing-unit;
-            padding: $spacing-unit;
             max-width: calc(#{$blog-entry-summary-entry-width} - (#{$spacing-unit} * 2)); /* [1] */
             border: $blog-entry-summary-entry-border;
             flex-grow: 1;
@@ -51,14 +58,7 @@ $blog-entry-summary-entry-border: 1px solid $border-color !default;
         }
 
             .blog-entry-summary__entry-thumbnail {
-                margin-bottom: $vertical-margin;
                 text-align: center;
-
-                @include respond-to($medium-breakpoint) {
-                    margin: $spacing-unit ($spacing-unit * 2) $spacing-unit 0;
-                    width: $blog-entry-summary-thumbnail-small-width;
-                    float: left;
-                }
             }
 
             .blog-entry-summary__entry-label {
@@ -66,24 +66,36 @@ $blog-entry-summary-entry-border: 1px solid $border-color !default;
                 margin: 0 ($spacing-unit / 2) 0 0;
             }
 
-            .blog-entry-summary__entry-title {}
-
-            .blog-entry-summary__entry-author {
-                display: inline-block;
-                margin: 0 $spacing-unit 0 0;
+            .blog-entry-summary__entry-title {
+                margin-bottom: 0;
+                padding: 0 $spacing-unit;
+                font-size: $font-size;
             }
 
-            .blog-entry-summary__entry-datetime {
-                display: inline-block;
+                .blog-entry-summary__entry-title-link {
+                    color: $blog-entry-summary-entry-title-color;
+                    font-size: $font-size;
+                    font-weight: $font-weight-regular;
+                }
+
+            .blog-entry-summary__entry-by-line {
+                padding: 0 $spacing-unit;
+                color: $blog-entry-summary-by-line-color;
+                font-size: $font-size-small;
             }
 
-            .blog-entry-summary__entry-comment-count {
-                display: inline-block;
-                margin: 0 0 0 $spacing-unit;
-            }
+                .blog-entry-summary__entry-author {
+                    display: inline-block;
+                    margin: 0 $spacing-unit 0 0;
+                }
+
+                .blog-entry-summary__entry-datetime {
+                    display: inline-block;
+                }
 
             .blog-entry-summary__entry-tags {
-                margin-bottom: $vertical-margin;
+                margin: $vertical-margin 0;
+                text-align: center;
             }
 
                 .blog-entry-summary__entry-tags-list {
@@ -92,11 +104,37 @@ $blog-entry-summary-entry-border: 1px solid $border-color !default;
                 }
 
                     .blog-entry-summary__entry-tags-list-item {
+                        padding: ($spacing-unit / 2) $spacing-unit;
+                        background-color: $blog-entry-summary-tag-background-color;
+                        border-radius: $blog-entry-summary-tags-border-radius;
+
                         & + & {
                             margin: 0 0 0 ($spacing-unit / 2);
                         }
                     }
 
+                        .blog-entry-summary__entry-tags-list-item-link {
+                            color: $blog-entry-summary-tag-color;
+                        }
+
             .blog-entry-summary__content {
-                margin-bottom: $vertical-margin;
+                margin-bottom: $spacing-unit * 6;
+                padding: 0 $spacing-unit;
+                font-size: $font-size-small;
+                line-height: $line-height-large;
             }
+
+                .blog-entry-summary__content-read-more {
+                    white-space: nowrap;
+                }
+
+                .blog-entry-summary__entry-comment-count {
+                    display: block;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    margin: 0;
+                    padding: $spacing-unit;
+                    background-color: $blog-entry-summary-comment-count-background-color;
+                }

@@ -54,4 +54,10 @@ Dragonfly.app(:workarea).configure do
     content.process!(:thumb, "32x32")
     content.process!(:optim)
   end
+
+  processor :blog_thumbnail do |content|
+    content.process!(:encode, :jpg, Workarea.config.jpg_encode_options)
+    content.process!(:thumb, "353x")
+    content.process!(:optim)
+  end
 end
