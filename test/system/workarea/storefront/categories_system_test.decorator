@@ -76,6 +76,51 @@ module Workarea
       assert(page.has_selector?('.mobile-filters-nav', visible: false))
     end
 
+    def test_clearing_filters
+      category = create_category
+      categorize_products(category)
+
+      visit storefront.category_path(category)
+
+      Capybara.match = :first
+
+      click_link 'Green 1'
+
+      assert(page.has_content?('Integration Product 1'))
+      assert(page.has_no_content?('Integration Product 2'))
+
+      click_link 'Clear All'
+
+      assert(page.has_content?('Integration Product 1'))
+      assert(page.has_content?('Integration Product 2'))
+
+      assert(page.has_no_content?('Clear All'))
+
+      # Mobile Filters Nav
+      resize_window_to('small')
+      visit storefront.category_path(category)
+
+      find('[data-mobile-filter-button]').click
+      assert(page.has_selector?('.mobile-filters-nav', visible: true))
+
+      within '.mobile-filters-nav' do
+        find(".result-filters__attribute", :text => "Price").click
+        assert(page.has_content?('$10.00 - $19.99 1'))
+
+        click_link '$10.00 - $19.99 1'
+
+        assert(page.has_content?('Integration Product 1'))
+        assert(page.has_no_content?('Integration Product 2'))
+
+        click_link 'Clear All'
+
+        assert(page.has_content?('Integration Product 1'))
+        assert(page.has_content?('Integration Product 2'))
+
+        assert(page.has_no_content?('Clear All'))
+      end
+    end
+
     def test_filtering_products_and_sorting
       category = create_category
       categorize_products(category)
