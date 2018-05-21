@@ -81,5 +81,6 @@ $value-icon-top-offset: 20px !default;
 
 
     .value__option-group {
+        display: inline;
         font-size: 0; /* [2] */
     }
