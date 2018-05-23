@@ -48,6 +48,7 @@ $value-icon-top-offset: 20px !default;
 
     /**
      * 1. Offset position from top when messaging is present.
+     * 2. Font size must be removed from the container of option buttons to get proper spacing
      */
 
     .value__icon {
@@ -76,4 +77,10 @@ $value-icon-top-offset: 20px !default;
         position: absolute;
         top: $spacing-unit / 2;
         right: $spacing-unit;
+    }
+
+
+    .value__option-group {
+        display: inline;
+        font-size: 0; /* [2] */
     }

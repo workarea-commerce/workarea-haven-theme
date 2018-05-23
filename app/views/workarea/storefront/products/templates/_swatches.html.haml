@@ -26,17 +26,18 @@
         = label_tag option.slug, nil, class: 'property__name', for: "#{option.slug}_#{dom_id(product)}" do
           %span.property__text= option_label(option)
         .value
-          - option.selections.each do |selection|
-            = radio_button_tag option.slug, selection, option.current == selection, required: true, title: selection, class: 'hidden'
-            = link_to option_selection_url_for(product, option, selection), title: selection, class: "option-button option-button--#{selection.downcase.dasherize} option-button--#{option.name.downcase}#{' option-button--active' if option.current == selection}", data: { option_button: '' } do
-              - swatch_content = render_swatch_option(selection, product.swatches_by_option[selection.optionize])
+          .value__option-group
+            - option.selections.each do |selection|
+              = radio_button_tag option.slug, selection, option.current == selection, required: true, title: selection, class: 'visually-hidden'
+              = link_to option_selection_url_for(product, option, selection), title: selection, class: "option-button option-button--#{selection.downcase.dasherize} option-button--#{option.name.downcase}#{' option-button--active' if option.current == selection}", data: { option_button: '' } do
+                - swatch_content = render_swatch_option(selection, product.swatches_by_option[selection.optionize])
 
-              - if swatch_content.present?
-                = swatch_content
-              - elsif product.images_by_option[selection.optionize].present?
-                = image_tag(product_image_url(product.images_by_option[selection.optionize].first, :small_thumb), alt: selection, class: 'option-button__image')
-              - else
-                %span.option-button__text= selection
+                - if swatch_content.present?
+                  = swatch_content
+                - elsif product.images_by_option[selection.optionize].present?
+                  = image_tag(product_image_url(product.images_by_option[selection.optionize].first, :small_thumb), alt: selection, class: 'option-button__image')
+                - else
+                  %span.option-button__text= selection
 
     - unless product.currently_selected_options.blank?
       .product-details__clear-selection
