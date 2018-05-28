@@ -14,6 +14,6 @@ $personalized-recommendations-content-block-background-color: $background-color-
     .personalized-recommendations-content-block__heading {
         @extend %heading;
         @extend %heading--4;
+        @extend %heading--upcase;
         text-align: center;
-        text-transform: uppercase;
     }

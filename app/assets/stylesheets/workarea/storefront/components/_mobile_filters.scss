@@ -15,9 +15,9 @@ $mobile-filters-max-width: 75% !default;
     .mobile-filters__heading {
         @extend %heading;
         @extend %heading--4;
+        @extend %heading--upcase;
         margin: 0;
         color: $mobile-filters-heading-color;
-        text-transform: uppercase;
     }
 
     .mobile-filters__sort {

@@ -4,6 +4,7 @@
 
 $email-signup-max-width: 288px !default;
 
+$email-signup-label-color: $email-signup-label-color !default;
 $email-signup-button-bg-color: $email-signup-button-bg-color !default;
 
 $email-signup-button-icon-size: 18px !default;
@@ -27,9 +28,9 @@ $email-signup-button-icon-color-hover: $email-signup-button-icon-color-hover !de
         .email-signup__label {
             @extend %heading;
             @extend %heading--5;
+            @extend %heading--upcase;
             display: block;
-            color: $white;
-            text-transform: uppercase;
+            color: $email-signup-label-color;
         }
 
         .email-signup__value {

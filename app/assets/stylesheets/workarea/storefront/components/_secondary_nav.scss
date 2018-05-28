@@ -17,9 +17,9 @@ $secondary-nav-max-width:  196px !default;
         .secondary-nav__heading {
             @extend %heading;
             @extend %heading--5;
+            @extend %heading--upcase;
             margin: 0;
             padding: $spacing-unit;
-            text-transform: uppercase;
         }
 
         .secondary-nav__items {

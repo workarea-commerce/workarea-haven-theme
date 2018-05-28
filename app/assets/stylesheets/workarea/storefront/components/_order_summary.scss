@@ -14,7 +14,7 @@
     .order-summary__heading {
         @extend %heading;
         @extend %heading--6;
-        text-transform: uppercase;
+        @extend %heading--upcase;
     }
 
     .order-summary__items {
