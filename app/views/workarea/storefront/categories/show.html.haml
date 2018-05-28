@@ -97,7 +97,7 @@
                   %h2.mobile-filters__heading= t('workarea.storefront.products.refine_results')
                   = form_tag request.path, method: :get do
                     = facet_hidden_inputs(@category.facets)
-                    .property.property--responsive
+                    .property
                       = label_tag 'sort_drawer', nil, class: 'property__name' do
                         %span.property__text= t('workarea.storefront.searches.sort_by')
                       %span.value= select_tag :sort, options_for_select(@category.sorts, selected: @category.sort), id: 'sort_drawer', data: { form_submitting_control: '' }
@@ -105,10 +105,9 @@
                       = button_tag t('workarea.storefront.searches.sort'), value: 'sort_products_top', class: 'button'
               - if @category.has_filters?
                 .applied-filters
-                  .mobile-filters__wrapper
-                    .result-filters
-                      = render "workarea/storefront/facets/applied", facets: @category.facets
-                      = link_to t('workarea.storefront.filters.clear'), category_path(@category), class: 'button button--small'
+                  .result-filters
+                    = render "workarea/storefront/facets/applied", facets: @category.facets
+                    = link_to t('workarea.storefront.filters.clear'), category_path(@category), class: 'button button--small'
               .result-filters{ data: { filter_view_more: '', accordion: { presetConfig: 'alternativeAccordionOptions' }.to_json } }
                 - @category.facets.each do |facet|
                   = render "workarea/storefront/facets/#{facet.type}", facet: facet

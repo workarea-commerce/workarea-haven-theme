@@ -35,7 +35,9 @@ $write-review-star-size:    16px !default;
                 }
             }
 
-            .write-review__star {}
+            .write-review__star {
+                cursor: pointer;
+            }
 
                 .write-review__star-icon {
                     width:  $write-review-star-size;

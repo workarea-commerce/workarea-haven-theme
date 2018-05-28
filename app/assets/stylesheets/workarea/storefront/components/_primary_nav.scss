@@ -6,7 +6,7 @@ $primary-nav-bg-color:  $primary-nav-background-color !default;
 $primary-nav-border:  1px solid $primary-nav-border-color !default;
 
 $primary-nav-link-font-size: 15px !default;
-$primary-nav-item-weight: 500 !default; //Medium
+$primary-nav-item-weight: $font-weight-medium !default;
 $primary-nav-link-color: $primary-nav-links-color !default;
 $primary-nav-link-color-hover: $primary-nav-links-color-hover !default;
 $primary-nav-link-border: 3px solid $transparent !default;
@@ -20,8 +20,8 @@ $primary-nav-content-bg-color:  $primary-nav-background-color !default;
     line-height: 80px;
     text-align: left;
 
-    @include respond-to($medium-breakpoint) {
-        display: block;
+    @include respond-to($wide-breakpoint) {
+        display: flex;
     }
 }
 
@@ -49,7 +49,7 @@ $primary-nav-content-bg-color:  $primary-nav-background-color !default;
         }
 
         .primary-nav__link--selected {
-            font-weight: bold;
+            border-color: $primary-nav-link-hover-border-color;
         }
 
 

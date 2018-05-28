@@ -77,7 +77,8 @@ $header-background-color: $white !default;
 $header-icon-color: $gray !default;
 $header-icon-color-hover: $primary-color !default;
 $header-icon-color-cart: $white !default;
-$utility-nav-background-color: $gray !default;
+$utility-nav-background-color: $background-color-alternate !default;
+$utility-nav-heading-color: $primary-color !default;
 
 // Navigation colors
 $primary-nav-background-color: $background-color !default;
@@ -171,9 +172,10 @@ $focus-ring-color: $primary-color !default;
 
 // Browse page colors
 $category-count-color: $gray !default;
+$product-summary-background-color: $background-color-component !default;
+$product-summary-background-color-hover: rgba($background-color-alternate, 0.5) !default;
 $product-summary-border-color: $border-color !default;
 $product-summary-name-color: $black !default;
-$product-summary-final-price-color: $red !default;
 
 // Browse page filters
 $result-filters-text-color: $black !default;
@@ -182,12 +184,12 @@ $result-filters-count-text-color: $medium-gray !default;
 $result-filters-selected-color: $white !default;
 $result-filters-icon-background-color: $black !default;
 $result-filters-view-more-text-color: $purple-blue !default;
-$result-filters-applied-background-color: $medium-gray !default;
+$result-filters-applied-background-color: lighten($background-color-alternate, 1%) !default;
 
 // Mobile Filters
 $mobile-filters-heading-color: $purple-blue !default;
 $mobile-filters-overlay-color: $black-alpha-50 !default;
-$mobile-filters-background-color: $gray !default;
+$mobile-filters-background-color: $background-color-alternate !default;
 $mobile-filters-sort-background-color: $white !default;
 
 // Badge Colors

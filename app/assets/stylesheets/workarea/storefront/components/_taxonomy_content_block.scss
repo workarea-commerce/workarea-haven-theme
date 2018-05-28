@@ -102,6 +102,10 @@ $taxonomy-content-block-mobile-nav-node-padding: ($spacing-unit * 2) $spacing-un
                 font-weight: $taxonomy-content-block-item-weight;
                 text-transform: none;
 
+                .primary-nav & {
+                    margin-bottom: $spacing-unit;
+                }
+
                 .mobile-nav & {
                     display: block;
                     padding: $taxonomy-content-block-mobile-nav-node-padding;

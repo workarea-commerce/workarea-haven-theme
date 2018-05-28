@@ -4,7 +4,9 @@
 
 $mobile-filters-nav-bg-color:   $white !default;
 $mobile-filters-nav-box-shadow: -8px 0 8px rgba($black, 0.5);
-$mobile-filters-nav-width:  84% !default;
+$mobile-filters-nav-width: 84% !default;
+$mobile-filters-nav-min-width: 250px !default;
+$mobile-filters-nav-max-width: 420px !default;
 $mobile-filters-action-font-size: $font-size * 2;
 
 
@@ -24,6 +26,8 @@ $mobile-filters-action-font-size: $font-size * 2;
 .mobile-filters-nav__wrapper {
     width: $mobile-filters-nav-width;
     height: 100%;
+    max-width: $mobile-filters-nav-max-width;
+    min-width: $mobile-filters-nav-min-width;
     background: $mobile-filters-background-color;
 }
 

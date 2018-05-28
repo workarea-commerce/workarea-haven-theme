@@ -51,7 +51,7 @@
 
                   %p.inline-form__cell.hidden-if-js-enabled= button_tag t('workarea.storefront.carts.update'), value: 'change_quantity', class: 'button'
 
-                = form_tag cart_item_path(item), method: 'delete', class: 'action-group__item', data: { analytics: remove_from_cart_analytics_data(item).to_json } do
+                = form_tag cart_item_path(item), method: 'delete', class: 'product-list__remove-item', data: { analytics: remove_from_cart_analytics_data(item).to_json } do
                   %p= button_tag t('workarea.storefront.carts.remove'), value: 'remove_item', class: 'text-button'
 
                 = append_partials('storefront.cart_item_actions', item: item)

@@ -13,11 +13,11 @@
 - content_for :breadcrumbs do
   %p.breadcrumbs__node-group
     %span.breadcrumbs__node{ itemprop: 'breadcrumb' }
-      = link_to t('workarea.storefront.layouts.home'), root_path, rel: 'home'
+      = link_to t('workarea.storefront.layouts.home'), root_path, rel: 'home', class: 'breadcrumbs__link'
     %span.breadcrumbs__node{ itemprop: 'breadcrumb' }
-      %span= t('workarea.storefront.searches.title')
+      %span.breadcrumbs__text= t('workarea.storefront.searches.title')
     %span.breadcrumbs__node{ itemprop: 'breadcrumb' }
-      %span= @search.query_string
+      %span.breadcrumbs__text= @search.query_string
 
 - content_for :page_aside do
   - if @search.has_filters?
@@ -90,7 +90,7 @@
                 = form_tag search_path, method: 'get' do
                   = facet_hidden_inputs(@search.facets)
                   = hidden_field_tag :q, @search.query_string, {id: 'not_q'}
-                  .property.property--responsive
+                  .property
                     = label_tag 'sort_drawer', nil, class: 'property__name' do
                       %span.property__text= t('workarea.storefront.searches.sort_by')
                     %span.value= select_tag :sort, options_for_select(@search.sorts, selected: @search.sort), id: 'sort_drawer', data: { form_submitting_control: '' }

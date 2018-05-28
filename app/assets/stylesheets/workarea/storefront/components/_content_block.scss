@@ -6,7 +6,9 @@ $content-block-font-size: $font-size-content-blocks !default;
 
 
 .content-block {
-    font-size: $content-block-font-size;
+    .page-content & {
+        font-size: $content-block-font-size;
+    }
 }
 
 .content-block--hidden-for-small {
