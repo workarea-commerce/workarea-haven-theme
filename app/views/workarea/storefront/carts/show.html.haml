@@ -100,9 +100,6 @@
       .grid__cell.grid__cell--33-at-medium
         .cart__aside
 
-          %p.cart__discount-messaging
-            = render "workarea/storefront/carts/shipping_message", cart: @cart
-
           %h3.cart__aside-heading= t('workarea.storefront.carts.totals')
           %table.table.table--totals
             %tbody
@@ -128,6 +125,10 @@
                       #{@cart.shipping_service} - #{number_to_currency(@cart.shipping_total)}
                     - else
                       = t('workarea.storefront.carts.calculated_at_checkout')
+                %tr
+                  %td{ colspan: 2 }
+                    %p.cart__discount-messaging
+                      = render "workarea/storefront/carts/shipping_message", cart: @cart
               %tr
                 %th
                   %span= t('workarea.storefront.orders.tax')

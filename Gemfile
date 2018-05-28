@@ -15,16 +15,12 @@ gem "bundler-audit", require: false
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
 
-# TODO: to using source: "https://gems.weblinc.com" once v3.3 is released
-gem "workarea", git: "ssh://git@stash.tools.weblinc.com:7999/wl/workarea.git", ref: "afe1103e"
+gem "workarea", source: "https://gems.weblinc.com"
+
 group :test do
-  # TODO: to using source: "https://gems.weblinc.com" once v3.3 is released
-  gem "workarea-testing", git: "ssh://git@stash.tools.weblinc.com:7999/wl/workarea.git", ref: "afe1103e"
+  gem "workarea-testing"
   gem "workarea-theme", source: "https://gems.weblinc.com"
-  # gem "workarea-gift_cards", git: "ssh://git@stash.tools.weblinc.com:7999/wl/workarea-gift-cards.git", ref: "0ca9aa3425c"
-  gem "workarea-swatches", git: "ssh://git@stash.tools.weblinc.com:7999/wl/workarea-swatches.git", branch: "master"
-  gem "workarea-reviews", git: "ssh://git@stash.tools.weblinc.com:7999/wl/workarea-reviews.git", branch: "master"
-  gem "workarea-blog", git: "ssh://git@stash.tools.weblinc.com:7999/wl/workarea-blog.git", ref: "88d6bfac"
+
   # TODO: Remove this before releasing
   gem "pry"
 end

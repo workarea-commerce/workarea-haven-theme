@@ -24,7 +24,6 @@ en:
           products: Products
       credit_cards:
         name_on_card_name: "Name on card: %{name}"
-        summary: "ending in %{number}"
       filters:
         applied: Applied Filters
         view_more: View More
