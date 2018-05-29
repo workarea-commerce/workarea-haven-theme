@@ -40,7 +40,7 @@ $checkout-step-summary-section-border-color: $checkout-summary-section-border-co
             .checkout-step-summary__section-heading {
                 @extend %heading;
                 @extend %heading--6;
-                text-transform: uppercase;
+                @extend %heading--upcase;
             }
 
             .checkout-step-summary__section-content {

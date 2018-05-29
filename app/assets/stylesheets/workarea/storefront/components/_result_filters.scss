@@ -23,9 +23,9 @@ $result-filters-truncation-limit: 8 !default;
     .result-filters__heading {
         @extend %heading;
         @extend %heading--4;
+        @extend %heading--upcase;
         padding: ($spacing-unit * 2) 0 $spacing-unit;
         text-align: center;
-        text-transform: uppercase;
 
         @include respond-to($medium-breakpoint) {
             text-align: left;
@@ -38,10 +38,10 @@ $result-filters-truncation-limit: 8 !default;
     .result-filters__attribute {
         @extend %heading;
         @extend %heading--6;
+        @extend %heading--upcase;
         display: flex;
         margin: 0;
         padding: ($spacing-unit * 2) $spacing-unit;
-        text-transform: uppercase;
         align-items: center;
 
         &:after {

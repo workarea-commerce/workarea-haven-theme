@@ -15,7 +15,7 @@
         .checkout-addresses__heading {
             @extend %heading;
             @extend %heading--6;
-            text-transform: uppercase;
+            @extend %heading--upcase;
         }
 
         .checkout-addresses__fields {}

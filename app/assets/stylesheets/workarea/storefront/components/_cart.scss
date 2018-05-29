@@ -33,7 +33,7 @@ $cart-action-max-width-wide: 420px !default;
     .cart__heading {
         @extend %heading;
         @extend %heading--4;
-        text-transform: uppercase;
+        @extend %heading--upcase;
     }
 
     .cart__item-count {
@@ -71,7 +71,7 @@ $cart-action-max-width-wide: 420px !default;
         .cart__aside-heading {
             @extend %heading;
             @extend %heading--6;
-            text-transform: uppercase;
+            @extend %heading--upcase;
         }
 
         .cart__promo-code {
@@ -81,5 +81,5 @@ $cart-action-max-width-wide: 420px !default;
             .cart__promo-code-heading {
                 @extend %heading;
                 @extend %heading--6;
-                text-transform: uppercase;
+                @extend %heading--upcase;
             }
