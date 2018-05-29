@@ -16,8 +16,11 @@ $add-to-cart-recommendations-min-width: 280px !default;
 
         .add-to-cart--with-aside & {
             display: inline-block;
-            width: 60%;
             vertical-align: top;
+
+            @include respond-to($medium-breakpoint) {
+                width: 60%;
+            }
         }
     }
 
@@ -35,10 +38,14 @@ $add-to-cart-recommendations-min-width: 280px !default;
         }
 
     .add-to-cart__recommendations {
-        display: inline-block;
+        display: none;
         width: 40%;
         height: $add-to-cart-recommendations-height;
         min-width: $add-to-cart-recommendations-min-width;
         vertical-align: top;
         overflow-y: scroll;
+
+        @include respond-to($medium-breakpoint) {
+            display: inline-block;
+        }
     }

@@ -2,17 +2,18 @@
     #PRODUCT-SUMMARY
 \*------------------------------------*/
 
-$product-summary-width-medium: 232px !default;
-$product-summary-height-medium: 232px !default;
-$product-summary-min-height-mobile: 265px !default;
-$product-summary-min-height-desktop: 392px !default;
-$product-summary-width: 136px !default;
-$product-summary-height: 136px !default;
+$product-summary-max-width-medium: 260px !default;
+$product-summary-min-height: 265px !default;
+$product-summary-min-height-medium: 392px !default;
 $product-summary-small-width: 200px !default;
 
+$product-summary-media-max-height: 232px !default;
 $product-summary-media-ratio: $product-image-ratio !default;
 
+$product-summary-border-color: $product-summary-border-color !default;
 $product-summary-background-color: $background-color-component !default;
+$product-summary-background-color-hover: $product-summary-background-color-hover !default;
+$product-summary-name-color: $product-summary-name-color !default;
 
 
 /**
@@ -23,13 +24,18 @@ $product-summary-background-color: $background-color-component !default;
 
 .product-summary {
     position: relative; /* [1] */
-    margin-bottom: $spacing-unit;
-    min-height: $product-summary-min-height-mobile;
+    margin: 0 auto $spacing-unit;
+    min-height: $product-summary-min-height;
     background-color: $product-summary-background-color;
     border: 2px solid $product-summary-border-color;
 
     @include respond-to($medium-breakpoint) {
-        min-height: $product-summary-min-height-desktop;
+        max-width: $product-summary-max-width-medium;
+        min-height: $product-summary-min-height-medium;
+    }
+
+    .product-summary--small & {
+        max-width: $product-summary-small-width;
     }
 }
 
@@ -37,19 +43,16 @@ $product-summary-background-color: $background-color-component !default;
 
     .product-summary__media {
         margin: $spacing-unit auto;
-        max-width: $product-summary-width;
-        max-height: $product-summary-height;
+        max-height: $product-summary-media-max-height;
         text-align: center;
         flex: 1; /* [2] */
 
         @include respond-to($small-horizontal-breakpoint) {
             margin: ($spacing-unit * 2) auto;
-            max-width: $product-summary-width-medium;
-            max-height: $product-summary-height-medium;
         }
 
-        .product-summary--small & {
-            max-width: $product-summary-small-width;
+        @include respond-to($medium-breakpoint) {
+            max-height: none;
         }
     }
 
@@ -70,7 +73,7 @@ $product-summary-background-color: $background-color-component !default;
             flex: 1; /* [2] */
 
             .product-summary:hover & {
-                background: $product-summary-border-color;
+                background: $product-summary-background-color-hover;
             }
         }
     }

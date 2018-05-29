@@ -127,6 +127,10 @@ $product-list-item-info-items-margin: ($spacing-unit / 2) 0 0 !default;
             }
         }
 
+            .product-list__remove-item {
+                text-align: center;
+            }
+
         .product-list__prices {
             margin: 0 ($spacing-unit * 2);
             text-align: right;

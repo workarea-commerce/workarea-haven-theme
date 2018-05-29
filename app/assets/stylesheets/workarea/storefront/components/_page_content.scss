@@ -28,13 +28,16 @@ $page-content-checkout-container-max-width: 500px !default;
 
 .page-content--order {}
 
-    .page-content__main {}
+    .page-content__main {
+        padding: 0 $spacing-unit;
+    }
 
     .page-content__main--with-aside {
         @include respond-to($wide-breakpoint) {
             display: table-cell;
             padding-left: $spacing-unit * 2;
             width: 80%;
+            vertical-align: top;
         }
 
         .page-content--checkout & {

@@ -20,11 +20,11 @@
 - content_for :breadcrumbs do
   %p.breadcrumbs__node-group
     %span.breadcrumbs__node{ itemprop: 'breadcrumb' }
-      = link_to t('workarea.storefront.layouts.home'), root_path, rel: 'home'
+      = link_to t('workarea.storefront.layouts.home'), root_path, rel: 'home', class: 'breadcrumbs__link'
     %span.breadcrumbs__node{ itemprop: 'breadcrumb' }
-      %span= t('workarea.storefront.searches.title')
+      %span.breadcrumbs__text= t('workarea.storefront.searches.title')
     %span.breadcrumbs__node{ itemprop: 'breadcrumb' }
-      %span= @search.query_string
+      %span.breadcrumbs__text= @search.query_string
 
 .view{ data: { analytics: search_results_view_analytics_data(@search).to_json } }
 

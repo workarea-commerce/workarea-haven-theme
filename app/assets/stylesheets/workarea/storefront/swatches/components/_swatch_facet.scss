@@ -10,6 +10,8 @@
 
 $swatch-facet-height: 16px !default;
 $swatch-facet-width:  16px !default;
+$swatch-facet-white-border: 1px solid $border-color;
+
 
 .swatch-facet {
     display: inline-block;
@@ -28,4 +30,8 @@ $swatch-facet-width:  16px !default;
         margin: 0;
         width: $spacing-unit;
     }
+}
+
+.swatch-facet--white {
+    border: $swatch-facet-white-border;
 }

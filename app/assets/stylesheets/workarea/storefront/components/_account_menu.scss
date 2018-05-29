@@ -3,7 +3,8 @@
 \*------------------------------------*/
 
 $account-menu-width: 240px !default;
-$account-menu-background-color: $background-color-alternate !default;
+$account-menu-background-color: $utility-nav-background-color !default;
+$account-menu-heading-color: $utility-nav-heading-color !default;
 $account-menu-item-list-background-color: $white !default;
 
 
@@ -27,7 +28,10 @@ $account-menu-item-list-background-color: $white !default;
     }
 }
 
-    .account-menu__heading {}
+    .account-menu__heading {
+        margin-bottom: $spacing-unit;
+        color: $account-menu-heading-color;
+    }
 
     .account-menu__items {
         @extend %list-reset;

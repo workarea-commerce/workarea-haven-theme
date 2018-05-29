@@ -66,7 +66,7 @@ h2,
 %heading--2,
 .heading--2 {
     font-size: $heading-2-font-size-mobile;
-    font-weight: 300;
+    font-weight: $font-weight-light;
 
     @include respond-to($medium-breakpoint) {
         font-size: $heading-2-font-size;
@@ -101,7 +101,7 @@ h5,
 %heading--5,
 .heading--5 {
     font-size: $heading-5-font-size-mobile;
-    font-weight: 400;
+    font-weight: $font-weight-regular;
 
     @include respond-to($medium-breakpoint) {
         font-size: $heading-5-font-size;

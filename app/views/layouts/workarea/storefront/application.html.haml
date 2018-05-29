@@ -123,13 +123,13 @@
               %span.breadcrumbs__node{ itemprop: 'breadcrumb' }
                 - if taxon.navigable.present?
                   - if @breadcrumbs.last == taxon
-                    %span= taxon.name
+                    %span.breadcrumbs__text= taxon.name
                   - else
-                    = link_to taxon.name, storefront_path_for(taxon)
+                    = link_to taxon.name, storefront_path_for(taxon), class: 'breadcrumbs__link'
                 - elsif !current_page?(taxon.url)
-                  = link_to taxon.name, storefront_path_for(taxon)
+                  = link_to taxon.name, storefront_path_for(taxon), class: 'breadcrumbs__link'
                 - else
-                  %span= taxon.name
+                  %span.breadcrumbs__text= taxon.name
 
       .page-content
 

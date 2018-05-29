@@ -5,6 +5,8 @@
 $badges-top-offset: 0 !default;
 $badges-left-offset: $spacing-unit * -0.5 !default;
 
+$badge-font-size: $font-size-tiny !default;
+$badge-font-size-medium: $font-size-small !default;
 $badge-color: $badge-color !default;
 $badge-background-color: $badge-background-color !default;
 $badge-new-background-color: $badge-new-background-color !default;
@@ -25,7 +27,13 @@ $badge-shadow-darken-amount: 20%;
         margin-top: $spacing-unit;
         padding: ($spacing-unit / 2) ($spacing-unit * 2);
         color: $badge-color;
+        font-size: $badge-font-size;
+        text-transform: uppercase;
         background-color: $badge-background-color;
+
+        @include respond-to($medium-breakpoint) {
+            font-size: $badge-font-size-medium;
+        }
 
         &:before {
             display: block;

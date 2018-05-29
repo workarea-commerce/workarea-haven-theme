@@ -66,12 +66,11 @@
 
   - if @cart.recommendations.any?
     .add-to-cart__recommendations
-      .hidden.hidden--for-small-only
-        .recommendations.recommendations--vertical
-          %h2.recommendations__heading= t('workarea.storefront.recommendations.you_may_also_like')
+      .recommendations.recommendations--vertical
+        %h2.recommendations__heading= t('workarea.storefront.recommendations.you_may_also_like')
 
-          %ul.recommendations__list
-            - @cart.recommendations.each do |product|
-              .recommendations__item
-                .product-summary.product-summary--small{ itemscope: true, itemtype: 'http://schema.org/Product' }
-                  = render 'workarea/storefront/products/summary', product: product
+        %ul.recommendations__list
+          - @cart.recommendations.each do |product|
+            .recommendations__item
+              .product-summary.product-summary--small{ itemscope: true, itemtype: 'http://schema.org/Product' }
+                = render 'workarea/storefront/products/summary', product: product

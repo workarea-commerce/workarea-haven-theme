@@ -18,6 +18,7 @@ $social-networks-content-block-icon-color-hover: $white !default;
     .social-networks-content-block__item {
         margin: 0 $spacing-unit;
         border: $social-networks-content-block-item-border;
+        border-radius: 50%;
 
         &:hover {
             background-color: $primary-color;

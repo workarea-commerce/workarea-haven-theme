@@ -4,7 +4,7 @@
 
 $page-header-background-color: $header-background-color !default;
 
-$page-header-height: $spacing-unit * 5 !default;
+$page-header-height: 53px !default;
 $page-header-height-medium: $spacing-unit * 10 !default;
 $page-header-button-padding: $spacing-unit * 2 !default;
 $page-header-button-padding-medium: 25px !default;
@@ -34,7 +34,7 @@ $page-header-breakpoint: $small-horizontal-breakpoint !default;
     padding: 0;
 
     .admin-toolbar ~ .page-container & {
-        @include respond-to($medium-breakpoint) {
+        @include respond-to($wide-breakpoint) {
             top: $global-admin-toolbar-height;
         }
     }
@@ -67,12 +67,15 @@ $page-header-breakpoint: $small-horizontal-breakpoint !default;
             position: relative;
             padding: $page-header-button-padding;
             text-align: center;
-            border-right: 1px solid $border-color;
-            border-left: 1px solid $border-color;
             cursor: pointer;
 
             @include respond-to($page-header-breakpoint) {
                 padding: $page-header-button-padding-medium;
+            }
+
+            @include respond-to($wide-breakpoint) {
+                border-right: 1px solid $border-color;
+                border-left: 1px solid $border-color;
             }
 
             & + & {
@@ -82,18 +85,10 @@ $page-header-breakpoint: $small-horizontal-breakpoint !default;
             &:last-child {
                 border-right: 0;
             }
-
-            .page-header__button--mobile-hidden + & {
-                border-left: 1px solid $border-color;
-
-                @include respond-to($medium-breakpoint) {
-                    border-left: 0;
-                }
-            }
         }
 
         .page-header__button--mobile-only {
-            @include respond-to($medium-breakpoint) {
+            @include respond-to($wide-breakpoint) {
                 display: none;
             }
         }
@@ -101,7 +96,7 @@ $page-header-breakpoint: $small-horizontal-breakpoint !default;
         .page-header__button--mobile-hidden {
             display: none;
 
-            @include respond-to($medium-breakpoint) {
+            @include respond-to($wide-breakpoint) {
                 display: inline-block;
             }
         }
@@ -156,7 +151,7 @@ $page-header-breakpoint: $small-horizontal-breakpoint !default;
                 line-height: 1;
 
                 @include respond-to($page-header-breakpoint) {
-                    padding: $spacing-unit;
+                    padding: ($spacing-unit / 2) $spacing-unit;
                     background-color: $page-header-cart-count-background-color;
                 }
             }
@@ -171,7 +166,7 @@ $page-header-breakpoint: $small-horizontal-breakpoint !default;
             line-height: $page-header-height-medium;
         }
 
-        @include respond-to($medium-breakpoint) {
+        @include respond-to($wide-breakpoint) {
             width:  auto;
         }
     }
@@ -193,7 +188,7 @@ $page-header-breakpoint: $small-horizontal-breakpoint !default;
         display: none;
         text-align: center;
 
-        @include respond-to($medium-breakpoint) {
+        @include respond-to($wide-breakpoint) {
             display: inline-block;
             width: 100%;
         }

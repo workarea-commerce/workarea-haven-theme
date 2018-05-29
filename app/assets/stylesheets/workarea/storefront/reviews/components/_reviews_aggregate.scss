@@ -27,6 +27,7 @@ $reviews-aggregate-read-font-size: $font-size !default;
 
     .reviews-aggregate__rating-link {
         display: inline-block;
+        margin-right: $spacing-unit;
         vertical-align: middle;
 
         &:hover {
@@ -35,7 +36,6 @@ $reviews-aggregate-read-font-size: $font-size !default;
     }
 
     .reviews-aggregate__count {
-        margin-left: $spacing-unit;
         color: $reviews-aggregate-count-color;
     }
 

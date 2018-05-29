@@ -16,11 +16,12 @@ $product-price-discount-color: $product-price-discount-color !default;
 .product-prices--summary {}
 
 .product-prices--details {
-    margin-bottom: $vertical-margin;
+    margin: $vertical-margin 0;
     font-size: $product-price-details-font-size;
     font-weight: $font-weight-regular;
 
     @include respond-to($medium-breakpoint) {
+        margin-top: 0;
         font-size: $product-price-details-font-size-wide;
     }
 }

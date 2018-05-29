@@ -10,7 +10,7 @@ a,
 .link {
     color: $link-color;
     font-size: $link-font-size;
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     letter-spacing: $font-letter-spacing;
     text-decoration: none;
     cursor: pointer;

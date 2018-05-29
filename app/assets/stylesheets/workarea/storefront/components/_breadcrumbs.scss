@@ -3,7 +3,7 @@
 \*------------------------------------*/
 
 $breadcrumb-node-separator: '>' !default;
-$breadcrumbs-container-max-width: 1360px !default;
+$breadcrumbs-container-max-width: 1410px !default;
 $breadcrumb-node-separator-font-size: $font-size-tiny;
 
 /**
@@ -24,22 +24,12 @@ $breadcrumb-node-separator-font-size: $font-size-tiny;
 
     .breadcrumbs__node-group {
         margin: $spacing-unit auto;
+        padding: 0 $spacing-unit;
         max-width: $breadcrumbs-container-max-width;
     }
 
-        /**
-         * TODO: Update the selector to use classes once base is patched
-        */
-
         .breadcrumbs__node {
             font-size: $font-size-small;
-
-            a, span {
-                color: $breadcrumbs-color;
-                font-weight: $font-weight-regular;
-                text-transform: capitalize;
-                vertical-align: middle;
-            }
 
             & + &:before { /* [1] */
                 display: inline-block;
@@ -49,3 +39,15 @@ $breadcrumb-node-separator-font-size: $font-size-tiny;
                 content: $breadcrumb-node-separator;
             }
         }
+
+            .breadcrumbs__link {}
+
+            .breadcrumbs__text {}
+
+            .breadcrumbs__link,
+            .breadcrumbs__text {
+                color: $breadcrumbs-color;
+                font-weight: $font-weight-regular;
+                text-transform: capitalize;
+                vertical-align: middle;
+            }
