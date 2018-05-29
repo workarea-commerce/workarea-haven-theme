@@ -29,9 +29,7 @@ $product-summary-background-color: $background-color-component !default;
     border: 2px solid $product-summary-border-color;
 
     @include respond-to($medium-breakpoint) {
-        display: flex;
         min-height: $product-summary-min-height-desktop;
-        flex-direction: column;
     }
 }
 
