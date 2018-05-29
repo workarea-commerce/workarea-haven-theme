@@ -34,7 +34,7 @@ module Workarea
   Plugin.append_javascripts(
     "storefront.dependencies",
     "jquery.payment",
-    "workarea/storefront/polyfills/stickyfill"
+    "polyfills/stickyfill"
   )
 
   Plugin.append_javascripts(
