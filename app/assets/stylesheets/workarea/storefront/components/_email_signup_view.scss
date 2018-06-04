@@ -11,7 +11,7 @@ $email-signup-view-content-bg-color: $background-color !default;
 }
 
     .email-signup-view__content {
-        padding: ($spacing-unit * 3) 0;
+        padding-bottom: $spacing-unit * 2;
         background-color: $email-signup-view-content-bg-color;
     }
 
