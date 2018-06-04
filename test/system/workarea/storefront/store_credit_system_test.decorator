@@ -80,7 +80,7 @@ module Workarea
       assert(page.has_content?('PA'))
       assert(page.has_content?('19143'))
 
-      # assert(page.has_content?('Test Card'))
+      assert(page.has_content?('Test Card'))
       assert(page.has_content?('XX-1'))
       assert(page.has_content?(t('workarea.storefront.orders.store_credit')))
 
@@ -109,8 +109,7 @@ module Workarea
       assert(page.has_content?('PA'))
       assert(page.has_content?('19143'))
 
-      # TODO: Order confirmation should display card type in payment summary
-      # assert(page.has_content?('Test Card'))
+      assert(page.has_content?('Test Card'))
       assert(page.has_content?('XX-1'))
       assert(page.has_content?(t('workarea.storefront.orders.store_credit')))
 

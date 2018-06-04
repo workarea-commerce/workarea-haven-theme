@@ -108,17 +108,22 @@ module Workarea
         assert(page.has_content?('$10.00 - $19.99 1'))
 
         click_link '$10.00 - $19.99 1'
-
-        assert(page.has_content?('Integration Product 1'))
-        assert(page.has_no_content?('Integration Product 2'))
-
-        click_link 'Clear All'
-
-        assert(page.has_content?('Integration Product 1'))
-        assert(page.has_content?('Integration Product 2'))
-
-        assert(page.has_no_content?('Clear All'))
       end
+
+      assert(page.has_content?('Integration Product 1'))
+      assert(page.has_no_content?('Integration Product 2'))
+
+      find('[data-mobile-filter-button]').click
+      assert(page.has_selector?('.mobile-filters-nav', visible: true))
+
+      within '.mobile-filters-nav' do
+        click_link 'Clear All'
+      end
+
+      assert(page.has_content?('Integration Product 1'))
+      assert(page.has_content?('Integration Product 2'))
+
+      assert(page.has_no_content?('Clear All'))
     end
 
     def test_filtering_products_and_sorting

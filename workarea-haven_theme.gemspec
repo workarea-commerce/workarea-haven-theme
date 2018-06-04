@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
 
   s.files = `git ls-files`.split("\n")
 
-  s.add_dependency "workarea", "~> 3.x" #TODO: Update to v3.3.x once v3.3 is released
+  s.add_dependency "workarea", "~> 3.3.0"
   s.add_dependency "workarea-theme"
   s.add_dependency "workarea-blog"
   s.add_dependency "workarea-styled_selects"
@@ -31,7 +31,7 @@ Gem::Specification.new do |s|
   s.add_dependency "workarea-share"
   s.add_dependency "workarea-product_videos"
   s.add_dependency "workarea-hover_zoom", "~> 2.x"
-  # s.add_dependency "workarea-gift_cards"
+  s.add_dependency "workarea-gift_cards"
 
   s.add_dependency "jquery_payment-rails"
 end
