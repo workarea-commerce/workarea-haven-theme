@@ -1,13 +1,16 @@
 - @title = t('workarea.storefront.users.reset_password')
 
 .view
-  %h1= t('workarea.storefront.users.reset_password')
+  %h1.heading.heading--4= t('workarea.storefront.users.reset_password')
 
   = form_tag reset_password_path(params[:token]), id: 'reset_password_form', method: :patch do
 
     .property
       = label_tag :password, nil, class: 'property__name' do
         %span.property__text= t('workarea.storefront.users.password')
-      .value= password_field_tag :password, nil, class: 'text-box', minlength: 7, required: true, autocomplete: 'off'
+      .value
+        = password_field_tag :password, nil, class: 'text-box text-box--wide', minlength: 7, required: true, autocomplete: 'off'
+        = inline_svg('workarea/storefront/icons/lock.svg', class: 'value__icon')
+
 
     %p= button_tag t('workarea.storefront.users.reset_password'), value: 'reset_password', class: 'button'
