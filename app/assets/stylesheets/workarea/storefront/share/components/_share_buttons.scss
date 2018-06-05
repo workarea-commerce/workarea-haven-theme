@@ -10,6 +10,7 @@ $share-buttons-icon-size: 16px !default;
 $share-buttons-icon-color: $black !default;
 $share-buttons-icon-color-hover: $primary-color !default;
 
+$share-buttons-toggle-button-size: 44px !default;
 $share-buttons-toggle-button-border: 1px solid $border-color !default;
 $share-buttons-toggle-button-border-color-hover: $primary-color !default;
 $share-buttons-animation-duration: 0.2s !default;
@@ -49,7 +50,8 @@ $share-buttons-item-border: 1px solid $primary-color;
 
     .share-buttons__toggle-button {
         @extend %button-reset;
-        padding: $spacing-unit;
+        width: $share-buttons-toggle-button-size;
+        height: $share-buttons-toggle-button-size;
         text-align: center;
         border: $share-buttons-toggle-button-border;
         border-radius: 50%;
