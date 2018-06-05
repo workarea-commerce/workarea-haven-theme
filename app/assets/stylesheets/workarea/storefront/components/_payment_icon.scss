@@ -2,8 +2,10 @@
     #PAYMENT-ICON
 \*------------------------------------*/
 
-$payment-icon-width: 38px !default;
-$payment-icon-height: 25px !default;
+$payment-icon-width: 32px !default;
+$payment-icon-height: 21px !default;
+$payment-icon-width-medium: 38px !default;
+$payment-icon-height-medium: 25px !default;
 $payment-icon-unselected-opacity: 0.2 !default;
 
 .payment-icon {
@@ -12,6 +14,11 @@ $payment-icon-unselected-opacity: 0.2 !default;
     height: $payment-icon-height;
     vertical-align: middle;
     transition: opacity $transition-time ease-in;
+
+    @include respond-to($medium-breakpoint){
+        width:  $payment-icon-width-medium;
+        height: $payment-icon-height-medium;
+    }
 
     .checkout-payment__primary-method--new-card.checkout-payment__primary-method--selected & {
         opacity: $payment-icon-unselected-opacity;
