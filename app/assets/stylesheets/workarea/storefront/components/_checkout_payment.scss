@@ -69,8 +69,10 @@ $checkout-payment-secondary-method-max-width: 420px !default;
                 }
 
                 .checkout-payment__all-payment-icons {
-                    display: inline-block;
-                    padding-left: $spacing-unit;
+                    @include respond-to($medium-breakpoint) {
+                        display: inline-block;
+                        padding-left: $spacing-unit;
+                    }
                 }
 
     .checkout-payment__cart-items {}
