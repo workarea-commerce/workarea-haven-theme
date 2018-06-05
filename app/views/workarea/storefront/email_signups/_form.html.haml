@@ -2,7 +2,8 @@
   = form_tag email_signup_path, method: 'post', id: "#{location}_email_signup_form", class: 'email-signup__form', data: { analytics: email_signup_analytics_data.to_json } do
     = label_tag "#{location}_email_signup_field", nil, class: 'email-signup__label' do
       %span.email-signup__label-text= t('workarea.storefront.layouts.email_signup')
-    .email-signup__value
-      = email_field_tag :email, nil, id: "#{location}_email_signup_field", class: 'text-box text-box--full text-box--secondary', placeholder: t('workarea.storefront.forms.email_placeholder'), title: t('workarea.storefront.users.email'), required: true, type: 'email', autocomplete: 'email', autocapitalize: 'off', autocorrect: 'off'
-      = button_tag value: 'sign_up', class: 'email-signup__button' do
-        = inline_svg('workarea/storefront/icons/arrow_right.svg', class: 'email-signup__button-icon', title: t('workarea.storefront.users.join'))
+    .value.value--block
+      .email-signup__value
+        = email_field_tag :email, nil, id: "#{location}_email_signup_field", class: 'text-box text-box--full text-box--stripped', placeholder: t('workarea.storefront.forms.email_placeholder'), title: t('workarea.storefront.users.email'), required: true, type: 'email', autocomplete: 'email', autocapitalize: 'off', autocorrect: 'off'
+        = button_tag value: 'sign_up', class: 'email-signup__button' do
+          = inline_svg('workarea/storefront/icons/arrow_right.svg', class: 'email-signup__button-icon', title: t('workarea.storefront.users.join'))

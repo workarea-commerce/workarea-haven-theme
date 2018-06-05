@@ -4,10 +4,12 @@
 
 $email-signup-max-width: 288px !default;
 
+$email-signup-value-border: 1px solid $email-signup-value-border-color !default;
+
 $email-signup-label-color: $email-signup-label-color !default;
 $email-signup-button-bg-color: $email-signup-button-bg-color !default;
 
-$email-signup-button-icon-size: 18px !default;
+$email-signup-button-icon-size: 13px !default;
 $email-signup-button-icon-size-medium: 28px !default;
 $email-signup-button-icon-color: $email-signup-button-icon-color !default;
 $email-signup-button-icon-color-hover: $email-signup-button-icon-color-hover !default;
@@ -30,11 +32,15 @@ $email-signup-button-icon-color-hover: $email-signup-button-icon-color-hover !de
             @extend %heading--5;
             @extend %heading--upcase;
             display: block;
+            margin-bottom: $spacing-unit;
             color: $email-signup-label-color;
+            font-weight: $font-weight-heavy;
         }
 
         .email-signup__value {
             display: flex;
+            padding: ($spacing-unit / 2) 0 ($spacing-unit / 2) $spacing-unit;
+            border: $email-signup-value-border;
             vertical-align: top;
         }
 

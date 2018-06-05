@@ -54,6 +54,7 @@ $search-button-icon-size: 16px !default;
                 width: $search-button-icon-size;
                 height: $search-button-icon-size;
                 fill: $search-color;
+                vertical-align: middle;
             }
 
         .search__results {

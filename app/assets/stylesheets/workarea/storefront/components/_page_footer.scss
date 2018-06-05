@@ -34,6 +34,7 @@ $page-footer-border: 1px solid $footer-border-color !default;
         .page-footer__heading {
             @extend %heading;
             @extend %heading--5;
+            font-weight: $font-weight-heavy;
         }
 
     .page-footer__help {
