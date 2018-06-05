@@ -3,6 +3,7 @@
 \*------------------------------------*/
 
 $login-form-border-color: $border-color !default;
+$login-form-max-width: 320px !default;
 
 
 /**
@@ -12,10 +13,10 @@ $login-form-border-color: $border-color !default;
 .login {}
 
     .login__section {
-        padding: $spacing-unit * 3;
+        padding: ($spacing-unit * 3);
 
         @include respond-to($medium-breakpoint) {
-            margin: $spacing-unit * 5 0;
+            margin: ($spacing-unit * 5) auto;
         }
     }
 
@@ -28,10 +29,15 @@ $login-form-border-color: $border-color !default;
         }
     }
 
-        .login__heading {
-            @extend %heading;
-            @extend %heading--6;
-            @extend %heading--upcase;
+        .login__container {
+            margin: 0 auto;
+            max-width: $login-form-max-width;
         }
 
-        .login__form {}
+            .login__heading {
+                @extend %heading;
+                @extend %heading--4;
+                @extend %heading--upcase;
+            }
+
+            .login__form {}
