@@ -12,7 +12,7 @@ $account-menu-item-list-background-color: $white !default;
     position: absolute;
     top: 0;
     right: 0;
-    z-index: index($page-header, account-menu);
+    z-index: index($components, account-menu);
     padding: $spacing-unit;
     width: $account-menu-width;
     background-color: $account-menu-background-color;

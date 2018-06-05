@@ -49,7 +49,7 @@ $page-header-breakpoint: $small-horizontal-breakpoint !default;
     .page-header__main {
         display: flex;
         position: relative;
-        z-index: index($page-header, header-main);
+        z-index: index($components, header-main);
         max-width: 100vw;
         background-color: $page-header-background-color;
         border-bottom: 1px solid $border-color;
