@@ -118,10 +118,11 @@ $footer-icon-color: $midnight !default;
 $footer-icon-color-hover: $primary-color !default;
 
 // Email signup colors
+$email-signup-value-border-color: $highlighter !default;
 $email-signup-label-color: $white !default;
-$email-signup-button-bg-color: $highlighter !default;
-$email-signup-button-icon-color: $footer-icon-color !default;
-$email-signup-button-icon-color-hover: $footer-icon-color-hover !default;
+$email-signup-button-bg-color: $transparent !default;
+$email-signup-button-icon-color: $highlighter !default;
+$email-signup-button-icon-color-hover: $highlighter !default;
 
 // Typography colors
 $font-color: $midnight !default;
@@ -159,7 +160,6 @@ $input-border-color-focus: $primary-color !default;
 $input-disabled-color: rgba($input-color, 0.18) !default;
 $input-disabled-background-color: $input-background-color !default;
 $input-icon-color: $medium-gray !default;
-$text-box-secondary-border-color: $highlighter !default;
 $quantity-control-background-color: $background-color-component !default;
 $quantity-control-button-color: $primary-color !default;
 $quantity-control-button-background-color: $background-color-alternate !default;

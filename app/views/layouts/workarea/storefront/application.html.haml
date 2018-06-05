@@ -159,10 +159,10 @@
         .content-wrapper
 
           .grid
-            .grid__cell.grid__cell--33-at-medium
+            .grid__cell.grid__cell--50-at-medium.grid__cell--33-at-wide
               = render 'workarea/storefront/email_signups/form', location: 'footer'
 
-            .grid__cell.grid__cell--66-at-medium
+            .grid__cell.grid__cell--50-at-medium.grid__cell--66-at-wide
               .grid
                 - footer_col_1_content = layout_content.content_blocks_for('footer_column_1')
                 - if footer_col_1_content.present?
