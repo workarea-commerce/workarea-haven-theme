@@ -1,6 +1,6 @@
 .email-signup-view
   .email-signup-view__content
-    %h2= @content.title
+    %h2.heading.heading--4.heading--upcase.heading--no-margin= @content.title
 
     - if @content.content_blocks.present?
       = render_content_blocks(@content.content_blocks)
