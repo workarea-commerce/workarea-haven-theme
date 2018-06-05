@@ -26,7 +26,7 @@ $table-total-border: 2px solid $primary-color !default;
 
 .table--totals {
     td {
-        padding: $spacing-unit;
+        padding: ($spacing-unit * 1.5) $spacing-unit;
         text-align: right;
     }
 }
@@ -50,4 +50,8 @@ $table-total-border: 2px solid $primary-color !default;
 
     .table__total {
         border-top: $table-total-border;
+
+        td, th {
+            font-weight: $font-weight-heavy;
+        }
     }
