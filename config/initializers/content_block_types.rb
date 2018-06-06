@@ -1,13 +1,4 @@
 Workarea::Content.define_block_types do
-  find_asset_id = lambda do |name|
-    proc do
-      asset = Workarea::Content::Asset.where(file_name: name).first ||
-                Workarea::Content::Asset.placeholder
-
-      asset.try(:id)
-    end
-  end
-
   block_type "Hero" do
     description "Positionable button over a background image."
 
@@ -85,7 +76,7 @@ Workarea::Content.define_block_types do
     end
 
     fieldset "Content" do
-      field "Asset", :asset, file_types: "image", default: find_asset_id.call("product_grid_content_2_cell_background.jpg"), html_data_attributes: { media_mode: ["resize", "crop", "switch"] }
+      field "Asset", :asset, file_types: "image", default: find_asset_id_by_file_name("product_grid_content_2_cell_background.jpg"), html_data_attributes: { media_mode: ["resize", "crop", "switch"] }
       field "Heading", :string, default: "Stylish home office"
       field "Sub Heading", :string, default: "Tie the room together with our chairs and desks"
       field "Link", :url, default: "/"
