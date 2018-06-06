@@ -42,11 +42,10 @@ $mobile-filters-max-width: 75% !default;
     .mobile-filters__content {
         display: none;
 
+        .mobile-filters-nav & ,
         .mobile-filters__control:checked ~ & {
             display: block;
-        }
-
-        .mobile-filters-nav & {
-            display: block;
+            height: 100%;
+            overflow-y: scroll;
         }
     }

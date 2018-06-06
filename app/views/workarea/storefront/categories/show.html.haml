@@ -51,12 +51,13 @@
           = render "workarea/storefront/facets/applied", facets: @category.facets
           = link_to t('workarea.storefront.filters.clear'), category_path(@category), class: 'button button--small'
     - if @category.facets.any?
-      .result-filters{ data: { filter_view_more: '', accordion: { presetConfig: 'alternativeAccordionOptions' }.to_json } }
+      .result-filters{ data: { filter_view_more: '', expandable_filters: '' } }
         - @category.facets.each do |facet|
           = render "workarea/storefront/facets/#{facet.type}", facet: facet
 
 - cache @category.cache_key, expires_in: 1.hour do
   .view{ data: { analytics: category_view_analytics_data(@category).to_json } }
+
 
     - unless @category.products.any?
       %h1.result-filters__heading
@@ -108,7 +109,7 @@
                   .result-filters
                     = render "workarea/storefront/facets/applied", facets: @category.facets
                     = link_to t('workarea.storefront.filters.clear'), category_path(@category), class: 'button button--small'
-              .result-filters{ data: { filter_view_more: '', accordion: { presetConfig: 'alternativeAccordionOptions' }.to_json } }
+              .result-filters{ data: { filter_view_more: '', expandable_filters: '' } }
                 - @category.facets.each do |facet|
                   = render "workarea/storefront/facets/#{facet.type}", facet: facet
 

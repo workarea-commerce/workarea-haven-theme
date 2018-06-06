@@ -10,6 +10,8 @@ Workarea.configure do |config|
     secondary_font_family: "pt_serif"
   }
 
+  config.filter_group_truncation_limit = 8
+
   config.storefront_break_points = {
     small: 320,
     small_horizontal: 456,

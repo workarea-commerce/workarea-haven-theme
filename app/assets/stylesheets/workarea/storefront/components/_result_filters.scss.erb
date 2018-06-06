@@ -2,11 +2,18 @@
     #RESULT-FILTERS
 \*------------------------------------*/
 
+$result-filters-attribute-icon-width: 16px !default;
+$result-filters-attribute-icon-height: 3px !default;
+
 $result-filters-width-selected: 32px !default;
 $result-filters-height-selected: 32px !default;
 $result-filters-max-width:  75% !default;
 $result-filters-medium-max-width:  196px !default;
-$result-filters-truncation-limit: 8 !default;
+$result-filters-truncation-limit: <%= Workarea.config.filter_group_truncation_limit + 1 %> !default;
+
+$result-filters-count-width: 26px !default;
+$result-filters-count-height: 16px !default;
+$result-filters-count-border-radius: 8px !default;
 
 
 .result-filters {
@@ -19,6 +26,10 @@ $result-filters-truncation-limit: 8 !default;
         max-width: $result-filters-medium-max-width;
     }
 }
+
+    .result-filters__container {}
+
+    .result-filters__container--closed {}
 
     .result-filters__heading {
         @extend %heading;
@@ -43,12 +54,13 @@ $result-filters-truncation-limit: 8 !default;
         margin: 0;
         padding: ($spacing-unit * 2) $spacing-unit;
         align-items: center;
+        cursor: pointer;
 
         &:after {
             position: static; /* [1] */
             margin-left: auto;
-            width: 16px;
-            height: 3px;
+            width: $result-filters-attribute-icon-width;
+            height: $result-filters-attribute-icon-height;
             background-color: $result-filters-icon-background-color;
             content: '';
             vertical-align: middle;
@@ -56,7 +68,7 @@ $result-filters-truncation-limit: 8 !default;
 
         .applied-filters & {
             display: block;
-            padding: $spacing-unit * 2 0;
+            padding: ($spacing-unit * 2) 0;
 
             @include respond-to($wide-breakpoint) {
                 padding: ($spacing-unit * 2) 0;
@@ -76,21 +88,17 @@ $result-filters-truncation-limit: 8 !default;
         float: right;
     }
 
-.result-filters--color {}
-.result-filters--price {}
-.result-filters--category {}
-
     .result-filters__section {
-        display: none;
+        display: block;
 
-        &:nth-of-type(1) {
-            display: block;
-        }
-
-        .no-js & {
-            display: block;
+        .result-filters__container--closed & {
+            display: none;
         }
     }
+
+    .result-filters__section--color {}
+    .result-filters__section--price {}
+    .result-filters__section--category {}
 
         .result-filters__group {
             @extend %list-reset;
@@ -127,19 +135,19 @@ $result-filters-truncation-limit: 8 !default;
                      */
                     .result-filters__filter-count {
                         margin-left: auto; /* [1] */
-                        width: 26px;
-                        height: 16px;
+                        width: $result-filters-count-width;
+                        height: $result-filters-count-height;
                         color: $result-filters-count-text-color;
                         font-size: $font-size-tiny;
                         line-height: 1.5;
                         text-align: center;
                         background-color: $result-filters-count-background-color;
-                        border-radius: 8px;
+                        border-radius: $result-filters-count-border-radius;
                     }
 
                     .result-filters__filter-remove {
                         margin-left: auto; /* [1] */
-                        width: 26px;
+                        width: $result-filters-count-width;
                         text-align: center;
                     }
 
@@ -148,7 +156,6 @@ $result-filters-truncation-limit: 8 !default;
             }
 
     .result-filters__filter:nth-child(n+#{$result-filters-truncation-limit}) {
-
         .result-filters__group--truncated & {
             display: none;
 
@@ -159,6 +166,7 @@ $result-filters-truncation-limit: 8 !default;
     }
 
     .result-filters__view-more-button {
+        @extend %button-reset;
         margin: 0;
         padding: $spacing-unit;
         color: $result-filters-view-more-text-color;

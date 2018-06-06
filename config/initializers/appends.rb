@@ -39,7 +39,7 @@ module Workarea
 
   Plugin.append_javascripts(
     "storefront.modules",
-    "workarea/storefront/modules/filter_view_more",
+    "workarea/storefront/modules/expandable_filters",
     "workarea/storefront/modules/product_detail_tabs",
     "workarea/storefront/modules/quantity_control",
     "workarea/storefront/modules/search_buttons",

@@ -43,7 +43,6 @@ The following workarea plugins are supported by OneTheme, and are dependencies o
 * Swatches
 * Reviews
 * Styled selects
-* Accordions
 * Product Grid Content
 * Gift Cards
 * Share

@@ -26,7 +26,7 @@
         = render "workarea/storefront/facets/applied", facets: @search.facets
         = link_to t('workarea.storefront.filters.clear'), search_path(q: @search.query_string), class: 'button button--small'
   - if @search.facets.any?
-    .result-filters{ data: { filter_view_more: '', accordion: { presetConfig: 'alternativeAccordionOptions' }.to_json } }
+    .result-filters{ data: { filter_view_more: '', expandable_filters: '' } }
       - @search.facets.each do |facet|
         - unless @search.autoselected_filter?(facet.system_name)
           = render "workarea/storefront/facets/#{facet.type}", facet: facet
@@ -100,7 +100,7 @@
                 .result-filters
                   = render "workarea/storefront/facets/applied", facets: @search.facets
                   = link_to t('workarea.storefront.filters.clear'), search_path(q: @search.query_string), class: 'button button--small'
-            .result-filters{ data: { filter_view_more: '', accordion: { presetConfig: 'alternativeAccordionOptions' }.to_json } }
+            .result-filters{ data: { filter_view_more: '', expandable_filters: '' } }
               - @search.facets.each do |facet|
                 - unless @search.autoselected_filter?(facet.system_name)
                   = render "workarea/storefront/facets/#{facet.type}", facet: facet
