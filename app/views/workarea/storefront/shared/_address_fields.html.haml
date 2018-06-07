@@ -79,7 +79,7 @@
         .value.value--block
           - options = grouped_options_for_select(region_options, address.region, prompt: t('workarea.storefront.addresses.select_state'))
           = select_tag "#{label}_region_select", options, required: true, title: "#{title_label} #{t('workarea.storefront.addresses.region')}", class: 'hidden'
-          = text_field_tag "#{label}[region]", address.region, class: 'text-box text-box--full', autocorrect: 'off', title: "#{title_label} #{t('workarea.storefront.addresses.region')}"
+          = text_field_tag "#{label}[region]", address.region, class: 'text-box text-box--full', autocorrect: 'off', title: "#{title_label} #{t('workarea.storefront.addresses.region')}", required: true
           - if address.errors[:region].present?
             %span.value__error= address.errors[:region].first
 
