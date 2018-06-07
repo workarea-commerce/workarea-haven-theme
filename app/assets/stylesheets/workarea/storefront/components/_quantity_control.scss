@@ -9,8 +9,10 @@ $quantity-control-width: 100px !default;
 $quantity-control-border: 1px solid $border-color !default;
 
 $quantity-control-error-label-top-offset: 4em !default;
+$quantity-control-error-label-left-offset-dialog: 110px !default;
 $quantity-control-error-label-width: 300px !default;
-$quantity-control-error-label-width-dialog: 100px !default;
+$quantity-control-error-label-width-dialog: 200px !default;
+$quantity-control-error-label-width-dialog-list-item: 100px !default;
 
 $quantity-control-button-color: $quantity-control-button-color !default;
 $quantity-control-button-background-color: $quantity-control-button-background-color !default;
@@ -35,7 +37,14 @@ $quantity-control-button-background-color: $quantity-control-button-background-c
         width: $quantity-control-error-label-width;
 
         .ui-dialog & {
+            top: 0;
+            bottom: auto;
+            left: $quantity-control-error-label-left-offset-dialog;
             width: $quantity-control-error-label-width-dialog;
+        }
+
+        .ui-dialog .product-list__item & {
+            width: $quantity-control-error-label-width-dialog-list-item;
         }
     }
 }
