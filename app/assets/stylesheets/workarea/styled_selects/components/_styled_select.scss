@@ -53,8 +53,7 @@ $select-menu-arrow-bg-color: $select-menu-bg-color !default;
             display: none;
         }
 
-        &.jquery-validation-error,
-        &:invalid {
+        &.jquery-validation-error {
             border-color: $select-menu-invalid-border-color;
         }
 
