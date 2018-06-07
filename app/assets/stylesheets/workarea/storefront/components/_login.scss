@@ -20,6 +20,10 @@ $login-form-max-width: 320px !default;
         }
     }
 
+    .login__section--create-account {}
+    .login__section--order-lookup {}
+
+    .login__section--order-lookup,
     .login__section--create-account {
         border-top: 1px solid $login-form-border-color;
 
