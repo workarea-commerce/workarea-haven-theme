@@ -11,6 +11,7 @@ $box-padding: $spacing-unit ($spacing-unit * 2) !default;
 .box {
     margin-bottom: $spacing-unit * 2;
     background-color: $box-background-color;
+    border: 1px solid $border-color;
     border-radius: $box-border-radius;
 }
 
@@ -38,5 +39,6 @@ $box-padding: $spacing-unit ($spacing-unit * 2) !default;
 
 
     .box__body {
-        padding: $spacing-unit 0;
+        padding: $spacing-unit * 2;
+        padding-bottom: 0;
     }
