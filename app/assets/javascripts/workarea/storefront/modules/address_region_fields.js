@@ -6,11 +6,8 @@ WORKAREA.registerModule('addressRegionFields', (function () {
     'use strict';
 
     var updateSelectUI = function ($regionField, $regionOptGroup) {
-            var $select = $('select', $regionField),
-                optGroupHTML = $regionOptGroup.prop('outerHTML');
-
-            $select.find('optgroup').remove();
-            $select.append(optGroupHTML);
+            var $select = $('select', $regionField);
+            $select.empty().append($regionOptGroup.prop('outerHTML'));
         },
 
         resetSelectUI = function (countryField) {
@@ -21,7 +18,7 @@ WORKAREA.registerModule('addressRegionFields', (function () {
             $('select', $regionField).empty().append(initialSelectState);
         },
 
-        swapRegionField = function(index, countryField) {
+        swapRegionField = function (index, countryField) {
             var $countryField = $(countryField),
                 countryName = $('option:selected', $countryField).text(),
                 $addressFields = $countryField.closest('.address-fields'),
@@ -31,7 +28,7 @@ WORKAREA.registerModule('addressRegionFields', (function () {
                 $regionTextBox = $('input', $regionField),
                 $regionOptGroup = $('optgroup[label="' + countryName + '"]', $regionSelect),
                 $regionOptions = $('option', $regionOptGroup),
-                $currentOption = $regionOptions.filter(function(_index, option) {
+                $currentOption = $regionOptions.filter(function (_index, option) {
                     return $(option).val() === regionCode;
                 });
 
@@ -40,15 +37,17 @@ WORKAREA.registerModule('addressRegionFields', (function () {
 
             if (_.isEmpty($regionOptions)) {
                 $regionSelect.addClass('hidden');
+                $regionSelect.closest('.styled-select').addClass('hidden');
                 $regionTextBox.removeClass('hidden');
             } else {
                 updateSelectUI($regionField, $regionOptGroup);
                 $regionTextBox.addClass('hidden');
                 $regionSelect.removeClass('hidden');
+                $regionSelect.closest('.styled-select').removeClass('hidden');
             }
         },
 
-        setRegionField = function(event) {
+        setRegionField = function (event) {
             var $selectBox = $(event.currentTarget),
                 $textBox = $('input', event.delegateTarget);
 
@@ -72,7 +71,7 @@ WORKAREA.registerModule('addressRegionFields', (function () {
             $regionField.each(saveInitialSelectState);
 
             $countryField
-            .on('change', 'select', function(event) {
+            .on('change', 'select', function (event) {
                 resetSelectUI(event.delegateTarget);
                 swapRegionField(null, event.delegateTarget);
             })
