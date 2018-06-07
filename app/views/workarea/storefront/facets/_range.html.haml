@@ -1,11 +1,15 @@
-%h2.result-filters__attribute= t('workarea.storefront.products.price')
-.result-filters__section
-  %ul.result-filters__group.result-filters__group--truncated
-    - facet.results.each do |range, count|
-      %li.result-filters__filter{ class: facet.selected?(range) ? 'result-filters__filter--selected' : nil }
-        = link_to facet_path(facet, range), rel: 'nofollow', class: 'result-filters__filter-link' do
-          %span.result-filters__filter-text= price_range_facet_text(range)
-          - if facet.selected?(range)
-            %span.result-filters__filter-remove= inline_svg('workarea/storefront/icons/x.svg', class: 'svg-icon svg-icon--tiny svg-icon--blue', title: t('workarea.storefront.products.remove_filter'))
-          - else
-            %span.result-filters__filter-count #{count}
+.result-filters__container
+  %h2.result-filters__attribute= t('workarea.storefront.products.price')
+  .result-filters__section
+    %ul.result-filters__group.result-filters__group--truncated
+      - facet.results.each do |range, count|
+        %li.result-filters__filter{ class: facet.selected?(range) ? 'result-filters__filter--selected' : nil }
+          = link_to facet_path(facet, range), rel: 'nofollow', class: 'result-filters__filter-link' do
+            %span.result-filters__filter-text= price_range_facet_text(range)
+            - if facet.selected?(range)
+              %span.result-filters__filter-remove= inline_svg('workarea/storefront/icons/x.svg', class: 'svg-icon svg-icon--tiny svg-icon--blue', title: t('workarea.storefront.products.remove_filter'))
+            - else
+              %span.result-filters__filter-count #{count}
+
+    - if facet.results.length > Workarea.config.filter_group_truncation_limit
+      %button.result-filters__view-more-button= t('workarea.storefront.filters.view_more')

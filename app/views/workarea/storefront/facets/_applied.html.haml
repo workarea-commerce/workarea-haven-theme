@@ -1,9 +1,13 @@
-%h2.result-filters__attribute= t('workarea.storefront.filters.applied')
-%ul.result-filters__group
-  - applied_facets(facets).each do |facet, value|
-    %li.result-filters__filter.result-filters__filter--selected
-      = link_to facet_path(facet, value), rel: 'nofollow', class: 'result-filters__filter-link' do
-        = render_swatch_facet(value)
+.result-filters__container
+  %h2.result-filters__attribute= t('workarea.storefront.filters.applied')
+  %ul.result-filters__group
+    - applied_facets(facets).each do |facet, value|
+      %li.result-filters__filter.result-filters__filter--selected
+        = link_to facet_path(facet, value), rel: 'nofollow', class: 'result-filters__filter-link' do
+          = render_swatch_facet(value)
 
-        %span.result-filters__filter-text= value
-        %span.result-filters__filter-remove= inline_svg('workarea/storefront/icons/x.svg', class: 'svg-icon svg-icon--tiny svg-icon--blue', title: t('workarea.storefront.products.remove_filter'))
+          - if facet.name == 'price'
+            %span.result-filters__filter-text= applied_range_facet_text(value)
+          - else
+            %span.result-filters__filter-text= value.titleize
+          %span.result-filters__filter-remove= inline_svg('workarea/storefront/icons/x.svg', class: 'svg-icon svg-icon--tiny svg-icon--blue', title: t('workarea.storefront.products.remove_filter'))
