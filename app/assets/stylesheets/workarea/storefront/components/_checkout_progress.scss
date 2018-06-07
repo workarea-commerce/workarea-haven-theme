@@ -19,26 +19,28 @@ $checkout-progress-step-font-size-wide: 12px !default;
 $checkout-progress-step-number-size: $spacing-unit * 4 !default;
 $checkout-progress-step-complete-icon-size: 8px !default;
 $checkout-progress-step-complete-icon-size-wide: 16px !default;
-$checkout-progress-step-line-height: 2px !default;
-$checkout-progress-step-line-width: 20vw !default;
-$checkout-progress-step-line-width-medium: 10vw !default;
-$checkout-progress-step-line-width-wide: 14vw !default;
+
+$checkout-progress-step-divider-height: 2px !default;
+$checkout-progress-step-divider-width: 6vw !default;
+$checkout-progress-step-divider-color: $medium-gray !default;
+$checkout-progress-step-divider-color-complete: $primary-color !default;
+
 
 .checkout-progress {
     @extend %list-reset;
     display: table;
-    margin: ($spacing-unit * 2) 0;
+    margin: ($spacing-unit * 2) auto;
     width: 100%;
     max-width: $checkout-progress-max-width;
     text-align: center;
 
     @include respond-to($medium-breakpoint) {
-        margin: ($spacing-unit * 3) 0;
+        margin: ($spacing-unit * 3) auto;
         padding: 0 ($spacing-unit * 2);
     }
 
     @include respond-to($wide-breakpoint) {
-        margin: ($spacing-unit * 4) 0;
+        margin: ($spacing-unit * 4) auto;
     }
 }
 
@@ -48,41 +50,19 @@ $checkout-progress-step-line-width-wide: 14vw !default;
      * 3. appears after the activated step
      */
     .checkout-progress__step {
-        display: table-cell;
+        display: inline-block;
+        width: 33%;
         color: $checkout-progress-completed-color; /* [1] */
         white-space: nowrap;
         vertical-align: middle;
 
+        @include respond-to($small-horizontal-breakpoint) {
+            width: auto;
+        }
+
         @include respond-to($medium-breakpoint) {
             margin: 0 $spacing-unit;
-        }
 
-        @include respond-to($small-horizontal-breakpoint) {
-            &:before {
-                display: inline-block;
-                margin: 0 $spacing-unit;
-                width: $checkout-progress-step-line-width;
-                height: $checkout-progress-step-line-height;
-                background-color: $primary-color;
-                vertical-align: middle;
-                content: '';
-            }
-
-            &:first-of-type:before {
-                display: none;
-            }
-        }
-
-        @include respond-to($medium-breakpoint) {
-            &:before {
-                width: $checkout-progress-step-line-width-medium;
-            }
-        }
-
-        @include respond-to($wide-breakpoint) {
-            &:before {
-                width: $checkout-progress-step-line-width-wide;
-            }
         }
     }
 
@@ -101,6 +81,23 @@ $checkout-progress-step-line-width-wide: 14vw !default;
             }
         }
     }
+
+        .checkout-progress__divider {
+            display: none;
+            margin: 0 ($spacing-unit * 2);
+            height: $checkout-progress-step-divider-height;
+            background-color: $checkout-progress-step-divider-color-complete;
+            vertical-align: middle;
+
+            @include respond-to($small-horizontal-breakpoint) {
+                display: inline-block;
+                width: $checkout-progress-step-divider-width;
+            }
+
+            .checkout-progress__step--active ~ & {
+                background-color: $checkout-progress-step-divider-color;
+            }
+        }
 
         /**
          * 1. the link only appears within the "completed" state

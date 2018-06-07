@@ -3,8 +3,8 @@
 \*------------------------------------*/
 
 $page-content-max-width: 1410px !default;
-$page-content-checkout-width: 80% !default;
 $page-content-checkout-container-max-width: 500px !default;
+$page-content-checkout-aside-width: 478px !default;
 
 
 .page-content {
@@ -20,11 +20,7 @@ $page-content-checkout-container-max-width: 500px !default;
     }
 }
 
-.page-content--checkout {
-    @include respond-to($medium-breakpoint) {
-        width: $page-content-checkout-width;
-    }
-}
+.page-content--checkout {}
 
 .page-content--order {}
 
@@ -42,8 +38,8 @@ $page-content-checkout-container-max-width: 500px !default;
 
         .page-content--checkout & {
             @include respond-to($wide-breakpoint) {
+                width: 63%;
                 padding-right: $spacing-unit * 2;
-                width: 70%;
             }
         }
 
@@ -70,6 +66,7 @@ $page-content-checkout-container-max-width: 500px !default;
 
                 @include respond-to($wide-breakpoint) {
                     display: table-cell;
+                    width: $page-content-checkout-aside-width;
                     vertical-align: top;
                 }
             }

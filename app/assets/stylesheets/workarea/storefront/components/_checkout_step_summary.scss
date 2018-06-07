@@ -70,3 +70,12 @@ $checkout-step-summary-section-border-color: $checkout-summary-section-border-co
                     margin-bottom: $spacing-unit * 4;
                 }
             }
+
+        .checkout-step-summary__promo-code {
+            margin-bottom: $spacing-unit * 4;
+        }
+
+        .checkout-step-summary__promo-code-heading {
+            @extend %heading;
+            @extend %heading--5;
+        }
