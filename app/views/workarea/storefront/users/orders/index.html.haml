@@ -17,5 +17,7 @@
     %p= t('workarea.storefront.users.no_orders')
 
   - else
-    - @orders.each do |order|
-      = render 'workarea/storefront/users/orders/summary', order: order
+    .grid
+      .grid__cell.grid__cell--50-at-medium
+        - @orders.each do |order|
+          = render 'workarea/storefront/users/orders/summary', order: order
