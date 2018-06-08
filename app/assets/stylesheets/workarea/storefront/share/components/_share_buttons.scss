@@ -10,7 +10,7 @@ $share-buttons-icon-size: 16px !default;
 $share-buttons-icon-color: $black !default;
 $share-buttons-icon-color-hover: $primary-color !default;
 
-$share-buttons-toggle-button-size: 44px !default;
+$share-buttons-button-size: 42px !default;
 $share-buttons-toggle-button-border: 1px solid $border-color !default;
 $share-buttons-toggle-button-border-color-hover: $primary-color !default;
 $share-buttons-animation-duration: 0.2s !default;
@@ -50,8 +50,8 @@ $share-buttons-item-border: 1px solid $primary-color;
 
     .share-buttons__toggle-button {
         @extend %button-reset;
-        width: $share-buttons-toggle-button-size;
-        height: $share-buttons-toggle-button-size;
+        width: $share-buttons-button-size;
+        height: $share-buttons-button-size;
         text-align: center;
         border: $share-buttons-toggle-button-border;
         border-radius: 50%;
@@ -87,7 +87,7 @@ $share-buttons-item-border: 1px solid $primary-color;
     .share-buttons__item {
         display: none;
         margin: $spacing-unit 0;
-        padding: $spacing-unit;
+        text-align: center;
         border: $share-buttons-item-border;
         border-radius: 50%;
         vertical-align: middle;
@@ -105,7 +105,11 @@ $share-buttons-item-border: 1px solid $primary-color;
         }
     }
 
-        .share-buttons__button {}
+        .share-buttons__button {
+            display: block;
+            width: $share-buttons-button-size;
+            line-height: $share-buttons-button-size;
+        }
 
             .share-buttons__social-icon {
                 display: inline-block;
