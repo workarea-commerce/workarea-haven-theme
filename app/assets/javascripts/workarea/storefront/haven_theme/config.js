@@ -3,6 +3,10 @@
 
     WORKAREA.config.maximumFilterCount = 7;
 
+    _.merge(WORKAREA.config.scrollToButtons, {
+        topOffset: 110
+    });
+
     WORKAREA.config.havenTheme = {
         quantityControl: {
             autoSubmitDelay: 500

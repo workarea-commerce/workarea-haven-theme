@@ -31,6 +31,18 @@ Dragonfly.app(:workarea).configure do
     content.process!(:optim)
   end
 
+  processor :zoom do |content|
+    content.process!(:encode, :jpg, Workarea.config.jpg_encode_options)
+    content.process!(:thumb, '1200x')
+    content.process!(:optim)
+  end
+
+  processor :super_zoom do |content|
+    content.process!(:encode, :jpg, Workarea.config.jpg_encode_options)
+    content.process!(:thumb, '2400x')
+    content.process!(:optim)
+  end
+
   processor :detail_alt do |content|
     content.process!(:encode, :jpg, Workarea.config.jpg_encode_options)
     content.process!(:thumb, "120x120")
