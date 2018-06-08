@@ -6,7 +6,7 @@
 .search-no-results.view{ data: { analytics: search_results_view_analytics_data(@search).to_json } }
 
   %h1.search-no-results__heading= t('workarea.storefront.searches.no_results', terms: @search.query_string)
-  .grid.grid--large.grid--center
+  .grid.grid--large
     .grid__cell.grid__cell--50-at-medium
       .search-no-results__search
         %h2.search-no-results__search-heading= t('workarea.storefront.searches.search_again')
