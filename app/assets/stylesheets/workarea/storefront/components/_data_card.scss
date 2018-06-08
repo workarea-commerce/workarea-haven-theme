@@ -3,7 +3,7 @@
 \*------------------------------------*/
 
 $data-card-minimum-width: 200px !default;
-$data-card-border-color: $border-color !default;
+$data-card-background-color: $background-color-alternate !default;
 $data-card-border-radius: 0 !default;
 
 $data-card-default-indicator:  '✓' !default;
@@ -13,7 +13,7 @@ $data-card-default-indicator:  '✓' !default;
     margin:  0 0 $vertical-margin;
     padding: ($spacing-unit * 2);
     min-width: $data-card-minimum-width;
-    border: 1px solid $data-card-border-color;
+    background-color: $data-card-background-color;
     border-radius: $data-card-border-radius;
 }
 
