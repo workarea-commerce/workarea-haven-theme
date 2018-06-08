@@ -11,6 +11,16 @@ $content-block-font-size: $font-size-content-blocks !default;
     }
 }
 
+/**
+ * 1. Font size must be 0 to preserve inline-block layout.
+ * Content blocks available in-grid must set a font-size to prevent regressions
+ */
+.content-block--product-grid-cell {
+    .page-content & {
+        font-size: 0; /* [1] */
+    }
+}
+
 .content-block--hidden-for-small {
     display: none;
 
