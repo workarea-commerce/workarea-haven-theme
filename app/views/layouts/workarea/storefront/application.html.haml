@@ -90,7 +90,7 @@
           %span{ data: { user_welcome_placeholder: '' } }
           %ul.account-menu__items
             %li.account-menu__item= link_to t('workarea.storefront.users.account'), users_account_path, class: 'page-header__account-link'
-            %li.account-menu__item= link_to t('workarea.storefront.users.your_orders'), users_orders_path, class: 'page-header__account-link'
+            %li.account-menu__item= link_to t('workarea.storefront.users.your_orders'), check_orders_path, class: 'page-header__account-link'
 
             = append_partials('storefront.utility_nav')
 
