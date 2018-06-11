@@ -8,10 +8,12 @@ $page-content-checkout-aside-width: 478px !default;
 
 
 .page-content {
+    display: table;
     position: relative;
     z-index: index($page-container, page-content);
     margin: 0 auto;
     padding: 0 ($spacing-unit / 2);
+    width: 100%;
     max-width: $page-content-max-width;
 
     @include respond-to($medium-breakpoint) {
