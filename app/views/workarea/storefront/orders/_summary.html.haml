@@ -1,5 +1,4 @@
 .order-summary
-
   %h3.order-summary__heading= t('workarea.storefront.orders.items')
 
   %ul.product-list.product-list--narrow
@@ -19,7 +18,7 @@
 
             = append_partials('storefront.order_summary_item_details', item: item)
         .product-list__actions
-          %p.product-list__quantity #{item.quantity} @ #{number_to_currency(item.original_price)} #{t('workarea.storefront.orders.each')}
+          %p.product-list__total-price #{item.quantity} @ #{number_to_currency(item.original_price)} #{t('workarea.storefront.orders.each')}
 
   .order-summary__totals
     %h6.order-summary__heading= t('workarea.storefront.orders.totals')
@@ -63,9 +62,8 @@
 
         %tr.table__total
           %th
-            %span
-              %strong #{t('workarea.storefront.orders.total')}:
+            %span #{t('workarea.storefront.orders.total')}:
           %td
-            %strong= number_to_currency(order.paid_amount)
+            %span= number_to_currency(order.paid_amount)
 
   = append_partials('storefront.orders_summary_bottom', order: order)

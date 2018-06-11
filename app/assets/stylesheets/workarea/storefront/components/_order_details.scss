@@ -17,6 +17,7 @@ $order-details-info-background-color: $background-color-alternate !default;
 }
 
     .order-details__info {
+        margin: 0 ($spacing-unit * -2);
         padding: $spacing-unit * 2;
         background-color: $order-details-info-background-color;
     }
@@ -33,6 +34,12 @@ $order-details-info-background-color: $background-color-alternate !default;
         &:last-of-type {
             border-bottom: 0;
         }
+    }
+
+    .order-details__title {
+        @extend %heading;
+        @extend %heading--4;
+        @extend %heading--upcase;
     }
 
     .order-details__heading {

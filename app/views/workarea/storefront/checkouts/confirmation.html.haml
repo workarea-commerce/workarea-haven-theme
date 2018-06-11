@@ -7,7 +7,7 @@
   .checkout-confirmation__content>
     .checkout-confirmation__checkmark
       = inline_svg('workarea/storefront/icons/checkmark.svg', class: 'checkout-confirmation__checkmark-icon', title: t('workarea.storefront.users.account'))
-    %h1.heading.heading--6.heading--upcase= @content.title
+    %h1.heading.heading--4.heading--upcase= @content.title
     - if @content.content_blocks_for('confirmation').present?
       = render_content_blocks(@content.content_blocks_for('confirmation'))
     %p= t('workarea.storefront.checkouts.confirmation_text', email: @order.email)
@@ -47,7 +47,7 @@
           %h2.recommendations__heading= t('workarea.storefront.recommendations.you_may_also_like')
           .grid
             - @recommendations.each do |product|
-              .grid__cell.grid__cell--50.grid__cell--33-at-medium.grid__cell--16-at-wide
+              .grid__cell.grid__cell--50.grid__cell--25-at-medium
                 .product-summary.product-summary--small{ itemscope: true, itemtype: 'http://schema.org/Product' }
                   = render 'workarea/storefront/products/summary', product: product
 

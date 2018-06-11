@@ -1,7 +1,7 @@
 
 .order-details
   .order-details__info
-    %h2.order-details__heading= t('workarea.storefront.checkouts.order_details')
+    %h2.order-details__title= t('workarea.storefront.checkouts.order_details')
     %p.order-details__order-number
       %strong #{t('workarea.storefront.orders.order')}
       %span ##{@order.id}
@@ -116,20 +116,6 @@
                         = append_partials('storefront.order_summary_package_actions', package: package)
 
             = append_partials('storefront.order_summary_shipping', shipping: shipping)
-
-  - if order.pending_items.any?
-    .order-details__section
-      %h2.order-details__heading= t('workarea.storefront.orders.pending')
-
-      %ul.product-list.product-list--narrow
-        - order.pending_items.each do |item|
-          %li.product-list__item
-            .product-list__summary
-              .product-list__media= link_to image_tag(product_image_url(item.image, :small_thumb), alt: item.product_name, class: 'product-list__media-image'), product_url(item.product, sku: item.sku), class: 'product-list__media-link'
-              .product-list__info
-                %p.product-list__name= link_to item.product_name, product_path(item.product, sku: item.sku)
-            .product-list__actions
-              %p.product-list__quantity #{t('workarea.storefront.orders.quantity')}: #{item.quantity}
 
   - if order.refunds.any?
     .order-details__section
