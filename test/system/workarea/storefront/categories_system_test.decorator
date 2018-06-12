@@ -11,11 +11,11 @@ module Workarea
       assert(page.has_content?('Integration Product 1'))
       assert(page.has_content?('Integration Product 2'))
 
-      find(".result-filters__attribute", :text => "Price").click
+      find(".result-filters__attribute", text: "Price").click
       assert(page.has_content?('$10.00'))
       assert(page.has_content?('$5.00'))
 
-      find(".result-filters__attribute", :text => "Size").click
+      find(".result-filters__attribute", text: "Size").click
 
       assert(page.has_content?('Medium 3'))
       assert(page.has_content?('Small 2'))
@@ -29,13 +29,13 @@ module Workarea
 
       Capybara.match = :first
 
-      find(".result-filters__attribute", :text => "Price").click
+      find(".result-filters__attribute", text: "Price").click
       click_link '$10.00 - $19.99 1'
 
       assert(page.has_content?('Integration Product 1'))
       assert(page.has_no_content?('Integration Product 2'))
 
-      find(".result-filters__attribute", :text => "Price").click
+      find(".result-filters__attribute", text: "Price").click
       click_link "$10.00 - $19.99"
 
       assert(page.has_content?('Integration Product 1'))
@@ -59,7 +59,7 @@ module Workarea
       assert(page.has_selector?('.mobile-filters-nav', visible: true))
 
       within '.mobile-filters-nav' do
-        find(".result-filters__attribute", :text => "Price").click
+        find(".result-filters__attribute", text: "Price").click
         assert(page.has_content?('$10.00 - $19.99 1'))
       end
 
@@ -70,7 +70,7 @@ module Workarea
       assert(page.has_selector?('.mobile-filters-nav', visible: true))
 
       within '.mobile-filters-nav' do
-        find(".mobile-filters-nav__close-action", :text => "Close").click
+        find(".mobile-filters-nav__close-action", text: "Close").click
       end
 
       assert(page.has_selector?('.mobile-filters-nav', visible: false))
@@ -104,7 +104,7 @@ module Workarea
       assert(page.has_selector?('.mobile-filters-nav', visible: true))
 
       within '.mobile-filters-nav' do
-        find(".result-filters__attribute", :text => "Price").click
+        find(".result-filters__attribute", text: "Price").click
         assert(page.has_content?('$10.00 - $19.99 1'))
 
         click_link '$10.00 - $19.99 1'
@@ -132,7 +132,7 @@ module Workarea
 
       visit storefront.category_path(category)
 
-      find(".result-filters__attribute", :text => "Price").click
+      find(".result-filters__attribute", text: "Price").click
       Capybara.match = :first
       click_link '$10.00 - $19.99 1'
 
@@ -153,11 +153,11 @@ module Workarea
 
       assert(page.has_content?('Size'))
 
-      find(".result-filters__attribute", :text => "Size").click
+      find(".result-filters__attribute", text: "Size").click
       assert(page.has_content?('Medium 3'))
 
       sleep 1.second
-      find(".result-filters__attribute", :text => "Price").click
+      find(".result-filters__attribute", text: "Price").click
       assert(page.has_content?('$10.00 - $19.99 1'))
 
       category.terms_facets = ['Color']
@@ -169,7 +169,7 @@ module Workarea
       assert(page.has_no_content?('Size'))
       assert(page.has_no_content?('Medium 3'))
 
-      find(".result-filters__attribute", :text => "Price").click
+      find(".result-filters__attribute", text: "Price").click
       assert(page.has_content?('Under $10.00 2'))
       assert(page.has_content?('Over $10.00 1'))
     end

@@ -1,0 +1,29 @@
+/*------------------------------------*\
+    #PRODUCT-DETAIL-PACKAGED-PRODUCTS
+\*------------------------------------*/
+
+.product-detail-packaged-products {
+    input[type=checkbox] {
+        display: inline-block;
+    }
+}
+
+.product-detail-packaged-products--family {
+    .product-details__add-to-cart-action {
+        display: none;
+    }
+}
+
+    .product-detail-packaged-products__container {
+        display: inline-block;
+        margin-top: $spacing-unit * 2;
+        padding: ($spacing-unit * 2) 0;
+        width: calc(100% - 18px);
+        border-top: 1px solid $border-color;
+        vertical-align: middle;
+
+        @include respond-to($medium-breakpoint) {
+            margin-top: $spacing-unit * 4;
+            padding: ($spacing-unit * 4) 0;
+        }
+    }
