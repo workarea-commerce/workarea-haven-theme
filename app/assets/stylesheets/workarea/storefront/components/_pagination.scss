@@ -2,8 +2,11 @@
     #PAGINATION
 \*------------------------------------*/
 
-.pagination {}
+.pagination {
+    padding-bottom: $spacing-unit * 3;
+}
 
     .pagination__button {
+        margin-top: $spacing-unit;
         text-align: center;
     }
