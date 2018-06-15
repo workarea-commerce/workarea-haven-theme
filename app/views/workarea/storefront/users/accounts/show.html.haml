@@ -40,7 +40,7 @@
           %h2.box__heading= t('workarea.storefront.users.recent_orders')
         .box__body
           - unless @user.recent_orders.any?
-            = t('workarea.storefront.users.no_orders')
+            %p= t('workarea.storefront.users.no_orders')
           - else
             - @user.recent_orders.each do |order|
               = render 'workarea/storefront/users/orders/summary', order: order
@@ -53,7 +53,7 @@
 
         .box__body
           - unless @user.has_credit_card?
-            = t('workarea.storefront.users.no_saved_credit_cards')
+            %p= t('workarea.storefront.users.no_saved_credit_cards')
           - else
             .grid.grid--large
               - @user.credit_cards.each do |credit_card|
@@ -85,7 +85,7 @@
           %h2.box__heading= t('workarea.storefront.users.addresses')
         .box__body
           - unless @user.has_default_addresses?
-            = t('workarea.storefront.users.no_saved_addresses')
+            %p= t('workarea.storefront.users.no_saved_addresses')
           - else
             .grid.grid--large
               - @user.addresses.each do |address|
