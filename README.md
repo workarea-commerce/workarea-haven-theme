@@ -40,13 +40,16 @@ The following workarea plugins are supported by OneTheme, and are dependencies o
 * Product Badges
 * Product Videos
 * Product Image Zoom
+* Product Grid Content
 * Swatches
 * Reviews
+* Blog
+* Content Search
 * Styled selects
-* Product Grid Content
+* Email Signup Popup
+* Shipping Message
 * Gift Cards
 * Share
-* Blog
 
 Theme Configuration
 --------------------------------------------------------------------------------
@@ -56,13 +59,15 @@ Theme Configuration
 While you are able to configure the Workarea OneTheme from any initializer it is recommended
 that you create a new initializer called theme.rb using the following code
 
-    Workarea.configure do |config|
-      config.theme = config.theme.merge(
-        color_scheme: "haven",
-        primary_font_family: "poppins",
-        secondary_font_family: "pt_serif"
-      )
-    end
+```ruby
+Workarea.configure do |config|
+  config.theme = config.theme.merge(
+    color_scheme: "haven",
+    primary_font_family: "poppins",
+    secondary_font_family: "pt_serif"
+  )
+end
+```
 
 This will set your application up with the default configuration options, but allow you to
 change them easily.
@@ -70,6 +75,7 @@ change them easily.
 ---
 
 ### Color Schemes
+
 Haven comes with [TODO] color schemes pre-defined for demo and learning purposes.
 
 To change the color scheme in your application, set the color_scheme configuration
@@ -104,10 +110,12 @@ defined in workarea-one-theme/config/initializers/theme.rb
 
 Example:
 
-    config.theme = config.theme.merge(
-      primary_font_family: "poppins",
-      secondary_font_family: "pt_serif"
-    )
+```ruby
+config.theme = config.theme.merge(
+  primary_font_family: "poppins",
+  secondary_font_family: "pt_serif"
+)
+```
 
 The primary_font_family is used for most text throughout the site, including body text, links,
 buttons, prices, content blocks etc.
@@ -125,13 +133,15 @@ I recommend using google fonts where possible, the [googlefonts webfont helper](
 
 Example configuration for Calibri font stack used as secondary font family:
 
-    config.theme[:font_stacks] = config.theme.font_stacks.merge (
-      calibri: 'Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif',
-    )
+```ruby
+config.theme[:font_stacks] = config.theme.font_stacks.merge (
+  calibri: 'Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif',
+)
 
-    config.theme = config.theme.merge(
-      secondary_font_family: "calibri"
-    )
+config.theme = config.theme.merge(
+  secondary_font_family: "calibri"
+)
+```
 
 
 Getting Started

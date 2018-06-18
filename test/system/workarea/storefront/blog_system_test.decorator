@@ -1,0 +1,26 @@
+require "test_helper"
+
+decorate Workarea::Storefront::BlogSystemTest, with: :haven_theme do
+  def test_display
+    visit storefront.blog_path(blog)
+
+    assert(page.has_content?("Entry 1"))
+    assert(page.has_content?("A short summary about the entry"))
+    assert(page.has_content?("Entry 2"))
+    assert(page.has_content?("A different summary for this entry"))
+
+    entry_content = Workarea::Content.for(blog.entries.first)
+    entry_content.blocks.build(
+      area: :blog_content,
+      type: :text,
+      data: { text: "Body" }
+    )
+    entry_content.save!
+
+    click_link "Entry 1", match: :first
+
+    assert(page.has_current_path?(storefront.blog_entry_path(blog.entries.first)))
+    assert(page.has_content?("Entry 1"))
+    assert(page.has_content?("Body"))
+  end
+end

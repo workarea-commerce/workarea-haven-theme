@@ -20,7 +20,6 @@ gem "workarea", source: "https://gems.weblinc.com"
 group :test do
   gem "workarea-testing"
   gem "workarea-theme", source: "https://gems.weblinc.com"
-
-  # TODO: Remove this before releasing
-  gem "pry"
+  # TODO: Remove this once it's been fixed somewhere else
+  gem "sassc", "1.11.4"
 end
