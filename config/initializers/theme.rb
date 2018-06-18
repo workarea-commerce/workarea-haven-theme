@@ -62,4 +62,7 @@ Workarea.configure do |config|
 
   # How many products show in product insights content block
   config.product_insights_count = 4
+
+  # How many blog entries show per blog on blog landing page
+  config.blog_entries_on_index = 3
 end
