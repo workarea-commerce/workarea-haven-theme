@@ -24,7 +24,7 @@ $breadcrumb-node-separator-font-size: $font-size-tiny;
 
     .breadcrumbs__node-group {
         margin: $spacing-unit auto;
-        padding: 0 $spacing-unit;
+        padding: 0 ($spacing-unit * 2);
         max-width: $breadcrumbs-container-max-width;
     }
 
