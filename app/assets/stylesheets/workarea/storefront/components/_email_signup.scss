@@ -29,7 +29,7 @@ $email-signup-button-icon-color-hover: $email-signup-button-icon-color-hover !de
 
         .email-signup__label {
             @extend %heading;
-            @extend %heading--5;
+            @extend %heading--6;
             @extend %heading--upcase;
             display: block;
             margin-bottom: $spacing-unit;
