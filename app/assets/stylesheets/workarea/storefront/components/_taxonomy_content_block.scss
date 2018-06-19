@@ -89,7 +89,7 @@ $taxonomy-content-block-mobile-nav-node-padding: ($spacing-unit * 2) $spacing-un
 
             .page-footer & {
                 @extend %heading;
-                @extend %heading--5;
+                @extend %heading--6;
                 font-weight: $font-weight-heavy;
             }
         }
