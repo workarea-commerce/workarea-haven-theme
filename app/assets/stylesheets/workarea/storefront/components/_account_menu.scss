@@ -8,6 +8,9 @@ $account-menu-heading-color: $utility-nav-heading-color !default;
 $account-menu-item-list-background-color: $white !default;
 
 
+/**
+ * 1. -200% to prevent account menu being visible if a user 'flicks' the browser up
+ */
 .account-menu {
     position: absolute;
     top: 0;
@@ -16,7 +19,7 @@ $account-menu-item-list-background-color: $white !default;
     padding: $spacing-unit;
     width: $account-menu-width;
     background-color: $account-menu-background-color;
-    transform: translateY(-100%);
+    transform: translateY(-200%); /* [1] */
     transition: transform $transition-time ease-in;
 }
 

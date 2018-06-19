@@ -73,6 +73,11 @@ module Workarea
   )
 
   Plugin.remove_partials(
+    "storefront.style_guide_product_summary",
+    "workarea/storefront/style_guides/reviews_product_summary_docs"
+  )
+
+  Plugin.remove_partials(
     "storefront.product_description",
     "workarea/storefront/products/video_link"
   )
