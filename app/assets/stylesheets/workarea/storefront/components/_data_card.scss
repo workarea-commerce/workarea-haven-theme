@@ -2,7 +2,7 @@
     #DATA-CARD
 \*------------------------------------*/
 
-$data-card-minimum-width: 200px !default;
+$data-card-minimum-width: 160px !default;
 $data-card-background-color: $background-color-alternate !default;
 $data-card-border-radius: 0 !default;
 
@@ -41,6 +41,7 @@ $data-card-default-indicator:  '✓' !default;
 
         .data-card__line {
             margin: 0;
+            word-wrap: break-word;
 
             & + & {
                 margin-top: $spacing-unit;
