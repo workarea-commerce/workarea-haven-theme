@@ -21,7 +21,7 @@ $.widget('workarea.categorizedAutocomplete', $.ui.autocomplete, {
     _renderItem: function ($ul, item) {
         'use strict';
 
-        var itemTemplate = JST['workarea/core/templates/ui_menu_item'];
+        var itemTemplate = JST['workarea/storefront/templates/ui_menu_item'];
 
         return $(itemTemplate({ label: item.label, image: item.image, type: item.type.toLowerCase() })).appendTo($ul);
     },
@@ -32,7 +32,7 @@ $.widget('workarea.categorizedAutocomplete', $.ui.autocomplete, {
         var widget = this,
             categories = _.uniq(_.map(items, 'type')),
             itemsByCategory = _.groupBy(items, 'type'),
-            categoryHeaderTemplate = JST['workarea/core/templates/ui_menu_heading'],
+            categoryHeaderTemplate = JST['workarea/storefront/templates/ui_menu_heading'],
 
             renderCategoryItem = function (item) {
                 widget._renderItemData($ul, item);

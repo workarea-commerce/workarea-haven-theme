@@ -3,6 +3,7 @@
 \*------------------------------------*/
 
 $ui-menu-item-width: 25% !default;
+$ui-menu-item-max-width: 264px !default;
 $ui-menu-item-color: $search-item-color !default;
 $ui-menu-item-background-color: $search-item-background-color !default;
 $ui-menu-item-border-color: $search-item-border-color !default;
@@ -45,6 +46,7 @@ $ui-menu-heading-color: $search-color !default;
         position: relative;
         margin: $spacing-unit;
         width: $ui-menu-item-width;
+        max-width: $ui-menu-item-max-width;
         color: $ui-menu-item-color;
         background: $ui-menu-item-background-color;
         vertical-align: top;
@@ -89,6 +91,7 @@ $ui-menu-heading-color: $search-color !default;
 
     .ui-menu-item--products {
         .ui-menu-item__text {
+            padding: $spacing-unit ($spacing-unit * 2) ($spacing-unit * 3);
             border-top: $ui-menu-item-border;
         }
     }
