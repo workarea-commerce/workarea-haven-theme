@@ -6,7 +6,7 @@
 - else
   %p{class:"#{css_block}__price"}
     %span= number_to_currency(item.original_unit_price)
-- if item.customized?
+- if item.customized? && item.customizations_unit_price > 0
   %p{class:"#{css_block}__price"}
     %span{class: "#{css_block}__label"} #{t('workarea.storefront.orders.customizations')}:
     %span= number_to_currency(item.customizations_unit_price)
