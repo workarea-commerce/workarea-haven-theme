@@ -21,9 +21,6 @@ $product-list-item-info-items-margin: ($spacing-unit / 2) 0 0 !default;
 
 .product-list--narrow {}
 
-    /**
-     * 1. Left margin must be auto to ensure flex alignment is correct.
-     */
     .product-list__item {
         @extend %clearfix;
         margin-bottom: $spacing-unit * 2;
@@ -36,8 +33,7 @@ $product-list-item-info-items-margin: ($spacing-unit / 2) 0 0 !default;
             margin-bottom: $spacing-unit * 3;
             padding: ($spacing-unit * 2);
             width: 100%;
-            border-spacing:  0;
-            border-collapse: collapse;
+            flex-wrap: wrap;
             justify-content: space-between;
         }
 
@@ -131,13 +127,17 @@ $product-list-item-info-items-margin: ($spacing-unit / 2) 0 0 !default;
                 text-align: center;
             }
 
+        /**
+        * 1. Left margin must be auto to ensure flex alignment is correct.
+        */
         .product-list__prices {
             margin: 0 ($spacing-unit * 2);
             text-align: right;
 
             @include respond-to($medium-breakpoint) {
                 display: inline-block;
-                margin: 0 ($spacing-unit * 2) 0 auto; /* [1] */
+                margin: 0;
+                margin-left: auto;/* [1] */
             }
 
             .product-list--medium {
