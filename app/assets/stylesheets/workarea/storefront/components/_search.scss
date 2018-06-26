@@ -25,7 +25,7 @@ $search-button-icon-size: 16px !default;
 
 .search--open {
     display: block;
-    z-index: index($page-container, search);
+    z-index: index($components, search);
 }
 
     .search__heading {
