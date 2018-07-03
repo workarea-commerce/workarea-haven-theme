@@ -33,7 +33,7 @@ Optimal Image Sizes
 Out of the box plugin support
 --------------------------------------------------------------------------------
 
-The following workarea plugins are supported by OneTheme, and are dependencies of the plugin.
+The following workarea plugins are supported by Haven, and are dependencies of the plugin.
 
 * Product Quickview
 * Package Products
@@ -56,7 +56,7 @@ Theme Configuration
 
 ### Recommended initializer configuration
 
-While you are able to configure the Workarea OneTheme from any initializer it is recommended
+While you are able to configure Workarea themes from any initializer it is recommended
 that you create a new initializer called theme.rb using the following code
 
 ```ruby
@@ -95,7 +95,7 @@ more developer friendly. In the meantime you can create a new color scheme by:
 
 __Example__
 This will create a sass file called _custom_color_scheme.scss in your host application, please change <your-app-name>
-From your ~/src directory, ensure you have workarea-one-theme pulled down
+From your ~/src directory, ensure you have workarea-haven-theme pulled down
 
     cp -i workarea-haven-theme/app/assets/stylesheets/workarea/storefront/theme_config/_haven_color_scheme.scss <your-app-name>/app/assets/stylesheets/workarea/storefront/theme_config/_custom_color_scheme.scss
 
@@ -106,7 +106,7 @@ Haven Theme includes configurable font-stack functionality!
 A developer is able to configure the primary and secondary font stacks using the theme
 configuration initializer. To change the font stacks in your application set the
 primary_font_family and secondary_font_family initializer values to one of the font_stacks
-defined in workarea-one-theme/config/initializers/theme.rb
+defined in workarea-haven-theme/config/initializers/theme.rb
 
 Example:
 
