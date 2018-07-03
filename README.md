@@ -33,36 +33,41 @@ Optimal Image Sizes
 Out of the box plugin support
 --------------------------------------------------------------------------------
 
-The following workarea plugins are supported by OneTheme, and are dependencies of the plugin.
+The following workarea plugins are supported by Haven, and are dependencies of the plugin.
 
 * Product Quickview
 * Package Products
 * Product Badges
 * Product Videos
 * Product Image Zoom
+* Product Grid Content
 * Swatches
 * Reviews
+* Blog
+* Content Search
 * Styled selects
-* Product Grid Content
+* Email Signup Popup
+* Shipping Message
 * Gift Cards
 * Share
-* Blog
 
 Theme Configuration
 --------------------------------------------------------------------------------
 
 ### Recommended initializer configuration
 
-While you are able to configure the Workarea OneTheme from any initializer it is recommended
+While you are able to configure Workarea themes from any initializer it is recommended
 that you create a new initializer called theme.rb using the following code
 
-    Workarea.configure do |config|
-      config.theme = config.theme.merge(
-        color_scheme: "haven",
-        primary_font_family: "poppins",
-        secondary_font_family: "pt_serif"
-      )
-    end
+```ruby
+Workarea.configure do |config|
+  config.theme = config.theme.merge(
+    color_scheme: "haven",
+    primary_font_family: "poppins",
+    secondary_font_family: "pt_serif"
+  )
+end
+```
 
 This will set your application up with the default configuration options, but allow you to
 change them easily.
@@ -70,6 +75,7 @@ change them easily.
 ---
 
 ### Color Schemes
+
 Haven comes with [TODO] color schemes pre-defined for demo and learning purposes.
 
 To change the color scheme in your application, set the color_scheme configuration
@@ -89,7 +95,7 @@ more developer friendly. In the meantime you can create a new color scheme by:
 
 __Example__
 This will create a sass file called _custom_color_scheme.scss in your host application, please change <your-app-name>
-From your ~/src directory, ensure you have workarea-one-theme pulled down
+From your ~/src directory, ensure you have workarea-haven-theme pulled down
 
     cp -i workarea-haven-theme/app/assets/stylesheets/workarea/storefront/theme_config/_haven_color_scheme.scss <your-app-name>/app/assets/stylesheets/workarea/storefront/theme_config/_custom_color_scheme.scss
 
@@ -100,14 +106,16 @@ Haven Theme includes configurable font-stack functionality!
 A developer is able to configure the primary and secondary font stacks using the theme
 configuration initializer. To change the font stacks in your application set the
 primary_font_family and secondary_font_family initializer values to one of the font_stacks
-defined in workarea-one-theme/config/initializers/theme.rb
+defined in workarea-haven-theme/config/initializers/theme.rb
 
 Example:
 
-    config.theme = config.theme.merge(
-      primary_font_family: "poppins",
-      secondary_font_family: "pt_serif"
-    )
+```ruby
+config.theme = config.theme.merge(
+  primary_font_family: "poppins",
+  secondary_font_family: "pt_serif"
+)
+```
 
 The primary_font_family is used for most text throughout the site, including body text, links,
 buttons, prices, content blocks etc.
@@ -125,13 +133,15 @@ I recommend using google fonts where possible, the [googlefonts webfont helper](
 
 Example configuration for Calibri font stack used as secondary font family:
 
-    config.theme[:font_stacks] = config.theme.font_stacks.merge (
-      calibri: 'Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif',
-    )
+```ruby
+config.theme[:font_stacks] = config.theme.font_stacks.merge (
+  calibri: 'Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif',
+)
 
-    config.theme = config.theme.merge(
-      secondary_font_family: "calibri"
-    )
+config.theme = config.theme.merge(
+  secondary_font_family: "calibri"
+)
+```
 
 
 Getting Started

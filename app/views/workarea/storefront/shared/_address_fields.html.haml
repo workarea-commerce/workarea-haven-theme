@@ -36,9 +36,8 @@
       = text_field_tag "#{label}[street]", address.street, class: 'text-box text-box--full', required: true, autocomplete: 'address-line1', autocorrect: 'off', title: "#{title_label} #{t('workarea.storefront.addresses.street')}"
       - if address.errors[:street].present?
         %span.value__error= address.errors[:street].first
-      -# TODO - Uncomment this once v3.3 is released
-      -# - unless address.allow_po_box?
-      -#   %span.value__note= t('workarea.storefront.addresses.no_po_boxes')
+      - unless address.allow_po_box?
+        %span.value__note= t('workarea.storefront.addresses.no_po_boxes')
 
   .property{ class: ('property--invalid' if address.errors[:street_2].present?) }
     = label_tag "#{label}[street_2]", nil, class: 'property__name' do
