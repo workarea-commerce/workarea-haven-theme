@@ -11,9 +11,9 @@
 
     %p.product-prices__price
       - if product.show_original_range?
-        %s #{number_to_currency product.original_min_price} – #{number_to_currency product.original_max_price}
+        %s.product-prices__price--original-range #{number_to_currency product.original_min_price} – #{number_to_currency product.original_max_price}
       - else
-        %s= number_to_currency product.original_min_price
+        %s.product-prices__price--original= number_to_currency product.original_min_price
 
     - if product.on_sale?
       %p.product-prices__price.product-prices__price--sale

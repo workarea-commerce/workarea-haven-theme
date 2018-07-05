@@ -3,7 +3,7 @@
 \*------------------------------------*/
 
 $ui-dialog-bg-color:           $background-color !default;
-$ui-dialog-titlebar-bg-color:  $gray !default;
+$ui-dialog-titlebar-bg-color:  $ui-dialog-titlebar-bg-color !default;
 $ui-dialog-shadow:             0 6px 8px 0 $black-alpha-50 !default;
 $ui-dialog-content-height:     90vh !default;
 $ui-dialog-close-button-offset: $spacing-unit * -4 !default;

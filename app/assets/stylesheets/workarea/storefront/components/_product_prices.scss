@@ -55,6 +55,14 @@ $product-price-discount-color: $product-price-discount-color !default;
         }
     }
 
+    .product-prices__price--original {}
+
+    .product-prices__price--original-range {
+        .product-summary & {
+            @extend %visually-hidden;
+        }
+    }
+
     .product-prices__price--sale {
         color: $product-price-sale-color;
         font-weight: $font-weight-heavy;

@@ -9,19 +9,19 @@ $slick-slider-elements: (
 ) !default;
 
 $slick-slider-dots-width:         $font-size !default;
-$slick-slider-dots-color:         $link-color !default;
-$slick-slider-dots-bg-color:      $background-color !default;
+$slick-slider-dots-color:         $slider-dots-color !default;
+$slick-slider-dots-bg-color:      $slider-dots-bg-color !default;
 $slick-slider-dots-border-width:  2px !default;
 $slick-slider-dots-spacing:       2 * $spacing-unit !default;
-$slick-slider-nav-color:          $medium-gray !default;
-$slick-slider-nav-color-alt:      $primary-color !default;
-$slick-slider-nav-bg-color:       transparent !default;
+$slick-slider-nav-color:          $slider-nav-color !default;
+$slick-slider-nav-color-alt:      $slider-nav-color-alt !default;
+$slick-slider-nav-bg-color:       $slider-nav-bg-color !default;
 
-$slick-slider-arrow-size: 13px !default;
-$slick-slider-arrow-size-small: 8px !default;
+$slick-slider-arrow-size:         13px !default;
+$slick-slider-arrow-size-small:   8px !default;
 $slick-slider-arrows-offset:      8px !default;
 
-$slick-slider-active-color:    $slick-slider-dots-color !default;
+$slick-slider-active-color:       $slider-active-color !default;
 
 .slick-slider {}
 

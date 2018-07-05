@@ -6,7 +6,8 @@ $quantity-input-color: $font-color !default;
 $quantity-control-background-color: $background-color !default;
 $quantity-control-width-mobile: 50px !default;
 $quantity-control-width: 100px !default;
-$quantity-control-border: 1px solid $border-color !default;
+$quantity-control-height: 42px !default;
+$quantity-control-border: 1px solid $quantity-control-border-color !default;
 
 $quantity-control-error-label-top-offset: 4em !default;
 $quantity-control-error-label-left-offset-dialog: 110px !default;
@@ -19,12 +20,15 @@ $quantity-control-button-background-color: $quantity-control-button-background-c
 
 /**
  * 1. Arbitrary padding value used to visually center text in input
- * 2. Remove arrows from number field styles on non-mobile devices
- * 3. Some margins are still there even though it's hidden
+ * 2. Subtract double border width from height & width to ensure consistent rendering
+ * 3. Remove arrows from number field styles on non-mobile devices
+ * 4. Some margins are still there even though it's hidden
  */
 
 .quantity-control {
     position: relative;
+    width: $quantity-control-width;
+    height: $quantity-control-height;
     border: $quantity-control-border;
 
     /**
@@ -51,21 +55,22 @@ $quantity-control-button-background-color: $quantity-control-button-background-c
 
     .quantity-control__input {
         padding: $spacing-unit;
-        padding-right: 14px; /* [1] */
-        width: $quantity-control-width-mobile;
+        padding-right: 10px; /* [1] */
+        width: $quantity-control-width-mobile - 2px; /* [2] */
+        height: $quantity-control-height - 2px; /* [2] */
         color: $quantity-input-color;
         text-align: center;
         background-color: $quantity-control-background-color;
         border: 0;
 
-        /* [2] */
+        /* [3] */
         @include respond-to($medium-breakpoint) {
-            width: $quantity-control-width;
+            width: $quantity-control-width - 2px; /* [2] */
             appearance: textfield;
 
             &::-webkit-outer-spin-button,
             &::-webkit-inner-spin-button {
-                margin: 0; /* [3] */
+                margin: 0; /* [4] */
                 appearance: none;
             }
         }

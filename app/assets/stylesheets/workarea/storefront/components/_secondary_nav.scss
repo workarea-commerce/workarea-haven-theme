@@ -6,7 +6,7 @@ $secondary-nav-max-width:  196px !default;
 
 .secondary-nav {
     padding: ($spacing-unit * 2) 0;
-    background: $white;
+    background: $secondary-nav-background-color;
 }
 
     .secondary-nav__wrapper {

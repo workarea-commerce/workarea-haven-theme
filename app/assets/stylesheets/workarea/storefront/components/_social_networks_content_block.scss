@@ -3,10 +3,12 @@
 \*------------------------------------*/
 
 $social-networks-content-block-item-size: 32px !default;
-$social-networks-content-block-item-border: 1px solid $primary-color !default;
+$social-networks-content-block-item-border: 1px solid $social-icon-border-color !default;
+$social-networks-content-block-item-border-hover: $social-icon-border-color-hover !default;
+$social-networks-content-block-item-background-hover: $social-icon-background-hover !default;
 $social-networks-content-block-icon-size: 16px !default;
-$social-networks-content-block-icon-color: $primary-color !default;
-$social-networks-content-block-icon-color-hover: $white !default;
+$social-networks-content-block-icon-color: $social-icon-color !default;
+$social-networks-content-block-icon-color-hover: $social-icon-color-hover !default;
 
 
 .social-networks-content-block {
@@ -21,8 +23,8 @@ $social-networks-content-block-icon-color-hover: $white !default;
         border-radius: 50%;
 
         &:hover {
-            background-color: $primary-color;
-            border-color: $white;
+            background-color: $social-networks-content-block-item-background-hover;
+            border-color: $social-networks-content-block-item-border-hover;
         }
     }
 

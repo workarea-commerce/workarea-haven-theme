@@ -15,10 +15,10 @@ $forms-border-color-error: $invalid-color !default;
 
 // Checkbox settings
 $checkbox-size: 16px !default;
-$checkbox-color: $white !default;
-$checkbox-border: 1px solid $gray !default;
+$checkbox-color: $input-checkbox-color !default;
+$checkbox-border: 1px solid $input-checkbox-border-color !default;
 
-$checkbox-fill-color: $primary-color !default;
+$checkbox-fill-color: $input-checkbox-fill-color !default;
 $checkbox-box-shadow: 0 0 0 0 $checkbox-fill-color inset !default;
 $checkbox-box-shadow-checked: 0 0 0 ($checkbox-size / 2) $checkbox-fill-color inset !default;
 $checkbox-easing-function: ease-in !default;
@@ -26,13 +26,13 @@ $checkbox-easing-function: ease-in !default;
 // Radio button settings
 $radio-button-size: 16px !default;
 $radio-button-inner-size: 4px !default;
-$radio-button-color: $white !default;
-$radio-button-border: 1px solid $gray !default;
+$radio-button-color: $input-radio-color !default;
+$radio-button-border: 1px solid $input-radio-border-color !default;
 
-$radio-button-fill-color: $primary-color !default;
+$radio-button-fill-color: $input-radio-fill-color !default;
 $radio-button-box-shadow: 0 0 0 0 $radio-button-fill-color inset !default;
 $radio-button-box-shadow-checked: 0 0 0 ($radio-button-size / 2) $radio-button-fill-color inset !default;
-$radio-button-inner-bg-color: $white !default;
+$radio-button-inner-bg-color: $input-radio-background-color !default;
 $radio-button-easing-function: cubic-bezier(0.75, 0.01, 0.48, 2);
 
 /**
