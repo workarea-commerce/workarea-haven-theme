@@ -48,6 +48,10 @@ $product-price-discount-color: $product-price-discount-color !default;
 
         & + & {
             margin-left: $spacing-unit / 2;
+
+            .product-prices--summary & {
+                margin-left: 0;
+            }
         }
     }
 
