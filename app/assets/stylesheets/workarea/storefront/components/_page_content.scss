@@ -6,7 +6,9 @@ $page-content-max-width: 1410px !default;
 $page-content-checkout-container-max-width: 500px !default;
 $page-content-checkout-aside-width: 478px !default;
 
-
+/**
+ * 1. Prevent display: table; overflowing window in IE11
+ */
 .page-content {
     display: table;
     position: relative;
@@ -15,6 +17,7 @@ $page-content-checkout-aside-width: 478px !default;
     padding: 0 ($spacing-unit / 2);
     width: 100%;
     max-width: $page-content-max-width;
+    table-layout: fixed; /* [1] */
 
     @include respond-to($medium-breakpoint) {
         margin: 0 auto;
