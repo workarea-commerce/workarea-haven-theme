@@ -1,16 +1,32 @@
-- cache "#{product.cache_key}/prices", expires_in: 1.week do
+- cache "#{product.cache_key}/prices", expires_in: Workarea.config.cache_expirations.product_pricing_fragment_cache do
   - if product.one_price?
     %p.product-prices__price
-      %span= render 'workarea/storefront/products/price', price: product.sell_min_price
+      - if product.show_sell_range?
+        %span= render 'workarea/storefront/products/price', price: product.sell_min_price
+        %span – #{number_to_currency product.sell_max_price}
+      - else
+        %span= render 'workarea/storefront/products/price', price: product.sell_min_price
 
   - else
+
     %p.product-prices__price
-      %s= number_to_currency product.original_min_price
+      - if product.show_original_range?
+        %s #{number_to_currency product.original_min_price} – #{number_to_currency product.original_max_price}
+      - else
+        %s= number_to_currency product.original_min_price
 
     - if product.on_sale?
       %p.product-prices__price.product-prices__price--sale
-        %strong= render 'workarea/storefront/products/price', price: product.sell_min_price
+        - if product.show_sell_range?
+          %strong= render 'workarea/storefront/products/price', price: product.sell_min_price
+          %strong – #{number_to_currency product.sell_max_price}
+        - else
+          %strong= render 'workarea/storefront/products/price', price: product.sell_min_price
 
     - else
       %p.product-prices__price.product-prices__price--sale
-        = render 'workarea/storefront/products/price', price: product.sell_min_price
+        - if product.show_sell_range?
+          %span= render 'workarea/storefront/products/price', price: product.sell_min_price
+          %span – #{number_to_currency product.sell_max_price}
+        - else
+          %span= render 'workarea/storefront/products/price', price: product.sell_min_price
