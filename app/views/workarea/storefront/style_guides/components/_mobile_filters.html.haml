@@ -7,11 +7,140 @@
   %p should toggle content between a visible and invisible state:
   .style-guide__example-block
     .mobile-filters
-      = check_box_tag 'toggle_mobile_filters', nil, true, class: 'mobile-filters__control'
       .mobile-filters__trigger
-        = label_tag 'toggle_mobile_filters', 'Filter Results', class: 'button button--large'
+        = label_tag 'toggle_mobile_filters', 'Filter Results', class: 'button button--full', data: { mobile_filter_button: '' }
+
       .mobile-filters__content
-        %ol
-          %li Filter 1
-          %li Filter 2
-          %li Filter 3
+        .mobile-filters__sort
+          .mobile-filters__wrapper
+            %h2.mobile-filters__heading= t('workarea.storefront.products.refine_results')
+            = form_tag '#', method: :get do
+              .property
+                = label_tag 'sort_drawer', nil, class: 'property__name' do
+                  %span.property__text= t('workarea.storefront.searches.sort_by')
+                %span.value= select_tag :sort, ['Top Sellers', 'Most Popular'], id: 'sort_drawer', data: { form_submitting_control: '' }
+              .hidden-if-js-enabled
+                = button_tag t('workarea.storefront.searches.sort'), value: 'sort_products_top', class: 'button'
+        .applied-filters
+          .result-filters
+            %ul.result-filters__group
+              %li.result-filters__filter.result-filters__filter--selected
+                %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                  .swatch-facet.swatch-facet--orange.swatch-facet--hex{ style: "background-color: #ff9800;" }
+                  %span.result-filters__filter-text Orange
+                  %span.result-filters__filter-remove= inline_svg('workarea/storefront/icons/x.svg', class: 'svg-icon svg-icon--tiny svg-icon--blue', title: t('workarea.storefront.products.remove_filter'))
+              %li.result-filters__filter.result-filters__filter--selected
+                %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                  .swatch-facet.swatch-facet--light_blue.swatch-facet--hex{ style: "background-color: #03a9f4;" }
+                  %span.result-filters__filter-text Light Blue
+                  %span.result-filters__filter-remove= inline_svg('workarea/storefront/icons/x.svg', class: 'svg-icon svg-icon--tiny svg-icon--blue', title: t('workarea.storefront.products.remove_filter'))
+              %li.result-filters__filter.result-filters__filter--selected
+                %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                  %span.swatch-facet.swatch-facet--10_0_19_99.swatch-facet--empty
+                  %span.result-filters__filter-text $10.00 - $19.99
+                  %span.result-filters__filter-remove= inline_svg('workarea/storefront/icons/x.svg', class: 'svg-icon svg-icon--tiny svg-icon--blue', title: t('workarea.storefront.products.remove_filter'))
+            = link_to t('workarea.storefront.filters.clear'), '#', class: 'button button--small'
+
+        .result-filters{ data: { filter_view_more: '', expandable_filters: '' } }
+          .result-filters__container
+            %h2.result-filters__attribute Color
+            .result-filters__section.result-filters__section--color
+              %ul.result-filters__group.result-filters__group--truncated
+                %li.result-filters__filter.result-filters__filter--selected
+                  %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                    .swatch-facet.swatch-facet--orange.swatch-facet--hex{ style: "background-color: #ff9800;" }
+                    %span.result-filters__filter-text Orange
+                    %span.result-filters__filter-remove= inline_svg('workarea/storefront/icons/x.svg', class: 'svg-icon svg-icon--tiny svg-icon--blue', title: t('workarea.storefront.products.remove_filter'))
+                %li.result-filters__filter
+                  %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                    .swatch-facet.swatch-facet--green.swatch-facet--hex{ style: "background-color: #4caf50;" }
+                    %span.result-filters__filter-text Green
+                    %span.result-filters__filter-count 9
+                %li.result-filters__filter
+                  %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                    .swatch-facet.swatch-facet--red.swatch-facet--hex{ style: "background-color: #f44336;" }
+                    %span.result-filters__filter-text Red
+                    %span.result-filters__filter-count 9
+                %li.result-filters__filter
+                  %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                    .swatch-facet.swatch-facet--yellow.swatch-facet--hex{ style: "background-color: #ffeb3b;" }
+                    %span.result-filters__filter-text Yellow
+                    %span.result-filters__filter-count 9
+                %li.result-filters__filter
+                  %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                    .swatch-facet.swatch-facet--white.swatch-facet--hex{ style: "background-color: #ffffff;" }
+                    %span.result-filters__filter-text White
+                    %span.result-filters__filter-count 8
+                %li.result-filters__filter
+                  %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                    .swatch-facet.swatch-facet--blue_grey.swatch-facet--hex{ style: "background-color: #607d8b;" }
+                    %span.result-filters__filter-text Blue Grey
+                    %span.result-filters__filter-count 6
+                %li.result-filters__filter
+                  %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                    .swatch-facet.swatch-facet--grey.swatch-facet--hex{ style: "background-color: #9e9e9e;" }
+                    %span.result-filters__filter-text Grey
+                    %span.result-filters__filter-count 6
+                %li.result-filters__filter.result-filters__filter--selected
+                  %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                    .swatch-facet.swatch-facet--light_blue.swatch-facet--hex{ style: "background-color: #03a9f4;" }
+                    %span.result-filters__filter-text Light Blue
+                    %span.result-filters__filter-remove= inline_svg('workarea/storefront/icons/x.svg', class: 'svg-icon svg-icon--tiny svg-icon--blue', title: t('workarea.storefront.products.remove_filter'))
+                %li.result-filters__filter
+                  %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                    .swatch-facet.swatch-facet--light_green.swatch-facet--hex{ style: "background-color: #8bc34a;" }
+                    %span.result-filters__filter-text Light Green
+                    %span.result-filters__filter-count 6
+                %li.result-filters__filter
+                  %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                    .swatch-facet.swatch-facet--blue.swatch-facet--hex{ style: "background-color: #2196f3;" }
+                    %span.result-filters__filter-text Blue
+                    %span.result-filters__filter-count 5
+              %button.result-filters__view-more-button View More
+          .result-filters__container.result-filters__container--closed
+            %h2.result-filters__attribute Price
+            .result-filters__section
+              %ul.result-filters__group.result-filters__group--truncated
+                %li.result-filters__filter
+                  %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                    %span.result-filters__filter-text Under $9.99
+                    %span.result-filters__filter-count 12
+                %li.result-filters__filter.result-filters__filter--selected
+                  %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                    %span.result-filters__filter-text $10.00 - $19.99
+                    %span.result-filters__filter-remove= inline_svg('workarea/storefront/icons/x.svg', class: 'svg-icon svg-icon--tiny svg-icon--blue', title: t('workarea.storefront.products.remove_filter'))
+                %li.result-filters__filter
+                  %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                    %span.result-filters__filter-text $20.00 - $29.99
+                    %span.result-filters__filter-count 11
+                %li.result-filters__filter
+                  %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                    %span.result-filters__filter-text $30.00 - $39.99
+                    %span.result-filters__filter-count 12
+                %li.result-filters__filter
+                  %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                    %span.result-filters__filter-text $40.00 - $49.99
+                    %span.result-filters__filter-count 8
+                %li.result-filters__filter
+                  %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                    %span.result-filters__filter-text $50.00 - $59.99
+                    %span.result-filters__filter-count 11
+                %li.result-filters__filter
+                  %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                    %span.result-filters__filter-text $60.00 - $69.99
+                    %span.result-filters__filter-count 17
+                %li.result-filters__filter
+                  %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                    %span.result-filters__filter-text $70.00 - $79.99
+                    %span.result-filters__filter-count 19
+                %li.result-filters__filter
+                  %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                    %span.result-filters__filter-text $80.00 - $89.99
+                    %span.result-filters__filter-count 11
+                %li.result-filters__filter
+                  %a.result-filters__filter-link{ href: "#", rel: "nofollow" }
+                    %span.result-filters__filter-text $90.00 - $99.99
+                    %span.result-filters__filter-count 12
+              %button.result-filters__view-more-button View More
+
+#mobile-filters-nav.mobile-filters-nav
