@@ -35,7 +35,7 @@
                 - if swatch_content.present?
                   = swatch_content
                 - elsif product.images_by_option[selection.optionize].present?
-                  = image_tag(product_image_url(product.images_by_option[selection.optionize].first, :small_thumb), alt: selection, class: 'option-button__image')
+                  = image_tag(product_image_url(product.images_by_option[selection.optionize].first, :swatch_thumb), alt: selection, class: 'option-button__image')
                 - else
                   %span.option-button__text= selection
 
