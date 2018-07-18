@@ -119,7 +119,7 @@ $blog-entry-summary-comment-count-background-color: $background-color-alternate 
                 }
 
             .blog-entry-summary__entry-tags {
-                margin: $vertical-margin 0;
+                margin: $vertical-margin 0 $spacing-unit;
                 text-align: center;
             }
 
@@ -129,12 +129,13 @@ $blog-entry-summary-comment-count-background-color: $background-color-alternate 
                 }
 
                     .blog-entry-summary__entry-tags-list-item {
+                        margin-bottom: $spacing-unit;
                         padding: ($spacing-unit / 2) $spacing-unit;
                         background-color: $blog-entry-summary-tag-background-color;
                         border-radius: $blog-entry-summary-tags-border-radius;
 
                         & + & {
-                            margin: 0 0 0 ($spacing-unit / 2);
+                            margin: 0 0 $spacing-unit ($spacing-unit / 2);
                         }
                     }
 
