@@ -2,8 +2,8 @@
     #MOBILE-FILTERS-NAV
 \*------------------------------------*/
 
-$mobile-filters-nav-bg-color:   $white !default;
-$mobile-filters-nav-box-shadow: -8px 0 8px rgba($black, 0.5);
+$mobile-filters-nav-bg-color: $background-color !default;
+$mobile-filters-nav-box-shadow: -8px 0 8px $black-alpha-50;
 $mobile-filters-nav-width: 84% !default;
 $mobile-filters-nav-min-width: 250px !default;
 $mobile-filters-nav-max-width: 420px !default;

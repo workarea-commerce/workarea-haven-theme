@@ -5,9 +5,9 @@
 $checkout-confirmation-border: 1px solid $border-color !default;
 
 $checkout-confirmation-checkmark-size: 46px !default;
-$checkout-confirmation-checkmark-background-color: $green;
+$checkout-confirmation-checkmark-background-color: $checkout-conifrmation-checkmark-background-color !default;
 $checkout-confirmation-checkmark-icon-size: 23px !default;
-$checkout-confirmation-checkmark-icon-color: $white;
+$checkout-confirmation-checkmark-icon-color: $checkout-conifrmation-checkmark-icon-color !default;
 
 $checkout-confirmation-account-min-height: 230px !default;
 

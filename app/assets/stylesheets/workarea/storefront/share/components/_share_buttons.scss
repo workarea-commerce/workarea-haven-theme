@@ -7,15 +7,19 @@
 $share-buttons-item-count: 5 !default;
 
 $share-buttons-icon-size: 16px !default;
-$share-buttons-icon-color: $black !default;
-$share-buttons-icon-color-hover: $primary-color !default;
+$share-buttons-icon-color: $social-icon-color !default;
+$share-buttons-icon-color-hover: $social-icon-color-hover !default;
+$share-buttons-icon-background-color: $social-icon-background !default;
+$share-buttons-icon-background-color-hover: $social-icon-background-hover !default;
 
 $share-buttons-button-size: 42px !default;
+$share-buttons-toggle-button-background: $social-icon-background !default;
+$share-buttons-toggle-button-background-hover: $social-icon-background-hover !default;
 $share-buttons-toggle-button-border: 1px solid $border-color !default;
-$share-buttons-toggle-button-border-color-hover: $primary-color !default;
+$share-buttons-toggle-button-border-color-hover: $social-icon-border-color !default;
 $share-buttons-animation-duration: 0.2s !default;
 
-$share-buttons-item-border: 1px solid $primary-color;
+$share-buttons-item-border: 1px solid $social-icon-border-color;
 
 
 @keyframes FadeIn {
@@ -53,12 +57,14 @@ $share-buttons-item-border: 1px solid $primary-color;
         width: $share-buttons-button-size;
         height: $share-buttons-button-size;
         text-align: center;
+        background-color: $share-buttons-toggle-button-background;
         border: $share-buttons-toggle-button-border;
         border-radius: 50%;
         cursor: pointer;
 
         &:hover,
         .share-buttons--open & {
+            background-color: $share-buttons-toggle-button-background-hover;
             border-color: $share-buttons-toggle-button-border-color-hover;
         }
 
@@ -87,7 +93,10 @@ $share-buttons-item-border: 1px solid $primary-color;
     .share-buttons__item {
         display: none;
         margin: $spacing-unit 0;
+        width: $share-buttons-button-size;
+        height: $share-buttons-button-size;
         text-align: center;
+        background-color: $share-buttons-toggle-button-background;
         border: $share-buttons-item-border;
         border-radius: 50%;
         vertical-align: middle;
@@ -100,6 +109,11 @@ $share-buttons-item-border: 1px solid $primary-color;
             }
         }
 
+        &:hover {
+            background-color: $share-buttons-toggle-button-background-hover;
+            border-color: $share-buttons-toggle-button-border-color-hover;
+        }
+
         .share-buttons--open & {
             display: block;
         }
@@ -107,14 +121,19 @@ $share-buttons-item-border: 1px solid $primary-color;
 
         .share-buttons__button {
             display: block;
+            position: relative;
             width: $share-buttons-button-size;
-            line-height: $share-buttons-button-size;
+            height: $share-buttons-button-size;
         }
 
             .share-buttons__social-icon {
+                @include center;
                 display: inline-block;
                 width: $share-buttons-icon-size;
                 height: $share-buttons-icon-size;
-                vertical-align: middle;
-                fill: $share-buttons-icon-color-hover;
+                fill: $share-buttons-icon-color;
+
+                .share-buttons__item:hover & {
+                    fill: $share-buttons-icon-color-hover;
+                }
             }

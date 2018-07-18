@@ -2,7 +2,6 @@
     #TEXT-BOX
 \*------------------------------------*/
 
-$text-box-border-color: $black !default;
 $text-box-border: 2px solid $input-border-color !default;
 $text-box-invalid-border-color: $invalid-color !default;
 $text-box-valid-border-color: $valid-color !default;
@@ -12,7 +11,7 @@ $text-box-color-page-footer: $footer-color !default;
 $text-box-stripped-border: 0 !default;
 $text-box-stripped-placeholder-color: $text-box-color-page-footer !default;
 
-$text-box-search-color: $white !default;
+$text-box-search-color: $search-color !default;
 $text-box-search-background-color: $transparent !default;
 
 $text-box-width:              100% !default;

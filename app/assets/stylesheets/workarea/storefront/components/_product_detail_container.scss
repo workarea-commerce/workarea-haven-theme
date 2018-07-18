@@ -15,7 +15,7 @@ $product-detail-container-tab-color: $font-color !default;
 $product-detail-container-tab-color-hover: $link-color !default;
 $product-detail-container-tab-font-size: 18px !default;
 $product-detail-container-tab-font-size-medium: 22px !default;
-$product-detail-container-tab-border: 1px solid $white !default;
+$product-detail-container-tab-border: 1px solid $product-detail-container-tab-border-color !default;
 
 $product-detail-container-section-back-icon-size: 24px !default;
 $product-detail-container-section-back-icon-color: $link-color !default;

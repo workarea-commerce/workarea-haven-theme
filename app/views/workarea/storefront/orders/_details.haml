@@ -92,28 +92,26 @@
                       %p.product-list__quantity= item.quantity
 
             - if order.packages.any?
-              .box
-                .box__body
-                  - order.packages.each_with_index do |package, index|
-                    .box
-                      .box__header
-                        .box__action
-                          - if !package.tracking_number.present?
-                            %p=  t('workarea.storefront.orders.no_tracking')
-                          - else
-                            %p= link_to t('workarea.storefront.orders.track_package'), package.tracking_link, target: '_blank', rel: 'noopener', class: 'button button--full'
-                        %h3.box__heading= "#{t('workarea.storefront.orders.package')} #{index + 1}"
-                      .box__body
-                        %ul.product-list
-                          - package.items.each do |item|
-                            %li.product-list__item
-                              .product-list__summary
-                                .product-list__media= link_to image_tag(product_image_url(item.image, :small_thumb), alt: item.product_name, class: 'product-list__media-image'), product_url(item.product, sku: item.sku), class: 'product-list__media-link'
-                                .product-list__info
-                                  %p.product-list__name= link_to item.product_name, product_path(item.product, sku: item.sku)
-                                  %p.product-list__id= item.sku
+              - order.packages.each_with_index do |package, index|
+                .box
+                  .box__header
+                    .box__action
+                      - if !package.tracking_number.present?
+                        %p=  t('workarea.storefront.orders.no_tracking')
+                      - else
+                        %p= link_to t('workarea.storefront.orders.track_package'), package.tracking_link, target: '_blank', rel: 'noopener', class: 'button button--full'
+                    %h3.box__heading= "#{t('workarea.storefront.orders.package')} #{index + 1}"
+                  .box__body
+                    %ul.product-list
+                      - package.items.each do |item|
+                        %li.product-list__item
+                          .product-list__summary
+                            .product-list__media= link_to image_tag(product_image_url(item.image, :small_thumb), alt: item.product_name, class: 'product-list__media-image'), product_url(item.product, sku: item.sku), class: 'product-list__media-link'
+                            .product-list__info
+                              %p.product-list__name= link_to item.product_name, product_path(item.product, sku: item.sku)
+                              %p.product-list__id= item.sku
 
-                        = append_partials('storefront.order_summary_package_actions', package: package)
+                    = append_partials('storefront.order_summary_package_actions', package: package)
 
             = append_partials('storefront.order_summary_shipping', shipping: shipping)
 

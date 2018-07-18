@@ -118,11 +118,19 @@ $result-filters-count-border-radius: 8px !default;
                     color: $result-filters-text-color;
                     align-items: center;
 
+                    &:hover {
+                        color: $result-filters-text-color-hover;
+                    }
+
                     .result-filters__filter--selected & {
                         padding: 0 $spacing-unit;
                         height: $result-filters-width-selected;
-                        background: $result-filters-selected-color;
+                        background: $result-filters-selected-background-color;
                         border-radius: 16px;
+
+                        &:hover {
+                            color: $result-filters-selected-color-hover;
+                        }
                     }
                 }
 
@@ -170,6 +178,11 @@ $result-filters-count-border-radius: 8px !default;
         margin: 0;
         padding: $spacing-unit;
         color: $result-filters-view-more-text-color;
+        cursor: pointer;
+
+        &:hover {
+            color: $result-filters-view-more-text-color-hover;
+        }
 
         &:after {
             display: inline-block;

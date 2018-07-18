@@ -1,5 +1,5 @@
 /*------------------------------------*\
-    #ONE-COLOR-SCHEME
+    #LAGOON-COLOR-SCHEME
 \*------------------------------------*/
 /**
  * Color Variables
@@ -28,14 +28,16 @@ $transparent:                       transparent !default;
  * Theme colors
  */
 
-$gray: #7c7a94 !default;
-$medium-gray: #c1c2d0 !default;
-$light-gray: #eaedf3 !default;
+$gray: #1b1b1e !default;
+$medium-gray: #6d676e !default;
+$light-gray: #adaaad !default;
 
-$midnight: #0c102c !default;
-$purple-blue: #3e36d9 !default;
-$dark-purple-blue: #3029ad !default;
-$highlighter: #fff93d !default;
+$darkest-teal: #0b452f !default;
+$dark-teal: #33755c !default;
+$teal: #7ba696 !default;
+$light-teal: #aac6bb !default;
+$lightest-teal: #dae5e1 !default;
+
 
 /**
  * Styleguide color box modifiers for theme colors
@@ -43,10 +45,11 @@ $highlighter: #fff93d !default;
 .color-box__swatch--gray { background: $gray; }
 .color-box__swatch--medium-gray { background: $medium-gray; }
 .color-box__swatch--light-gray { background: $light-gray; }
-.color-box__swatch--midnight { background: $midnight; }
-.color-box__swatch--purple-blue { background: $purple-blue; }
-.color-box__swatch--dark-purple-blue { background: $dark-purple-blue; }
-.color-box__swatch--highlighter { background: $highlighter; }
+.color-box__swatch--darkest-teal { background: $darkest-teal; }
+.color-box__swatch--dark-teal { background: $dark-teal; }
+.color-box__swatch--teal { background: $teal; }
+.color-box__swatch--light-teal { background: $light-teal; }
+.color-box__swatch--lightest-teal { background: $lightest-teal; }
 
 
 /**
@@ -54,28 +57,28 @@ $highlighter: #fff93d !default;
  */
 
 // Generic
-$primary-color: $purple-blue !default;
-$primary-color-dark: $dark-purple-blue !default;
+$primary-color: $teal !default;
+$primary-color-dark: $dark-teal !default;
 
 $background-color: $white !default;
 $background-color-component: $white !default;
-$background-color-alternate: $light-gray !default;
+$background-color-alternate: $lightest-teal !default;
 $page-aside-background-color: $background-color-alternate !default;
 
 $border-color: $light-gray !default;
-$highlight-color: $highlighter !default;
+$highlight-color: $primary-color !default;
 $overlay-shadow-color: rgba($black, 0.8) !default;
-$ui-dialog-titlebar-bg-color: $gray !default;
+$ui-dialog-titlebar-bg-color: $background-color !default;
 
 // Breadcrumbs
 $breadcrumbs-divider-color: $border-color !default;
-$breadcrumbs-color: $gray !default;
-$breadcrumbs-arrow-color: $medium-gray !default;
+$breadcrumbs-color: $darkest-teal !default;
+$breadcrumbs-arrow-color: $teal !default;
 
 // Site header colors
 $header-background-color: $white !default;
-$header-border-color: $border-color !default;
-$header-icon-color: $gray !default;
+$header-border-color: $gray !default;
+$header-icon-color: $medium-gray !default;
 $header-icon-color-hover: $primary-color !default;
 $header-icon-color-cart: $white !default;
 $header-cart-background-color: $primary-color !default;
@@ -87,20 +90,20 @@ $utility-nav-heading-color: $primary-color !default;
 // Navigation colors
 $primary-nav-background-color: $background-color !default;
 $primary-nav-border-color: $border-color !default;
-$primary-nav-links-color: $midnight !default;
-$primary-nav-links-color-hover: $midnight !default;
-$primary-nav-link-hover-border-color: $highlighter !default;
-$primary-nav-dropdown-links: $midnight !default;
-$primary-nav-dropdown-links-hover: $purple-blue !default;
+$primary-nav-links-color: $darkest-teal !default;
+$primary-nav-links-color-hover: $dark-teal !default;
+$primary-nav-link-hover-border-color: $teal !default;
+$primary-nav-dropdown-links: $darkest-teal !default;
+$primary-nav-dropdown-links-hover: $dark-teal !default;
 
 $mobile-nav-bg-color: $background-color !default;
-$mobile-nav-links: $midnight !default;
+$mobile-nav-links: $darkest-teal !default;
 $mobile-nav-close-button-color: $white !default;
-$mobile-nav-back-button-color: $primary-color !default;
+$mobile-nav-back-button-color: $darkest-teal !default;
 $mobile-nav-back-button-bg-color: $background-color-alternate !default;
 
 // Secondary navigation colors
-$secondary-nav-link-selected-color: $purple-blue !default;
+$secondary-nav-link-selected-color: $teal !default;
 $secondary-nav-link-color: $black !default;
 $secondary-nav-background-color: $white !default;
 
@@ -110,32 +113,32 @@ $search-color: $white !default;
 $search-input-border-color: $white !default;
 $search-item-color: $black !default;
 $search-item-background-color: $white !default;
-$search-item-border-color: $gray !default;
+$search-item-border-color: $medium-gray !default;
 $search-item-content-result-background-color: $transparent !default;
 $search-item-content-result-color: $white !default;
 
 // Footer colors
-$footer-background-color: $midnight !default;
-$footer-color: $white !default;
+$footer-background-color: $lightest-teal !default;
+$footer-color: $black !default;
 $footer-border-color: rgba($white, 0.3) !default;
-$footer-link-color: $white !default;
-$footer-link-color-hover: $highlighter !default;
+$footer-link-color: $dark-teal !default;
+$footer-link-color-hover: $darkest-teal !default;
 
-$footer-icon-color: $midnight !default;
-$footer-icon-color-hover: $primary-color !default;
+$footer-icon-color: $dark-teal !default;
+$footer-icon-color-hover: $darkest-teal !default;
 
 // Email signup colors
-$email-signup-value-border-color: $highlighter !default;
-$email-signup-label-color: $white !default;
+$email-signup-value-border-color: $black !default;
+$email-signup-label-color: $black !default;
 $email-signup-button-bg-color: $transparent !default;
-$email-signup-button-icon-color: $highlighter !default;
-$email-signup-button-icon-color-hover: $highlighter !default;
+$email-signup-button-icon-color: $dark-teal !default;
+$email-signup-button-icon-color-hover: $darkest-teal !default;
 
 // Typography colors
-$font-color: $midnight !default;
-$font-color-light: $gray !default;
+$font-color: $black !default;
+$font-color-light: $medium-gray !default;
 $font-color-inverted: $white !default;
-$heading-color: $midnight !default;
+$heading-color: $black !default;
 $product-name-color: $heading-color !default;
 
 // Links & Buttons
@@ -146,7 +149,7 @@ $button-background-color: $primary-color !default;
 $button-background-color-hover: $primary-color-dark !default;
 $button-border-color: $transparent !default;
 
-$button-secondary-color: $midnight !default;
+$button-secondary-color: $dark-teal !default;
 $button-secondary-background-color: $transparent !default;
 $button-secondary-background-color-hover: $white !default;
 $button-secondary-border-color: $primary-color !default;
@@ -159,11 +162,11 @@ $button-disabled-color: $white !default;
 $button-disabled-background-color: $medium-gray !default;
 
 // Inputs
-$label-color: $midnight !default;
-$input-color: $midnight !default;
-$placeholder-color: $midnight !default;
-$input-background-color: $background-color-alternate !default;
-$input-border-color: $medium-gray !default;
+$label-color: $black !default;
+$input-color: $black !default;
+$placeholder-color: $black !default;
+$input-background-color: lighten($background-color-alternate, 10%) !default;
+$input-border-color: $border-color !default;
 $input-border-color-focus: $primary-color !default;
 $input-disabled-color: rgba($input-color, 0.18) !default;
 $input-disabled-background-color: $input-background-color !default;
@@ -179,9 +182,9 @@ $input-checkbox-border-color: $gray !default;
 $input-checkbox-fill-color: $primary-color !default;
 
 $quantity-control-background-color: $background-color-component !default;
-$quantity-control-button-color: $primary-color !default;
-$quantity-control-button-background-color: $background-color-alternate !default;
-$quantity-control-border-color: $border-color !default;
+$quantity-control-button-color: $white !default;
+$quantity-control-button-background-color: $primary-color !default;
+$quantity-control-border-color: $primary-color !default;
 
 $select-menu-bg-color: $white !default;
 
@@ -190,7 +193,7 @@ $invalid-color: $red !default;
 $focus-ring-color: $primary-color !default;
 
 // Browse page colors
-$category-count-color: $gray !default;
+$category-count-color: $light-teal !default;
 $product-summary-background-color: $background-color-component !default;
 $product-summary-background-color-hover: rgba($background-color-alternate, 0.5) !default;
 $product-summary-border-color: $border-color !default;
@@ -198,18 +201,18 @@ $product-summary-name-color: $black !default;
 
 // Browse page filters
 $result-filters-text-color: $black !default;
-$result-filters-text-color-hover: $link-color-hover !default;
+$result-filters-text-color-hover: $white !default;
 $result-filters-count-background-color: $white !default;
 $result-filters-count-text-color: $medium-gray !default;
 $result-filters-selected-background-color: $white !default;
-$result-filters-selected-color-hover: $black !default;
+$result-filters-selected-color-hover: $darkest-teal !default;
 $result-filters-icon-background-color: $black !default;
-$result-filters-view-more-text-color: $purple-blue !default;
-$result-filters-view-more-text-color-hover: $purple-blue !default;
+$result-filters-view-more-text-color: $black !default;
+$result-filters-view-more-text-color-hover: $white !default;
 $result-filters-applied-background-color: lighten($background-color-alternate, 1%) !default;
 
 // Mobile Filters
-$mobile-filters-heading-color: $purple-blue !default;
+$mobile-filters-heading-color: $dark-teal !default;
 $mobile-filters-overlay-color: $black-alpha-50 !default;
 $mobile-filters-background-color: $background-color-alternate !default;
 $mobile-filters-sort-background-color: $white !default;
@@ -249,11 +252,11 @@ $checkout-conifrmation-checkmark-icon-color: $white !default;
 
 // Content block colors
 $divider-content-block-color: $medium-gray !default;
-$recommendations-background-color: $light-gray !default;
+$recommendations-background-color: $background-color-alternate !default;
 
 // Reviews
 $rating-star-color: $yellow !default;
-$rating-star-color-empty: $gray !default;
+$rating-star-color-empty: $light-gray !default;
 
 //Blog
 $blog-entry-tag-color: $white !default;

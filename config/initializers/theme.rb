@@ -1,6 +1,6 @@
 Workarea.configure do |config|
   config.theme = {
-    color_schemes: ["haven"],
+    color_schemes: ["haven", "lagoon"],
     color_scheme: "haven",
     font_stacks: {
       poppins: '"Poppins", "Helvetica", "Helvetica Neue", sans-serif',

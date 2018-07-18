@@ -2,14 +2,14 @@
     #CHECKOUT-PROGRESS
 \*------------------------------------*/
 
-$checkout-progress-color:            $medium-gray !default;
-$checkout-progress-active-color:     $primary-color !default;
-$checkout-progress-completed-color:  $primary-color !default;
+$checkout-progress-color:            $checkout-progress-color !default;
+$checkout-progress-active-color:     $checkout-progress-active-color !default;
+$checkout-progress-completed-color:  $checkout-progress-completed-color !default;
 
-$checkout-progress-step-color: $medium-gray !default;
-$checkout-progress-step-background-color: $gray !default;
+$checkout-progress-step-color: $checkout-progress-step-color !default;
+$checkout-progress-step-background-color: $checkout-progress-step-background-color !default;
 
-$checkout-progress-step-number-color: $white !default;
+$checkout-progress-step-number-color: $checkout-progress-step-number-color !default;
 $checkout-progress-step-completed-color: $checkout-progress-active-color !default;
 $checkout-progress-step-completed-background-color: $checkout-progress-active-color !default;
 
@@ -22,7 +22,7 @@ $checkout-progress-step-complete-icon-size-wide: 16px !default;
 
 $checkout-progress-step-divider-height: 2px !default;
 $checkout-progress-step-divider-width: 6vw !default;
-$checkout-progress-step-divider-color: $medium-gray !default;
+$checkout-progress-step-divider-color: $checkout-progress-step-divider-color !default;
 $checkout-progress-step-divider-color-complete: $primary-color !default;
 
 
@@ -74,10 +74,6 @@ $checkout-progress-step-divider-color-complete: $primary-color !default;
 
             .checkout-progress__step-number {
                 background-color: $checkout-progress-step-background-color;
-            }
-
-            &:before {
-                background-color: $gray;
             }
         }
     }

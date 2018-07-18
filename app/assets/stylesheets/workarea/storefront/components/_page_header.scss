@@ -3,6 +3,7 @@
 \*------------------------------------*/
 
 $page-header-background-color: $header-background-color !default;
+$page-header-border-color: $header-border-color !default;
 
 $page-header-height: 53px !default;
 $page-header-height-medium: $spacing-unit * 10 !default;
@@ -14,8 +15,9 @@ $page-header-button-icon-size-medium: 28px !default;
 $page-header-button-icon-color: $header-icon-color !default;
 $page-header-button-icon-color-hover: $header-icon-color-hover !default;
 
-$page-header-cart-background-color: $primary-color !default;
-$page-header-cart-count-background-color: $primary-color-dark !default;
+$page-header-cart-count-color: $header-cart-count-color !default;
+$page-header-cart-background-color: $header-cart-background-color !default;
+$page-header-cart-count-background-color: $header-cart-count-background-color !default;
 $page-header-cart-button-color: $header-icon-color-cart !default;
 $page-header-cart-icon-color: $header-icon-color-cart !default;
 
@@ -52,7 +54,7 @@ $page-header-breakpoint: $small-horizontal-breakpoint !default;
         z-index: index($components, header-main);
         max-width: 100vw;
         background-color: $page-header-background-color;
-        border-bottom: 1px solid $border-color;
+        border-bottom: 1px solid $page-header-border-color;
         flex: 0 1 auto;
 
         .page-header--checkout & {
@@ -74,8 +76,8 @@ $page-header-breakpoint: $small-horizontal-breakpoint !default;
             }
 
             @include respond-to($wide-breakpoint) {
-                border-right: 1px solid $border-color;
-                border-left: 1px solid $border-color;
+                border-right: 1px solid $page-header-border-color;
+                border-left: 1px solid $page-header-border-color;
             }
 
             & + & {
@@ -148,6 +150,7 @@ $page-header-breakpoint: $small-horizontal-breakpoint !default;
                 top: 0;
                 right: 0;
                 padding: $spacing-unit / 2;
+                color: $page-header-cart-count-color;
                 line-height: 1;
 
                 @include respond-to($page-header-breakpoint) {
