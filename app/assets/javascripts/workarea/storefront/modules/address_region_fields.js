@@ -12,7 +12,8 @@ WORKAREA.registerModule('addressRegionFields', (function () {
 
         resetSelectUI = function (countryField) {
             var $countryField = $(countryField),
-                $regionField = $countryField.next('[data-address-region-fields="region"]'),
+                $addressFields = $countryField.closest('.address-fields'),
+                $regionField = $('[data-address-region-fields="region"]', $addressFields),
                 initialSelectState = $regionField.data('regionSelect');
 
             $('select', $regionField).empty().append(initialSelectState);
