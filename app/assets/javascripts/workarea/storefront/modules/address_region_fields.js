@@ -31,7 +31,8 @@ WORKAREA.registerModule('addressRegionFields', (function () {
                 $regionOptions = $('option', $regionOptGroup),
                 $currentOption = $regionOptions.filter(function (_index, option) {
                     return $(option).val() === regionCode;
-                });
+                }),
+                $regionRequirementIndicator = $('.property__requirement', $regionField);
 
             $regionOptions.prop('selected', false);
             $currentOption.prop('selected', true);
@@ -40,11 +41,13 @@ WORKAREA.registerModule('addressRegionFields', (function () {
                 $regionSelect.addClass('hidden');
                 $regionSelect.closest('.styled-select').addClass('hidden');
                 $regionTextBox.removeClass('hidden');
+                $regionRequirementIndicator.addClass('hidden');
             } else {
                 updateSelectUI($regionField, $regionOptGroup);
                 $regionTextBox.addClass('hidden');
                 $regionSelect.removeClass('hidden');
                 $regionSelect.closest('.styled-select').removeClass('hidden');
+                $regionRequirementIndicator.removeClass('hidden');
             }
         },
 
