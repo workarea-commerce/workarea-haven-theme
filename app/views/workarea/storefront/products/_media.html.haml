@@ -1,7 +1,7 @@
 .product-media.product-media--carousel
   .product-media__container
     - if product.images.length == 0
-      .product-details__primary-image
+      .product-media__primary-image
         = link_to(product_image_url(product.primary_image, :zoom), target: '_blank', rel: 'noopener', class: 'product-details__primary-image-link') do
           = image_tag product_image_url(product.primary_image, :detail), alt: 'View Larger Image', itemprop: 'image', class: 'product-details__primary-image-link-image'
 
