@@ -31,7 +31,8 @@
 
     _.merge(WORKAREA.config.hoverZooms, {
         triggerZoomFromSelector: '.product-media__primary-image-item',
-        addZoomWindowToSelector: '.product-details__name'
+        addZoomWindowToSelector: '.product-details__name',
+        primaryImageContainer: '.product-media__primary-image-item' //hover-zoom-v3-config
     });
 
     if (!_.isEmpty($.validator)) {

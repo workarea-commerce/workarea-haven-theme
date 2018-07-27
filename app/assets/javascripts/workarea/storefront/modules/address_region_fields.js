@@ -6,8 +6,11 @@ WORKAREA.registerModule('addressRegionFields', (function () {
     'use strict';
 
     var updateSelectUI = function ($regionField, $regionOptGroup) {
-            var $select = $('select', $regionField);
-            $select.empty().append($regionOptGroup.prop('outerHTML'));
+            var $select = $('select', $regionField),
+                optGroupHTML = $regionOptGroup.prop('outerHTML');
+
+            $select.find('optgroup').remove();
+            $select.append(optGroupHTML);
         },
 
         resetSelectUI = function (countryField) {
