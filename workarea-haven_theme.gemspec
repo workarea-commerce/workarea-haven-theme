@@ -16,23 +16,23 @@ Gem::Specification.new do |s|
   s.files = `git ls-files`.split("\n")
 
   s.add_dependency "workarea", "~> 3.3.x"
-  s.add_dependency "workarea-theme"
-  s.add_dependency "workarea-blog"
-  s.add_dependency "workarea-styled_selects"
-  s.add_dependency "workarea-product_badges"
-  s.add_dependency "workarea-content_search"
-  s.add_dependency "workarea-product_grid_content"
-  s.add_dependency "workarea-shipping_message"
-  s.add_dependency "workarea-swatches"
-  s.add_dependency "workarea-product_quickview"
-  s.add_dependency "workarea-reviews"
-  s.add_dependency "workarea-slick_slider"
-  s.add_dependency "workarea-share"
-  s.add_dependency "workarea-product_videos"
-  s.add_dependency "workarea-package_products"
-  s.add_dependency "workarea-hover_zoom"
-  s.add_dependency "workarea-gift_cards"
-  s.add_dependency "workarea-email_signup_popup"
+  s.add_dependency "workarea-theme", '~> 1.0.0'
+  s.add_dependency "workarea-blog", '~> 3.3.0'
+  s.add_dependency "workarea-styled_selects", '~> 1.0.0'
+  s.add_dependency "workarea-product_badges", '~> 1.0.0'
+  s.add_dependency "workarea-content_search", '~> 1.0.0'
+  s.add_dependency "workarea-product_grid_content", '~> 1.0.0'
+  s.add_dependency "workarea-shipping_message", '~> 1.0.0'
+  s.add_dependency "workarea-swatches", '~> 1.0.0'
+  s.add_dependency "workarea-product_quickview", '~> 1.2.0'
+  s.add_dependency "workarea-reviews", '~> 3.0.0'
+  s.add_dependency "workarea-slick_slider", '~> 1.0.0'
+  s.add_dependency "workarea-share", '~> 1.2.0'
+  s.add_dependency "workarea-product_videos", '~> 1.2.0'
+  s.add_dependency "workarea-package_products", '~> 3.2.0'
+  s.add_dependency "workarea-hover_zoom", '~> 2.0.0'
+  s.add_dependency "workarea-gift_cards", '~> 3.4.0'
+  s.add_dependency "workarea-email_signup_popup", '~> 2.0.0'
 
-  s.add_dependency "jquery_payment-rails"
+  s.add_dependency "jquery_payment-rails", '~> 1.1.0'
 end
