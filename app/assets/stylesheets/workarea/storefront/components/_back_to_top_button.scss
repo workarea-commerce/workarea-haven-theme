@@ -1,0 +1,30 @@
+/*------------------------------------*\
+    #BACK-TO-TOP-BUTTON
+\*------------------------------------*/
+
+$back-to-top-button-size: 60px !default;
+$back-to-top-button-top-padding: 12px !default;
+
+.back-to-top-button {
+    position: fixed;
+    right: $spacing-unit * 4;
+    bottom: 0;
+    z-index: index($components, back-to-top-button);
+    padding-top: $back-to-top-button-top-padding;
+    width: $back-to-top-button-size;
+    height: $back-to-top-button-size;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity $transition-time ease-out;
+
+    &:before {
+        display: block;
+        text-align: center;
+        content: '▲';
+    }
+}
+
+.back-to-top-button--visible {
+    opacity: 1;
+    transform: translateY(-150%);
+}
