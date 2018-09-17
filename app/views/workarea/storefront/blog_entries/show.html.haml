@@ -12,6 +12,11 @@
 - content_for :head do
   %link{ href: blog_entry_path(@entry), rel: 'canonical' }
   %meta{ property: 'global-id', content: @entry.to_global_id.to_param }
+  %meta{ property: 'og:title', content: @entry.name }
+  %meta{ property: 'og:type', content: 'article' }
+  %meta{ property: 'og:url', content: blog_entry_path(@entry) }
+  - if @entry.has_thumbnail_image?
+    %meta{ property: 'og:image', content: @entry.thumbnail_image_url }
   - unless @entry.meta_description.blank?
     %meta{ name: :description, content: @entry.meta_description }
 
