@@ -1,3 +1,15 @@
+Workarea Haven Theme 1.0.2 (2018-11-28)
+--------------------------------------------------------------------------------
+
+*   Add fonts stylesheet with dynamic importing based on configuration
+
+    * This fixes an issue that prevented custom fonts being loaded in the themed storefront
+
+    HAVNTHEME-176
+    Jake Beresford
+
+
+
 Workarea Haven Theme 1.0.1 (2018-10-30)
 --------------------------------------------------------------------------------
 
