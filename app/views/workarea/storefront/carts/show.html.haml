@@ -24,7 +24,7 @@
 
         %h1.cart__heading
           = t('workarea.storefront.carts.title')
-          %span.cart__item-count= t('workarea.storefront.carts.item_count', count: @cart.items.count)
+          %span.cart__item-count= t('workarea.storefront.carts.item_count', count: @cart.quantity)
 
         %ul.product-list{ data: { analytics: product_list_analytics_data('Cart').to_json } }
           - @cart.items.each_with_index do |item, index|
