@@ -26,6 +26,11 @@ module Workarea
     "workarea/storefront/components/search"
   )
 
+  Plugin.append_stylesheets(
+    "storefront.theme",
+    "workarea/storefront/theme/style_guide"
+  )
+
   Plugin.append_javascripts(
     "storefront.config",
     "workarea/storefront/haven_theme/config"
