@@ -45,6 +45,7 @@ fieldset, legend {
 
 /**
  * Set a larger default font size for basic form controls
+ * 1. For accessibility purposes, all input types are highlighted on focus.
  */
 select,
 input, textarea {
@@ -54,22 +55,15 @@ input, textarea {
     font-size: $form-control-font-size;
     background-color: $forms-bg-color;
     border: 0;
+
+    &:focus {
+        @include focus-ring; /* [1] */
+    }
 }
 
 label {
     color: $forms-label-color;
     font-size: $form-control-font-size;
-}
-
-
-/**
- * For accessibility purposes, all input types are highlighted on focus.
- */
-input, textarea,
-select {
-    &:focus {
-        @include focus-ring;
-    }
 }
 
 
