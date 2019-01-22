@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+gem install bundler
+bundle update
+CI=true bin/rails app:workarea:test:plugins

@@ -45,7 +45,7 @@ WORKAREA.registerModule('searchButtons', (function () {
         };
 
     $(document).keyup(function (e) {
-        if (e.keyCode == 27) { // escape key maps to keycode `27`
+        if (e.keyCode === 27) { // escape key maps to keycode `27`
             closeSearchIfOpen();
         }
     });

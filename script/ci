@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+gem install bundler
+bundle update
+
+CI=true bundle exec workarea-lint
+CI=true bundle exec workarea-audit
+CI=true bin/rails test test/**/*_test.rb
