@@ -54,7 +54,7 @@
       .add-to-cart__info
         %p.add-to-cart__cart-info
           = link_to t('workarea.storefront.carts.view_cart'), cart_path, class: 'text-button'
-          = t('workarea.storefront.carts.item_count', count: @cart.items.count)
+          = t('workarea.storefront.carts.item_count', count: @cart.quantity)
 
         %p.add-to-cart__discount-messaging
           = render "workarea/storefront/carts/shipping_message", cart: @cart
