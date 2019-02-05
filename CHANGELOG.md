@@ -1,3 +1,31 @@
+Workarea Haven Theme 1.0.3 (2019-02-05)
+--------------------------------------------------------------------------------
+
+*   Add missing image and link to taxonomy content block
+
+    HAVNTHEME-179
+    Jake Beresford
+
+*   Extend style_guide styles from base to include new color swatch for styleguide
+
+    HAVNTHEME-177
+    Jake Beresford
+
+*   Update cart item counts to display total quantity to match site header.
+
+    HAVNTHEME-178
+    Jake Beresford
+
+*   Configure plugin for new CI scripts
+
+    * Add CI scripts and update gemfile for new CI
+    * Update linting failures
+
+    HAVNTHEME-180
+    Jake Beresford
+
+
+
 Workarea Haven Theme 1.0.2 (2018-11-28)
 --------------------------------------------------------------------------------
 
