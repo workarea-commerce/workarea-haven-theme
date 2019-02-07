@@ -19,7 +19,6 @@ $product-summary-name-color: $product-summary-name-color !default;
 /**
  * 1. sets positioning context for any absolutely positioned product summary
  *    child elements
- * 2. sets height for the children of product-summary
  */
 
 .product-summary {
@@ -45,7 +44,6 @@ $product-summary-name-color: $product-summary-name-color !default;
         margin: $spacing-unit auto;
         max-height: $product-summary-media-max-height;
         text-align: center;
-        flex: 1; /* [2] */
 
         @include respond-to($small-horizontal-breakpoint) {
             margin: ($spacing-unit * 2) auto;
@@ -65,12 +63,12 @@ $product-summary-name-color: $product-summary-name-color !default;
             .product-summary__media-image {}
 
     .product-summary__divider {
-        @extend %clearfix;
+        position: absolute;
+        bottom: 0;
 
         @include respond-to($medium-breakpoint) {
             width: 100%;
             border-top: 2px solid $product-summary-border-color;
-            flex: 1; /* [2] */
 
             .product-summary:hover & {
                 background: $product-summary-background-color-hover;

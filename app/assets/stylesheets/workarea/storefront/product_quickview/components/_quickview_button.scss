@@ -4,23 +4,19 @@
 
 // scss-lint:disable ImportantRule
 
-$quickview-button-bottom-offset:  4px !default;
-
 /**
- * 1. matches top padding for swatches in product summary
- * 2. disable quickview buttons for touch devices
+ * 1. disable quickview buttons for touch devices
  */
 .quickview-button {
+    @include center;
     display: none;
 
     .product-summary:hover & {
         @include respond-to($medium-breakpoint) {
             display: block;
-            margin-top: 12px; /* [1] */
-            float: right;
             white-space: nowrap;
         }
 
-        .touch & { display: none !important; } /* [2] */
+        .touch & { display: none !important; } /* [1] */
     }
 }
