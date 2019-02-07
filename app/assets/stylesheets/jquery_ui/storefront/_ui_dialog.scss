@@ -2,10 +2,11 @@
     #UI-DIALOG
 \*------------------------------------*/
 
-$ui-dialog-bg-color:           $background-color !default;
+$ui-dialog-bg-color: $background-color !default;
+$ui-dialog-loading-background-color: $transparent !default;
 $ui-dialog-titlebar-bg-color:  $ui-dialog-titlebar-bg-color !default;
-$ui-dialog-shadow:             0 6px 8px 0 $black-alpha-50 !default;
-$ui-dialog-content-height:     90vh !default;
+$ui-dialog-shadow: 0 6px 8px 0 $black-alpha-50 !default;
+$ui-dialog-content-height: 90vh !default;
 $ui-dialog-close-button-offset: $spacing-unit * -4 !default;
 
 
@@ -161,4 +162,6 @@ $ui-dialog-close-button-offset: $spacing-unit * -4 !default;
 .ui-dialog-loading {
     width: 100vw;
     height: 100vh;
+    background-color: $ui-dialog-loading-background-color;
+    box-shadow: none;
 }
