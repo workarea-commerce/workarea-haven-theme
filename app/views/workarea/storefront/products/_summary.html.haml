@@ -1,5 +1,5 @@
 - cache "#{product.cache_key}/summary", expires_in: 75.minutes do
-  %p.product-summary__media
+  .product-summary__media
     = link_to(product_path(product, product.browse_link_options), class: 'product-summary__media-link', data: { analytics_product_impression: product_impression_data(product), analytics: product_click_analytics_data(product).to_json }) do
       %picture
         %source{ srcset: product_image_retina_srcset(product.primary_image, :large_thumb, :large_thumb_retina), media: "(min-width: #{Workarea.config.storefront_break_points[:small_horizontal]}px)" }

@@ -3,9 +3,9 @@
 \*------------------------------------*/
 
 $product-summary-max-width-medium: 260px !default;
-$product-summary-min-height: 265px !default;
-$product-summary-min-height-medium: 392px !default;
 $product-summary-small-width: 200px !default;
+$product-summary-divider-min-height: 90px !default;
+$product-summary-divider-min-height-wide: 120px !default;
 
 $product-summary-media-max-height: 232px !default;
 $product-summary-media-ratio: $product-image-ratio !default;
@@ -19,19 +19,16 @@ $product-summary-name-color: $product-summary-name-color !default;
 /**
  * 1. sets positioning context for any absolutely positioned product summary
  *    child elements
- * 2. sets height for the children of product-summary
  */
 
 .product-summary {
     position: relative; /* [1] */
     margin: 0 auto $spacing-unit;
-    min-height: $product-summary-min-height;
     background-color: $product-summary-background-color;
     border: 2px solid $product-summary-border-color;
 
     @include respond-to($medium-breakpoint) {
         max-width: $product-summary-max-width-medium;
-        min-height: $product-summary-min-height-medium;
     }
 
     .product-summary--small & {
@@ -45,7 +42,6 @@ $product-summary-name-color: $product-summary-name-color !default;
         margin: $spacing-unit auto;
         max-height: $product-summary-media-max-height;
         text-align: center;
-        flex: 1; /* [2] */
 
         @include respond-to($small-horizontal-breakpoint) {
             margin: ($spacing-unit * 2) auto;
@@ -65,12 +61,12 @@ $product-summary-name-color: $product-summary-name-color !default;
             .product-summary__media-image {}
 
     .product-summary__divider {
-        @extend %clearfix;
+        min-height: $product-summary-divider-min-height;
 
         @include respond-to($medium-breakpoint) {
             width: 100%;
+            min-height: $product-summary-divider-min-height-wide;
             border-top: 2px solid $product-summary-border-color;
-            flex: 1; /* [2] */
 
             .product-summary:hover & {
                 background: $product-summary-background-color-hover;
@@ -79,11 +75,11 @@ $product-summary-name-color: $product-summary-name-color !default;
     }
 
         .product-summary__info {
-            margin: $spacing-unit auto;
+            margin: $spacing-unit auto 0;
             padding: $spacing-unit ($spacing-unit * 2);
 
             @include respond-to($medium-breakpoint) {
-                margin: ($spacing-unit * 2) auto;
+                margin-top: $spacing-unit * 2;
             }
         }
 
