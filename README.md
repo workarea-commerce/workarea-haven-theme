@@ -1,23 +1,34 @@
-Workarea Haven Theme
-================================================================================
+# Workarea Haven Theme
 
-Haven Theme plugin for the Workarea platform.
+Haven - a sleek, modern theme for the Workarea platform.
 
-Browser Support
---------------------------------------------------------------------------------
+[Documentation for workarea themes on homebase](https://homebase.weblinc.com/plugins/theme)
+
+## Screenshots
+
+Category browse page
+![Screenshot of category page](public/screenshots/category_page.png)
+
+Product detail page
+![Screenshot of product detail page](public/screenshots/product_detail_page.png)
+
+Checkout
+![Screenshot of checkout](public/screenshots/checkout.png)
+
+More screenshots available in /public/screenshots within the repository.
+
+## Browser Support
 
 Based on current browser usage statistics Haven Theme supports evergreen browsers and IE11+ see the browserlist file for specifics.
 
 * Note that Haven Theme uses flexbox, if you need to support IE10 or lower significant changes to styles may be requried
 * Haven theme uses position: sticky; for the sticky header. This does not work in IE11 but has been deemed as progressive enhancement. A polyfill can be used to make the header stick in IE11 if necessary.
 
-Notable features
---------------------------------------------------------------------------------
+## Notable features
 
 * Sticky header - note this feature is not supported by IE11
 
-Optimal Image Sizes
---------------------------------------------------------------------------------
+## Optimal Image Sizes
 
 | Image Type| Optimum size | Note |
 |----------|--------|-------|
@@ -30,8 +41,7 @@ Optimal Image Sizes
 | Blog Thumbnail | 353px x 172px | Displayed in blog entry summaries, and the featured entry content block |
 | Blog Header Image | 1112px x 544px | Image content blocks can be added to the blog entry 'blog header' content area |
 
-Out of the box plugin support
---------------------------------------------------------------------------------
+## Out of the box plugin support
 
 The following workarea plugins are supported by Haven, and are dependencies of the plugin.
 
@@ -51,8 +61,7 @@ The following workarea plugins are supported by Haven, and are dependencies of t
 * Gift Cards
 * Share
 
-Theme Configuration
---------------------------------------------------------------------------------
+## Theme Configuration
 
 ### Recommended initializer configuration
 
@@ -143,9 +152,7 @@ config.theme = config.theme.merge(
 )
 ```
 
-
-Getting Started
---------------------------------------------------------------------------------
+## Getting Started
 
 This gem contains a rails engine that must be mounted onto a host Rails application.
 
@@ -179,13 +186,11 @@ Update your application's bundle.
     cd path/to/application
     bundle
 
-Workarea Platform Documentation
---------------------------------------------------------------------------------
+## Workarea Platform Documentation
 
 See [http://developer.weblinc.com](http://developer.weblinc.com) for Workarea platform documentation.
 
-Copyright & Licensing
---------------------------------------------------------------------------------
+## Copyright & Licensing
 
 Copyright WebLinc 2018. All rights reserved.
 
