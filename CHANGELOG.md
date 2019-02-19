@@ -1,3 +1,38 @@
+Workarea Haven Theme 1.1.0 (2019-02-19)
+--------------------------------------------------------------------------------
+
+*   Add screenshots to README
+
+    * Adds screenshots of the theme to /public/screenshots dir
+    * Adds a few screenshots to the README as examples of the theme
+
+    HAVNTHEME-183
+    Jake Beresford
+
+*   Update implementation to account for swatches
+
+    HAVNTHEME-182
+    Jake Beresford
+
+*   Implement styles for loading indicator
+
+    * Make UI dialog transparent for loading dialogs
+    * Adjust color and size of loading indicator
+
+    HAVNTHEME-181
+    Jake Beresford
+
+*   Update implementation of quickview button
+
+    * Centers quickview button on the product summary, preventing layout jump and misalignment
+    * Remove redundant flex rules
+    * Clean up hover state of product-summary by absolutely positioning the product-summary__divider, move append point outside of divider to allow for absolute positioning of appended components (quickview and badges)
+
+    HAVNTHEME-182
+    Jake Beresford
+
+
+
 Workarea Haven Theme 1.0.3 (2019-02-05)
 --------------------------------------------------------------------------------
 
