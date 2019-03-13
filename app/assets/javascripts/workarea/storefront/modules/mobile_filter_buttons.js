@@ -31,10 +31,10 @@ WORKAREA.registerModule('mobileFilterButtons', (function () {
             $wrapper.prepend($button);
         },
 
-        inject = function (target) {
+        inject = function () {
             var $nav = $('<div class="mobile-filters-nav" id="mobile_filters_nav" />'),
                 $wrapper = $('<div class="mobile-filters-nav__wrapper" />'),
-                $content = $(target).closest('.mobile-filters').find('.mobile-filters__content');
+                $content = $('#aside-content');
 
             $nav.append($wrapper);
             $wrapper.append($content);
@@ -49,7 +49,7 @@ WORKAREA.registerModule('mobileFilterButtons', (function () {
             event.preventDefault();
 
             if (_.isEmpty($('#mobile_filters_nav'))) {
-                inject(event.target);
+                inject();
             } else {
                 activate($('#mobile_filters_nav'));
             }

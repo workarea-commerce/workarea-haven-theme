@@ -39,7 +39,7 @@
                   - @item.total_adjustments.drop(1).each do |adjustment|
                     .product-prices__discount
                       - if @item.total_adjustments.many?
-                        %span.product-prices__label= adjustment.description.titleize
+                        %span.product-prices__label= adjustment.description
 
                       - if adjustment.discount?
                         %strong.product-prices__discount-price= number_to_currency(adjustment.amount)

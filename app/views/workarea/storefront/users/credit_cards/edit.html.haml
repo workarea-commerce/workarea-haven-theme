@@ -41,12 +41,12 @@
         .property
           = label_tag 'credit_card[first_name]', nil, class: 'property__name' do
             %span.property__text= t('workarea.storefront.users.first_name')
-          .value.value--block= text_field_tag 'credit_card[first_name]', @credit_card.first_name, class: 'text-box', autocorrect: 'off', autocomplete: 'given-name', required: true
+          .value.value--block= text_field_tag 'credit_card[first_name]', @credit_card.first_name, class: 'text-box', autocomplete: 'given-name', required: true
       .grid__cell.grid__cell--50-at-medium
         .property
           = label_tag 'credit_card[last_name]', nil, class: 'property__name' do
             %span.property__text= t('workarea.storefront.users.last_name')
-          .value.value--block= text_field_tag 'credit_card[last_name]', @credit_card.last_name, class: 'text-box', autocorrect: 'off', autocomplete: 'family-name', required: true
+          .value.value--block= text_field_tag 'credit_card[last_name]', @credit_card.last_name, class: 'text-box', autocomplete: 'family-name', required: true
       .grid__cell.grid__cell--66-at-medium
         .grid
           .grid__cell.grid__cell--66-at-medium
@@ -63,7 +63,7 @@
               = label_tag 'credit_card[cvv]', nil, class: 'property__name' do
                 %span.property__text= t('workarea.storefront.credit_cards.security_code')
               .value
-                = text_field_tag 'credit_card[cvv]', nil, class: 'text-box text-box--small', required: true, inputmode: 'numeric', pattern: '[0-9]*', autocorrect: 'off', autocomplete: 'cc-csc'
+                = text_field_tag 'credit_card[cvv]', nil, class: 'text-box text-box--small', required: true, inputmode: 'numeric', pattern: '[0-9]*', autocomplete: 'cc-csc'
                 %span.value__note= link_to t('workarea.storefront.credit_cards.whats_this'), page_path('credit-card-security-code'), data: { dialog_button: '' }
 
     .grid.grid--auto.grid--middle

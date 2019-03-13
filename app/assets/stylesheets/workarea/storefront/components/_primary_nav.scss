@@ -15,7 +15,6 @@ $primary-nav-link-hover-border-color: $primary-nav-link-hover-border-color !defa
 $primary-nav-content-bg-color:  $primary-nav-background-color !default;
 
 .primary-nav {
-    @extend %inline-list;
     display: none;
     line-height: 80px;
     text-align: left;
@@ -25,49 +24,52 @@ $primary-nav-content-bg-color:  $primary-nav-background-color !default;
     }
 }
 
-
-    .primary-nav__item {
-        margin: 0 $spacing-unit;
-        font-weight: $primary-nav-item-weight;
-        text-transform: uppercase;
+    .primary-nav__menu{
+        @extend %inline-list;
     }
 
-        /**
-         * 1. Transparent border prevents re-flow and content shift on hover
-         */
-        .primary-nav__link {
-            padding: $spacing-unit;
-            color: $primary-nav-link-color;
-            font-size: $primary-nav-link-font-size;
-            border: $primary-nav-link-border; /* [1] */
-            transition: border-color $transition-time ease-in;
+        .primary-nav__item {
+            margin: 0 $spacing-unit;
+            font-weight: $primary-nav-item-weight;
+            text-transform: uppercase;
+        }
 
-            .primary-nav__item:hover & {
-                color: $primary-nav-link-color-hover;
+            /**
+            * 1. Transparent border prevents re-flow and content shift on hover
+            */
+            .primary-nav__link {
+                padding: $spacing-unit;
+                color: $primary-nav-link-color;
+                font-size: $primary-nav-link-font-size;
+                border: $primary-nav-link-border; /* [1] */
+                transition: border-color $transition-time ease-in;
+
+                .primary-nav__item:hover & {
+                    color: $primary-nav-link-color-hover;
+                    border-color: $primary-nav-link-hover-border-color;
+                }
+            }
+
+            .primary-nav__link--selected {
                 border-color: $primary-nav-link-hover-border-color;
             }
-        }
-
-        .primary-nav__link--selected {
-            border-color: $primary-nav-link-hover-border-color;
-        }
 
 
-        /**
-         * 1. injected via JavaScript
-         */
-        .primary-nav__content { /* [1] */
-            display: none;
+            /**
+            * 1. injected via JavaScript
+            */
+            .primary-nav__content { /* [1] */
+                display: none;
 
-            .primary-nav__item:hover & {
-                display: block;
-                position: absolute;
-                top: 100%;
-                right: 0;
-                left: 0;
-                line-height: 2;
-                background: $primary-nav-content-bg-color;
-                border-top: $primary-nav-border;
-                border-bottom: $primary-nav-border;
+                .primary-nav__item:hover & {
+                    display: block;
+                    position: absolute;
+                    top: 100%;
+                    right: 0;
+                    left: 0;
+                    line-height: 2;
+                    background: $primary-nav-content-bg-color;
+                    border-top: $primary-nav-border;
+                    border-bottom: $primary-nav-border;
+                }
             }
-        }

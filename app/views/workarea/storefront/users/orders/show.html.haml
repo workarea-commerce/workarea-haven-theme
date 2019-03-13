@@ -14,7 +14,7 @@
 .view
   .page-content.page-content--order
     .page-content__main.page-content__main--with-aside
-      %h1.visually-hidden= @order.id
+      %h1.visually-hidden= t('workarea.storefront.orders.view_order')
       = render 'workarea/storefront/orders/details', order: @order
       = append_partials('storefront.order_show')
 

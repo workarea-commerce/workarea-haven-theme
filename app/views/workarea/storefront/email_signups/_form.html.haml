@@ -4,6 +4,6 @@
       %span.email-signup__label-text= t('workarea.storefront.layouts.email_signup')
     .value.value--block
       .email-signup__value
-        = email_field_tag :email, nil, id: "#{location}_email_signup_field", class: 'text-box text-box--full text-box--stripped', placeholder: t('workarea.storefront.forms.email_placeholder'), title: t('workarea.storefront.users.email'), required: true, type: 'email', autocomplete: 'email', autocapitalize: 'off', autocorrect: 'off'
+        = email_field_tag :email, nil, id: "#{location}_email_signup_field", class: 'text-box text-box--full text-box--stripped', placeholder: t('workarea.storefront.forms.email_placeholder'), title: t('workarea.storefront.users.email'), required: true, type: 'email', autocomplete: 'email', autocapitalize: 'off', aria: { label: t('workarea.storefront.users.email') }
         = button_tag value: 'sign_up', class: 'email-signup__button' do
           = inline_svg('workarea/storefront/icons/arrow_right.svg', class: 'email-signup__button-icon', title: t('workarea.storefront.users.join'))

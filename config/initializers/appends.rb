@@ -73,6 +73,11 @@ module Workarea
   )
 
   Plugin.remove_partials(
+    "storefront.product_description",
+    "workarea/storefront/products/badges"
+  )
+
+  Plugin.remove_partials(
     "storefront.product_summary",
     "workarea/storefront/products/reviews_summary"
   )

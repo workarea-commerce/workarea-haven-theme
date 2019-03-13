@@ -8,7 +8,7 @@
       %span= order.id
     %p.data-card__line
       %strong= t('workarea.storefront.orders.status')
-      %span= order.fulfillment_status
+      %span= order.fulfillment_status || order.status
     %p.data-card__line
       %strong= t('workarea.storefront.orders.items')
       %span #{order.quantity} - #{number_to_currency(order.total_price)}
@@ -16,9 +16,10 @@
     .grid
       .grid__cell
         %p= link_to t('workarea.storefront.orders.view'), users_order_path(order), class: 'button button--small'
+
+        = append_partials('storefront.order_summary_actions', order: order)
+
       - order.packages.each_with_index do |package|
         - if package.tracking_number.present?
           .grid__cell
             %p= link_to t('workarea.storefront.orders.track_package'), package.tracking_link, target: '_blank', rel: 'noopener'
-
-      = append_partials('storefront.order_summary_actions', order: order)

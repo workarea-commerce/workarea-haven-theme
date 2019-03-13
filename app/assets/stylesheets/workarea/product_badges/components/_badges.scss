@@ -3,6 +3,7 @@
 \*------------------------------------*/
 
 $badges-top-offset: 0 !default;
+$badges-product-detail-mobile-top-offset: 5em !default;
 $badges-left-offset: $spacing-unit * -0.5 !default;
 
 $badge-font-size: $font-size-tiny !default;
@@ -20,6 +21,14 @@ $badge-shadow-darken-amount: 20%;
     position: absolute;
     top: $badges-top-offset;
     left: $badges-left-offset;
+
+    .product-details & {
+        top: $badges-product-detail-mobile-top-offset;
+
+        @include respond-to($medium-breakpoint){
+            top: $badges-top-offset;
+        }
+    }
 }
 
     .badges__badge {

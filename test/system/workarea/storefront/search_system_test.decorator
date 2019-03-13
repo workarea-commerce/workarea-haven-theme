@@ -33,19 +33,19 @@ module Workarea
       click_link "First #{t('workarea.storefront.products.remove_filter')}"
 
       # Price filtering
-      find(".result-filters__attribute", :text => "Price").click
+      find(".result-filters__attribute", text: "Price").click
       click_link "$10.00 - $19.99 1"
       assert(page.has_content?("Test Product 1"))
       assert(page.has_no_content?("Test Product 2"))
-      find(".result-filters__attribute", :text => "Price").click
+      find(".result-filters__attribute", text: "Price").click
       click_link "$10.00 - $19.99"
 
       # Config filtering
-      find(".result-filters__attribute", :text => "Size").click
+      find(".result-filters__attribute", text: "Size").click
       click_link "Small 1"
       assert(page.has_content?("Test Product 2"))
       assert(page.has_no_content?("Test Product 1"))
-      find(".result-filters__attribute", :text => "Size").click
+      find(".result-filters__attribute", text: "Size").click
       click_link "Small"
 
       assert(page.has_content?("Test Product 1"))

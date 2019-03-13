@@ -27,13 +27,13 @@
     - unless @category.last_page?
       %link{ href: url_for(page: @category.next_page, only_path: false), rel: 'next' }
 
-    - unless @category.meta_description.blank?
-      %meta{ name: :description, content: @category.meta_description }
+    %meta{ name: :description, content: @category.meta_description }
 
     %meta{ property: 'og:url', content: url_for(only_path: false) }
     %meta{ property: 'og:title', content: page_title }
     %meta{ property: 'og:type', content: 'website' }
-    %meta{ property: 'og:image', content: image_url('workarea/storefront/logo.png') }
+    %meta{ property: 'og:image', content: @category.open_graph_asset.url }
+    %meta{ property: 'og:image:secure_url', content: @category.open_graph_asset.url }
 
     = append_partials('storefront.category_head', category: @category)
 

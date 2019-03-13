@@ -119,6 +119,8 @@ $taxonomy-content-block-mobile-nav-node-padding: ($spacing-unit * 2) $spacing-un
                 }
             }
 
+            .taxonomy-content-block__menu-item--start {}
+
                 .taxonomy-content-block__menu-link {
                     color: $taxonomy-content-block-link-color;
                     font-size: $taxonomy-content-block-item-font-size;

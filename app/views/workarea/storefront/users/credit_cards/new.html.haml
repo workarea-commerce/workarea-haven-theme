@@ -26,17 +26,17 @@
             .property
               = label_tag 'credit_card[first_name]', nil, class: 'property__name' do
                 %span.property__text= t('workarea.storefront.users.first_name')
-              .value.value--block= text_field_tag 'credit_card[first_name]', params[:credit_card][:first_name], class: 'text-box', autocorrect: 'off', autocomplete: 'given-name', required: true
+              .value.value--block= text_field_tag 'credit_card[first_name]', params[:credit_card][:first_name], class: 'text-box', autocomplete: 'given-name', required: true
           .grid__cell.grid__cell--50-at-medium
             .property
               = label_tag 'credit_card[last_name]', nil, class: 'property__name' do
                 %span.property__text= t('workarea.storefront.users.last_name')
-              .value.value--block= text_field_tag 'credit_card[last_name]', params[:credit_card][:last_name], class: 'text-box', autocorrect: 'off', autocomplete: 'family-name', required: true
+              .value.value--block= text_field_tag 'credit_card[last_name]', params[:credit_card][:last_name], class: 'text-box', autocomplete: 'family-name', required: true
       .grid__cell
         .property
           = label_tag 'credit_card[number]', nil, class: 'property__name' do
             %span.property__text= t('workarea.storefront.credit_cards.card_number')
-          .value.value--block= text_field_tag 'credit_card[number]', nil, class: 'text-box', inputmode: 'numeric', pattern: '[0-9\s]*', required: true, autocorrect: 'off', autocomplete: 'cc-number'
+          .value.value--block= text_field_tag 'credit_card[number]', nil, class: 'text-box', inputmode: 'numeric', pattern: '[0-9\s]*', required: true, autocomplete: 'cc-number'
       .grid__cell.grid__cell--66-at-medium
         .grid
           .grid__cell.grid__cell--66-at-medium
@@ -53,7 +53,7 @@
               = label_tag 'credit_card[cvv]', nil, class: 'property__name' do
                 %span.property__text= t('workarea.storefront.credit_cards.security_code')
               .value
-                = text_field_tag 'credit_card[cvv]', nil, class: 'text-box text-box--small', inputmode: 'numeric', pattern: '[0-9]*', autocorrect: 'off', autocomplete: 'cc-csc', required: true
+                = text_field_tag 'credit_card[cvv]', nil, class: 'text-box text-box--small', inputmode: 'numeric', pattern: '[0-9]*', autocomplete: 'cc-csc', required: true
                 %span.value__note=link_to t('workarea.storefront.credit_cards.whats_this'), page_path('credit-card-security-code'), data: { dialog_button: '' }
 
     .button-property

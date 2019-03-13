@@ -12,7 +12,8 @@
     %p.order-details__order-status
       %strong
         #{t('workarea.storefront.orders.status')}:
-      = @order.fulfillment_status
+      = order.fulfillment_status || order.status
+    = append_partials('storefront.order_summary_header', order: order, show_fullfillment: local_assigns[:show_fullfillment])
 
   .order-details__section
     %h3.order-details__heading= t('workarea.storefront.orders.billing_address')

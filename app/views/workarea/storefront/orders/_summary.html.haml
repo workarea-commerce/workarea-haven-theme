@@ -33,7 +33,7 @@
           - order.total_adjustments.each do |adjustment|
             %tr
               %th
-                %span= adjustment.description.titleize
+                %span= adjustment.description
               %td
                 - if adjustment.discount?
                   %strong.table__price-discount= number_to_currency(adjustment.amount)

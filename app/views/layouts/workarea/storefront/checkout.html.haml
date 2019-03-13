@@ -14,11 +14,12 @@
     %meta{ property: 'locale', content: I18n.locale }
     %meta{ property: 'environment', content: Rails.env }
     = alternate_locales_tags
-    = favicon_tags
+    = render 'workarea/storefront/favicons/tags'
+    %link{ rel: 'manifest', href: web_manifest_path }
+    %meta{ name: 'theme-color', content: Workarea.config.web_manifest.theme_color }
 
     :css
       @-ms-viewport { width: device-width; }
-      @viewport { width: device-width; }
     = yield :head
     = stylesheet_link_tag 'workarea/storefront/application', media: 'all'
     = yield :css
@@ -29,9 +30,9 @@
   %body{ itemscope: true, itemtype: 'http://schema.org/WebPage' }
     = append_partials('storefront.body_top')
 
-    %ul.accessibility-nav.visually-hidden
-      %li= link_to t('workarea.storefront.layouts.accessibility_info'), accessibility_path
-      %li= link_to t('workarea.storefront.layouts.main_content'), '#main_content', accesskey: 'S'
+    %nav.accessibility-nav.visually-hidden
+      = link_to t('workarea.storefront.layouts.accessibility_info'), accessibility_path
+      = link_to t('workarea.storefront.layouts.main_content'), '#main_content', accesskey: 'S'
 
     .page-messages
       = flash_messages if flash.present?
