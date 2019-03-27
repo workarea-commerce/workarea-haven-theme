@@ -31,7 +31,7 @@
             %span.property__requirement.property__requirement--required= t('workarea.storefront.forms.required')
             %span.property__text= t('workarea.storefront.checkouts.email')
           .value.value--block
-            = email_field_tag 'email', @step.email, class: 'text-box', required: true, autocapitalize: 'off', autocorrect: 'off', autocomplete: 'email', placeholder: t('workarea.storefront.forms.email_placeholder')
+            = email_field_tag 'email', @step.email, class: 'text-box', required: true, autocapitalize: 'off', autocomplete: 'email', placeholder: t('workarea.storefront.forms.email_placeholder')
             - if @step.order.errors[:email].present?
               %span.value__error= @step.order.errors[:email].first
         %p

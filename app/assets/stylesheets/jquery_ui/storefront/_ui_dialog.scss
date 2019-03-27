@@ -127,6 +127,7 @@ $ui-dialog-close-button-offset: $spacing-unit * -4 !default;
             line-height: 1;
             background: none;
             border: 0;
+            cursor: pointer;
 
             .ui-button-icon {
                 @include svg('dialog_close.svg', 32px);

@@ -17,7 +17,7 @@
                 = label_tag :email, nil, class: 'property__name' do
                   %span.property__text= t('workarea.storefront.users.email')
                 .value.value--block
-                  = email_field_tag :email, params[:email], class: 'text-box', autocapitalize: 'off', autocorrect: 'off', autocomplete: 'email', required: true, placeholder: t('workarea.storefront.forms.email_placeholder')
+                  = email_field_tag :email, params[:email], class: 'text-box', autocapitalize: 'off', autocomplete: 'email', required: true, placeholder: t('workarea.storefront.forms.email_placeholder')
                   = inline_svg('workarea/storefront/icons/email.svg', class: 'value__icon')
               .property
                 = label_tag :password, nil, class: 'property__name' do
@@ -43,5 +43,5 @@
               .property
                 = label_tag :postal_code, nil, class: 'property__name' do
                   %span.property__text= t('workarea.storefront.orders.billing_address_postal_code')
-                .value.value--block= text_field_tag :postal_code, params[:postal_code], class: 'text-box', required: true, autocorrect: 'off', autocomplete: 'postal-code'
+                .value.value--block= text_field_tag :postal_code, params[:postal_code], class: 'text-box', required: true, autocomplete: 'postal-code'
               = button_tag t('workarea.storefront.orders.lookup_order'), value: 'lookup_order', class: 'button button--large'

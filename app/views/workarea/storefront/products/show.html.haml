@@ -9,16 +9,15 @@
 
     %link{ href: product_url(@product), rel: 'canonical' }
 
-    - unless @product.meta_description.blank?
-      %meta{ name: :description, content: strip_tags(@product.meta_description) }
+    %meta{ name: :description, content: strip_tags(@product.meta_description) }
 
     %meta{ property: 'og:url', content: url_for(only_path: false) }
     %meta{ property: 'og:title', content: @product.name }
     %meta{ property: 'og:type', content: 'product' }
     - @product.images.each do |image|
       %meta{ property: 'og:image', content: product_image_url(image, :detail) }
-    - unless @product.meta_description.blank?
-      %meta{ property: 'og:description', content: strip_tags(@product.meta_description) }
+      %meta{ property: 'og:image:secure_url', content: product_image_url(image, :detail) }
+    %meta{ property: 'og:description', content: strip_tags(@product.meta_description) }
 
 - cache "#{@product.cache_key}/show", expires_in: Workarea.config.cache_expirations.product_show_fragment_cache do
   .view
@@ -26,6 +25,7 @@
 
       .product-details{ class: "product-details--#{@product.template}" }
         = render "workarea/storefront/products/templates/#{@product.template}", product: @product
+        = render "workarea/storefront/products/badges", product: @product
 
       .product-detail-container__tabs
         - if @product.description.present?

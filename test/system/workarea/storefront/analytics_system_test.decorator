@@ -26,12 +26,7 @@ module Workarea
     end
 
     def test_announcing_search_results_view_event
-      analytics = create_analytics_search(id: 'test')
-      assert_equal(0, analytics.searches.this_week)
-
       visit storefront.search_path(q: 'test')
-      wait_for_xhr
-      assert_equal(1, analytics.reload.searches.this_week)
 
       events = find_analytics_events(for_event: 'searchResultsView')
       assert_equal(1, events.count)
@@ -53,21 +48,6 @@ module Workarea
       assert_equal(['Green'], payload['filters']['color'])
       assert_equal(1, payload['totalResults'])
       assert_page_view
-    end
-
-    def test_filter_tracking
-      analytics = create_analytics_filter(id: 'color_green')
-      assert_equal(0, analytics.reload.clicks.this_week)
-
-      visit storefront.category_path(@category)
-      click_link 'Green'
-      wait_for_xhr
-      assert_equal(1, analytics.reload.clicks.this_week)
-
-      visit storefront.search_path(q: 'test')
-      click_link 'Green'
-      wait_for_xhr
-      assert_equal(2, analytics.reload.clicks.this_week)
     end
 
     def test_announcing_product_click_event_search_type_ahead

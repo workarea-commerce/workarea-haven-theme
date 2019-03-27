@@ -19,7 +19,8 @@
 
   = form_tag cart_items_path, method: 'post', class: 'product-details__add-to-cart-form', data: { dialog_form: { dialogOptions: { closeAll: true, initModules: true } }, analytics: add_to_cart_analytics_data(product).to_json } do
     = hidden_field_tag :product_id, product.id, id: dom_id(product, 'product_id')
-    = hidden_field_tag :sku, product.current_sku
+    = hidden_field_tag :sku, product.current_sku, id: "sku_#{dom_id(product)}"
+    = hidden_field_tag :via, params[:via], id: dom_id(product, 'via')
 
     - product.options_for_selection.each do |option|
       .property

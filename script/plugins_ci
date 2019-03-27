@@ -2,4 +2,8 @@
 
 gem install bundler
 bundle update
-CI=true bin/rails app:workarea:test:plugins
+
+CI_GEM_PATH="$(bundle show workarea-ci)"
+. ${CI_GEM_PATH}/exe/workarea-set-ci-env
+
+bin/rails app:workarea:test:plugins

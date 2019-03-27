@@ -30,3 +30,5 @@
           %span – #{number_to_currency product.sell_max_price}
         - else
           %span= render 'workarea/storefront/products/price', price: product.sell_min_price
+
+  = append_partials('storefront.product_pricing', product: product)

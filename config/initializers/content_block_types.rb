@@ -56,6 +56,13 @@ Workarea::Content.define_block_types do
 
     field "Title", :string, default: "Top Products"
     field "Type", :options, values: [
+        "Cold Products",
+        "Hot Products",
+        "Most Discounted Products",
+        "Non Sellers",
+        "Products To Improve",
+        "Promising Products",
+        "Star Products",
         "Top Products",
         "Trending Products"
       ], default: "Top Products"

@@ -18,7 +18,7 @@
         .grid__cell.grid__cell--50
           %p= link_to t('workarea.storefront.checkouts.go_to_account'), users_account_path, class: 'button button--full'
 
-    - else
+    - elsif @order.render_signup_form?
       %h2.heading.heading--6.heading--upcase= t('workarea.storefront.checkouts.create_an_account')
       - if @content.content_blocks_for('confirmation_signup').present?
         = render_content_blocks(@content.content_blocks_for('confirmation_signup'))

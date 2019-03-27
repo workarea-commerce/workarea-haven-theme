@@ -19,17 +19,17 @@
         .property
           = label_tag :email, nil, class: 'property__name' do
             %span.property__text= t('workarea.storefront.users.email')
-          .value.value--block= email_field_tag :email, @user.email, class: 'text-box', autocapitalize: 'off', autocorrect: 'off', autocomplete: 'email', required: true, placeholder: t('workarea.storefront.forms.email_placeholder')
+          .value.value--block= email_field_tag :email, @user.email, class: 'text-box', autocapitalize: 'off', autocomplete: 'email', required: true, placeholder: t('workarea.storefront.forms.email_placeholder')
       .grid__cell.grid__cell--50-at-medium
         .property
           = label_tag :first_name, nil, class: 'property__name' do
             %span.property__text= t('workarea.storefront.users.first_name')
-          .value.value--block= text_field_tag :first_name, @user.first_name, class: 'text-box', autocorrect: 'off', autocomplete: 'given-name'
+          .value.value--block= text_field_tag :first_name, @user.first_name, class: 'text-box', autocomplete: 'given-name'
       .grid__cell.grid__cell--50-at-medium
         .property
           = label_tag :last_name, nil, class: 'property__name' do
             %span.property__text= t('workarea.storefront.users.last_name')
-          .value.value--block= text_field_tag :last_name, @user.last_name, class: 'text-box', autocorrect: 'off', autocomplete: 'family-name'
+          .value.value--block= text_field_tag :last_name, @user.last_name, class: 'text-box', autocomplete: 'family-name'
       .grid__cell
         .property
           = label_tag :password, nil, class: 'property__name' do

@@ -10,6 +10,12 @@
         %span.taxonomy-content-block__menu-heading= taxonomy.data[:header]
 
       %ul.taxonomy-content-block__menu
+        - if taxonomy.show_starting_taxon?
+          %li.taxonomy-content-block__menu-item.taxonomy-content-block__menu-item--start
+            - if taxonomy.starting_taxon.placeholder?
+              = taxonomy.starting_taxon.name
+            - else
+              = link_to taxonomy.starting_taxon.name, storefront_path_for(taxonomy.starting_taxon), data: { analytics: primary_navigation_analytics_data(taxonomy.starting_taxon).to_json }, class: 'taxonomy-content-block__menu-link'
         - taxonomy.taxons.each do |taxon|
           %li.taxonomy-content-block__menu-item
             - if taxon.placeholder?

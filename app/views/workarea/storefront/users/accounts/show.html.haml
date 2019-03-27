@@ -45,6 +45,8 @@
             - @user.recent_orders.each do |order|
               = render 'workarea/storefront/users/orders/summary', order: order
 
+      = append_partials('storefront.account_section_left', user: @user)
+
     .grid__cell.grid__cell--50-at-medium
       .box
         .box__header
@@ -99,6 +101,8 @@
                         .grid__cell= link_to t('workarea.storefront.forms.edit'), edit_users_address_path(address), class: 'button button--small', data: { dialog_button: '' }
                         = form_tag users_address_path(address), method: 'delete', class: 'grid__cell' do
                           = button_tag t('workarea.storefront.forms.delete'), class: 'button button--small'
+
+      = append_partials('storefront.account_section_right', user: @user)
 
     = append_partials('storefront.account_grid_cell', user: @user)
 

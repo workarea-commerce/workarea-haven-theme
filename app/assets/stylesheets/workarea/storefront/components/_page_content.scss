@@ -65,6 +65,10 @@ $page-content-checkout-aside-width: 478px !default;
                 vertical-align: top;
             }
 
+            .mobile-filters-nav & {
+                display: block;
+            }
+
             .page-content--order &,
             .page-content--checkout & {
                 display: block;

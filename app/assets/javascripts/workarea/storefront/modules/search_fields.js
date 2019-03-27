@@ -24,11 +24,23 @@ WORKAREA.registerModule('searchFields', (function () {
             window.location = ui.item.url;
         },
 
+        /**
+         * iOS touch devices treat touch events as mouseenter unless there is no
+         * change in the UI, like a menu-selected state. By unbinding the
+         * mouseenter event we force those devices to treat the touch event as a
+         * click. This prevents the user having to tap twice to open a search
+         * autocomplete result.
+         */
+        openOnTouchDevices = function () {
+            $('.ui-autocomplete').off('mouseenter');
+        },
+
         getConfig = function () {
             return _.assign({}, WORKAREA.config.searchFieldsAutocomplete, {
                 source: getSource,
                 select: openSelected,
-                appendTo: '.search__results'
+                appendTo: '.search__results',
+                open: openOnTouchDevices
             });
         },
 

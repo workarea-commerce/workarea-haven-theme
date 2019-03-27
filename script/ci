@@ -3,6 +3,9 @@
 gem install bundler
 bundle update
 
-CI=true bundle exec workarea-lint
-CI=true bundle exec workarea-audit
-CI=true bin/rails test test/**/*_test.rb
+CI_GEM_PATH="$(bundle show workarea-ci)"
+. ${CI_GEM_PATH}/exe/workarea-set-ci-env
+
+bundle exec workarea-lint
+bundle exec workarea-audit
+bin/rails test test/**/*_test.rb
