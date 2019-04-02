@@ -1,3 +1,19 @@
+Workarea Haven Theme 1.2.0 (2019-04-02)
+--------------------------------------------------------------------------------
+
+*   Upgrade for v3.4
+
+    * Update CI scripts
+    * Updates all relevant views etc. for v3.4 changes
+    * Fix badge placement on product detail page
+    * Fix tests and linting errors
+    * Use styled select styleguide component from plugin, override in app is not needed
+
+    HAVNTHEME-184
+    Jake Beresford
+
+
+
 Workarea Haven Theme 1.1.0 (2019-02-19)
 --------------------------------------------------------------------------------
 
