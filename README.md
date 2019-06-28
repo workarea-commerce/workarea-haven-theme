@@ -2,6 +2,8 @@
 
 Haven - a sleek, modern theme for the Workarea platform.
 
+[Haven Theme Demo Site](https://haven-theme.demo.workarea.com)
+
 [Documentation for workarea themes on homebase](https://homebase.weblinc.com/plugins/theme)
 
 ## Screenshots
