@@ -38,4 +38,5 @@ $mobile-filters-action-font-size: $font-size * 2;
         @include svg('dialog_close.svg', $mobile-filters-action-font-size);
         position: absolute;
         right: 0;
+        cursor: pointer;
     }
