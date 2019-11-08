@@ -109,6 +109,7 @@ $product-detail-container-section-back-icon-color: $link-color !default;
         .product-detail-container__section--open-overlay {
             visibility: visible;
             transform: translateX(0%);
+            overflow-y: scroll;
         }
 
         .product-detail-container__section--description {
