@@ -15,6 +15,7 @@ gemspec
 # gem 'byebug', group: [:development, :test]
 
 gem "workarea", source: "https://gems.weblinc.com"
+gem "workarea-product_badges", source: "https://gems.weblinc.com"
 
 group :test do
   gem "workarea-theme", source: "https://gems.weblinc.com"
