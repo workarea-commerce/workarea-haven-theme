@@ -1,5 +1,7 @@
 .grid__cell{ class: view_model.cell_width_class, style: view_model.cell_styles, data: { pagination_item: '' } }
-  .product-grid-cell-content-block{ data: { match_product_summary_height: { rows: height }.to_json } }
+  .product-grid-cell-content-block{ style: view_model.block_styles, data: { match_product_summary_height: { rows: height }.to_json } }
+    - if link.present?
+      = link_to '', link, class: 'product-grid-cell-content-block__background-link'
     - if heading.present? || link_text.present?
       .product-grid-cell-content-block__content{ style: view_model.content_styles }
         - if heading.present?

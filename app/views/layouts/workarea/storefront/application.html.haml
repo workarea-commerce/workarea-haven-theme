@@ -1,5 +1,6 @@
 - add_css(layout_content.css)
 - add_javascript(layout_content.javascript)
+- add_head_content(layout_content.head_content)
 
 !!!
 /
@@ -32,21 +33,13 @@
     = append_partials('storefront.document_head')
     = javascript_include_tag 'workarea/storefront/head'
 
-    %script{ type: 'application/ld+json' }
-      :plain
-        {
-          "@context": "http://schema.org",
-          "@type": "WebSite",
-          "url": "#{root_url}",
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": "#{search_url}?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-          }
-        }
+    = render_schema_org(web_site_schema)
+    = render_schema_org(web_page_schema)
 
+    = yield :head_content
+    = yield :javascript_head
 
-  %body{ itemscope: true, itemtype: 'http://schema.org/WebPage' }
+  %body
     = append_partials('storefront.body_top')
 
     %ul.accessibility-nav.visually-hidden
@@ -122,7 +115,8 @@
         .breadcrumbs{ role: 'navigation' }
           %p.breadcrumbs__node-group
             - @breadcrumbs.each do |taxon|
-              %span.breadcrumbs__node{ itemprop: 'breadcrumb' }
+              = render_schema_org(breadcrumb_list_schema(@breadcrumbs.map { |t| [t.name, storefront_url_for(t)] }))
+              %span.breadcrumbs__node
                 - if taxon.navigable.present?
                   - if @breadcrumbs.last == taxon
                     %span.breadcrumbs__text= taxon.name
@@ -139,7 +133,8 @@
           %h5.search__heading= t('workarea.storefront.searches.heading')
           = form_tag search_path, method: 'get', class: 'search__form', role: 'search' do
             .search__value
-              = search_field_tag :q, params[:q], id: 'storefront_search', class: 'text-box text-box--search', title: t('workarea.storefront.searches.search'), aria: { label: t('workarea.storefront.searches.search') }, placeholder: t('workarea.storefront.searches.search'), data: { search_field: '' }
+              = search_field_tag :q, params[:q], id: 'storefront_search', class: 'text-box text-box--search', title: t('workarea.storefront.searches.search'), aria: { label: t('workarea.storefront.searches.search') }, placeholder: t('workarea.storefront.searches.search')
+              = append_partials('storefront.page_header_search_value')
               .search__button
                 = button_tag value: 'search', class: 'button', tabindex: 2 do
                   = inline_svg('workarea/storefront/icons/search.svg', class: 'search__button-icon', title: t('workarea.storefront.forms.go'))

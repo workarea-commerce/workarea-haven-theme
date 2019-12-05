@@ -73,6 +73,7 @@ module Workarea
 
       within ".mobile-filters-nav" do
         find(".result-filters__attribute", text: "Price").click
+        save_and_open_screenshot
         assert(page.has_content?("$10.00 - $19.99 1"))
       end
 

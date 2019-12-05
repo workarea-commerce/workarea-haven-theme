@@ -1,17 +1,19 @@
 .product-details__right-column
   .product-details__header
-    %h1.product-details__name{ itemprop: 'name' }= product.name
+    %h1.product-details__name= product.name
 
     %p.product-details__id
-      %span{ itemprop: 'productID' }= product.id
+      %span= product.id
     = render 'workarea/storefront/products/reviews_aggregate', product: product
 
 .product-details__left-column
   = render 'workarea/storefront/products/media', product: product
 
 .product-details__right-column
-  .product-prices.product-prices--details{ itemprop: 'offers', itemscope: true, itemtype: 'http://schema.org/Offer' }
+  .product-prices.product-prices--details
     = render 'workarea/storefront/products/pricing', product: product
+
+  = append_partials('storefront.product_pricing_details', product: product)
 
   - if product.description.present?
     .product-details__short-description
@@ -29,7 +31,7 @@
         .value
           .value__option-group
             - option.selections.each do |selection|
-              = radio_button_tag option.slug, selection, option.current == selection, required: true, title: selection, class: 'visually-hidden', id: nil
+              = radio_button_tag option.slug, selection, option.current == selection, required: true, title: selection, class: 'visually-hidden'
               = link_to option_selection_url_for(product, option, selection), title: selection, class: "option-button option-button--#{selection.downcase.dasherize} option-button--#{option.name.downcase}#{' option-button--active' if option.current == selection}", data: { option_button: '' } do
                 - swatch_content = render_swatch_option(selection, product.swatches_by_option[selection.optionize])
 
@@ -67,4 +69,4 @@
 
   = append_partials('storefront.product_details', product: product)
 
-  %p.product-details__full-details=link_to t('workarea.storefront.products.view_full_details'), product_path(product, color: params[:color]), class: 'text-button', itemprop: 'url'
+  %p.product-details__full-details=link_to t('workarea.storefront.products.view_full_details'), product_path(product, color: params[:color]), class: 'text-button'

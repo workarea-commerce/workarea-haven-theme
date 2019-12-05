@@ -11,6 +11,7 @@
     - if @content.content_blocks_for('confirmation').present?
       = render_content_blocks(@content.content_blocks_for('confirmation'))
     %p= t('workarea.storefront.checkouts.confirmation_text', email: @order.email)
+    = append_partials('storefront.checkout_confirmation_text')
 
   .checkout-confirmation__account
     - if @order.user.present?
