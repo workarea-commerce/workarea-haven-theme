@@ -14,9 +14,11 @@ gemspec
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
 
-gem "workarea", source: "https://gems.weblinc.com"
-gem "workarea-product_badges", source: "https://gems.weblinc.com"
+gem "workarea"
 
-group :test do
-  gem "workarea-theme", source: "https://gems.weblinc.com"
-end
+# Get around stupid bundler issue
+# https://www.bountysource.com/issues/46316708-bundle-update-deadlock
+gem "workarea-hover_zoom", github: 'workarea-commerce/workarea-hover-zoom'
+
+gem "workarea-theme", group: :test
+gem "rubocop", group: :development

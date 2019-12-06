@@ -2,8 +2,9 @@
   .product-media__container
     - if product.images.length == 0
       .product-media__primary-image
-        = link_to(product_image_url(product.primary_image, :zoom), target: '_blank', rel: 'noopener', class: 'product-details__primary-image-link', style: intrinsic_ratio_product_image_styles(product.primary_image)) do
-          = image_tag product_image_url(product.primary_image, :detail), alt: 'View Larger Image', class: 'product-details__primary-image-link-image'
+        .product-media__primary-image-item
+          = link_to(product_image_url(product.primary_image, :zoom), target: '_blank', rel: 'noopener', class: 'product-details__primary-image-link', style: intrinsic_ratio_product_image_styles(product.primary_image)) do
+            = image_tag product_image_url(product.primary_image, :detail), alt: 'View Larger Image', class: 'product-details__primary-image-link-image'
 
     - else
       %ul.product-media__primary-image{ id: "#{product.id}_primary_media_carousel", data: { slick_slider: media_primary_image_slider_options(product.id) } }
