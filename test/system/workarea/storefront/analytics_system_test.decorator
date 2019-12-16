@@ -53,7 +53,7 @@ module Workarea
     def test_announcing_product_click_event_search_type_ahead
       @products.each { |p| Search::Storefront::Product.new(p).save }
       visit storefront.root_path
-      disable_dom_events
+      disable_analytics_dom_events
 
       find('.page-header__button--search').click
       page.evaluate_script('$("#storefront_search").categorizedAutocomplete("search", "test");')
@@ -79,7 +79,7 @@ module Workarea
       fill_in_shipping_address
       click_button t('workarea.storefront.checkouts.continue_to_shipping')
 
-      disable_dom_events
+      disable_analytics_dom_events
       click_link t('workarea.storefront.forms.edit'), match: :first
 
       events = find_analytics_events(for_event: 'checkoutEdit')

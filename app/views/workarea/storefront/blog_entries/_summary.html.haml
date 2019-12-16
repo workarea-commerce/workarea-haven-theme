@@ -1,31 +1,32 @@
-%article.blog-entry-summary__entry{ class: entry.featured ? 'blog-entry-summary__entry--featured' : '', itemprop: 'blogPost', itemscope: true, itemtype: 'http://schema.org/BlogPosting', data: { pagination_item: '' } }
+= render_schema_org(blog_posting_schema(entry))
+
+%article.blog-entry-summary__entry{ class: entry.featured ? 'blog-entry-summary__entry--featured' : '', data: { pagination_item: '' } }
   %heading.blog-entry-summary__heading
     - if entry.has_thumbnail_image?
-      = link_to blog_entry_path(entry), itemprop: 'url' do
-        .blog-entry-summary__entry-thumbnail= image_tag(entry.thumbnail_image.process(:blog_thumbnail).url, itemprop: 'image' )
+      = link_to blog_entry_path(entry) do
+        .blog-entry-summary__entry-thumbnail= image_tag(entry.thumbnail_image.process(:blog_thumbnail).url)
     - else
-      = link_to blog_entry_path(entry), itemprop: 'url' do
+      = link_to blog_entry_path(entry) do
         .blog-entry-summary__entry-thumbnail.blog-entry-summary__entry-thumbnail--placeholder
           %p.blog-entry-summary__thumbnail-placeholder-text= entry.name
 
     - if entry.tags.present?
       .blog-entry-summary__entry-tags
-        %ul.blog-entry-summary__entry-tags-list{ itemprop: 'keywords' }
+        %ul.blog-entry-summary__entry-tags-list
           - entry.tags.each do |tag|
             %li.blog-entry-summary__entry-tags-list-item= link_to tag, blog_tagged_path(entry.blog, tag), class: 'blog-entry-summary__entry-tags-list-item-link'
 
-    %h2.blog-entry-summary__entry-title{ itemprop: 'mainEntityOfPage' }
-      %span{ itemprop: 'headline' }= link_to entry.name, blog_entry_path(entry), itemprop: 'url', class: 'blog-entry-summary__entry-title-link'
+    %h2.blog-entry-summary__entry-title
+      %span= link_to entry.name, blog_entry_path(entry), class: 'blog-entry-summary__entry-title-link'
 
     .blog-entry-summary__entry-by-line
-      %p.blog-entry-summary__entry-author{ itemprop: 'author', itemscope: '', itemType: 'http://schema.org/Person' }
-        %span{ itemprop: 'name' }= entry.author
+      %p.blog-entry-summary__entry-author
+        %span= entry.author
       %p.blog-entry-summary__entry-datetime
-        = local_time(entry.written_at, format: :long, itemprop: 'datePublished dateModified')
-      = render 'workarea/storefront/blog_metadata/publisher'
+        = local_time(entry.written_at, format: :long)
 
-  .blog-entry-summary__content{ itemprop: 'description' }
+  .blog-entry-summary__content
     = entry.summary
     = link_to t('workarea.storefront.blogs.read_more'), blog_entry_path(entry), class: 'blog-entry-summary__content-read-more'
 
-    %p.blog-entry-summary__entry-comment-count{ itemprop: 'commentCount' }= link_to t('workarea.storefront.blogs.comments', count: entry.comment_count), blog_entry_path(entry, anchor: 'blog-entry-comments')
+    %p.blog-entry-summary__entry-comment-count= link_to t('workarea.storefront.blogs.comments', count: entry.comment_count), blog_entry_path(entry, anchor: 'blog-entry-comments')

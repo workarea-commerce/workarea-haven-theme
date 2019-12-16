@@ -1,4 +1,4 @@
-Workarea::Content.define_block_types do
+Workarea.define_content_block_types do
   block_type "Hero" do
     description "Positionable button over a background image."
 

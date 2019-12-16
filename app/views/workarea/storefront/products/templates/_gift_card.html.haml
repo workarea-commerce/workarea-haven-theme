@@ -1,16 +1,16 @@
 .product-details__right-column
   .product-details__header
-    %h1.product-details__name{ itemprop: 'name' }= product.name
+    %h1.product-details__name= product.name
 
     %p.product-details__id
-      %span{ itemprop: 'productID' }= product.id
+      %span= product.id
     = render 'workarea/storefront/products/reviews_aggregate', product: product
 
 .product-details__left-column
   = render 'workarea/storefront/products/media', product: product
 
 .product-details__right-column
-  .product-prices.product-prices--details{ itemprop: 'offers', itemscope: true, itemtype: 'http://schema.org/Offer' }
+  .product-prices.product-prices--details
     = render 'workarea/storefront/products/pricing', product: product
 
     - if product.description.present?
@@ -65,4 +65,4 @@
 
     = append_partials('storefront.product_details', product: product)
 
-    %p.product-details__full-details=link_to t('workarea.storefront.products.view_full_details'), product_path(product, color: params[:color]), class: 'text-button', itemprop: 'url'
+    %p.product-details__full-details=link_to t('workarea.storefront.products.view_full_details'), product_path(product, color: params[:color]), class: 'text-button'

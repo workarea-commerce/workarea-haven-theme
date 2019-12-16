@@ -8,6 +8,9 @@
           .product-list__media= link_to image_tag(product_image_url(item.image, :small_thumb), alt: item.product_name, class: 'product-list__media-image'), product_url(item.product, sku: item.sku), class: 'product-list__media-link'
           .product-list__info
             %p.product-list__name= link_to item.product_name, product_path(item.product, sku: item.sku)
+            - if item.quantity > 1
+              %p.product-list__quantity
+                #{t('workarea.storefront.orders.quantity')}: #{item.quantity}
 
             - if item.has_options?
               .product-list__option-group
@@ -15,10 +18,13 @@
                 %p.product-list__option #{name.titleize}: #{value}
             - item.customizations.each do |name, value|
               %p.product-list__customization #{name.titleize}: #{value}
+            - if item.token&.enabled?
+              %p.product-list__download-link
+                = link_to t('workarea.storefront.orders.download'), download_path(item.token)
 
             = append_partials('storefront.order_summary_item_details', item: item)
         .product-list__actions
-          %p.product-list__total-price #{item.quantity} @ #{number_to_currency(item.original_price)} #{t('workarea.storefront.orders.each')}
+          %p.product-list__total-price= number_to_currency(item.total_price)
 
   .order-summary__totals
     %h6.order-summary__heading= t('workarea.storefront.orders.totals')

@@ -8,16 +8,16 @@
   - unless @blog_index.meta_description.blank?
     %meta{ name: :description, content: @blog_index.meta_description }
 
-.blog-index.view{ itemscope: true, itemtype: 'http://schema.org/Blog' }
+.blog-index.view
 
   = render_content_blocks(@blog_index.content_blocks_for(:header_content))
 
-  %h1.blog-index__title{ itemprop: 'name' }= t('workarea.storefront.blogs.name')
+  %h1.blog-index__title= t('workarea.storefront.blogs.name')
 
   - @blog_index.each do |blog|
     %section.blog-index__blog
-      %h2.blog-index__blog-title{ itemprop: 'name' }
-        = link_to blog.name, blog_path(blog), itemprop: 'url', class: 'blog-index__blog-title-link'
+      %h2.blog-index__blog-title
+        = link_to blog.name, blog_path(blog), class: 'blog-index__blog-title-link'
 
       .pagination-results
         .blog-entry-summary__entry-group

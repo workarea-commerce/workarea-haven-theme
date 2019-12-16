@@ -1,16 +1,16 @@
 - cache "#{product.cache_key}/summary", expires_in: 75.minutes do
   .product-summary__media
-    = link_to(product_path(product, product.browse_link_options), class: 'product-summary__media-link', data: { analytics_product_impression: product_impression_data(product), analytics: product_click_analytics_data(product).to_json }) do
+    = link_to(product_path(product, product.browse_link_options), class: 'product-summary__media-link', style: intrinsic_ratio_product_image_styles(product.primary_image), data: { analytics_product_impression: product_impression_data(product), analytics: product_click_analytics_data(product).to_json }) do
       %picture
         %source{ srcset: product_image_retina_srcset(product.primary_image, :large_thumb, :large_thumb_retina), media: "(min-width: #{Workarea.config.storefront_break_points[:small_horizontal]}px)" }
         %source{ srcset: product_image_retina_srcset(product.primary_image, :small_thumb, :small_thumb_retina)}
-        = image_tag(product_image_url(product.primary_image, :large_thumb), alt: product.name, itemprop: 'image', class: 'product-summary__media-image')
+        = image_tag(product_image_url(product.primary_image, :large_thumb), alt: product.name, class: 'product-summary__media-image')
 
   .product-summary__divider
     .product-summary__info
-      %p.product-summary__name{ itemprop: 'name' }= link_to product.name, product_path(product, product.browse_link_options), class: 'product-summary__name-link', itemprop: 'url', data: { analytics: product_click_analytics_data(product).to_json }
+      %p.product-summary__name= link_to product.name, product_path(product, product.browse_link_options), class: 'product-summary__name-link', data: { analytics: product_click_analytics_data(product).to_json }
 
-      .product-prices.product-prices--summary{ itemprop: 'offers', itemscope: true, itemtype: 'http://schema.org/Offer' }
+      .product-prices.product-prices--summary
         = render 'workarea/storefront/products/pricing', product: product
 
       = append_partials('storefront.product_summary', product: product)

@@ -21,6 +21,7 @@ $badge-shadow-darken-amount: 20%;
     position: absolute;
     top: $badges-top-offset;
     left: $badges-left-offset;
+    pointer-events: none;
 
     .product-details & {
         top: $badges-product-detail-mobile-top-offset;

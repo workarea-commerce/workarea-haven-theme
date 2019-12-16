@@ -72,7 +72,6 @@ module Workarea
       assert(page.has_selector?('.mobile-filters-nav', visible: true))
 
       within '.mobile-filters-nav' do
-        find(".result-filters__attribute", text: "Price").click
         assert(page.has_content?('$10.00 - $19.99 1'))
       end
 
@@ -117,7 +116,6 @@ module Workarea
       assert(page.has_selector?('.mobile-filters-nav', visible: true))
 
       within '.mobile-filters-nav' do
-        find(".result-filters__attribute", text: "Price").click
         assert(page.has_content?('$10.00 - $19.99 1'))
 
         click_link '$10.00 - $19.99 1'
