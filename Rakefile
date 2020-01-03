@@ -39,10 +39,9 @@ task :release do
   Rake::Task["workarea:changelog"].execute
   system "git add CHANGELOG.md"
   system "git commit -m 'Update CHANGELOG'"
-  system "git push origin HEAD"
 
   system "git tag -a v#{Workarea::HavenTheme::VERSION} -m 'Tagging #{Workarea::HavenTheme::VERSION}'"
-  system "git push --tags"
+  system "git push origin HEAD --follow-tags"
 
   system "gem build workarea-haven_theme.gemspec"
   system "gem push workarea-haven_theme-#{Workarea::HavenTheme::VERSION}.gem --host #{host}"
