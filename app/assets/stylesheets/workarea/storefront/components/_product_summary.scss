@@ -34,6 +34,11 @@ $product-summary-name-color: $product-summary-name-color !default;
     .product-summary--small & {
         max-width: $product-summary-small-width;
     }
+
+    .search-autocomplete & {
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
 
 .product-summary--small {}

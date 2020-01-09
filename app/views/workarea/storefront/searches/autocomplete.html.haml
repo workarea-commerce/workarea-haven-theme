@@ -1,0 +1,35 @@
+.grid
+  .grid__cell.grid__cell--25
+    - if @autocomplete.searches.any?
+      %span.search-autocomplete__heading
+        - if @autocomplete.trending_searches?
+          = t('workarea.storefront.search_autocomplete.trending_searches')
+        - else
+          = t('workarea.storefront.search_autocomplete.popular_searches')
+
+      %ul.search-autocomplete__searches
+        - @autocomplete.searches.each do |search|
+          %li.search-autocomplete__searches-item
+            = link_to search, search_path(q: search), class: 'search-autocomplete__searches-link'
+
+    = append_partials('storefront.search_autocomplete_under_searches')
+
+  .grid__cell.grid__cell--75
+    .align-right
+      - if @autocomplete.products.any?
+        .search-autocomplete__products
+          %span.search-autocomplete__heading
+            - if @autocomplete.trending_products?
+              = t('workarea.storefront.search_autocomplete.trending_products')
+            - else
+              = t('workarea.storefront.search_autocomplete.products_heading', term: @autocomplete.query_string)
+
+          .grid
+            - @autocomplete.products.each do |product|
+              .grid__cell.grid__cell--25
+                .product-summary
+                  = render 'workarea/storefront/products/summary', product: product
+
+    - if @autocomplete.content.customization_content_blocks_for('autocomplete').present?
+      .autocomplete.content-autocomplete__content
+        = render_content_blocks(@autocomplete.content.customization_content_blocks_for('autocomplete'))

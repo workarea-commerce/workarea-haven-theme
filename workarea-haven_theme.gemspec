@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.add_dependency "workarea", ">= 3.5.0"
   s.add_dependency "workarea-theme", ">= 1.1.1"
   s.add_dependency "workarea-blog", ">= 3.5.0"
-  s.add_dependency "workarea-classic_search_autocomplete", ">= 1.0.0"
+  s.add_dependency "workarea-search_autocomplete", ">= 1.0.0"
   s.add_dependency "workarea-styled_selects", ">= 1.1.2"
   s.add_dependency "workarea-product_badges", ">= 1.4.0"
   s.add_dependency "workarea-content_search", ">= 1.1.0"
