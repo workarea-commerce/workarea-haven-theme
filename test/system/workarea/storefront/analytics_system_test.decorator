@@ -50,26 +50,6 @@ module Workarea
       assert_page_view
     end
 
-    def test_announcing_product_click_event_search_type_ahead
-      @products.each { |p| Search::Storefront::Product.new(p).save }
-      visit storefront.root_path
-      disable_analytics_dom_events
-
-      find('.page-header__button--search').click
-      page.evaluate_script('$("#storefront_search").categorizedAutocomplete("search", "test");')
-
-      find('li', text: 'Test Product 1').click
-
-      events = find_analytics_events(for_event: 'productClick')
-      assert_equal(1, events.count)
-      payload = events.first['arguments'].first
-
-      assert_equal('PROD1', payload['id'])
-      assert_equal('Test Product 1', payload['name'])
-      assert_equal(false, payload['sale'])
-      assert_equal(10, payload['price'])
-    end
-
     def test_announcing_checkout_edit_event
       setup_checkout_specs
       add_user_data
