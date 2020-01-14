@@ -4,6 +4,7 @@
 
 $search-autocomplete-bg-color: $transparent !default;
 $search-autocomplete-border: none !default;
+$search-autocomplete-searches-link-color: $white !default;
 
 $search-autocomplete-z-indexes: ();
 @each $name in $page-container {
@@ -41,9 +42,15 @@ $search-autocomplete-z-indexes: ();
 
     .search-autocomplete__searches {
         @extend %list-reset;
-        text-align: right;
     }
 
         .search-autocomplete__searches-item {}
 
-            .search-autocomplete__searches-link {}
+            .search-autocomplete__searches-link {
+                color: $search-autocomplete-searches-link-color;
+
+                &:hover {
+                    color: $search-autocomplete-searches-link-color;
+                    text-decoration: underline;
+                }
+            }

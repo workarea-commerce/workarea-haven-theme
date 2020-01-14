@@ -1,0 +1,20 @@
+/**
+ * Extensions to the search autocomplete plugin to support content
+ * results.
+ */
+
+$search-autocomplete-content-link-color: $white !default;
+
+.search-autocomplete__content {
+    @extend %list-reset;
+}
+    .search-autocomplete__content-item {}
+
+        .search-autocomplete__content-link {
+            color: $search-autocomplete-content-link-color;
+
+            &:hover {
+                color: $search-autocomplete-content-link-color;
+                text-decoration: underline;
+            }
+        }
