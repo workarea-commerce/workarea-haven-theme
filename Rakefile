@@ -44,6 +44,7 @@ task :release do
   system "git push origin HEAD --follow-tags"
 
   system "gem build workarea-haven_theme.gemspec"
+  system "gem push workarea-haven_theme-#{Workarea::HavenTheme::VERSION}.gem"
   system "gem push workarea-haven_theme-#{Workarea::HavenTheme::VERSION}.gem --host #{host}"
   system "rm workarea-haven_theme-#{Workarea::HavenTheme::VERSION}.gem"
 end
