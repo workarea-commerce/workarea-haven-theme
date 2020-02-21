@@ -1,3 +1,15 @@
+Workarea Haven Theme 1.4.0 (2020-02-21)
+--------------------------------------------------------------------------------
+
+*   Use new Search Autocomplete plugin
+
+    Replaces Classic Search Autocomplete
+
+    HAVEN-3
+    Curt Howard
+
+
+
 Workarea Haven Theme 1.3.0 (2019-12-17)
 --------------------------------------------------------------------------------
 
