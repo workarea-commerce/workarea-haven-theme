@@ -6,9 +6,14 @@
 $search-autocomplete-content-link-color: $white !default;
 
 .search-autocomplete__content {
-    @extend %list-reset;
+    @include respond-to($medium-breakpoint) {
+        text-align: left;
+    }
 }
-    .search-autocomplete__content-item {}
+
+    .search-autocomplete__content-item {
+        color: $search-autocomplete-content-link-color;
+    }
 
         .search-autocomplete__content-link {
             color: $search-autocomplete-content-link-color;

@@ -1,16 +1,17 @@
 .grid
   .grid__cell.grid__cell--25
     - if @autocomplete.searches.any?
-      %span.search-autocomplete__heading
-        - if @autocomplete.trending_searches?
-          = t('workarea.storefront.search_autocomplete.trending_searches')
-        - else
-          = t('workarea.storefront.search_autocomplete.popular_searches')
+      .search-autocomplete__searches
+        %span.search-autocomplete__heading
+          - if @autocomplete.trending_searches?
+            = t('workarea.storefront.search_autocomplete.trending_searches')
+          - else
+            = t('workarea.storefront.search_autocomplete.popular_searches')
 
-      %ul.search-autocomplete__searches
-        - @autocomplete.searches.each do |search|
-          %li.search-autocomplete__searches-item
-            = link_to search, search_path(q: search), class: 'search-autocomplete__searches-link'
+        %ul.search-autocomplete__searches-list
+          - @autocomplete.searches.each do |search|
+            %li.search-autocomplete__searches-item
+              = link_to search, search_path(q: search), class: 'search-autocomplete__searches-link'
 
     = append_partials('storefront.search_autocomplete_under_searches')
 
