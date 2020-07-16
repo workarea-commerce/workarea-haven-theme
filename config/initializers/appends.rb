@@ -23,7 +23,8 @@ module Workarea
     "workarea/storefront/components/product_media",
     "workarea/storefront/components/recommendations",
     "workarea/storefront/components/quantity_control",
-    "workarea/storefront/components/search"
+    "workarea/storefront/components/search",
+    "workarea/storefront/components/haven_content_search_autocomplete"
   )
 
   Plugin.append_stylesheets(

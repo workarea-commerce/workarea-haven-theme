@@ -40,10 +40,11 @@ $search-autocomplete-z-indexes: ();
     }
 
 
-    .search-autocomplete__searches {
-        @extend %list-reset;
-    }
+    .search-autocomplete__searches {}
 
+        .search-autocomplete__searches-list {
+            @extend %list-reset;
+        }
         .search-autocomplete__searches-item {}
 
             .search-autocomplete__searches-link {
