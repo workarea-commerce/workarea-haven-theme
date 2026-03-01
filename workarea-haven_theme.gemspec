@@ -36,4 +36,5 @@ Gem::Specification.new do |s|
   s.add_dependency "workarea-email_signup_popup", ">= 2.0.1"
 
   s.add_dependency "jquery_payment-rails", "~> 1.1.0"
+s.required_ruby_version = ['>= 2.7', '< 3.5']
 end
